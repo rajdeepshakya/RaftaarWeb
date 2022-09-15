@@ -1,0 +1,124 @@
+<div class="main_comp ">
+    <div class="d-flex mb-4" >
+        <img (click)="goBack()" src="assets/images/arrow-circle-left.svg">
+        <h3 (click)="goBack()" class="mb-0 ms-2 marketplace-Product">Grinding Machine</h3>
+    </div>
+    <div class="main p-3">
+        <div class="row m-0">
+            <div class="col-md-12 details p-4">
+                <div>
+                    <div class="w-100">
+                        <!-- <ng-image-slider [images]="imageObject" #nav [infinite]="imageObject.length>1?true:false"
+                        [autoSlide]="0"
+                        (imageClick)="imageOnClick($event)"
+                        [imageSize]="{width: '50%'}"
+                        [imagePopup]="true"
+                        slideImage="0"
+                        [defaultActiveImage]="0"
+                        [lazyLoading] ="true">
+                        </ng-image-slider> -->
+                        <owl-carousel-o [options]="customOptions" style="width: 100%">
+
+                            <ng-container *ngFor="let slide of imageObject">
+                              <ng-template *ngIf="slide.type == 'image' || slide.type == 'pdf'" carouselSlide [id]="slide.id">
+                                <img  style="width:100%;height:384px;object-fit: cover;" [src]="slide.image">
+                                
+                              </ng-template>
+                              <ng-template *ngIf="slide.type == 'video'" carouselSlide [id]="slide.id">
+                                
+                                <video *ngIf="slide.type == 'video'" controls style="width:100%;height:384px">
+                                    <source [src]="slide.image" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                  </video>
+                              </ng-template>
+                            </ng-container>
+                        
+                          </owl-carousel-o>
+                    </div>
+                   
+                </div>
+            </div>
+           <div class="machine px-4">
+               <h2>{{productName.Category3?productName.Category3.title:productName.product_type | titlecase}}</h2>
+               <div class="d-flex justify-content-between align-items-center">
+                   <div>
+                    <div class="d-flex">
+                        <img src="assets/images/tag_4.svg">
+                        <p class="mb-0 ps-2 surface">{{productName?.Category1?.title}}  •  {{productName?.Category2?.title}}</p>
+                    </div>
+                    <div class="d-flex mt-3">
+                        <img src="assets/images/location_5.svg">
+                        <p class="mb-0 ps-2 location">{{productName?.location}}</p>
+                    </div>
+                   </div>
+                   <div class="d-flex flex-column align-items-end">
+                       <p class="mb-0 price">₹{{productName?.price}}</p>
+                       <!-- <div class="d-flex mt-3">
+                           <img src="assets/images/verify_5.svg">
+                           <p class="mb-0 ps-3 verify">Raftaarr Verified</p>
+                       </div> -->
+                   </div>
+               </div>
+           </div>
+           <div class="requirement-detail mx-3">
+            <div>
+                <div class="requirement mt-4 p-4">
+                    <div class="row mt-3 p-0">
+                        <div class="col-md-3 center-div">
+                            <div class="d-flex align-items-start catagory">
+                                <img src="assets/images/profile-circle_4.svg">
+                                <div class="ms-2">
+                                    <p class="m-0 type ">Ownership Type</p>
+                                    <p class="m-0 value">{{productName?.ownership_type}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 center-div mt-md-0 mt-4">
+                            <div class="d-flex align-items-start catagory">
+                                <img src="assets/images/clock_2.svg">
+                                <div class="ms-2">
+                                    <p class="m-0 type">Purchased Year</p>
+                                    <p class="m-0 value">{{productName?.purchase_year | date:'yyyy'}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 center-div mt-md-0 mt-4">
+                            <div class="d-flex align-items-start catagory">
+                                <img src="assets/images/box_4.svg">
+                                <div class="ms-2">
+                                    <p class="m-0 type">Product Condition</p>
+                                     <p class="m-0 value">{{productName?.product_condition}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 center-div ">
+                            <div class="d-flex align-items-start catagory">
+                                <img src="assets/images/hypothecation-img.png">
+                                <div class="ms-2">
+                                    <p class="m-0 type" >Product under hypothecation?</p>
+                                    <p class="m-0 value">{{productName?.under_hypothecation}}</p>
+                                </div>
+                            </div>
+                        </div>
+                     
+                       
+                    </div>
+                </div>
+               <div class=" title mt-4">
+                   <h2>About {{productName.Category3?productName.Category3.title:productName.product_type | titlecase}}</h2>
+                   <p>{{productName?.description}}</p>
+               </div>
+    
+            </div>
+            <!-- <div class="d-flex justify-content-center align-items-center mb-3">
+                <button class="btn interestBtn" (click)="interested()">I'm Interested</button>
+            </div> -->
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+            <button *ngIf="!productName?.interestShown" (click)="interested()" class="btn user-btn">I'm Interested</button>
+            <button *ngIf="productName?.interestShown" class="btn user-btn">Already Shown Interest</button>
+        </div>
+        </div>
+    </div>
+   
+</div>

@@ -1,0 +1,74 @@
+
+<div class="main ">
+    <div class="d-flex pb-3 mb-2 cursor-pointer" >
+        <img (click)="goBack()" src="assets/images/arrow-circle-left.svg">
+        <h3 (click)="goBack()" class="ms-2 mb-0">Add user</h3>
+    </div>
+    <div class="row m-0 ">
+        <div class="col-md-12 add-new py-3 px-md-4 px-2">
+           
+            <form [formGroup]="loginForm">
+                <div class="d-flex align-items-center justify-content-center">
+                    <div class="profilepic rounded-circle border">
+                        <div class=" position-relative">
+                            <label class="hoverable" for="fileInput">
+                                <img class="clickbackphoto position-absolute" src="assets/images/Camera(1x).png" alt="">
+                            </label>
+                            <input id="fileInput" type='file' style="display:none" #selectFile1 (change)="fileupload($event)">
+        
+                            <!-- <button *ngIf="url" (click)="delete()">delete</button> -->
+                            <img class="logocapimage rounded-circle" style="object-fit:cover"  [src]="profilePic? profilePic :'assets/images/Profile_1.svg'"
+                            onError="this.src='assets/images/Profile_1.svg'" (click)="selectFile1.click()" alt="" width="130px" height="130px">
+            
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="px-md-5 px-3 py-md-2  ">
+                    <label>User name</label>
+                    <div class="locateyourdata mt-2">
+                        <input type="text" class="locationdata w-100 mt-1 "
+                        oninput="this.value = this.value.replace(/[^a-z,^A-Z ]/g, '').replace(/(\..*)\./g, '$1');" maxlength="30" [ngClass]="{ 'is-invalid': submitted && f['username'].errors}" placeholder="Enter user name" formControlName="username">
+                        <div *ngIf=" submitted && f['username'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['username'].errors['required']">User name is required.</div>
+                          </div>    
+                    </div>
+                </div>
+                <div class="px-md-5 px-3 py-md-2 ">
+                    <label>Email address</label>
+                    <div class="locateyourdata mt-2">
+                        <input type="text" class="locationdata w-100 mt-1 "  [ngClass]="{ 'is-invalid': submitted && f['email'].errors}" formControlName="email" placeholder="Enter email address">
+                        <div *ngIf=" submitted && f['email'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['email'].errors['required']">Email is required.</div>
+                            <div *ngIf="loginForm.get('email').errors.pattern">
+                                Email should be a valid email
+                            </div>
+                          </div>    
+                    </div>
+                </div>
+                <div class="px-md-5 px-3 py-md-2 ">
+                    <label>Contact number</label>
+                    <div class="locateyourdata mt-2">
+                        <input type="text" class="locationdata w-100 mt-1 "  [ngClass]="{ 'is-invalid': submitted && f['phone_no'].errors}"
+                        maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" formControlName="phone_no"  placeholder="Enter contact number">
+                        <div *ngIf=" submitted && f['phone_no'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['phone_no'].errors['required']">Contact number is required.</div>
+                          </div>   
+                    </div>
+                </div>
+                <div class="px-md-5 px-3 py-md-2 ">
+                    <label>Designation</label>
+                    <div class="locateyourdata mt-2">
+                        <input type="text" class="locationdata w-100 mt-1 " [ngClass]="{ 'is-invalid': submitted && f['designation'].errors}" formControlName="designation" placeholder="Enter designation">
+                        <div *ngIf=" submitted && f['designation'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['designation'].errors['required']">Designation is required.</div>
+                          </div>  
+                    </div>
+                </div>
+                <div class="postdata main_comp d-flex justify-content-center">
+                    <button (click)="onSubmit(loginForm.value)">Save<img class="ms-2"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

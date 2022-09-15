@@ -1,0 +1,88 @@
+@import '../../../../../assets/variable.scss';
+@import '../../../../../assets/common.scss';
+.main_comp{
+    padding:0px ;
+    background-color: #EAF3FF;
+    height: 100%;
+
+}
+.add-post{
+    padding:18px 35px ;
+    @media (max-width:768px) {
+        padding:15px ;
+    }
+}
+
+.card{
+    border: 0px !important;
+    @media (max-width:768px) {
+        margin: 0px;
+
+    }
+    .min-ago{
+        color: #5B6D8E !important ;
+    }
+    .card-text{
+        color: $Color_768DA9;
+        font-size: 15px !important;
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+    .card-body{
+        // width: 510px;
+        margin: auto;
+        max-width: 100%;
+        @media (max-width:768px) {
+            padding: 10px;
+        }
+
+    }
+}
+
+.requirement-detail{
+    background-color: white;
+    border-radius: 20px;
+}
+.heading {
+    h2{
+        @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize22,$Color_303065);
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+    .min-ago{
+    
+            font-size: 15px !important;
+            @media (max-width:768px) {
+                font-size: 12px !important;
+            }
+    }
+   
+}
+.location{
+    font-size: 13px !important ;
+    @media (max-width:768px) {
+        font-size: 12px !important;
+    }
+
+}
+.color_grey{
+    font-size: 14px !important;
+    @media (max-width:768px) {
+        font-size: 11px !important;
+    }
+}
+.card-interest{
+    border: 1px solid #D7DAE2 !important;
+    @media (max-width:768px) {
+        border: 0px !important;
+    }
+
+}
+.add-machine{
+    @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize20,$Color_0A0045);  
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+}

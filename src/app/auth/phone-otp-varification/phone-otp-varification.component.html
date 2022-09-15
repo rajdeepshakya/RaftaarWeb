@@ -1,0 +1,54 @@
+
+<div class="row m-0 container-fluid p-0 d-flex justify-content-between bg-color">
+    <div class="col-md-6 p-0  sideimg">
+        <div class="signupback">
+            <img src="assets/images/auth.png">
+        </div>   
+    </div>
+    <div class="col-md-6 m-auto reset " style=" max-width:420px">
+        <form (submit)="type == 1 ? onOtpVerify(otpForm?.value):type == 2?onLoginOtpVerify(otpForm?.value):onForgotPasswordVerfiy(otpForm?.value)">
+            <h4 class="mt-4">Verification</h4>
+            <p class="mt-1 formabout mb-2">
+                We will send an OTP to the phone number
+            </p>
+            <div class="d-flex phonedata mt-0" [formGroup]="otpForm">
+                
+                <span form>+91-{{loginContact}}</span>
+                <p class="ms-3 cursor" (click)="editPhone()"><img src="assets/images/edit.png" alt="" class="me-1">Edit</p>
+            </div>
+            <div class="d-flex otpnumbers flex-column " >
+                <ng-otp-input #otp (onInputChange)="onOtpChange($event)" [ngClass]="{'invaild-input':submitted1}"  [config]="{length:6,allowNumbersOnly: true,disableAutoFocus:false}" ></ng-otp-input>
+                <small *ngIf="submitted1" class="alert px-0 pb-0 m-0">
+                   
+                    Invaild OTP
+                   
+                </small>
+                <small *ngIf="checkVal" class="alert px-0 pb-0 m-0">
+                   
+                    OTP is required
+                    
+                </small>
+            </div>
+            <div class="d-flex justify-content-between mt-4 resendcode" >
+                <div class="d-flex">
+                    <p >Didn’t receive code?</p>
+                    <button type="button" class="ms-2" (click)="onOtpSend(loginForm.value,2)" [ngClass]="{'disable-resend': resenddata}" [disabled]="resenddata">Resend</button>
+                </div>
+                <div>
+                    <p class="counternumber pe-5 me-2 text-center">
+                        <!-- <span
+                        *ngIf="data3<=10 && data3>0">00.</span>
+                        <span
+                        *ngIf="data3<=9 && data3>0">0</span> -->
+                        {{data3}}
+                    </p>
+                </div>
+            </div>
+            <div class="postdata ">
+                <button type="submit">Verify</button>
+            </div>
+        </form>
+    </div>
+</div>
+        
+            

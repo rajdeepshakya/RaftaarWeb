@@ -1,0 +1,236 @@
+@import '../../../../../assets/variable.scss';
+@import '../../../../../assets/common.scss';
+.main{
+    background-color: #EAF3FF    ;
+    .add-product{
+        background: #FFFFFF;
+        border: 1px solid #F9FBFE;
+        border-radius: 6px;
+        padding: 68px 0px;
+        h3{
+            @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize28,$Color_EE7402);  
+            @media (max-width:768px) {
+                font-size: 14px !important;
+            }
+            span{
+                color: #B0B4BA !important                ;
+            }
+        }
+    }
+    .all-filter{
+        background: #FFFFFF;
+        border: 1px solid #F9FBFE;
+        border-radius: 6px;
+        .filters{
+            h2{
+                @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize24,$Color_EE7402);
+                color:#555555 !important;
+                @media (max-width:768px) {
+                    font-size: 14px !important;
+                }
+            }
+            p{
+                @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Color_555555);
+ 
+            }
+        }
+    }
+    .accordion{
+        .accordion-button{
+            background-color: transparent;
+            @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize16,$Color_555555);  
+svg{
+    transition: var(--bs-accordion-btn-icon-transition);
+}
+        }
+        .accordion-button:not(.collapsed){
+            @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize16,$Color_EE7402); 
+            svg {
+                transform: rotate(90deg);
+                transition: var(--bs-accordion-btn-icon-transition);
+                path{
+                    fill: #EE7402                    ;
+                }
+            } 
+        }
+        .accordion-body{
+            ul{
+                list-style-type: none;
+                margin-top: -10px;
+                li{
+                    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_EE7402);  
+                    color:#A9AFB7 !important;
+                    line-height: 35px;
+                    cursor: pointer;
+                }
+            }
+        }
+        .accordion-button::after{
+            background-image: none;
+        }
+    }
+}
+.slider{
+    .mat-slider-horizontal{
+        min-width: 175px;
+        }
+        span{
+            @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize12,$Color_A9AFB7);  
+        }
+    }
+.slide-arrow{
+    bottom: 85px;
+    left: 90px;
+    @media(max-width:992px) {
+        left: 30px;
+    }
+    h1{
+        @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize35,$Color_002280); 
+        color:#445053 !important        ;
+        text-transform: uppercase;
+        @media(max-width:992px) {
+            font-size: 18px !important;
+        }
+    }
+    p{
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize18,$Color_A9AFB7);  
+        color: #6A7E83 !important; 
+        @media(max-width:992px) {
+            font-size: 14px !important;
+        }
+   
+    }
+}
+.industry{
+    h2{
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize24,$Color_555555);  
+        @media(max-width:768px) {
+            font-size: 16px !important;
+        }
+    }
+    .industry-list{
+        background: #FFFFFF;
+        box-shadow: 0px 10px 15px rgba(202, 202, 220, 0.25);
+        border-radius: 6px;
+        h5{
+         @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Color_555555);  
+        }
+    }
+    .viewall{
+        background: #FFFFFF;
+        mix-blend-mode: normal;
+        border: 1px solid #EE7402 !important;
+       border-radius: 60px;
+       @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Color_555555);  
+       width: 109px;
+       padding: 10px;
+    }
+    
+}
+.card{
+    background: #FFFFFF;
+border: 1px solid #E2E9FF;
+box-shadow: 0px 10px 15px rgba(202, 202, 220, 0.25);
+border-radius: 6px;
+          h4{
+            @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize18,$Color_555555);    
+          }
+          span{
+            @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize13,$Color_0A0045);  
+            color: #B8BED1 !important;
+
+          }
+          h3{
+            @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize16,$Color_EE7402);    
+          }
+          p{
+              word-break: break-all;
+            @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize13,$Color_0A0045);  
+            color: #B8BED1 !important;
+                      }
+}
+
+.carousel-control-prev{
+    background-color: transparent;
+    width: auto;
+    padding: 0px;
+    left: -27px;
+    opacity: 1;
+    @media(max-width:992px) {
+        left: -16px;
+            }
+}
+.carousel-control-next{
+    background-color: transparent;
+    width: auto;
+    padding: 0px;
+    right: -27px;
+    opacity: 1;
+    @media(max-width:992px) {
+        right: -16px;
+        }
+}
+.carousel-control-prev-icon{
+    // background-image: url('/assets/images/market-arrow.svg');
+    width: 48px;
+    height: 48px;
+}
+.carousel-control-next-icon{
+    // background-image: url('/assets/images/marketarrowright.svg');
+    width: 48px;
+    height: 48px;
+}
+.carousel-item{
+    border-radius: 10px;
+
+    img{
+        border-radius: 10px;
+    }
+}
+.card-img{
+    border-radius: 22px ;
+    @media(max-width:992px) {
+       object-fit: cover;
+    }
+}
+.carousel-item {
+    img{
+        max-height: 364px;
+        min-height: 364px;
+
+    }
+}
+
+.centercrop{
+    height: 235px;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 20px;
+}
+
+::ng-deep .ngx-pagination .pagination-next a::after{
+    display: none !important;
+    }
+    ::ng-deep .ngx-pagination .pagination-next.disabled::after{
+    display: none !important;
+    }
+    ::ng-deep .ngx-pagination .pagination-previous a::before{
+    display: none !important;
+    }
+    ::ng-deep .ngx-pagination .pagination-previous.disabled::before{
+    display: none !important;
+    }
+    ::ng-deep .ngx-pagination a{
+        margin-left: 5px;
+    }
+    ::ng-deep .ngx-pagination {
+      margin-left: 0 !important;
+      margin-bottom: 1rem !important;
+      line-height: 20px !important;
+      padding: 7px 15px 7px !important;
+      @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize18,$Color_5B6D8E);
+      a{
+      text-decoration: none!important;
+      }
+    }
+  

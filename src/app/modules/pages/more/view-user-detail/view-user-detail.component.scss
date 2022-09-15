@@ -1,0 +1,61 @@
+@import "../../../../../assets/variable.scss";
+@import "../../../../../assets/common.scss";
+
+.main_comp{
+    background-color: #EAF3FF;
+    h3{
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize20,$Color_0A0045);
+        @media (max-width:768px) {
+            font-size: 14px  !important;
+        }  
+    }
+}
+.bg-white{
+    border-radius: 15px;
+}
+.activity-log{
+    background-color: #EE7402    ;
+    padding: 21px;
+    h2{
+        @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize22,$Colorwhite);  
+        @media (max-width:768px) {
+            font-size: 14px  !important;
+        }  
+    }
+  
+}
+h4{
+    @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize22,$Color_EE7402); 
+    @media (max-width:768px) {
+        font-size: 14px  !important;
+    }   
+}
+.order-detail{
+    h3{
+        @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize18,$Color_5B6D8E); 
+        @media (max-width:768px) {
+            font-size: 14px  !important;
+        }   
+    }
+p{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_0A0045); 
+    @media (max-width:768px) {
+        font-size: 14px  !important;
+    }   
+   
+}
+.date{
+    @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize18,$Color_5B6D8E); 
+    @media (max-width:768px) {
+        font-size: 12px  !important;
+    }
+}
+}
+.deactivate{
+    width: 209px;
+    background-color: #EE7402    ;
+    @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize18,$Colorwhite);   
+    border-radius: 40px;
+padding:14px 10px; 
+font-size: 16px !important;
+}

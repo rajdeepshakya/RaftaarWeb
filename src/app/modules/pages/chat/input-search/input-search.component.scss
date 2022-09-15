@@ -1,0 +1,20 @@
+@import "../../../../../assets/variable.scss";
+@import "../../../../../assets/common.scss";
+.search{
+    input{
+        width: 100%;
+        border: 0.5px solid #768DA9 !important;
+        padding: 20px 10px 20px 20px;
+         border-radius: 100px;
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_0A0045);  
+        
+    }
+    [type=search]{
+        outline: 0px;
+        outline-offset: 0px;
+    }
+    .attachfile{
+        top:18px;
+        right: 27px;
+    }
+}

@@ -1,0 +1,142 @@
+<div class="main ">
+    <div class="d-flex pb-3 my-2">
+        <img [routerLink]="['/main/home']" src="assets/images/arrow-circle-left.svg">
+        <h3 class="ms-2 mb-0">Edit New Project</h3>
+    </div>
+    <div class="row m-0">
+        <div class="col-md-12 add-new">
+            <form class="px-md-5 px-2 py-md-4 py-3" [formGroup]="projectForm">
+                <div class=" ">
+                    <span>Product title</span>
+                    <div class="locateyourdata mt-2">
+                        <input type="text" class="form-control locationdata  " formControlName="title"
+                            placeholder="Title here">
+                    </div>
+                </div>
+                <div class="mt-md-4 mt-3 main_comp d-flex justify-content-start">
+                    <input type="checkbox" formControlName="is_live" class="me-3 checkdata">
+                    <p class="live-project"> live Project</p>
+                </div>
+                <div class="row">
+                    <div class="locateyourdata main_comp py-0 pb-0 col-md-6 datepicker">
+                        <span>Project Start date</span>
+                        <!-- <input type="date" formControlName="project_start_date"> -->
+                        <mat-form-field appearance="fill" style="width:100%">
+                            <input matInput [matDatepicker]="startDate " placeholder="Select"
+                                formControlName="project_start_date">
+                            <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                            <mat-datepicker #startDate></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <div class="locateyourdata main_comp pb-0 col-md-6 pt-0 mt-md-0 mt-2 datepicker">
+                        <span>Project End date</span>
+                        <img class="calender" src="assets/images/calendar-2.png" alt="">
+                        <mat-form-field appearance="fill" style="width:100%">
+                            <input matInput [matDatepicker]="endDate " placeholder="Select"
+                                formControlName="project_end_date">
+                            <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                            <mat-datepicker #endDate></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="addcontentdata mt-3">
+                    <span>Project description</span>
+                    <textarea type="text" class="form-control addcontent mt-2" formControlName="description"
+                        maxlength="300" placeholder="Product description here">
+                        </textarea>
+                </div>
+                <div class="row mt-3">
+                    <div class="locateyourdata main_comp py-0 pb-0 col-md-6">
+                        <span>Clients name</span>
+                        <img class="calender" src="assets/images/calendar-2.png" alt="">
+                        <div class="position-relative">
+                            <input type="text" class="form-control locationdata  mt-2 " formControlName="customer_name"
+                                placeholder="Enter client name">
+                            <!-- <a href="#" class="position-absolute">Ask for Testimonial</a> -->
+                        </div>
+
+                    </div>
+                    <div class="locateyourdata main_comp pb-0 col-md-6 pt-0 mt-md-0 mt-2">
+                        <span>Quantity</span>
+                        <img class="calender" src="assets/images/calendar-2.png" alt="">
+                        <input type="text" class="form-control locationdata  mt-1 " formControlName="enter_quantity"
+                            placeholder="Enter quantity">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="locateyourdata main_comp py-0 pb-0 col-md-6">
+                        <span>Highlights</span>
+                        <img class="calender" src="assets/images/calendar-2.png" alt="">
+                        <input type="text" class="form-control locationdata  mt-1 " formControlName="highlights"
+                            placeholder="Enter highlights (Max 5)">
+                    </div>
+                    <div class="locateyourdata main_comp pb-0 col-md-6 pt-0 mt-md-0 mt-2">
+                        <div class="d-flex flex-column locateyourdata">
+                            <span>Instruments used</span>
+                            <mat-form-field appearance="fill" class="">
+                                <mat-select placeholder="Select Industry" formControlName="instrument_id"
+                                    (change)="fix($event)">
+                                    <mat-option *ngFor="let items of instrudata" [value]="items.id">{{items.name}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                </div>
+                <div class="locateyourdata main_comp pb-0 mt-md-3 mt-2 pt-0 col-md-6 pe-2">
+                    <div class="d-flex flex-column locateyourdata">
+                        <span>Machine used</span>
+                        <mat-form-field appearance="fill" class="">
+                            <mat-select placeholder="Select Industry" formControlName="machine_id"
+                                (change)="fix($event)">
+                                <mat-option *ngFor="let items of data" [value]="items.id">{{items.name}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <!-- <div *ngIf=" submitted && f['machine'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['machine'].errors['required']">Machine is required.</div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="adddocument mt-4 d-flex align-items-center">
+                    <div>
+                        <img src="assets/images/Group.svg" alt="">
+                        <span class="ms-2">
+                            Add images/videos
+                        </span>
+                    </div>
+                    <p class="m-0">Maximum 5 Allowed</p>
+                </div>
+                <hr>
+                <div class="main_comp">
+                    <div class="upload-img position-relative d-inline-block"
+                        *ngFor="let image of images; let i = index">
+                        <img [src]="image.url" width="109px" height="109px">
+                    </div>
+                    <div class="upload-img position-relative d-inline-block"
+                        *ngFor="let video of videos; let i = index">
+                        <video width="109px" height="109px" controls>
+                            <source [src]="video.url" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="upload-img position-relative d-inline-block"
+                    *ngFor="let document of pdf; let i = index">
+                    <a target="_self" [href]="document.url" download="pdf">
+                        <img src="assets/images/pdf 3 (1).svg" width="109px" height="109px">
+                    </a>
+                </div>
+                </div>
+
+                <div class="main_comp d-flex mt-3">
+                    <div class="mt-0 main_comp d-flex justify-content-start">
+                        <input type="checkbox" class=" checkdata">
+                        <p class="ms-3 live-project"> Mark it as starred</p>
+                    </div>
+                </div>
+                <div class="postdata main_comp d-flex justify-content-center">
+                    <button (click)="onSubmit(projectForm.value)">Save<img class="ms-2"></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

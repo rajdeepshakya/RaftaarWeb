@@ -1,0 +1,13 @@
+<div class="modal-header pb-0 pt-0">
+    <img src="assets/images/close.png" alt="" class="cursor" [mat-dialog-close]="false">
+</div>
+<form >
+<div class="modal-body pt-0">
+    <img src="assets/images/reject.svg">
+    <h1 class="pt-2">Rejection Reason</h1>
+  <p>{{data.Reasion}}</p>
+</div>
+<div class="modal-footer d-flex justify-content-between pt-4">
+    <button type="button" class="btn report me-1" [mat-dialog-close]="false">Cancel</button>
+</div>
+</form>

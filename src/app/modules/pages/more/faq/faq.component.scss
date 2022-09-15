@@ -1,0 +1,62 @@
+@import "../../../../../assets/variable.scss";
+@import "../../../../../assets/common.scss";
+.main_comp{
+    padding: 18px 35px ;
+    @media (max-width:768px) {
+        padding: 10px 15px;
+    }
+    
+}
+.main{
+    background-color: #EAF3FF    ;
+    @media (max-width:768px) {
+        padding: 15px;
+    }
+    p{
+        line-height: 30px;
+        @include fontStyleManager($fontFamilyInterMedium, $fontWeightMedium, $fontSize16, $Color_768DA9  );
+        @media (max-width:768px) {
+            font-size: 14px !important;     
+               }
+    }
+    span{
+        color:$Color_0A0045 !important;
+    }
+   
+}
+.add-new{
+    background-color: white;
+    border-radius: 15px;
+}
+h3{
+    @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize18,$Color_303065); 
+    @media (max-width:768px) {
+        font-size: 14px !important;     
+           } 
+}
+button{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize22,$Color_303065);  
+    @media (max-width:768px) {
+        font-size: 14px !important;     
+           }
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+    border-bottom: 2px solid #EE7402 !important;
+    @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize22,$Color_EE7402); 
+    @media (max-width:768px) {
+        font-size: 14px !important;     
+           } 
+}
+.faq{
+    @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize22,$Color_EE7402);  
+    @media (max-width:768px) {
+        font-size: 14px !important;     
+           } 
+}
+.question{
+    @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize40,$Color_303065); 
+    @media (max-width:768px) {
+        font-size: 18px !important;     
+           }   
+}

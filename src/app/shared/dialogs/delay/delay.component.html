@@ -1,0 +1,24 @@
+<div class="modal-header pt-0 pb-0">
+    <img src="assets/images/close.png" alt="" class="cursor" [mat-dialog-close]="false">
+</div>
+<div class="modal-body pt-0 text-start">
+    <form>
+        <label>Delay by days</label>
+        <input type="text" class="w-100" placeholder="Enter delay by days" />
+        <label>Select milestone</label>
+        <div class="d-flex justify-content-between flex-column">
+            <mat-form-field appearance="fill">
+                <mat-label>Select no. of days</mat-label>
+                <mat-select>
+                    <mat-option>1000</mat-option>
+                    <mat-option>1000</mat-option>
+                    <mat-option>1000</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </form>
+
+</div>
+<div class="modal-footer d-flex justify-content-between pt-4">
+    <button type="button" class="btn report" [mat-dialog-close]="false" >Delay</button>
+</div>

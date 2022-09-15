@@ -1,0 +1,42 @@
+<!-- <div>
+    <share-buttons style="background-color: black"
+  [include]="['facebook','twitter','linkedin','pinterest','telegram','messenger','whatsapp','email','copy']"
+ [show]="4"
+ [url]="'https://www.eduforbetterment.com/generate-qr-code-in-angular/'"
+ [image] ="'https://www.eduforbetterment.com/wp-content/uploads/2020/08/qrcode.jpg'"
+></share-buttons>
+</div> -->
+<div class="d-flex justify-content-around">
+    <button mat-fab shareButton="facebook" [url]="'https://www.eduforbetterment.com/generate-qr-code-in-angular/'">
+        <!-- <fa-icon *ngIf="fbBtn" [icon]="fbBtn.icon" size="lg"></fa-icon> -->
+        <img src="assets/images/facebook.png" alt="" width="30px" height="30px">
+        <!-- <i class="fab fa-facebook-f fa-2x" style="color: #3b5998;"></i> -->
+        <!-- <i class="fa-brands fa-facebook"></i> -->
+    </button>
+    <button mat-fab shareButton="twitter" [url]="'https://www.eduforbetterment.com/generate-qr-code-in-angular/'">
+        <img src="assets/images/twitter_2.png" alt="" width="30px" height="30px">
+
+        <!-- <fa-icon [icon]="twtBtn"></fa-icon> -->
+
+    </button>
+    <button mat-fab shareButton="whatsapp" [url]="'https://www.eduforbetterment.com/generate-qr-code-in-angular/'">
+        <!-- <fa-icon [icon]="wappBtn"></fa-icon> -->
+        <img src="assets/images/whatsapp.png" alt="" width="30px" height="30px">
+
+
+    </button>
+    <button mat-fab shareButton="linkedin" [url]="'https://www.eduforbetterment.com/generate-qr-code-in-angular/'">
+        <!-- <fa-icon [icon]="linkedbtn"></fa-icon> -->
+        <img src="assets/images/linkedin.png" alt="" width="30px" height="30px">
+
+    </button>
+    <!-- <button mat-fab shareButton="messenger"
+   [url]="'https://www.eduforbetterment.com/generate-qr-code-in-angular/'">
+       <fa-icon [icon]="fbmessangerbtn"></fa-icon>
+   </button> -->
+    <button mat-fab shareButton="copy" [url]="'https://www.eduforbetterment.com/generate-qr-code-in-angular/'">
+        <!-- <fa-icon [icon]="copybtn"></fa-icon> -->
+        <img src="assets/images/copy.png" alt="" width="30px" height="30px">
+
+    </button>
+</div>

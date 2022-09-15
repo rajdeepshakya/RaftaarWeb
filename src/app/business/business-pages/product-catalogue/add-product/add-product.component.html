@@ -1,0 +1,321 @@
+<div class="main ">
+    <div class="d-flex mb-4">
+        <img  (click)="goBack()" src="assets/images/arrow-circle-left.svg">
+        <h3 (click)="goBack()" class="mb-0 ms-2 marketplace-Product"> {{addPage? 'Add New Product' : 'Edit Product' }}
+        </h3>
+    </div>
+    <form [formGroup]="addForm">
+        <div class="row m-0 add-new ">
+            <div class="col-xl-6 ">
+                <div class="adddocumentpage main_comp pb-0">
+                    <div class="d-flex flex-column locateyourdata phonedetails">
+                        <span class="mb-2">Business Activity</span>
+                        <mat-form-field appearance="fill" class="">
+                        <mat-select placeholder="Select" class=" " formControlName="industry_id"
+                             (selectionChange)="getIndustry($event)"
+                           >
+                            <mat-option *ngFor="let items of business" [value]="items.id">{{items.industry_name}}
+                            </mat-option>
+                            </mat-select>
+                            </mat-form-field>
+                            <small *ngIf="submitted && addForm.controls['industry_id'].invalid " class="alert px-0 select-box-alert">
+                                <small *ngIf="submitted && addForm.controls['industry_id'].errors.required">
+                                    Business activity is required
+                                </small>
+                            </small>
+                    </div>
+                    <div class="d-flex flex-column locateyourdata phonedetails">
+                        <span class="mb-2">Product sub-category</span>
+                        <mat-form-field appearance="fill" class="">
+                        <mat-select placeholder="Select" formControlName="category2_id"
+                            
+                            (selectionChange)="productTypes($event)">
+                            <mat-option *ngFor="let items of subCatagory" [value]="items.id">{{items.title}}
+                           </mat-option>
+                           </mat-select>
+                           </mat-form-field>
+                        <small *ngIf="submitted && addForm.controls['industry_id'].invalid " class="alert px-0 select-box-alert">
+                                <small *ngIf="submitted && addForm.controls['industry_id'].errors.required">
+                                    Product sub category is required
+                                </small>
+                            </small>
+                    </div>
+                    <div class="d-flex flex-column locateyourdata phonedetails">
+                        <span class="mb-2">Product sub-type</span>
+                        <mat-form-field appearance="fill" class="">
+                        <mat-select placeholder="Select" (selectionChange)="selectProductSubType($event)"
+                           
+                            formControlName="category4_id">
+                            <mat-option *ngFor="let items of substype" [value]="items.id">{{items.title}}
+                           </mat-option>
+                           </mat-select>
+                           </mat-form-field>
+
+                           <small *ngIf="submitted && addForm.controls['category4_id'].invalid " class="alert px-0 select-box-alert">
+                            <small *ngIf="submitted && addForm.controls['category4_id'].errors.required">
+                                Product sub type is required
+                            </small>
+                        </small>
+                    </div>
+                    <div *ngIf="showProductSubType" class="locateyourdata ">
+                        <span>Enter Product sub-type</span>
+                        <input type="text" class=" locationdata  " 
+                        [ngClass]="{ 'is-invalid': submitted && f['product_sub_type'].errors}" formControlName="product_sub_type"
+                            placeholder="Enter product sub-type">
+                            <div *ngIf=" submitted && f['product_sub_type'].errors" class="invalid-feedback">
+                                <div *ngIf="submitted && f['product_sub_type'].errors['required']">product sub-type is Required</div>
+                            </div>
+                    </div>
+                    <div class="locateyourdata ">
+                        <span>Price</span>
+                        <input type="text" class="locationdata  ps-5"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" maxlength="9" [ngClass]="{ 'is-invalid': submitted && f['price'].errors}" formControlName="price"
+                            placeholder="Enter product title">
+                            <p class="position-absolute price">₹</p>
+
+                            <div *ngIf=" submitted && f['price'].errors" class="invalid-feedback ">
+                                <div *ngIf="submitted && f['price'].errors['required']">Price is required</div>
+                            </div>
+                    </div>
+                    <div class="locateyourdata ">
+                        <span>Place of manufacturing</span>
+                        <div class="locateyourdata ">
+                            <input type="text" class=" locationdata mt-0 "
+                            [ngClass]="{ 'is-invalid': submitted && f['manufacturing_place'].errors}"  formControlName="manufacturing_place" placeholder="Enter place of manufacturing">
+                            <div *ngIf=" submitted && f['manufacturing_place'].errors" class="invalid-feedback ">
+                                <div *ngIf="submitted && f['manufacturing_place'].errors['required']">Place of manufacturing is required</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="locateyourdata datepicker">
+                        <span >Purchase year</span>
+                        <img class="calender" src="assets/images/calendar-2.png" alt="">
+                        <mat-form-field appearance="fill" style="width:100%" class="mt-2">
+                            <input matInput [matDatepicker]="endDate" placeholder="Enter Purchase year"  mat-raised-button
+                            (click)="endDate.open()" readonly  formControlName="purchase_year">
+                            <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                            <mat-datepicker #endDate></mat-datepicker>
+                           
+                        </mat-form-field>
+                        <small *ngIf="submitted && addForm.controls['purchase_year'].invalid " class="alert px-0 select-box-alert">
+                            <small *ngIf="submitted && addForm.controls['purchase_year'].errors.required">
+                                Purchase year is required
+                            </small>
+                        </small>
+                    </div>
+                    <div class="locateyourdata ">
+                        <span>Country origin</span>
+                        <input type="text" class=" locationdata  " 
+                       maxlength="30" [ngClass]="{ 'is-invalid': submitted && f['country_origin'].errors}" formControlName="country_origin"
+                            placeholder="Country of origin">
+                            <div *ngIf=" submitted && f['country_origin'].errors" class="invalid-feedback">
+                                <div *ngIf="submitted && f['country_origin'].errors['required']">Country origin is required</div>
+                            </div>
+                    </div>
+                    <div class="locateyourdata ">
+                        <span>Product location</span>
+                        <input type="text" class=" locationdata  " 
+                        [ngClass]="{ 'is-invalid': submitted && f['location'].errors}" formControlName="location"
+                            placeholder="Add product location here">
+                            <div *ngIf=" submitted && f['location'].errors" class="invalid-feedback">
+                                <div *ngIf="submitted && f['location'].errors['required']">Location is required</div>
+                            </div>
+                    </div>
+
+                    <div class="d-flex flex-column locateyourdata phonedetails">
+                        <span class="mb-2">Product Condition</span>
+                        <mat-form-field appearance="fill" class="">
+                        <mat-select placeholder="Select" 
+                            formControlName="product_condition">
+                            <mat-option *ngFor="let items of productCondition" [value]="items">{{items | titlecase}}
+                            </mat-option>
+                            </mat-select>
+                            </mat-form-field>
+                            <small *ngIf="submitted && addForm.controls['product_condition'].invalid " class="alert px-0 select-box-alert">
+                                <small *ngIf="submitted && addForm.controls['product_condition'].errors.required">
+                                    Product condition is required
+                                </small>
+                            </small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 ">
+                <div class="adddocumentpage main_comp pb-0">
+                    <div class="d-flex flex-column locateyourdata phonedetails">
+                        <span class="mb-2">Industry</span>
+                        <mat-form-field appearance="fill" class="">
+                        <mat-select placeholder="Select" 
+                            formControlName="category1_id" (selectionChange)="getSubCatagory($event); brand($event)">
+                            <mat-option *ngFor="let items of industry" [value]="items.id">{{items.title}}
+                           </mat-option>
+                           </mat-select>
+                           </mat-form-field>
+                           <small *ngIf="submitted && addForm.controls['category1_id'].invalid " class="alert px-0 select-box-alert">
+                            <small *ngIf="submitted && addForm.controls['category1_id'].errors.required">
+                                Industry is required
+                            </small>
+                        </small>
+
+                    </div>
+                    <div class="d-flex flex-column locateyourdata phonedetails">
+                        <span class="mb-2">Product Type</span>
+                        <mat-form-field appearance="fill" class="">
+                        <mat-select placeholder="Select" 
+                            formControlName="category3_id" (selectionChange)="productsubType($event)">
+                            <mat-option *ngFor="let items of producttype" [value]="items.id">{{items.title}}
+                           </mat-option>
+                           </mat-select>
+                           </mat-form-field>
+                           <small *ngIf="submitted && addForm.controls['category3_id'].invalid " class="alert px-0 select-box-alert">
+                            <small *ngIf="submitted && addForm.controls['category3_id'].errors.required">
+                                Product type is required
+                            </small>
+                        </small>
+                    </div>
+                    <div *ngIf="showProductType" class="locateyourdata ">
+                        <span>Enter Product Type</span>
+                        <input type="text" class=" locationdata " 
+                        [ngClass]="{ 'is-invalid': submitted && f['product_type'].errors}" formControlName="product_type"
+                            placeholder="Enter product type">
+                            <div *ngIf=" submitted && f['product_type'].errors" class="invalid-feedback">
+                                <div *ngIf="submitted && f['product_type'].errors['required']">product type is Required</div>
+                            </div>
+                    </div>
+                    <div class="d-flex flex-column locateyourdata phonedetails">
+                        <span class="mb-2">Product Brand</span>
+                        <mat-form-field appearance="fill" class="">
+                        <mat-select placeholder="Select"  formControlName="brand_id">
+                            <mat-option *ngFor="let items of productBrand" [value]="items.id">{{items.brand_name}}
+                            </mat-option>
+                            </mat-select>
+                            </mat-form-field>
+                            <small *ngIf="submitted && addForm.controls['brand_id'].invalid " class="alert px-0 select-box-alert">
+                                <small *ngIf="submitted && addForm.controls['brand_id'].errors.required">
+                                    Product brand is required
+                                </small>
+                            </small>
+                    </div>
+
+                    <div class="locateyourdata ">
+                        <span>Product description</span>
+                        <div class="locateyourdata ">
+                            <textarea type="text" class=" addcontent "
+                            [ngClass]="{ 'is-invalid': submitted && f['description'].errors}" formControlName="description"
+                                maxlength="1500" placeholder="Enter product description"></textarea>
+                                <div *ngIf=" submitted && f['description'].errors" class="invalid-feedback mt-0">
+                                    <div *ngIf="submitted && f['description'].errors['required']">Description is required</div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column locateyourdata phonedetails">
+                        <span class="mb-2">Ownership Type</span>
+                        <mat-form-field appearance="fill" class="">
+                        <mat-select placeholder="Select" 
+                            formControlName="ownership_type">
+                            <mat-option *ngFor="let items of ownerShip" [value]="items">{{items | titlecase}}
+                                </mat-option>
+                      </mat-select>
+                      </mat-form-field>
+                      <small *ngIf="submitted && addForm.controls['ownership_type'].invalid " class="alert px-0 select-box-alert">
+                        <small *ngIf="submitted && addForm.controls['ownership_type'].errors.required">
+                            Ownership type is required
+                        </small>
+                    </small>
+                    </div>
+                    <div class="d-flex flex-column locateyourdata phonedetails">
+                        <span class="mb-2">Is this product under hypothecation?</span>
+                        <mat-form-field appearance="fill" class="">
+                        <mat-select placeholder="Select" 
+                            formControlName="under_hypothecation">
+                            <mat-option *ngFor="let items of hypothecation" [value]="items">{{items | titlecase}}
+                                </mat-option>
+                                </mat-select>
+                                </mat-form-field>
+                                <small *ngIf="submitted && addForm.controls['under_hypothecation'].invalid " class="alert px-0 select-box-alert">
+                                    <small *ngIf="submitted && addForm.controls['under_hypothecation'].errors.required">
+                                        Under hypothecation is required
+                                    </small>
+                                </small>
+
+                    </div>
+                   
+                </div>
+                <div class="locateyourdata mt-2">
+                    <span>Upload Files</span>
+                    <hr class="mb-0">
+                    <div class="d-flex  files">
+                        <div (click)="selectFile.click()" style="cursor: pointer"
+                            class="adddocument align-items-center flex-column d-flex">
+                            <input style="display: none" type="file" (change)="fileupload($event)" #selectFile
+                                accept="image/*" multiple>
+                               <!-- <img src="assets/images/Group.svg" alt="" width="30px" height="30px"> -->
+                               <img src="assets/images/gallery-1.svg" alt="" width="30px" height="30px">
+                                <span class="ms-2">
+                                Add image
+                            </span>
+                        </div>
+                        <div (click)="selectFile1.click()" style="cursor: pointer"
+                            class="adddocument align-items-center flex-column d-flex ms-3">
+                            <input style="display: none" type="file" accept="video/*" (change)="fileupload($event)"
+                                #selectFile1 multiple>
+                           <!-- <img src="assets/images/Group-1.svg" alt="" width="30px" height="30px"> -->
+                           <img src="assets/images/video-playicon.svg" alt="" width="30px" height="30px">
+                                <span class="ms-2">
+                                Add video
+                            </span>
+                        </div>
+                        <!-- <div (click)="selectFile2.click()" style="cursor: pointer"
+                            class="adddocument align-items-center flex-column d-flex">
+                            <input style="display: none" type="file" (change)="fileupload($event)"
+                                accept="application/pdf" #selectFile2 multiple>
+                           <img src="assets/images/documenticon.svg" alt="" width="30px" height="30px">
+                            <span class="ms-2">
+                                Add document
+                            </span>
+                        </div> -->
+                    </div>
+                </div>
+                <!-- <div class="minimumFile mt-2" *ngIf=" submitted && emptyFile">
+                   File is required
+                </div> -->
+                <div class="d-flex align-items-center flex-wrap mt-3">
+                    <div class="upload-img position-relative d-inline-block mx-2 mb-3"
+                        *ngFor="let image of images; let i = index">
+                        <img [src]="image.url" width="90px" height="90px">
+                        <img src="assets/images/close-circle.png" (click)="deleteImg(i,1)"
+                            class="close position-absolute">
+                    </div>
+                    <div class="upload-img position-relative d-inline-block mx-2 mb-3"
+                        *ngFor="let video of videos; let i = index">
+                        <video width="90px" height="90px" controls>
+                            <source [src]="video.url" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <img src="assets/images/close-circle.png" (click)="deleteImg(i,2)"
+                            class="close position-absolute">
+                    </div>
+                    
+                    <div class="upload-img position-relative d-inline-block mx-2 mb-3"
+                        *ngFor="let document of pdf; let i = index">
+                        <a target="_self" [href]="document.url" download="pdf">
+                            <img src="assets/images/pdf 3 (1).svg" width="90px" height="90px">
+                        </a>
+                        <img src="assets/images/close-circle.png" (click)="deleteImg(i,3)"
+                            class="close position-absolute">
+                    </div>
+                </div>
+            </div>
+
+            <div class="adddocumentpage mb-3 main_comp">
+                <div class="postdata d-flex justify-content-center">
+                    <button *ngIf="!editFlag" (click)="onSubmit(addForm.value)">Post<img></button>
+                    <button *ngIf="editFlag" (click)="onSubmit(addForm.value)">Save<img></button>
+                </div>
+            </div>
+            <!-- <div class="postdata d-flex justify-content-between align-items-center"
+                *ngFor="let file of files; let i = index">
+                <p>{{file.Key}}</p>
+            </div> -->
+        </div>
+    </form>
+</div>

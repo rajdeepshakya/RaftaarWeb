@@ -1,0 +1,25 @@
+
+<div class="mx-5 my-4">
+    <span>Upload a Proposal document</span>
+    <div class="locateyourdata mt-2">
+        <label for="upload" >
+            <span class="form-control" *ngIf="uploadImage" >{{uploadImage}}</span>
+            <span class="form-control uploadfile" *ngIf="!uploadImage" >Upload File</span>
+            <input type="File" id="upload" [(ngModel)]="uploadImage" class="form-control locationdata  mt-1 " placeholder="Upload File">
+        </label>
+    </div>
+</div>
+<hr>
+<div class="addcontentdata mx-5 my-4">
+
+    <textarea type="text" class="form-control addcontent" formControlName="number" maxlength="100"
+        placeholder="Product description here">
+        </textarea>
+    <p class="counternumber  mt-2 text-center">
+        <span *ngIf="counternumber.length<=99 && counternumber.length>0"></span>
+        {{counternumber.length}}/100</p>
+</div>
+<hr>
+<div class="postdata me-5 mb-5">
+    <button>Send Proposal</button>
+</div>

@@ -1,0 +1,96 @@
+@import "../../../../../assets/variable.scss";
+@import "../../../../../assets/common.scss";
+
+.main{
+    background-color: #EAF3FF    ;
+    h3{
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize20,$Color_0A0045);  
+    }
+    .chat{
+        .row{
+            column-gap: 20px;
+        }
+        .col-width{
+            width: 378px;
+        }
+      
+        .chat-start{
+            background-color: white;
+            border-radius: 15px;
+            .conversation{
+                min-height: 500px;
+                .userchat{
+                    .sent{
+                        background: #104798;
+                        border-radius: 10px 10px 0px 10px;
+                        padding:15px;
+                        max-width: 300px;
+                        word-wrap: break-word;
+                        p{
+                            @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize18,$Colorwhite);  
+                        }
+                    }
+                    span{
+                        @include fontStyleManager($fontFamilyInterRegular,$fontWeightRegular,$fontSize14,$Colorwhite);  
+                        color: #6D658A !important; 
+                    }
+                }
+              
+                .reply{
+                    background: #EDF5F9;
+                    border-radius: 10px 10px 10px 0px;
+                    padding: 15px;
+                    max-width: 300px;
+                    word-wrap: break-word;
+                    p{
+                        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize18,$Color_1B194B);  
+                    }
+                }
+                .dayDate{
+                    hr{
+                        width: 100px;
+                        margin: 0px
+                    }
+                    p{
+                        @include fontStyleManager($fontFamilyInterRegular,$fontWeightRegular,$fontSize16,$Color_5B6D8E);   
+                    }
+                }
+                .video{
+                    video{
+                        border-radius: 20px 0px 20px 20px;
+                    }
+                    .images{
+                        top:35%;
+                        left: 40%;
+                    }
+                }
+                .reply-img{
+                    border-radius: 20px 0px 20px 20px;
+                }
+                .sentpdf{
+                    width: 203px;
+                    .pdf{
+                        background: #104798;
+                        border-radius: 10px 0px 10px 10px;
+                        padding: 11px;
+                    } 
+                    span{
+                        @include fontStyleManager($fontFamilyInterRegular,$fontWeightRegular,$fontSize14,$Colorwhite);  
+                        color: #6D658A !important; 
+                    }
+                   
+                    p{
+                        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Colorwhite);   
+                    }
+                }
+                .reply-pdf{
+                    background: #EDF5F9 !important;
+                    p{
+                        color: #405076 !important;
+                    }
+                }
+            }
+        }
+    }
+   
+}

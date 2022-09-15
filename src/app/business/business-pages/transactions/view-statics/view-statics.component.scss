@@ -1,0 +1,185 @@
+// @import "../../../../../assets/variable.scss";
+// @import "../../../../../assets/common.scss";
+
+// .row{
+//     column-gap: 15px;
+// }
+
+// .receivedpayement{
+//     background-color: $Colorwhite;
+//     box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+//     border-radius: 21px;
+//     padding:30px 30px;
+//     height: max-content;
+//     @media (max-width:768px) {
+//         padding:12px;
+//     }
+//     h3 {
+//         @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize20,$Color_0A0045);
+//         @media (max-width:768px) {
+//             font-size: 14px !important;
+//         }
+//     }
+//     span {
+//         @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize18,$Color_8A94A6);
+//         @media (max-width:768px) {
+//             font-size: 14px !important;
+//         }
+//     }
+//     .points{
+//         width:11px;
+//         height:11px;
+//     }
+//     .billingimg{
+//         width:50px;
+//         height:50px;
+//         @media (max-width:768px) {
+//             width:32px;
+//             height:32px;    
+//         }
+//     }
+//     .totalbilling{
+//         @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize18,$Color_0A0045);
+//         @media (max-width:768px) {
+//             font-size: 14px !important;
+//         }
+//     }
+//     .totalamount{
+//         @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize20,$Color_0A0045);
+//         @media (max-width:768px) {
+//             font-size: 14px !important;
+//         }
+//     }
+//     .locateyourdata{
+//         position: relative;
+//         .locationdata{
+//             width:100%;
+//             padding:14px 26px;
+//             border-radius: 50px;
+//             border: 0.5px solid #BFD1E3;
+//             @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_0A0045)
+//         }
+//     }
+
+//     .droparrow{
+//         position: absolute;
+//         right:25px;
+//         top:15px;
+//     }
+
+//     .bar-chart-container {
+//         height: 300px;
+//     }
+
+//     .billing-details {
+//         border-bottom: 0.5px solid rgba(71, 145, 255, 0.15);
+//     }
+// }
+// @media (max-width:1000px){
+//     .receivedpayement{
+//     width:100%;
+//     margin-left:0;
+//     margin-top:20px;
+// }
+// }
+
+@import "../../../../../assets/variable.scss";
+@import "../../../../../assets/common.scss";
+
+.row{
+    column-gap: 15px;
+}
+
+.transaction-stats-wrapper {
+    flex-direction: column;
+    @media (min-width: 992px) {
+        flex-direction: row !important;
+    }
+
+    .filter-container {
+        text-align: end ;
+    }
+}
+
+.receivedpayement{
+    background-color: $Colorwhite;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 21px;
+    padding:30px 30px;
+    height: max-content;
+    // @media (max-width:768px) {
+    //     padding:12px;
+    // }
+    h3 {
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize20,$Color_0A0045);
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+    span {
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize18,$Color_8A94A6);
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+    .points{
+        width:11px;
+        height:11px;
+    }
+    .billingimg{
+        width:50px;
+        height:50px;
+        @media (max-width:768px) {
+            width:32px;
+            height:32px;    
+        }
+    }
+    .totalbilling{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize18,$Color_0A0045);
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+    .totalamount{
+        @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize20,$Color_0A0045);
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+    .locateyourdata{
+        position: relative;
+        .date-icon {
+            background-image: url("../../../../../assets/images/calendar-2@1x.png");
+            background-repeat: no-repeat;
+            background-position: calc(100% - 25px);
+        }
+        .locationdata{
+            width:100%;
+            padding:14px 26px;
+            border-radius: 50px;
+            border: 0.5px solid #BFD1E3;
+            @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_0A0045)
+        }
+    }
+
+    .droparrow{
+        position: absolute;
+        right:25px;
+        top:15px;
+    }
+
+    .bar-chart-container {
+        height: 300px;
+    }
+
+    .billing-details {
+        border-bottom: 0.5px solid rgba(71, 145, 255, 0.15);
+    }
+}
+@media (max-width:1000px){
+    .receivedpayement{
+    width:100%;
+    margin-left:0;
+    margin-top:20px;
+}
+}

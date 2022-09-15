@@ -1,0 +1,56 @@
+@import '../../../../assets/variable.scss';
+.modal-header{
+    border-bottom: 0px !important;
+    justify-content: end !important;
+    .button-close {
+        justify-self: right;
+        text-align: end ;
+        border: none;
+        background-color: #FFFFFF;
+        outline: none;  
+        cursor: pointer;
+        svg{
+            height: 20px;
+            width: 20px;
+            cursor: pointer;
+        }      
+    }
+}
+.modal-body {
+    text-align: center !important;
+    h1{
+        @include fontStyleManager($fontFamilyInterRegular,$fontWeightSemiBold,$fontSize18,$Color_0A0045);
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+    p{
+        @include fontStyleManager($fontFamilyInterRegular, $fontWeightMedium, $fontSize14, $Color_768DA9 )
+    }
+}
+.modal-footer{
+    border-top: 0px !important;
+    justify-content: center !important;
+    button{
+        padding: 12px;
+        width: 158px;
+        max-width: 100%;
+        border-radius: 40px;
+        font-family: 'Inter-SemiBold';
+        font-family: 600;
+        font-size: 16px;
+        color:#0A0045;   
+        @media (max-width:768px) {
+            width: 100%;
+        }     
+    }
+    .report{
+        border: 1px solid #DBE9F5 !important;
+    }
+    .cancel{
+        background-color: #FF4746;
+        color:white ;
+    }
+}
+
+

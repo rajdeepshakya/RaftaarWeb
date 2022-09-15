@@ -1,0 +1,50 @@
+@import '../../../../assets/variable.scss';
+@import '../../../../assets/common.scss';
+
+.modal-header{
+    border-bottom: 0px !important;
+    justify-content: end !important;
+    .button-close {
+        justify-self: right;
+        text-align: end ;
+        border: none;
+        background-color: #FFFFFF;
+        outline: none;  
+        cursor: pointer;
+        svg{
+            height: 20px;
+            width: 20px;
+            cursor: pointer;
+        }      
+    }
+}
+
+.modal-body {
+    text-align: center !important;
+    h1{
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize18,$Color_0A0045);
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+   .content-text {
+        @include fontStyleManager($fontFamilyInterRegular,$fontWeightRegular,$fontSize14,$Color_768DA9);
+        @media (max-width:768px) {
+            font-size: 12px !important;
+        }
+   }
+}
+
+.modal-footer{
+    border-top: 0px !important;
+    justify-content: center !important;
+    button{
+        padding: 15px;
+        width: 158px;
+        border-radius: 40px;
+        background-color: #EE7402  ;
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Colorwhite) 
+    }
+}
+
+

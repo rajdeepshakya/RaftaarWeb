@@ -1,0 +1,46 @@
+
+    <div class="row m-0 container-fluid p-0 d-flex justify-content-between ">
+        <div class="col-md-6 p-0  sideimg">
+            <div class="signupback">
+                <img src="assets/images/auth.png">
+              </div>   
+                 </div>
+                 <div class="col-md-6 m-auto reset " style=" max-width:420px">
+                    <div>
+            <h4 class="mt-4">Verification</h4>
+            <p class="mt-1 formabout mb-2">
+                We will send an OTP to the phone number
+            </p>
+            <div class="d-flex phonedata mt-0">
+                <span>+91-8586047187</span>
+                <p class="ms-3"><img src="assets/images/edit.png" alt="" class="me-1">Edit</p>
+            </div>
+            <div class="d-flex otpnumbers" >
+                <input type="text" maxlength="1" class="text-center">
+                <input type="text" maxlength="1" class="text-center" >
+                <input type="text" maxlength="1" class="text-center">
+                <input type="text" maxlength="1" class="text-center">
+                <input type="text" maxlength="1" class="text-center">
+                <input type="text" maxlength="1" class="text-center">
+            </div>
+            <div class="d-flex justify-content-between mt-4 resendcode">
+                <div class="d-flex">
+                <p >Didn’t receive code?</p>
+                <button class="ms-2" (click)="timer()" [disabled]="resenddata">Resend</button>
+            </div>
+                <div>
+                    <p class="counternumber px-2 text-center">
+                        <span
+                        *ngIf="data3<=10 && data3>0">00.</span>
+                        <span
+                        *ngIf="data3<=9 && data3>0">0</span>{{data3}}</p>
+                </div>
+            </div>
+            <div class="postdata ">
+                <button>Verify</button>
+            </div>
+              </div>
+            </div>
+              </div>
+        
+            

@@ -1,0 +1,12 @@
+<div class="modal-header pb-0">
+    <img src="../../../../assets/images/close.png" alt="" class="cursor" [mat-dialog-close]="false">
+</div>
+<div class="modal-body pt-0 px-5">
+    <img [src]="data?.img" width="96px" height="96px">
+    <h1 class="pt-3">{{data?.heading}}</h1>
+    <p>{{data?.title}}</p>    
+</div>
+<div class="modal-footer d-flex justify-content-between pt-0 px-5">
+    <button type="button" class="btn report mx-0 mb-2" [mat-dialog-close]="false">{{data?.btn}}</button>
+    <button type="button" class="btn repor upload mx-0 mt-2" [mat-dialog-close]="false">Create/Upload invoice</button>
+</div>

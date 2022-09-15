@@ -1,0 +1,47 @@
+@import '../../../../assets/variable.scss';
+.modal-header{
+    border-bottom: 0px !important;
+    justify-content: end !important;
+    .button-close {
+        justify-self: right;
+        text-align: end ;
+        border: none;
+        background-color: #FFFFFF;
+        outline: none;  
+        cursor: pointer;
+        svg{
+            height: 20px;
+            width: 20px;
+            cursor: pointer;
+        }      
+    }
+}
+.modal-body {
+    label {
+        padding: 24px 0px 12px 0px;
+        @include fontStyleManager($fontFamilyInterRegular,$fontWeightSemiBold,$fontSize14,$Color_0A0045) 
+    }
+}
+.modal-footer{
+    border-top: 0px !important;
+    justify-content: center !important;
+    button{
+        padding: 12px;
+        width: 124px;
+        max-width: 100%;
+        border-radius: 40px;
+        font-family: 'Inter-SemiBold';
+        font-family: 600;
+        font-size: 16px;
+        color:#0A0045;        
+    }
+    .report{
+        border: 1px solid #DBE9F5 !important;
+    }
+    .cancel{
+        background-color: $Color_EE7402;
+        @include fontStyleManager($fontFamilyInterRegular, $fontWeightSemiBold, $fontSize16, $Colorwhite);
+    }
+}
+
+

@@ -1,0 +1,79 @@
+@import "../../../../../../assets/variable.scss";
+@import "../../../../../../assets/common.scss";
+
+button{
+    padding:8px 20px;
+    background-color: $Color_4791FF;
+    border-radius: 100px;
+}
+.logocap{
+    .logocapimage{
+        width:120px;
+        height:120px;
+        border-radius: 100px;
+        ;
+        @media (max-width:768px) {
+            width:90px;
+            height:90px;        }
+    }
+}
+p{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize18,$Color_5B6D8E);
+    margin:0;
+    @media (max-width:768px) {
+        font-size: 12px !important;
+    }
+}
+h5{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize22,$Color_0A0045);
+    @media (max-width:768px) {
+        font-size: 14px !important;
+    }
+}
+.likeshare{
+    margin-left:175px;
+    @media (max-width:768px) {
+        margin-left:0px;
+    }
+}
+.requirements-wrapper{
+    background-color: #EAF3FF;
+    .requirement-content{
+        background-color: #fff;
+        border-radius: 15px;
+
+        &:not(:last-child){
+            margin-bottom:20px;
+        }
+    }
+}
+.main_comp{
+    background-color: #EAF3FF;
+}
+.logocapdata{
+   h5{
+    @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize22,$Color_303065);
+    @media (max-width:768px) {
+        font-size: 14px !important;
+    }
+   } 
+   p{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize20,$Color_5B6D8E);
+    @media (max-width:768px) {
+        font-size: 14px !important;
+    }
+   }
+}
+h4{
+    @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize24,$Color_EE7402);
+    @media (max-width:768px) {
+        font-size: 14px !important;
+    }
+
+}
+h3{
+    @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize20,$Color_0A0045);  
+    @media (max-width:768px) {
+        font-size: 14px !important;
+    }
+}

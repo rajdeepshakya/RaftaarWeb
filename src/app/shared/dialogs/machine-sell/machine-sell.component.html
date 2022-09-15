@@ -1,0 +1,16 @@
+<div class="modal-header pb-0">
+    <button class="button-close mb-2" mat-button [mat-dialog-close]="false">
+      <!-- <img src="assets/images/close 1.svg" width="28px"> -->
+    </button>
+</div>
+<div class="modal-body pt-0 mt-4">
+    <!-- <img src="assets/images/log_out.png"> -->
+    <h1 class="pt-2 px-3"> {{data?.heading}}</h1>
+    <p>{{data?.para}} </p>
+   
+</div>
+<div class="modal-footer d-flex justify-content-between mt-4">
+    <button type="button" class="btn report me-2" [mat-dialog-close]="false" >{{data?.report}}</button>
+    <button type="button" class="btn cancel ms-2" [mat-dialog-close]="true"  >{{data?.cancel}}</button>
+    
+</div>

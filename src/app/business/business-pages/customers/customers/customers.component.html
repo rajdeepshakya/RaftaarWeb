@@ -1,0 +1,21 @@
+<section class="main_comp px-3">
+    <div class="d-md-flex justify-content-md-between align-items-end pb-3 flex-wrap">
+        <div class="d-flex top-menu m-0 justify-content-between">
+            <button class="me-3 px-5 battery-btn cursor" (click)="routeToBuyer()" [routerLink]="['/business/customers/buyer']" routerLinkActive="active-link">
+             Buyer
+            </button>
+            <button class="me-md-3 me-0 px-5 battery-btn cursor" (click)="routeToSeller()" [routerLink]="['/business/customers/seller']" routerLinkActive="active-link">
+                Seller
+            </button>
+        </div>
+        <div class="d-flex justify-content-between mt-md-0 mt-3">
+            <div class="d-flex justify-content-end add-post ">
+                <button class="btn battery-btn me-2 active-link position-relative" [routerLink]="['/business/customers/add-client']">
+                               <img src="assets/images/Vector.svg" alt="" class="position-absolute"><span class="ms-2">Add Client</span></button>
+            </div>
+            <img src="assets/images/unblock-btn.png" (click)="blockedCustomerList()" class="cursor-pointer ms-2 unblock-btn" />
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+</section>
+

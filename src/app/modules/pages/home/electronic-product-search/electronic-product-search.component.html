@@ -1,0 +1,29 @@
+
+<div>
+    <div class="locateyourdata mx-md-5 mx-3">
+        <input type="text" class="form-control locationdata  my-4 " placeholder="Enter Location here">
+        <img class="backtick" src="assets/images/gps.png">
+    <img class="removedata" src="assets/images/gps.png">
+    </div>
+    <h3 class="ms-5 filterdata">Filters</h3>
+<div class="category my-4 mx-md-5 mx-3 ">
+    <div class="confirmcategory d-flex justify-content-between px-4 pt-2 ">
+        <h4 class="categorydata">Category</h4>
+        <p class="confirmdata">Confirm</p>
+    </div>
+    <hr class="m-0">
+    <div  class="productdata ps-3  mt-2 d-flex">
+        <span *ngFor="let product of productdesign " class="mb-4 " >{{product}}</span>
+    </div>
+</div>
+<div class="category my-4 mx-md-5 mx-3 ">
+    <div class="confirmcategory d-flex justify-content-between px-4 pt-2 ">
+        <h4 class="categorydata">Sub-Category</h4>
+        <p class="confirmdata">Confirm</p>
+    </div>
+    <hr class="m-0">
+    <div  class="productdata ps-3  mt-2 d-flex">
+        <span *ngFor="let product of productdesign " class="mb-4 " >{{product}}</span>
+    </div>
+</div>
+</div>

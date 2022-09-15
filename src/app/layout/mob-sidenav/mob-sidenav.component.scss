@@ -1,0 +1,18 @@
+@import '../../../assets/common.scss';
+@import '../../../assets/variable.scss';
+h4{
+    @include fontStyleManager ($fontFamilyInterMedium,$fontWeightMedium,$fontSize12,$Color_0A0045);
+    color: #A4A4BE !important    ;
+}
+.mob-sidenav{
+    position: fixed;
+    bottom: 0;
+    /* left: 0; */
+    z-index: 11111;
+    width: 100%;
+    background-color: white;
+    display: none !important;
+    @media (max-width:991px) {
+        display: flex !important;
+    }
+}

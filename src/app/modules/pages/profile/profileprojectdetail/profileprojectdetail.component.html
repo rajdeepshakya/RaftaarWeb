@@ -1,0 +1,146 @@
+<div class="main_comp ">
+    <div class="d-flex  mb-3" (click)="goBack()">
+        <img   src="assets/images/arrow-circle-left.svg">
+        <h3  class="ms-2 mb-0">Back</h3>
+      </div>
+    <div class="row m-0">
+        <div class="col-md-12 details p-4">
+            <div>
+                    <owl-carousel-o [options]="customOptions" style="width: 100%">
+
+                        <ng-container *ngFor="let slide of projectsName.slides">
+                            <ng-template *ngIf="slide.type == 'image' || slide.type == 'pdf'" carouselSlide>
+                                <img style="width:100%;height:400px;" [src]="slide.url">
+
+                            </ng-template>
+                            <ng-template *ngIf="slide.type == 'video'" carouselSlide [id]="slide.id">
+
+                                <video *ngIf="slide.type == 'video'" controls style="width:100%;height:276px">
+                                    <source [src]="slide.url" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </ng-template>
+                        </ng-container>
+
+                    </owl-carousel-o>
+                <div class="">
+                   
+                    <div class="bubapuppet align-items-start  mt-4  d-flex justify-content-between flex-wrap">
+                        <div>
+                            <span class="buba">{{projectsName?.title}}</span>
+                            <div class="mt-3 d-flex date align-items-center" *ngIf="showdate">
+                                <img src="assets/images/timerrr.svg" height="22px" width="22px">
+                                <div class="mx-2" >{{projectsName.project_start_date | date:'dd.mm.yyyy'}}</div>
+                                <img src="assets/images/blueCircle.svg">
+                                <div class="mx-2" >{{projectsName.project_end_date | date:'dd.mm.yyyy'}}</div>
+                            </div>
+                            <div class="date" *ngIf="showLive">
+                                <div class="" >Live Project</div>
+                            </div>
+                        </div>
+                       
+                        <div class="d-flex align-items-center">
+                            <div class="quantitydata d-flex me-4">
+                                <p class="m-0 quantity me-2">Quantity:</p>
+                                <span class="unit ">{{projectsName?.enter_quantity}} Unit</span>
+                            </div>
+                            <div class="quantitydata d-flex align-items-center">
+                                <img src="assets/images/star.svg" class="me-2" width="20px"
+                                    height="20px">
+                                <img src="assets/images/Shape.svg" width="20px" height="20px">
+
+                                <p class="m-0 quantity mx-2" (click)="shareHome(projectsName.id)">{{projectsName?.postShare_count}} Share</p>
+                                <div *ngIf="myProfile" class="d-flex justify-content-end dropdown ms-3">
+                                    <img src="assets/images/Group 1023.svg" width="25px" height="25px" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" 
+                                    >
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                        <li (click)="edit(projectsName.id)"><a class="dropdown-item"> 
+                                            <img src="assets/images/edit-2.svg" class="me-3">
+                                            Edit</a></li>
+                                    <li (click)="projectDelete(projectsName.id)"><a class="dropdown-item delete mt-3" >
+                                            <img src="assets/images/trash.svg" class="me-3">
+                                            Delete</a></li>
+                                      </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="profiledetaiL  my-md-4 my-3 ">
+                        <p>
+                        {{projectsName?.description}}
+                        </p>
+                    </div>
+                    <div class="highlights mt-md-4 mt-3">
+                        <span>Highlights</span>
+                        <div class="d-flex mt-2 align-items-start highlightsdata" *ngFor = 'let data of Highlights'>
+                            <img src="assets/images/arroww.svg" alt="" class="mt-2">
+                            <p class="ms-3" >
+                                {{data?.highlight_desc}}</p>
+                        </div>
+                    </div>
+
+                    <div class="border px-3 d-flex justify-content-between align-items-center w-100 ms-0 ">
+                        <div class="  py-2   logocap GstNumber d-flex  justify-content-start ">
+                            <img class="gstimg mt-3 rounded-circle" src="assets/images/client.svg" alt="" width="32px"
+                                height="32px">
+                            <div class="logocapdata ms-3 mt-2">
+                                <h5>Client name</h5>
+                                <p class="text-truncate logocapsubdata">{{projectsName?.customer_name}}</p>
+                            </div>
+
+                        </div>
+                        <div *ngIf="projectsName.instrumentDetails != null" class="  py-2   logocap GstNumber d-flex  justify-content-start ">
+                            <img class="gstimg mt-3 rounded-circle" src="assets/images/instrument.svg" alt=""
+                                width="32px" height="32px">
+                            <div class="logocapdata ms-3 mt-2">
+                                <h5>Instrument used</h5>
+                                <p class="text-truncate logocapsubdata">{{projectsName?.instrumentDetails?.name}}</p>
+                            </div>
+
+                        </div>
+                        <div *ngIf="projectsName.machineDetails != null" class="  py-2   logocap GstNumber d-flex  justify-content-start ">
+                            <img class="gstimg mt-3 rounded-circle" src="assets/images/machine.png"
+                                alt="" width="32px" height="32px">
+                            <div class="logocapdata ms-3 mt-2">
+                                <h5>Machine Used</h5>
+                                <p class="text-truncate logocapsubdata">{{projectsName?.machineDetails?.name}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div>
+                        <!-- <div class="highlights mt-3">
+                            <span>Testimonial</span>
+                            <div class="testimonal-user text-center mt-3 p-3">
+                                <img src="assets/images/testimonal.svg">
+                                <p class="user mt-2">Jack k.</p>
+                                <p class="user-details">{{updateUserInfo.comment}}
+                                </p>
+                            </div>
+                        </div> -->
+                        <div class="postdata d-flex justify-content-center my-4">
+                            <button (click)="openShareTestimonial()">Ask for Testimonial<img
+                                    src="assets/images/login.svg" class="ms-2"></button>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col-md-3 mt-md-0 mt-3 px-md-3 px-0">
+            <div class="see-products p-2">
+                <div class="d-flex justify-content-end ads-para">
+                    <p class="me-3">Ad...</p>
+                </div>
+                <div class="text-center ads">
+                    <img src="assets/images/img4.svg">
+                    <p class="mb-0 my-2">Hey Sequa, explore products
+                        that match your requirements</p>
+                    <button class="btn my-2 p-2 px-3 w-auto">See Products</button>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</div>

@@ -1,0 +1,187 @@
+@import "../../../../../assets/variable.scss";
+@import "../../../../../assets/common.scss";
+.main_comp{
+    padding: 24px 45px;
+}
+.main{
+    background-color: #EAF3FF    ;
+    padding: 30px 170px;
+    @media (max-width:768px) {
+        padding: 15px 15px;
+    }
+    h3{
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize20,$Color_0A0045);  
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+}
+.adddocumentpage{
+h3{
+    @include fontStyleManager($fontFamilyAvenir,$fontWeightSemiBold,$fontSize15,$Color_0A0045);
+    color: #000000 !important    ;
+}
+.Unisenseimg{
+    img{
+        width:50px;
+        height:50px;
+    }
+span{
+        font-weight: 800;
+        font-size: 16px;
+    }
+}
+.locateyourdata{
+    position: relative;
+.locationdata{
+    width:100%;
+    //height: 64px;
+    padding:14px 36px;
+    border-radius: 200px;
+    border: 0.5px solid #BFD1E3;
+   // padding-left:36px;
+   @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_0A0045);
+   @media (max-width:768px) {
+    padding:14px 20px;
+    font-size: 12px !important;
+}
+}
+
+.grey::placeholder{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_0A0045);
+    color:#9A9B9B !important;
+}
+.white::placeholder{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_0A0045);
+color: white !important;
+}
+
+img{
+    position: absolute;
+    right:18px;
+    bottom:19px;
+}
+
+}
+
+.postdata{
+button{
+    background: #EE7402;
+    padding:12px 10px;
+    width: 155px;
+    border-radius: 40px;
+    @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Colorwhite);  
+
+}
+}
+}
+.post{
+    button{
+        border-radius: 40px;
+        padding: 12px 10px;
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize20,$Color_0A0045);
+        @media (max-width:768px) {
+            font-size: 16px !important;
+        }
+    }
+    .requirement{
+        color: #EE7402 !important        ;
+        border: 1px solid #EE7402 !important;
+        width: 195px;
+        @media (max-width:768px) {
+            width: 125px;
+        }
+    }
+    .post{
+        color: #9A9B9B !important        ;
+        background-color: #F5F6F6        ;
+        width: 155px;
+        @media (max-width:768px) {
+            width: 125px;
+        }
+    }
+}
+.add-new{
+    background-color: white;
+    border-radius: 15px;
+}
+textarea{
+    border: 0.5px solid #BFD1E3 !important;
+border-radius: 40px;
+}
+.files{
+    background-color: #F2F8FF   ;
+    border-radius: 8px;
+}
+.container1 {
+    display: block;
+    position: relative;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container1 input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 19px;
+    right: 12px;
+    height: 28px;
+    width: 28px;
+    // border: 1.2px solid hsl(213, 27%, 71%);
+    border-radius: 50px;
+    background-color: white;
+    @media (max-width:768px) {
+      height: 22px;
+      width: 22px;    }
+  }
+  /* When the checkbox is checked, add a blue background */
+  .container1 input:checked ~ .checkmark {
+    background-color: #EE7402;
+    border: 0px;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+
+  
+  /* Show the checkmark when checked */
+  .container1 input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container1 .checkmark:after {
+    left: 4px;
+    top: 1px;
+    width: 25px;
+    height: 25px;
+    border: 5px solid white;
+    border-radius: 50px;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    // @media (max-width:768px) {
+    // top: 3px;
+    // width: 6px;
+    // height: 12px;
+    //   }
+  }

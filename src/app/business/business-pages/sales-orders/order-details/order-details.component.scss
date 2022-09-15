@@ -1,0 +1,317 @@
+// @import "../../../../../assets/variable.scss";
+// .main_comp{
+//     padding: 18px 35px;
+//     @media (max-width:768px) {
+//         padding: 10px 15px;
+//     }
+// }
+// .card {
+//     h5 {
+//         @include fontStyleManager($fontFamilyInterMedium, $fontWeightRegular, $fontSize26, $Color_0A0045);
+//         @media (max-width:768px) {
+//             font-size: 14px !important;
+//         }
+//     }
+
+//     .card-header {
+//         padding-left: 35px !important;
+//         background-color: #EEF5FF       ;
+//         @include fontStyleManager($fontFamilyInterSemiBold, $fontWeightSemiBold, $fontSize18, $Color_0A0045);
+//         @media (max-width:768px) {
+//             padding-left: 15px !important;
+//             font-size: 14px !important;
+//         }
+//     }
+// }
+
+// .card-img {
+//     max-width: 120px;
+//     @media (max-width:768px) {
+//         max-width: 90px;
+//     }
+// }
+
+// .address-row {
+//     h6 {
+//         @include fontStyleManager($fontFamilyInterMedium, $fontWeightMedium, $fontSize18, $Color_5B6D8E);
+//         @media (max-width:768px) {
+//             font-size: 12px !important;
+//         }
+//     }
+
+//     h5 {
+//         @include fontStyleManager($fontFamilyAvenir, $fontWeightSemiBold, $fontSize22, $Color_0A0045);
+//         @media (max-width:768px) {
+//             font-size: 14px !important;
+//         }
+//     }
+
+//     button {
+//         @include fontStyleManager($fontFamilyInterSemiBold, $fontWeightSemiBold, $fontSize18, $Color_0A0045);
+//         padding: 10px 60px !important;
+//     }
+
+//     @media screen and (max-width: 1023px) {
+//         button {
+//             padding: 10px 40px !important;
+//             margin-bottom: 30px !important;
+//             width: 177px;
+//             max-width: 100%
+//         }
+
+//     }
+
+//     .btn-danger {
+//         background: #EE7402;
+//         border: 1px solid #EE7402;
+//         color: #fff !important;
+//     }
+
+//     .bg-white {
+//         border: 1px solid #DBE9F5 !important;
+//         color: #0A0045 !important;
+//     }
+// }
+
+// span{
+//     @include fontStyleManager($fontFamilyInterMedium, $fontWeightMedium, $fontSize20, $Color_5B6D8E);
+//     @media (max-width:768px) {
+//         font-size: 12px !important;
+//     }
+
+// }
+
+// .notificationdata{
+//     box-sizing: border-box;
+//     border-radius: 12px;
+//     padding:15px 0;
+//     h5{
+//       @include fontStyleManager($fontFamilyAvenir,$fontWeightSemiBold,$fontSize24,$Color_0A0045);
+//       font-size:23px !important;
+//       @media (max-width:768px) {
+//         font-size:18px !important;
+//       }
+//     }
+// }
+// .result{
+//     background-color: #E5FFF8    ;
+//     padding: 25px 35px;
+//     p{
+//         @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize18,$Color_0A0045);
+//         @media (max-width:768px) {
+//             font-size: 14px !important;
+//         }
+//     }
+// }
+// .units{
+//     @include fontStyleManager($fontFamilyAvenir,$fontWeightExtraBold,$fontSize24,$Color_0A0045);
+//     color: #23C99A    !important;
+//     @media (max-width:768px) {
+//         font-size: 14px !important;
+//     }
+// }
+// .discount{
+//     @include fontStyleManager($fontFamilyAvenir,$fontWeightExtraBold,$fontSize24,$Color_0A0045);
+//     color: #FF4746    !important;
+//     @media (max-width:768px) {
+//         font-size: 14px !important;
+//     }
+// }
+
+@import "../../../../../assets/variable.scss";
+
+.border-bottom {
+    border-bottom: 0.5px solid rgba(71, 145, 255, 0.4) !important;
+}
+
+.border-right {
+    border-bottom: 0.5px solid rgba(71, 145, 255, 0.4);
+    border-radius: 0px;
+    @media (min-width: 768px) {
+        border-right: 0.5px solid rgba(71, 145, 255, 0.4) !important;
+        border-bottom: 0px !important;
+    }
+}
+
+.padding-bottom {
+    padding-bottom: 10px;
+    @include fontStyleManager($fontFamilyInterRegular,$fontWeightMedium,$fontSize12,$Color_5B6D8E);
+}
+
+.purchase-order-main-container {
+    .purchase-version-container {
+        padding: 24px 70px;  
+        .purchase-heading {
+            @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize20,$Color_0A0045)
+            
+        } 
+
+        .version-btn {
+            padding: 15px 28px;
+            background: #002280;
+            border-radius: 40px;
+            @include fontStyleManager($fontFamilyInterMedium,$fontWeightSemiBold,$fontSize16,$Colorwhite)
+        }
+    }
+
+    .padding-box {
+        border-radius: 10px;
+        .complete-detail-container {
+            padding-bottom: 32px;
+            .sub-heading {
+                padding: 32px 34px;
+                @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize18,$Color_EE7402)
+            }
+            
+            .row {
+               margin: 0px !important; 
+            }
+
+            .client-contact-details {
+                .name-email-details {
+                    padding: 16px 34px;
+                }
+                
+                .upload-view-text {
+                    @include fontStyleManager($fontFamilyInterRegular, $fontWeightMedium, $fontSize14, $Color_0A0045);
+                    text-decoration: underline;
+                }
+                #upload-invoice {
+                    display: none;
+                }
+            }
+
+            .client-details {
+                padding: 32px 34px;
+            }
+
+            .invoice-challan-container {
+                @media (min-width: 576px) {
+                    justify-content: end !important;
+                }
+                .sub-container {
+                    flex-direction: column;
+                    align-items: center;
+                    grid-row-gap: 10px;
+                    @media (min-width: 576px) {
+                        grid-row-gap: 0px !important;
+                        flex-direction: row !important;
+                        align-items: end !important;
+                    }
+                }
+            }
+
+            .reference-img-container {
+                padding: 0px 34px;
+                flex-wrap: wrap;
+                grid-gap: 18px;
+                img {
+                    width: 160px;
+                    height: 130px;
+                    border-radius: 10px;
+
+                }
+            }
+
+            .document-pics-container {
+                padding: 0px 34px;
+                flex-wrap: wrap;
+                grid-gap: 18px;
+                img {
+                    width: 110px;
+                    height: 110px;
+                    border-radius: 10px;
+                }
+            }
+
+            .product-manufacturing-heading-container {
+                padding-right: 34px;
+                .add-new-text {
+                    @include fontStyleManager($fontFamilyInterRegular, $fontWeightSemiBold, $fontSize16, $Color_EE7402)
+                }
+                .delivered-btn {
+                    
+                }
+            }
+        }
+    }
+}
+
+.answers{
+    @include fontStyleManager($fontFamilyInterRegular,$fontWeightMedium,$fontSize16,$Color_0A0045)
+}
+
+.amount-per-unit-text{
+    @include fontStyleManager($fontFamilyInterRegular,$fontWeightExtremeBold,$fontSize14,$Color_23C99A)
+}
+
+.discount-text {
+    @include fontStyleManager($fontFamilyInterRegular,$fontWeightExtremeBold,$fontSize14,$Color_FF4746)
+}
+
+.in-progress-btn{
+    padding:12px 20px;
+    @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize12,$Color_EE7402);
+    background:#FDF1E6;
+    border-radius: 10px;
+}
+
+.delivered-btn{
+    padding:12px 20px;
+    @include fontStyleManager($fontFamilyAvenir,$fontWeightExtremeBold,$fontSize12,$Color_00B828);
+    background: #E5F8EA;
+    border-radius: 10px;
+}
+
+.container {
+    padding-left: 30px;
+    display: block;
+    position: relative;
+    @include fontStyleManager($fontFamilyAvenir, $fontWeightExtremeBold, $fontSize14, $Color_768DA9);
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.container input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: 0;
+    border-radius: 8px;
+    border: 1px solid darkgray;
+} 
+
+.checkmark:checked {
+    background-color: #FFFF;
+}
+
+  .container input:checked ~ .checkmark {
+    background-image: url('../../../../../assets/images/tickmark.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    border:1px solid #EE7402;
+    background-color: #FFFF;
+  }
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  .container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid orange;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }

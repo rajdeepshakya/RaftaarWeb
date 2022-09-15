@@ -1,0 +1,285 @@
+// @import "../../../../../assets/variable.scss";
+
+// .border-bottom {
+//     border-bottom: 0.5px solid rgba(71, 145, 255, 0.4) !important;
+// }
+
+// .border-right {
+//     border-top: 0px;
+//     border-bottom: 0.5px solid rgba(71, 145, 255, 0.4) !important;
+//     border-left: 0px !important;
+//     border-right: 0px !important;
+//     @media (min-width: 576px) {
+//         border-top: 0px !important;
+//         border-bottom: 0px !important;
+//         // border-left: 0.5px solid rgba(71, 145, 255, 0.4) !important;
+//         border-right: 0.5px solid rgba(71, 145, 255, 0.4) !important;
+//     }
+// }
+
+// .active-link {
+//     background-color: $Color_0093D6;
+//     border-radius: 100px;
+//     padding: 11px 19px;
+//     width: 188px;
+//         @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Colorwhite)
+// }
+
+// .details-btn {
+//     width: 140px;
+//     background: #EAF3FF;
+//     border: 1px solid #BEC9D8 !important;
+//     border-radius: 10px 10px 0px 0px !important;
+//     padding: 15px 10px !important;
+//     div {
+//         @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Color_5F5F5F);
+//     }
+//     img {
+//         width: 24px;
+//         height: 24px;
+//         filter: invert(1);
+//     }
+// }
+
+// .active-item{
+//     background-color: #EE7402 !important;
+//     @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Colorwhite);
+// }  
+
+// .margin-right {
+//     margin: 0px 14px 0px 0px;
+// }
+
+// .main_comp {
+//     .card {
+//         border-radius: 10px;
+//         .kebab-menu-container {
+//             top: 10px;
+//             right: 10px;
+//             img {
+//                 cursor: pointer;
+//             }
+//             .dropdown-menu{
+//                 right: 0px;
+//                 box-shadow: 0px 11px 110px rgba(0, 50, 123, 0.2);
+//                 border-radius: 8px;
+//                 padding: 25px 0px;
+//                 li {
+//                     cursor: pointer;
+//                 }
+//             }
+//             .dropdown-item.active, .dropdown-item:active{
+//                 background-color: white;
+//             }
+//             .dropdown-item.active, .dropdown-item:hover{
+//                 background-color: white;
+//             }
+//             .dropdown-item{
+//                 @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_0A0045)
+//             }
+//             .delete{
+//                 color:#FF5C5C !important;
+//             }
+//         }
+//     }
+//     h5 {
+//         @include fontStyleManager($fontFamilyAvenir, $fontWeightSemiBold, $fontSize26, $Color_0A0045);
+//         @media (max-width:768px) {
+//             font-size: 14px !important;
+//         }
+//     }
+//     h2{
+//         @include fontStyleManager($fontFamilyAvenir, $fontWeightSemiBold, $fontSize20, $Color_0A0045);
+//         @media (max-width:768px) {
+//             font-size: 14px !important;
+//         }
+//     }
+// }
+// .card-img {
+//     max-width: 120px;
+//     @media (max-width:768px) {
+//         max-width: 60px;
+//     }
+// }
+// .address-row {
+//     .kebab-menu {
+//         top: 20px;
+//         right: 20px;
+//     }
+//     h6 {
+//         @include fontStyleManager($fontFamilyInterMedium, $fontWeightMedium, $fontSize12, $Color_5B6D8E);
+//     }
+//     h5 {
+//         @include fontStyleManager($fontFamilyAvenir, $fontWeightSemiBold, $fontSize16, $Color_0A0045);
+//     }
+// }
+// span{
+//     @include fontStyleManager($fontFamilyInterMedium, $fontWeightMedium, $fontSize20, $Color_5B6D8E);
+//     @media (max-width:768px) {
+//         font-size: 12px !important;
+//     }
+
+// }
+
+// .net-btn{
+//     @include fontStyleManager($fontFamilyInterSemiBold, $fontWeightSemiBold, $fontSize14, $Color_768DA9);
+//     background: rgba(255, 100, 43, 0.1);
+//     color: #FF642B !important;
+//     padding: 9px 18px;
+//     border-radius: 44px;
+//     @media (max-width:768px) {
+//         padding: 5px 8px;
+//         font-size: 12px !important;
+//     }
+// }
+
+@import "../../../../../assets/variable.scss";
+
+.active-link {
+    background-color: $Color_0093D6;
+    border-radius: 100px;
+    padding: 11px 0px;
+    width: 188px;
+    
+    span {
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Colorwhite);
+    }
+}
+
+.add-transaction-img {
+    top: 50%;
+    left: 10px;
+    transform: translate(0px,-50%);
+}
+
+.details-btn {
+    width: 140px;
+    background: #EAF3FF;
+    border: 1px solid #BEC9D8 !important;
+    border-radius: 10px 10px 0px 0px !important;
+    padding: 15px 10px !important;
+    @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Color_5F5F5F);
+    img {
+        width: 24px;
+        height: 24px;
+        filter: invert(1);
+    }
+}
+
+.active-item{
+    background-color: #EE7402;
+    border: 1px solid #EE7402;
+    @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Colorwhite);
+    img {
+        filter: invert(0);
+    }
+}  
+
+.margin-right {
+    margin: 0px 14px 0px 0px;
+}
+
+.transaction-stats-wrapper {
+    flex-direction: column;
+    @media (min-width: 1180px) {
+        flex-direction: row !important;
+    }
+    
+    .add-transaction-btn-container {
+        text-align: start;
+        @media (min-width: 360px) {
+            text-align: end ;
+        }
+    }
+}
+
+.main_comp {
+    .card {
+        border-radius: 10px;
+        .kebab-menu-container {
+            top: 10px;
+            right: 10px;
+            img {
+                cursor: pointer;
+            }
+            .dropdown-menu{
+                right: 0px;
+                box-shadow: 0px 11px 110px rgba(0, 50, 123, 0.2);
+                border-radius: 8px;
+                padding: 25px 0px;
+                li {
+                    cursor: pointer;
+                }
+            }
+            .dropdown-item.active, .dropdown-item:active{
+                background-color: white;
+            }
+            .dropdown-item.active, .dropdown-item:hover{
+                background-color: white;
+            }
+            .dropdown-item{
+                @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_0A0045)
+            }
+            .delete{
+                color:#FF5C5C !important;
+            }
+        }
+    }
+    h5 {
+        @include fontStyleManager($fontFamilyAvenir, $fontWeightSemiBold, $fontSize26, $Color_0A0045);
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+    h2{
+        @include fontStyleManager($fontFamilyAvenir, $fontWeightSemiBold, $fontSize20, $Color_0A0045);
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+    .nodata{
+        min-height: 500px;
+        background-color: $Colorwhite;
+        border-radius: 10px;
+        p{
+            @include fontStyleManager($fontFamilyInterRegular, $fontWeightRegular, $fontSize35, $Color_5B6D8E);
+        }
+    }
+}
+.card-img {
+    max-width: 120px;
+    @media (max-width:768px) {
+        max-width: 60px;
+    }
+}
+.address-row {
+    .kebab-menu {
+        top: 20px;
+        right: 20px;
+    }
+    h6 {
+        @include fontStyleManager($fontFamilyInterMedium, $fontWeightMedium, $fontSize12, $Color_5B6D8E);
+    }
+    h5 {
+        @include fontStyleManager($fontFamilyAvenir, $fontWeightSemiBold, $fontSize16, $Color_0A0045);
+    }
+}
+span{
+    @include fontStyleManager($fontFamilyInterMedium, $fontWeightMedium, $fontSize20, $Color_5B6D8E);
+    @media (max-width:768px) {
+        font-size: 12px !important;
+    }
+
+}
+
+.net-btn{
+    @include fontStyleManager($fontFamilyInterSemiBold, $fontWeightSemiBold, $fontSize14, $Color_768DA9);
+    background: rgba(255, 100, 43, 0.1);
+    color: #FF642B !important;
+    padding: 9px 18px;
+    border-radius: 44px;
+    @media (max-width:768px) {
+        padding: 5px 8px;
+        font-size: 12px !important;
+    }
+}

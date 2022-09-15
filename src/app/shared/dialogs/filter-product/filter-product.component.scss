@@ -1,0 +1,151 @@
+@import '../../../../assets/variable.scss';
+@import '../../../../assets/common.scss';
+.modal-header{
+    border-bottom: 0px !important;
+    justify-content: end !important;
+    padding: 0px;
+    .button-close {
+        justify-self: right;
+        text-align: end ;
+        border: none;
+        background-color: #FFFFFF;
+        outline: none;  
+        cursor: pointer;
+        svg{
+            height: 20px;
+            width: 20px;
+            cursor: pointer;
+        }      
+    }
+}
+.apply-btn{
+background-color: #EE7402;
+border-radius: 40px;
+width: 100%;
+padding: 16px 5px;
+@include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Colorwhite)
+}
+label{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize18,$Colorwhite);
+    color: #405076 !important    ;
+    @media (max-width:768px) {
+      font-size: 14px !important;
+    }
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+    color: white !important;
+    background-color: #0093D6 !important;
+    border-radius: 100px;
+  svg path{
+      stroke: white;
+      fill: white;
+      opacity: 1;
+  }
+}
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_768DA9 );
+    // border: 1px solid #BFD1E3  !important  ;
+}
+.nav-tabs{
+    display: inline-flex;
+    border: 1px solid #BFD1E3  !important  ;
+    border-radius: 100px;
+    button{
+        padding: 14px 27px;
+        @media (max-width:576px) {
+          padding: 10px;
+          font-size: 14px !important;
+        }
+    }
+}
+.container {
+    display: block;
+    position: relative;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    right: 0;;
+    height: 28px;
+    width: 28px;
+    border: 1.2px solid #A1B3C9;
+    border-radius: 50px;
+    @media (max-width:768px) {
+      height: 22px;
+      width: 22px;    }
+  }
+  /* When the checkbox is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #EE7402;
+    border: 0px;
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+
+  
+  /* Show the checkmark when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .container .checkmark:after {
+    left: 4px;
+    top: 4px;
+    width: 20px;
+    height: 20px;
+    border: solid white;
+    border-radius: 50px;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    @media (max-width:768px) {
+    top: 3px;
+    width: 6px;
+    height: 12px;
+      }
+  }
+  .locationdata{
+    width: 100%;
+    padding:19px 45px 19px 30px;
+    border-radius: 200px;
+    border: 0.5px solid #BFD1E3;
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_0A0045);
+    @media (max-width:768px) {
+        font-size: 14px !important;
+    }
+    ::placeholder{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_768DA9);
+    }
+    .statusupdate{
+        background-color: #23C99A;
+        padding:2px 8px;
+        border-radius: 50px;;
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Colorwhite);
+
+    }
+}

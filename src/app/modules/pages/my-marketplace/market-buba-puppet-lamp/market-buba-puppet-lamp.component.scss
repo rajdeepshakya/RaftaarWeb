@@ -1,0 +1,105 @@
+@import "../../../../../assets/variable.scss";
+@import "../../../../../assets/common.scss";
+.sarvayoga{
+
+    .caraouseldata{
+        position:relative;
+    }
+    .sharedata{
+        position:absolute;
+        top:36px;
+        right: 36px;
+        z-index:9;
+    }
+    .produtdesign{
+        .aboutproductdesign{
+            @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_0093D6)
+        }
+        .tagimg{
+            width:16px;
+            height:16px;
+        }
+        .ellipse{
+            width:6px;
+            height:6px;
+        }
+    }
+.bubapuppet{
+    .buba{
+@include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize24,$Color_0A0045);
+
+    }
+}
+    .Raftarvarify{
+.locationdata{
+    .location{
+      
+        @include fontStyleManager($fontFamilyInterRegular,$fontWeightRegular,$fontSize14,$Color_5B6D8E);
+        //font-size:14px;
+    }
+}
+.varification{
+    background-color:rgba(82, 255, 206, 0.1);
+    border-radius: 50px;
+    padding:11px 19px 13px 19px;
+    cursor: pointer;
+    .varifysign{
+        width:15px;
+        height:15px;
+    }
+    span{
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize12,$Color_0A0045);
+        color:#52FFCE !important;
+    }
+}
+.request{
+    background-color: #FF4746    ;
+   span{
+color: white !important;
+   } 
+}
+}
+.ownership{
+    margin-top:38px;
+    background: rgba(71, 145, 255, 0.05);
+    .logocap{
+        .logocapimage{
+            width:40px;
+            height:40px;
+        }
+    }
+}   
+.aboutproduct{
+    .productcondition{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_gray,);
+}
+.newProduct{
+    background-color: #4791FF;
+    padding:10px 40px;
+    color:#FFFFFF !important;
+    border-radius: 40px;
+
+}
+.producttype{
+    background-color: #FF4746;
+    padding:10px 47px;
+    color:#FFFFFF !important;
+    border-radius: 40px;
+
+
+}
+}
+.aboutbuba{
+    color:#0A0045 !important;
+}
+.InterstedButton{
+    margin-top:78px;
+    color:#FFFFFF !important;
+    background-color: #EE7402;
+    padding:18px 160px;
+    border-radius:40px;
+}
+}
+h3{
+    font-size: 16px !important;
+}

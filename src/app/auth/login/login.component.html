@@ -1,0 +1,135 @@
+<div class="container-fluid p-0">
+    <div class="row m-0 d-flex justify-content-between bg-color">
+        <div class="col-md-6 p-0  sideimg">
+            <div class="signupback">
+                <img src="assets/images/auth.png">
+            </div>
+        </div>
+        <div class="col-md-6  px-md-5 px-3 m-auto">
+            <img class="mt-3 logo" src="assets/images/raftaarrlogo.png" alt="logo">
+            <h4 class="mt-4 mb-0">Welcome back</h4>
+            <p class="formabout">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. lorem is Sed laying
+            </p>
+            <!-- login with phone -->
+            <form *ngIf="mobilelogin" [formGroup]="loginForm" (submit)="onOtpSend(loginForm.value)">
+                <div class="phonedetail d-grid ">
+                    <label>Enter phone number*</label>
+                    <div class="w-100 position-relative  mt-2">
+                        <p class="position-absolute c_input border-end pe-2 me-2">+91 </p>
+                        <p class="counternumber px-2 text-center"><span
+                                *ngIf="countnumber.length<=9 && countnumber.length>0">0</span>{{countnumber.length}}/10
+                        </p>
+                        <input type="text" class="form-control countrycode" formControlName="phone_no" maxlength="10"
+                        [(ngModel)]="number"    oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" pattern="^[1-9][0-9]*$" 
+                   (keydown)="validators.avoidSpace($event)" [(ngModel)]="countnumber" oninput="if(!this.value.match('^[1-9][0-9]*$'))this.value='';"
+                            placeholder="Enter Phone Number">
+                        <!-- <small *ngIf="(submitted && loginForm.get('phone_no').invalid)">                            Phone Number is required
+                        </small>  -->
+                        <small *ngIf="submitted && loginForm.controls.phone_no.invalid" class="alert">
+                            <small *ngIf="loginForm.controls['phone_no'].errors.required">
+                            Phone Number is required
+                            </small>
+                            <small *ngIf="loginForm.controls['phone_no'].errors.pattern">
+                                Phone number must contain 10 digits
+                                </small>
+                        </small>
+                        
+                    </div>
+                </div>
+                <div class="social-login text-center mt-4">
+                    <p>
+                        Or Login With
+                    </p>
+                    <button type="button" class=" py-1"><img src="assets/images/fb.svg" alt=""></button>
+                    <button type="button" class="mx-2  py-1" (click)="googleSignin()"><img src="assets/images/google.svg" alt=""></button>
+                    <button type="button" class=" py-1"><img src="assets/images/linkdin.svg" alt=""></button>
+                </div>
+                <div class="text-center mt-5">
+                    <button type="button" title="login with gmail" class="align-middle
+                     gmailloginbtn"  (click)="loginwithmobile()">
+
+                        <img src="assets/images/sms@1x.png" alt="" class="d-inline-block align-middle mb-1">
+                        Login using email
+
+                    </button>
+                </div>
+                <div class="text-center mt-3">
+                    <button type="submit" class="loginbtn" *ngIf="mobilelogin">Continue</button>
+                </div>
+
+            </form>
+
+            <!-- login with Email -->
+
+            <form class="mt-3" *ngIf="emaillogin" [formGroup]="emailloginForm" (submit)="onSubmit(emailloginForm.value)">
+
+                <div class="phonedetail d-grid ">
+                    <label>Email</label>
+                    <div class="w-100 position-relative ">
+                        <img class="message" src="assets/images/sms-edit.svg" alt="">
+                        <input type="email" class="form-control emaildata ps-3" formControlName="username"
+                       maxlength="30"    (keydown)="validators.avoidSpace($event)" placeholder="Enter the email">
+                            <small *ngIf=" submitted && emailloginForm.controls['username'].invalid" class="alert">
+                                <small *ngIf="submitted && emailloginForm.controls['username'].errors.required">
+                                  Email is required
+                                </small>
+                                <small *ngIf="emailloginForm.get('username').errors.pattern">
+                                    Please enter valid email address
+                                </small>
+                            </small>
+                        
+                    </div>
+                </div>
+                <div class="phonedetail d-grid mt-3 ">
+                    <label>Password</label>
+                    <div class="w-100 position-relative ">
+                        <div (click)="onClick()">
+                            <img class="securepassword" *ngIf="!show" src="assets/images/lock@1x.png" alt=""  width="20px" height="20px">
+                            <img class="securepassword smsdata1" *ngIf="show" src="assets/images/unlock.png" alt="" width="20px" height="20px">
+                        </div>
+                        <!-- <img class="securepassword" src="assets/images/lock@1x.png" alt="" (click)="hidePassword = !hidePassword"> -->
+                        <input [type]="password" class="form-control emaildata ps-3"
+                        maxlength="30" (keydown)="validators.avoidSpace($event)" placeholder="Enter the password"
+                            formControlName="password">
+                            <small *ngIf=" submitted && emailloginForm.controls['password'].invalid " class="alert">
+                                <small *ngIf="submitted && emailloginForm.controls['password'].errors.required">
+                                 Password is required
+                                </small>
+                            </small>
+                    </div>
+                </div>
+                <div class="forgot mt-2 d-flex justify-content-end" (click)="onClickRoute()">
+                    <p>  Forgot Password?  </p>
+                </div>
+                <div class="clearfix"></div>
+                <div class="text-center mt-5">
+                    <button type="button" title="login with gmail" class="align-middle
+              gmailloginbtn" (click)="loginwithemail()">
+
+                        <img src="assets/images/mobile@1x.png" alt="" class="d-inline-block align-middle">
+                        Login with phone
+
+                    </button>
+                </div>
+                <div class="text-center mt-3">
+                    <button type="submit" class="loginbtn" *ngIf="emaillogin">Continue</button>
+                
+    
+                </div>
+            </form>
+            <!-- <div class="text-center mt-3" *ngIf="emaillogin">
+                <button class="loginbtn" (click)="onSubmit()">Continue</button>
+            </div> -->
+
+            <div class="text-center mt-3">
+                <p class="noaccount">Don't have an account?
+                    <button type="button" class="createaccount" routerLink="/signup">Create an account</button>
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,71 @@
+@import "../../../../../assets/variable.scss";
+@import "../../../../../assets/common.scss";
+
+.main{
+    background-color: #EAF3FF    ;
+   
+    h3{
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize20,$Color_0A0045);  
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+    .card{
+        background: #FFFFFF;
+border: 1px solid #E2E9FF;
+box-shadow: 0px 10px 15px rgba(202, 202, 220, 0.25);
+border-radius: 6px;
+              h4{
+                @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize18,$Color_555555);    
+              }
+              span{
+                @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize13,$Color_0A0045);  
+                color: #B8BED1 !important;
+
+              }
+              h3{
+                @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize16,$Color_EE7402);    
+              }
+              p{
+                word-break: break-all;
+                @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize13,$Color_0A0045);  
+                color: #B8BED1 !important;
+                          }
+    }
+}
+.card-img{
+  border-radius: 22px ;
+}
+
+.centercrop{
+  height: 235px;
+  object-fit: cover;
+  width: 100%;
+  border-radius: 20px;
+}
+
+::ng-deep .ngx-pagination .pagination-next a::after{
+  display: none !important;
+  }
+  ::ng-deep .ngx-pagination .pagination-next.disabled::after{
+  display: none !important;
+  }
+  ::ng-deep .ngx-pagination .pagination-previous a::before{
+  display: none !important;
+  }
+  ::ng-deep .ngx-pagination .pagination-previous.disabled::before{
+  display: none !important;
+  }
+  ::ng-deep .ngx-pagination a{
+      margin-left: 5px;
+  }
+  ::ng-deep .ngx-pagination {
+    margin-left: 0 !important;
+    margin-bottom: 1rem !important;
+    line-height: 20px !important;
+    padding: 7px 15px 7px !important;
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize18,$Color_5B6D8E);
+    a{
+    text-decoration: none!important;
+    }
+  }

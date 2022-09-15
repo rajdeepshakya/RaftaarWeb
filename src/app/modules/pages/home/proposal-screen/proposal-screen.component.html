@@ -1,0 +1,35 @@
+<div class="main">
+    <div class="d-flex">
+        <img src="assets/images/arrow-circle-left.svg">
+        <h3 class="ms-2 mb-0">Proposal Screen</h3>
+    </div>
+    <div class="add-new p-md-5 p-3 mt-4">
+        <form class=" p-0 m-0">
+            <div class="locateyourdata ">
+                <h3>Product Description</h3>
+                <textarea type="text" class="form-control addcontent ps-4 main_comp"
+                    formControlName="Enter product description here" maxlength="300" minlength="5"
+                    style="height: 280px;" placeholder="Enter Description"></textarea>
+
+            </div>
+            <div class="locateyourdata mt-3">
+                <h3>Upload a Proposal document</h3>
+                <input style="display: none" type="file" formControlName="upload_resume" (change)="fileupload($event)"
+                    #selectFile>
+                <button (click)="selectFile.click()" class="attachfile">
+                    <img class="me-2" src="assets/images/export_2.svg">Upload file</button>
+            </div>
+            <div *ngIf="files" class="upload-img position-relative d-inline-block mx-2 mb-3 mt-3">
+                <a target="_self" [href]="files" download="pdf">
+                    <img src="assets/images/pdf 3 (1).svg" width="90px" height="90px">
+                </a>
+                <img src="assets/images/close-circle.png" (click)="deleteImg()" class="close position-absolute">
+            </div>
+            <div class="postdata d-flex justify-content-center mt-4 align-items-center ms-2">
+                <button class="btn">Send Proposal</button>
+
+            </div>
+        </form>
+
+    </div>
+</div>

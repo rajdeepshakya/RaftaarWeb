@@ -1,0 +1,214 @@
+<!-- <div class="main_comp customer-detail-container px-3">
+    <div class="d-flex justify-content-between">
+        <div>
+            <button type="button" class="details-btn margin-right rounded-0 py-3" (click)="paymentDetails()">
+                Payment details
+            </button>
+        
+            <button type="button" class="details-btn rounded-0 py-3" (click)="orderDetail()">
+                Order details
+            </button>
+        </div>
+        <div (click)="edit(data.id)">
+            <img src="assets/images/message-edit.svg" alt="">
+        </div>
+    </div>
+
+   
+
+    <div class="card">
+
+        <div class="col-lg-12 p-0">
+            <div class="card-header rounded-5 border-bottom border-1 border-default py-4">
+                Company Info.
+            </div>
+        </div>
+        <div class="row address-row m-0 d-flex justify-content-start align-items-center  border-bottom border-1  border-default  ">
+            <div class="col-lg-6 d-flex align-items-center">
+                <img src="assets/images/item.png" alt="" class="card-img">
+                <div class="px-4">
+                    <h6>Name</h6>
+                    <h5>{{data.company_name | titlecase}}</h5>
+                </div>
+            </div>
+            <div class="col-lg-6 p-lg-4  px-lg-4 p-x-2 p-3 border-md-1 border-0 border-end border-start">
+                <h6>Email</h6>
+                <h5>{{data.email}}</h5>
+            </div>
+        </div>
+
+        <div class="row address-row m-0 d-flex justify-content-start align-items-center  border-bottom border-top border-1  border-default  ">
+            <div class="col-lg-6  p-lg-4  px-lg-4 p-x-2 p-3">
+                <h6>Client’s Address</h6>
+                <h5>{{data.address1}} {{data.address2}}</h5>
+            </div>
+            <div class="col-lg-6 p-lg-4  px-lg-4 p-x-2 p-3 border-md-1 border-0 border-end border-start">
+                <h6>Client’s Contact Number</h6>
+                <h5>{{data.contact_number}}</h5>
+            </div>
+        </div>
+        <div class="row address-row m-0 d-flex justify-content-start align-items-center border-bottom border-top border-1  border-default  ">
+            <div class="col-lg-6  p-lg-4  px-lg-4 p-x-2 p-3">
+                <h6>GSTIN</h6>
+                <h5>{{data.gst_number}}</h5>
+            </div>
+            <div class="col-lg-6 p-lg-4  px-lg-4 p-x-2 p-3 border-md-1 border-0 border-end border-start">
+                <h6>Customer Since</h6>
+                <h5>02/2020</h5>
+            </div>
+        </div>
+        <div class="row address-row m-0 d-flex justify-content-start align-items-center border-bottom border-top border-1  border-default  ">
+            <div class="col-lg-6  p-lg-4  px-lg-4 p-x-2 p-3">
+                <h6>Associated Industry</h6>
+                <h5>{{data.associate_industry}}</h5>
+            </div>
+            <div class="col-lg-6 p-lg-4  px-lg-4 p-x-2 p-3 border-md-1 border-0 border-end border-start">
+                <h6>Sub Category</h6>
+                <h5>{{data.associate_category}}</h5>
+            </div>
+        </div>
+        <div class="row  m-0 border-1 border-bottom border-default mb-4">
+            <div class="col-lg-12 p-0">
+                <div class="card-header border-bottom border-1 border-default py-4">
+                    Account Info.
+                </div>
+                <div
+                    class="row address-row m-0 d-flex justify-content-start align-items-center border-1  border-default ">
+                    <div class="col-lg-4  p-lg-4  px-lg-4 p-x-2 p-3">
+                        <h6>Total Purchase/Sold Amount</h6>
+                        <h5></h5>
+                    </div>
+                    <div class="col-lg-4 p-lg-4  px-lg-4 p-x-2 p-3 border-lg-1 border-default border-end border-start">
+                        <h6>Total amount received till date</h6>
+                        <h5></h5>
+                    </div>
+                    <div class="col-lg-4 p-lg-4  px-lg-4 p-x-2 p-3 border-lg-1 border-default border-end border-start">
+                        <h6>Total amount due</h6>
+                        <h5></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row address-row m-0 d-flex justify-content-md-center justify-content-center border-1 me-md-4  my-4 border-default ">
+            <button type="button" class="btn btn-danger d-inline-block rounded-pill  text-white"
+                title="Block" (click)="blockCustomer(data.id)">Block</button>
+        </div>
+    </div>
+</div> -->
+
+
+
+    
+<div class="main_comp customer-detail-container ps-3">
+    <div class="d-flex justify-content-between">
+        <div class="d-flex details-btn-container">
+            <button type="button" class="details-btn margin-right rounded-0 py-3" (click)="paymentDetails()">
+                Payment details
+            </button>
+        
+            <button type="button" class="details-btn rounded-0 py-3" (click)="orderDetail()">
+                Order details
+            </button>
+        </div>
+        <div (click)="edit(data.id)">
+            <img src="assets/images/message-edit.svg" alt="" class="cursor">
+        </div>
+    </div>
+
+    <ng-container>
+        <div class="card">
+            <!-- <div class="row m-0">
+                <div class="col-lg-12 p-0">
+                    <div class="card-header rounded-5 border-bottom border-1 border-default py-4">
+                        Company Info.
+                    </div>
+                    <div class="row d-flex justify-content-start align-items-center p-md-4 p-2 m-0">
+                        <img src="assets/images/item.png" alt="" class="card-img ">
+                        <div class="w-lg-75 w-50">
+                            <h5>Bobba Puppet lamp</h5>
+                            <span>#7ARAF4567</span>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <div class="col-lg-12 p-0">
+                <div class="card-header border-bottom py-4">
+                    Company Info.
+                </div>
+            </div>
+            <div class="row address-row m-0 d-flex justify-content-start align-items-center  border-bottom">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12 d-flex align-items-center">
+                    <img src="assets/images/item.png" alt="" class="card-img">
+                    <div class="px-4">
+                        <h6>Name</h6>
+                        <h5>{{data.company_name | titlecase}}</h5>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12 p-lg-4  px-lg-4 p-x-2 p-3 border-left">
+                    <h6>Email</h6>
+                    <h5>{{data.email}}</h5>
+                </div>
+            </div>
+
+            <div class="row address-row m-0 d-flex justify-content-start align-items-center  border-bottom">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12  p-lg-4  px-lg-4 p-x-2 p-3">
+                    <h6>Client’s Address</h6>
+                    <h5>{{data.address1}} {{data.address2}}</h5>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12 p-lg-4  px-lg-4 p-x-2 p-3 border-left">
+                    <h6>Client’s Contact Number</h6>
+                    <h5>{{data.contact_number}}</h5>
+                </div>
+            </div>
+            <div class="row address-row m-0 d-flex justify-content-start align-items-center border-bottom">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12  p-lg-4  px-lg-4 p-x-2 p-3">
+                    <h6>GSTIN</h6>
+                    <h5>{{data.gst_number}}</h5>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12 p-lg-4  px-lg-4 p-x-2 p-3 border-left">
+                    <h6>Customer Since</h6>
+                    <h5>02/2020</h5>
+                </div>
+            </div>
+            <div class="row address-row m-0 d-flex justify-content-start align-items-center border-bottom">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12 p-lg-4  px-lg-4 p-x-2 p-3">
+                    <h6>Associated Industry</h6>
+                    <h5>{{data.associate_industry}}</h5>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12 p-lg-4  px-lg-4 p-x-2 p-3 border-left">
+                    <h6>Sub Category</h6>
+                    <h5>{{data.associate_category}}</h5>
+                </div>
+            </div>
+            <div class="row  m-0 border-1 border-bottom">
+                <div class="col-lg-12 p-0">
+                    <div class="card-header border-bottom py-4">
+                        Account Info.
+                    </div>
+                    <div
+                        class="row address-row m-0 d-flex justify-content-start align-items-center ">
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-12  p-lg-4  px-lg-4 p-x-2 p-3">
+                            <h6>Total Purchase/Sold Amount</h6>
+                            <h5></h5>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-12 p-lg-4  px-lg-4 p-x-2 p-3 border-left border-right">
+                            <h6>Total amount received till date</h6>
+                            <h5></h5>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-12 p-lg-4  px-lg-4 p-x-2 p-3">
+                            <h6>Total amount due</h6>
+                            <h5></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row address-row m-0 d-flex justify-content-md-center justify-content-center border-1 me-md-4  my-4 border-default ">
+                <button type="button" class="btn btn-danger d-inline-block rounded-pill  text-white"
+                    title="Block" (click)="blockCustomer(data.id)">Block</button>
+            </div>
+        </div>
+    </ng-container>
+</div>
+
+
+

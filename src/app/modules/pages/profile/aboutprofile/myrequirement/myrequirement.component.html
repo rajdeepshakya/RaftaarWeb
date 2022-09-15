@@ -1,0 +1,87 @@
+
+<div class="main_comp px-md-5 px-3 pt-3">
+    <div class="d-flex pb-3 my-2">
+        <img src="assets/images/arrow-circle-left.svg">
+        <h3 class="ms-2 mb-0">My Requirements</h3>
+    </div>  
+      <div class="requirementdata">
+        <div class="bg-white">
+            <div class="clearfix"></div>
+            <div class="requirements-wrapper">
+                <div class="requirement-content py-3" *ngFor="let data1 of data" [routerLink]="['./req-detail']">
+                    <div class="d-flex justify-content-between align-items-start mx-md-5 mx-3 mt-3">
+                        <div class="logocap d-flex align-items-center ">
+                            <img class="logocapimage " src="assets/images/myreqperson.png" alt="">
+                            <div class="logocapdata ms-4 ">
+                                <h5>Peter Parker</h5>
+                                <p class="">Jan 22, 2022 at 1:30 PM</p>
+                            </div>
+                        </div>
+                        <img src="../../../.assets/images/Meatball1.png" alt="">
+                    </div>
+                    <div class="row mt-2 w-100 ms-0 px-mx-5 px-3">
+                        <h4 class="mt-md-5 mt-3">Requiement </h4>
+                        <div class="col-lg-4">
+                            <div class=" my-4">
+                                <p>Requirement title</p>
+                                <h5 class="mt-2">Need 2000 Units of Water Bottle</h5>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class=" my-4">
+                                <p>Requirement Location</p>
+                                <h5 class="mt-2">Alwarpet, Chennai</h5>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 ">
+                            <div class=" my-4">
+                                <p> No. of Units required</p>
+                                <h5 class="mt-2">200 Units</h5>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 ">
+                            <div class=" my-4">
+                                <p>Lead Time</p>
+                                <h5 class="mt-2">20 days</h5>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 ">
+                            <div class=" my-4">
+                                <p>Payment term</p>
+                                <h5 class="mt-2">Net Banking</h5>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 ">
+                            <div class=" my-4">
+                                <h5>Categoty 1=3</h5>
+                                <p>Industry</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 ">
+                            <div class=" my-4">
+                                <h5>Custom field</h5>
+                                <p>Lorem, ipsum.</p>
+                            </div>
+                        </div>
+                    </div>
+    <hr>
+                    <div class="d-flex mt-4 px-md-5 px-3 align-items-center justify-content-center">
+                        <div class="d-flex align-items-center">
+                            <img src="../../../.assets/images/Heart.png" alt="">
+                            <p class="ms-2">Intersted Users</p>
+                        </div>
+                        <div class="d-flex align-items-center ms-md-0 ms-2">
+                            <img class="likeshare" src="../../../.assets/images/boost.png" alt="">
+                            <p class="ms-2">Boost Post</p>
+                        </div>
+                      <div class="d-flex align-items-center  ms-md-0 ms-2">
+                        <img class="likeshare" src="../../../.assets/images/Reply.png" alt="">
+                        <p class="ms-2"> 105 Share</p>
+                      </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

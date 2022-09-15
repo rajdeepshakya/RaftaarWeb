@@ -1,0 +1,42 @@
+<div class="modal-header pb-0">
+    <button class="button-close mb-2" mat-button [mat-dialog-close]="false">
+       <img src="assets/images/arrow_close.svg">
+    </button>
+</div>
+<div class="modal-body pt-0 text-center">
+    <img src="assets/images/reporticon.svg">
+    <h1 class="pt-3 px-3">why you are reporting this post/requirement</h1>
+<div class="text-left">
+    <h3 class="ms-3">Please select a reason</h3>
+    <form [formGroup]="reportForm"  >
+        <div class="d-flex flex-column locateyourdata">
+                <select placeholder="Select"
+                class=" locationdata form-select my-2"  [ngClass]="{ 'is-invalid': submitted && f['Label'].errors}"  formControlName="Label"
+                    (change)="selectReason($event)">
+                    <option value="" disabled selected hidden>Select</option>
+                    <option *ngFor="let items of Reason" [value]="items.value">{{items.label}}
+                    </option>
+                </select>
+                <div *ngIf=" submitted && f['Label'].errors" class="invalid-feedback ">
+                    <div *ngIf="submitted && f['Label'].errors['required']">plese Select reason</div>
+                </div>
+                <div *ngIf="showOther" class="locateyourdata ">
+                    <h3 class="ms-3">Description</h3>
+                    <input type="text" class=" locationdata  my-2" 
+                    [ngClass]="{ 'is-invalid': submitted && f['other'].errors}" formControlName="other"
+                        placeholder="Enter other">
+                        <div *ngIf=" submitted && f['other'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['other'].errors['required']">other is required</div>
+                        </div>
+                </div>
+        </div>
+        <div class="modal-footer d-flex justify-content-between my-4">
+            <button type="button" class="btn report me-2" (click)="Submit(reportForm.value)" >Yes, Report</button>
+            <button type="button" class="btn cancel ms-2" (click)="Cancel()" >Go, back</button>
+        </div>
+    </form>
+</div>
+
+ 
+</div>
+

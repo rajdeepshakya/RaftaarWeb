@@ -1,0 +1,20 @@
+@import '../../../../assets/variable.scss';
+@import '../../../../assets/common.scss';
+.modal-header{
+    border-bottom: 0px !important;
+    justify-content: end !important;
+}
+.modal-body {
+    text-align: center !important;
+    margin-top: -20px;
+    h2{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize18,$Color_0A0045) 
+    }
+   p{
+    line-height: 20px;
+    font-size: 14px !important;
+   } 
+}
+
+
+

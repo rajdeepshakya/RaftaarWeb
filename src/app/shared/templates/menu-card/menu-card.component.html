@@ -1,0 +1,27 @@
+<div class="dashboard-container">
+    <form >
+        <div class="behindimgdata position-relative">
+            <img [ngClass]="{
+                'backimg': profileDetails?.profile_cover,
+                'backimg1': !profileDetails?.profile_cover
+                }"  width="100%" height="200px" [src]="profileDetails?.profile_cover? profileDetails?.profile_cover:'assets/images/Placeholdder_image.jpg'"
+            onError="this.src='assets/images/Placeholdder_image.jpg';this.style='object-fit:contain'">
+            <!-- <label class="hoverable" for="fileInput"> -->
+                <!-- <img class="clickbackphoto position-absolute" src="assets/images/Camera(1x).png" alt=""> -->
+            <!-- </label> -->
+            <!-- <input id="fileInput" type='file'  (change)="onFileChange($event)"> -->
+            <!-- <button *ngIf="url" (click)="delete()">delete</button> -->
+            <img width="130px" height="130px" class="rectangleimg position-absolute border rounded-circle"
+            [src]="profileDetails?.profile_pic ? profileDetails.profile_pic :'assets/images/Profile_1.svg'" 
+            onError="this.src='assets/images/Profile_1.svg'" alt="">
+        </div>
+        <div class="details">
+            <h4 class="ms-1">{{profileDetails?.company_name}}</h4>
+            <div class="d-flex align-items-start">
+                <img src="assets/images/location_2.svg" alt="">
+                <p>{{profileDetails?.address}}</p>
+            </div>
+
+        </div>
+    </form>
+</div>

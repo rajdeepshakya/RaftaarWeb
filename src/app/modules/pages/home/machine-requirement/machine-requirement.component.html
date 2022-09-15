@@ -1,0 +1,248 @@
+<div class="main">
+    <div class="d-flex">
+        <img (click)="goBack()" src="assets/images/arrow-circle-left.svg">
+        <h3 (click)="goBack()" class="ms-2 mb-0">Machine</h3>
+    </div>
+    <div class="add-new p-md-5 p-3 mt-4">
+        <div class="row p-0 m-0" [formGroup]="machineForm">
+            <div class="col-md-6">
+                <div class="adddocumentpage ">
+
+                    <div class="locateyourdata ">
+                        <div class="d-flex flex-column locateyourdata phonedetails">
+                            <h3>Buy / Sell</h3>
+                            <mat-form-field appearance="fill" class="">
+                                <!-- <img class="droparrow" src="assets/images/arrow-down.svg"> -->
+                                <mat-select (selectionChange)="openModal($event)" type="text" max="999999"
+                                    placeholder="Select" formControlName="select_machine_option">
+                                    <mat-option *ngFor="let data of machineoption" [value]="data">{{data}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <small *ngIf="submitted && machineForm.controls['select_machine_option'].invalid "
+                            class="alert px-0 select-box-alert">
+                            <small *ngIf="submitted && machineForm.controls['select_machine_option'].errors.required">
+                                Buy / Sell is required
+                            </small>
+                        </small>
+
+                    </div>
+                    <div class="locateyourdata ">
+                        <div class="d-flex flex-column locateyourdata phonedetails">
+                            <h3>Industry</h3>
+                            <mat-form-field appearance="fill" class="">
+                                <!-- <img class="droparrow" src="assets/images/arrow-down.svg"> -->
+                                <mat-select type="text" placeholder="Select industry" formControlName="category1_id"
+                                    (selectionChange)="getSubCatagory($event); brand($event)">
+                                    <mat-option *ngFor="let category1List of industry" [value]="category1List.id">
+                                        {{category1List.title}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <small *ngIf="submitted && machineForm.controls['category1_id'].invalid "
+                            class="alert px-0 select-box-alert">
+                            <small *ngIf="submitted && machineForm.controls['category1_id'].errors.required">
+                                Industry is required
+                            </small>
+                        </small>
+                    </div>
+                    <div class="locateyourdata ">
+                        <div class="d-flex flex-column locateyourdata phonedetails">
+                            <h3>Product type</h3>
+                            <mat-form-field appearance="fill" class="">
+                                <!-- <img class="droparrow" src="assets/images/arrow-down.svg"> -->
+                                <mat-select type="text" placeholder="Select product type"
+                                    [ngClass]="{ 'is-invalid': submitted && f['category3_id'].errors}" max="999999"
+                                    formControlName="category3_id" (selectionChange)="productsubType($event)">
+                                    <mat-option *ngFor="let producttype of producttype" [value]="producttype.id">
+                                        {{producttype.title}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <small *ngIf="submitted && machineForm.controls['category3_id'].invalid "
+                            class="alert px-0 select-box-alert">
+                            <small *ngIf="submitted && machineForm.controls['category3_id'].errors.required">
+                                Product type is required
+                            </small>
+                        </small>
+                    </div>
+                    <div *ngIf="showProductType" class="locateyourdata ">
+                        <h3>Enter Product type</h3>
+                        <input type="text" class="locationdata  "
+                            [ngClass]="{ 'is-invalid': submitted && f['product_type'].errors}"
+                            formControlName="product_type" placeholder="Enter product type">
+                        <div *ngIf=" submitted && f['product_type'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['product_type'].errors['required']">product type is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="locateyourdata ">
+                        <div class="d-flex flex-column locateyourdata phonedetails">
+                            <h3>Product brand</h3>
+                            <mat-form-field appearance="fill" class="">
+                                <!-- <img class="droparrow" src="assets/images/arrow-down.svg"> -->
+                                <mat-select type="text" placeholder="Select product brand" formControlName="brand_id">
+                                    <mat-option *ngFor="let productBrand of productBrand" [value]="productBrand.id">
+                                        {{productBrand.brand_name}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <small *ngIf="submitted && machineForm.controls['brand_id'].invalid "
+                            class="alert px-0 select-box-alert">
+                            <small *ngIf="submitted && machineForm.controls['brand_id'].errors.required">
+                                Product brand is required
+                            </small>
+                        </small>
+                    </div>
+                    <div class="locateyourdata ">
+                        <h3>Capacity</h3>
+                        <input type="text" class=" locationdata   "
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                            maxlength="9" [ngClass]="{ 'is-invalid': submitted && f['capacity'].errors}"
+                            formControlName="capacity" placeholder="Enter capacity">
+                        <div *ngIf=" submitted && f['capacity'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['capacity'].errors['required']">Capacity is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="locateyourdata ">
+                        <h3>Units</h3>
+                        <input type="text" class=" locationdata  "
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                            maxlength="9" [ngClass]="{ 'is-invalid': submitted && f['unit_type'].errors}"
+                            formControlName="unit_type" placeholder="Enter units">
+                        <div *ngIf=" submitted && f['unit_type'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['unit_type'].errors['required']">Units is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="locateyourdata">
+                        <h3>Urgency</h3>
+                        <input type="text" class=" locationdata " maxlength="30"
+                            [ngClass]="{ 'is-invalid': submitted && f['urgency'].errors}" formControlName="urgency"
+                            placeholder="Enter urgency">
+                        <div *ngIf=" submitted && f['urgency'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['urgency'].errors['required']">Urgency is required
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="adddocumentpage ">
+                    <div class="locateyourdata ">
+                        <div class="d-flex flex-column locateyourdata phonedetails">
+                            <h3>Business Activity</h3>
+                            <mat-form-field appearance="fill" class="">
+                                <!-- <img class="droparrow" src="assets/images/arrow-down.svg"> -->
+                                <mat-select type="text" (selectionChange)="getIndustry($event)"
+                                    placeholder="Select business activtiy" formControlName="industry_id">
+                                    <mat-option *ngFor="let industry of business" [value]="industry.id">
+                                        {{industry.industry_name}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <small *ngIf="submitted && machineForm.controls['industry_id'].invalid "
+                            class="alert px-0 select-box-alert">
+                            <small *ngIf="submitted && machineForm.controls['industry_id'].errors.required">
+                                Business activity is required
+                            </small>
+                        </small>
+                    </div>
+
+                    <div class="locateyourdata ">
+                        <div class="d-flex flex-column locateyourdata phonedetails">
+                            <h3>Sub-Category</h3>
+                            <mat-form-field appearance="fill" class="">
+                                <!-- <img class="droparrow" src="assets/images/arrow-down.svg"> -->
+                                <mat-select type="text" placeholder="Select product sub-category"
+                                    formControlName="category2_id" (selectionChange)="productTypes($event)">
+                                    <mat-option *ngFor="let subCatagory of subCatagory" [value]="subCatagory.id">
+                                        {{subCatagory.title}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <small *ngIf="submitted && machineForm.controls['category2_id'].invalid "
+                            class="alert px-0 select-box-alert">
+                            <small *ngIf="submitted && machineForm.controls['category2_id'].errors.required">
+                                Sub category is required
+                            </small>
+                        </small>
+                    </div>
+                    <div class="locateyourdata ">
+                        <div class="d-flex flex-column locateyourdata phonedetails">
+                            <h3>Product sub-type</h3>
+                            <mat-form-field appearance="fill" class="">
+                                <!-- <img class="droparrow" src="assets/images/arrow-down.svg"> -->
+                                <mat-select type="text" placeholder="Select product sub-type"
+                                    (selectionChange)="selectProductSubType($event)" formControlName="category4_id">
+                                    <mat-option *ngFor="let substype of substype" [value]="substype.id">
+                                        {{substype.title}}</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        <small *ngIf="submitted && machineForm.controls['category4_id'].invalid "
+                            class="alert px-0 select-box-alert">
+                            <small *ngIf="submitted && machineForm.controls['category4_id'].errors.required">
+                                Product sub type is required
+                            </small>
+                        </small>
+                    </div>
+                    <div *ngIf="showProductSubType" class="locateyourdata ">
+                        <h3>Enter Product sub-type</h3>
+                        <input type="text" class=" locationdata  " maxlength="30"
+                            [ngClass]="{ 'is-invalid': submitted && f['product_sub_type'].errors}"
+                            formControlName="product_sub_type" placeholder="Enter product sub-type">
+                        <div *ngIf=" submitted && f['product_sub_type'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['product_sub_type'].errors['required']">Units is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="locateyourdata ">
+                        <h3>Description</h3>
+                        <textarea type="text" class=" addcontent ps-4 main_comp" maxlength="300"
+                            [ngClass]="{ 'is-invalid': submitted && f['description'].errors}"
+                            formControlName="description" maxlength="1500" placeholder="Enter Description">
+                        </textarea>
+                        <div *ngIf=" submitted && f['description'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['description'].errors['required']">Description is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="locateyourdata  ">
+                        <h3>Price</h3>
+                        <input type="text" class=" locationdata ps-5" maxlength="9"
+                            [ngClass]="{ 'is-invalid': submitted && f['price'].errors}"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                            formControlName="price" placeholder="Enter price">
+                            <p class="position-absolute price">₹</p>
+                        <div *ngIf=" submitted && f['price'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['price'].errors['required']">Price is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="locateyourdata " formArrayName="custom_fields">
+                        <div [formGroupName]="i" *ngFor="let customfield of customfields; let i=index;">
+                            <h3>{{customfield}}</h3>
+                            <input type="text" class=" locationdata mb-2 " formControlName="content"
+                                placeholder="Please enter {{customfield}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="adddocumentpage d-flex mt-5 justify-content-center">
+                    <div class="postdata d-flex justify-content-between align-items-center me-2">
+                        <button class="customfield" (click)="addfield()">Add Custom Field<img></button>
+                    </div>
+                    <div class="postdata d-flex justify-content-between align-items-center ms-2">
+                        <button *ngIf="!editFlag" (click)="postPublish(machineForm.value)">Post<img></button>
+                        <button *ngIf="editFlag" (click)="postPublish(machineForm.value)">Save<img></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

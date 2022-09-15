@@ -1,0 +1,31 @@
+@import "../../../../../assets/variable.scss";
+@import "../../../../../assets/common.scss";
+.user-chat{
+    background-color: white;
+    border-radius: 15px;
+
+    h4{
+        @include fontStyleManager($fontFamilyAvenir,$fontWeightExtraBold,$fontSize16,$Color_1B194B);  
+    }
+    p{
+        @include fontStyleManager($fontFamilyInterRegular,$fontWeightRegular,$fontSize12,$Color_768DA9);    
+    }
+    h5{
+        @include fontStyleManager($fontFamilyInterRegular,$fontWeightRegular,$fontSize12,$Color_768DA9); 
+        color: #0093D6 !important;     
+    }
+    .notification{
+        width: 27px;
+        height: 27px;
+        background: #0093D6;
+        border-radius: 100px;
+        p{
+            @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize12,$Colorwhite);   
+            padding: 4px 9px;  
+        }
+        
+    }
+    .black{
+        color: #0A0045 !important;
+    }
+}

@@ -1,0 +1,77 @@
+@import "../../../../../assets/variable.scss";
+@import "../../../../../assets/common.scss";
+// .nav-tabs{
+//     // background-color: #104798    ;
+// }
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active{
+    border-bottom: 4px solid white !important;
+    @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize14,$Colorwhite)
+
+}
+button{
+    background-color: transparent !important;
+    width: 199px;
+    padding: 22px 25px;
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_0A0045);
+    @media (max-width:991px) {
+        width: 100%;
+        padding: 10px;
+    }
+}
+.profile{
+    background-color: #EAF3FF    ;
+    border-radius: 15px;
+
+}
+.aboutprofile{
+    background-color: white;
+    border-radius: 14px 0px 0px 14px;
+}
+.tab-content {
+    border-radius: 0px 14px 14px 0px;
+
+}
+.arrow{
+    display: none;
+}
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+    color: #EE7402  !important  ;
+    background-color: white !important;
+    
+    .arrow{
+        display: block
+    }
+    // background-color: transparent;
+}
+.ads-para{
+    p{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_5B6D8E);
+    }
+}
+.see-products{
+    background-color: white;
+    border-radius: 0px 15px;
+}
+.ads{
+    p{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_768DA9);
+    }
+    button{
+        border: 1px solid #002280 !important;
+        border-radius: 40px;
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Color_002280); 
+    }
+}
+.nav{
+    background-color: #F3F6FB    ;
+    height: 100%;
+    border-radius: 15px 0px 0px 15px;
+
+    @media (max-width:991px) {
+        width: 100%;
+        border: 0px !important;
+    }
+}
+h3{
+    @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize20,$Color_0A0045); 
+}

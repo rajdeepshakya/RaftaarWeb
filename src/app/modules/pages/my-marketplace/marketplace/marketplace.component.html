@@ -1,0 +1,75 @@
+<section class="main_comp px-md-5 px-3 pb-md-5 pb-3 pt-4"  >
+    <div class="d-flex mb-4 main justify-content-between align-items-center flex-wrap" >
+        <div class="d-flex">
+            <img (click)="goBack()" src="assets/images/arrow-circle-left.svg">
+            <h3 (click)="goBack()" class="mb-0 ms-2 ">My Marketplace Product</h3>
+        </div>
+        <div class="d-flex justify-content-between marketplace-list ">
+            <button class="btn battery-btn" [routerLink]="['/main/marketplace/add-new-product']">
+                <img class="me-2" src="assets/images/add-circle_2.svg"> Add Product</button>
+            <img src="assets/images/newfilter.svg" (click)="filterDialog()">
+        </div>
+    </div>
+    <div class="requirement-detail p-md-5 p-3">
+        <div class="card mb-3" *ngFor="let product of productName">
+            <div class="row g-0">
+                <div class="col-md-3 images" (click)="onview(product.id)">
+                    <img [src]="product.shapeImageUrl" class="list-img" alt="..." width="250px" height="229px">
+                    <!-- <div class="upload-img position-relative d-inline-block mb-3"
+                    *ngFor="let document of pdf; let i = index">
+                    <a target="_self" [href]="document?.url" download="pdf">
+                        <img src="assets/images/pdf 3 (1).svg" width="109px" height="109px">
+                    </a>
+                    <img src="assets/images/close-circle.png" class="close position-absolute">
+                </div> -->
+                </div>
+                <div class="col-md-9 list-details">
+                    <div class="card-body pe-md-5 pe-3">
+                        <div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center mt-2">
+                                    <img src="assets/images/tag_4.svg">
+                                    <p class="mb-0 design ps-3">{{product?.Category1?.title}} • {{product?.Category2.title}}</p>
+                                </div>
+                                <div>
+                                    <div class="d-flex justify-content-end dropdown">
+                                        <img src="assets/images/Group 1023.svg" width="25px" height="25px"
+                                            id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                            <li (click)="edit(product.id)"><a class="dropdown-item">
+                                                    <img src="assets/images/edit-2.svg" class="me-3 mb-2">
+                                                    Edit</a></li>
+                                            <li (click)="delete(product.id)"><a class="dropdown-item delete mt-3">
+                                                    <img src="assets/images/trash.svg" class="me-3 mb-2">
+                                                    Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center mt-3">
+                                <h3 class="mb-0 ">{{product.Category3?product.Category3.title:product.product_type}}</h3>
+                            </div>
+                            <div class="d-flex align-items-center mt-3">
+                                <img src="assets/images/location_2.svg">
+                                <p class="mb-0 location ps-3">{{product?.location}}</p>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-end mt-3">
+                                <!-- <div class="d-flex">
+                                    <img src="assets/images/verify_4.svg">
+                                    <p class="mb-0 verified ps-3">Raftaarr Verified</p>
+                                </div> -->
+                                <h4>₹ {{product?.price}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+            
+        </div>
+        <div class="d-flex justify-content-center align-items-center nodata" *ngIf="show">
+            <p class="mb-0">No data found</p>
+     </div>
+    </div>
+
+</section>

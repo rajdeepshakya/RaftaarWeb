@@ -1,0 +1,68 @@
+@import '../../../../assets/common.scss';
+@import '../../../../assets/variable.scss';
+.section{
+
+.card{
+    border:0px solid rgba(161, 179, 201, 0.6) !important;
+  
+    // border-radius: 13.6418px;
+ 
+    .card-text{
+        color: $Color_768DA9;
+    }
+    .card-header{
+        background-color: #002280 ;
+        border-radius:  0px;
+        h4{
+            color: white !important;
+            font-size: 14.66px !important;
+        }
+    }
+}
+}
+.card-body{
+    padding: 20px 35px !important;
+    @media (max-width:768px) {
+        padding: 10px 15px !important;
+
+    }
+}
+.avatar{
+    @media (max-width:768px) {
+width: 32px;
+height: 32px;
+    }  
+}
+.color_grey{
+    font-size: 14px !important;
+    @media (max-width:768px) {
+        font-size: 12px !important;
+
+    }
+}
+.min-ago{
+    color: #5B6D8E !important ;
+    font-size: 12px !important;
+}
+.card-text{
+    font-size: 16px !important;
+    @media (max-width:768px) {
+        font-size: 14px !important;
+
+    }
+}
+.card-header{
+    border-radius:  0px;
+    border:0px;
+    background-color: transparent;
+    h4{
+        color: #FF642B            !important;
+        font-size: 14.66px !important;
+    }
+}
+.show-interest{
+    @media (max-width:768px) {
+        width: 20px;
+        height: 20px;
+            }   
+}

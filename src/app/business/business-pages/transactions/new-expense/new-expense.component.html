@@ -1,0 +1,200 @@
+<div class="px-3">
+    <div class="d-flex justify-content-between align-items-center">
+        <div class="add-customer-heading py-3">{{addNewExpense?'Add new expense': 'Edit expense'}}</div>
+        <!-- <img src="assets/images/kebab-menu-transaction.png" alt=""> -->
+    </div>
+    <form class="add-customer-container" [formGroup]="expenseForm">
+        <div class="">
+            <div class="d-flex input-container">
+                <div class="locateyourdata">
+                    <label class="titledata fs-5">Types of expense</label>
+                    <div class="position-relative">
+                        <select formControlName="expenses_type"
+                        [ngClass]="{ 'is-invalid': submitted && f['expenses_type'].errors}"  class="form-control locationdata  form-select  mt-2 mb-4 ">
+                            <option value="" disabled selected hidden>Variable expense</option>
+                            <option *ngFor="let data of expenses_type" [value]="data.id">{{data.value}}</option>
+                        </select>
+                        <div *ngIf=" submitted && f['expenses_type'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['expenses_type'].errors['required']">expenses type is Required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="locateyourdata">
+                    <label class="titledata fs-5 ">Notes</label>
+                    <div class="position-relative">
+                        <input type="text"
+                        [ngClass]="{ 'is-invalid': submitted && f['note'].errors}"
+                         class="form-control countrycode locationdata mt-2 mb-4 "
+                            formControlName="note" placeholder="Enter notes" />
+                            <div *ngIf=" submitted && f['note'].errors" class="invalid-feedback">
+                                <div *ngIf="submitted && f['note'].errors['required']">note is Required
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <div class="d-flex input-container">
+                <div class="locateyourdata  position-relative c_input">
+                    <label class="titledata fs-5 ">Company / Client name</label>
+                    <div class="position-relative">
+                        <input type="text"
+                        [ngClass]="{ 'is-invalid': submitted && f['company_name'].errors}" class="form-control countrycode locationdata mt-2 mb-4 "
+                            formControlName="company_name" placeholder="Enter company / client name" />
+                            <div *ngIf=" submitted && f['company_name'].errors" class="invalid-feedback">
+                                <div *ngIf="submitted && f['company_name'].errors['required']">company name is Required
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="locateyourdata">
+                    <label class="titledata fs-5">Associated order number</label>
+                    <div class="position-relative">
+                        <input type="text" class="form-control countrycode locationdata mt-2 mb-4 "
+                        [ngClass]="{ 'is-invalid': submitted && f['associated_order_no'].errors}" 
+                            formControlName="associated_order_no" placeholder="Enter associated order number" />
+                            <div *ngIf=" submitted && f['associated_order_no'].errors" class="invalid-feedback">
+                                <div *ngIf="submitted && f['associated_order_no'].errors['required']">associated order no is Required
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <div class="d-flex input-container">
+                <div class="locateyourdata">
+                    <label class="titledata fs-5">Tax type</label>
+                    <div class="position-relative">
+                        <select formControlName="tax_type"
+                        [ngClass]="{ 'is-invalid': submitted && f['tax_type'].errors}"  class="form-control locationdata form-select   mt-2 mb-4 " max="999999">
+                            <option value="" disabled selected hidden>Variable expense</option>
+                            <option *ngFor="let data of tax_type" [value]="data.id">{{data.value}}</option>
+                        </select>
+                        <div *ngIf=" submitted && f['tax_type'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['tax_type'].errors['required']">tax type is Required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="locateyourdata">
+                    <label class="titledata fs-5 ">Tax percentage</label>
+                    <div class="position-relative">
+                        <input type="text" formControlName="tax_percentage"
+                        [ngClass]="{ 'is-invalid': submitted && f['tax_percentage'].errors}"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                            class="form-control locationdata   mt-2 mb-4 " placeholder="Enter tax percentage" />
+                            <div *ngIf=" submitted && f['tax_percentage'].errors" class="invalid-feedback">
+                                <div *ngIf="submitted && f['tax_percentage'].errors['required']">tax percentage is Required
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <div class="d-flex input-container">
+                <div class="locateyourdata">
+                    <label class="titledata fs-5 ">Total amount payable</label>
+                    <div class="position-relative">
+                        <input type="text" formControlName="amount_payable"
+                            class="form-control locationdata   mt-2 mb-4 "
+                            [ngClass]="{ 'is-invalid': submitted && f['amount_payable'].errors}"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                            placeholder="Enter amount payable" />
+                            <div *ngIf=" submitted && f['amount_payable'].errors" class="invalid-feedback">
+                                <div *ngIf="submitted && f['amount_payable'].errors['required']">amount payable is Required
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="locateyourdata">
+                    <label class="titledata fs-5 ">Total amount paid</label>
+                    <div class="position-relative">
+                        <input type="text" formControlName="amount_paid"
+                        [ngClass]="{ 'is-invalid': submitted && f['amount_paid'].errors}" class="form-control locationdata   mt-2 mb-4 "
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                            placeholder="Enter total amount paid" />
+                            <div *ngIf=" submitted && f['amount_paid'].errors" class="invalid-feedback">
+                                <div *ngIf="submitted && f['amount_paid'].errors['required']">amount paid is Required
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <div class="d-flex input-container">
+                <div class="locateyourdata">
+                    <label class="titledata fs-5 ">Balance amount</label>
+                    <div class="position-relative">
+                        <input type="text" formControlName="balance_amount"
+                        [ngClass]="{ 'is-invalid': submitted && f['balance_amount'].errors}"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                            class="form-control locationdata   mt-2 mb-4 " placeholder="Enter balance amount" />
+                            <div *ngIf=" submitted && f['balance_amount'].errors" class="invalid-feedback">
+                                <div *ngIf="submitted && f['balance_amount'].errors['required']">balance amount is Required
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="locateyourdata">
+                    <label class="titledata fs-5 ">Mode of payment</label>
+                    <div class="position-relative">
+                        <select formControlName="mode_of_payment"
+                        [ngClass]="{ 'is-invalid': submitted && f['mode_of_payment'].errors}" class="form-control locationdata form-select   mt-2 mb-4 "
+                            max="999999">
+                            <option value="" disabled selected hidden>Variable expense</option>
+                            <option *ngFor="let data of mode_of_payment" [value]="data.id">{{data.value}}</option>
+                        </select>
+                        <div *ngIf=" submitted && f['mode_of_payment'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['mode_of_payment'].errors['required']">mode of payment is Required
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <div class="d-flex input-container">
+                <div class="locateyourdata">
+                    <label class="titledata fs-5 ">Date of payment</label>
+                    <div class="position-relative">
+                        <input type="date" formControlName="date_of_payment"
+                        [ngClass]="{ 'is-invalid': submitted && f['mode_of_payment'].errors}"
+                            class="form-control locationdata   mt-2 mb-4 " placeholder="Select" />
+                            <div *ngIf=" submitted && f['mode_of_payment'].errors" class="invalid-feedback">
+                                <div *ngIf="submitted && f['mode_of_payment'].errors['required']">mode of payment is Required
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="locateyourdata">
+                    <label class="titledata fs-5 ">Receipt number</label>
+                    <div class="position-relative">
+                        <input type="text" formControlName="receipt_no"
+                        [ngClass]="{ 'is-invalid': submitted && f['receipt_no'].errors}" class="form-control locationdata   mt-2 mb-4 "
+                            placeholder="Enter receipt number" />
+                            <div *ngIf=" submitted && f['receipt_no'].errors" class="invalid-feedback">
+                                <div *ngIf="submitted && f['receipt_no'].errors['required']">receipt no is Required
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="postdata pt-3 pb-5 text-center">
+
+            <button class="px-4 submit-btn" *ngIf="!editFlag" (click)="submitExpense(expenseForm.value)">Post</button>
+            <button class="px-4 submit-btn" *ngIf="editFlag" (click)="submitExpense(expenseForm.value)">Save</button>
+        </div>
+    </form>
+</div>

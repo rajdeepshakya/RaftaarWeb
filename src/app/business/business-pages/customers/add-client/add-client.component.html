@@ -1,0 +1,293 @@
+<div class="px-3">
+    <div class="d-inline-flex pb-3 cursor" (click)="navigateBack()">
+        <img src="assets/images/arrow-circle-left.svg" alt="" />
+        <div class="add-customer-heading ms-2">{{addPage? 'Add Customer' : 'Edit Customer' }}</div>
+    </div>
+    
+    <form [formGroup]="clientForm" class="add-customer-container">
+        <div class="">
+
+            <div class="d-flex input-container">
+                <div class="locateyourdata">
+                    <label class="titledata d-block py-3">Company Name</label>
+                    <input type="text" formControlName="company_name"
+                    maxlength="50"   [ngClass]="{ 'is-invalid': submitted && f['company_name'].errors}"
+                        class=" locationdata" placeholder="Enter company name">
+                    <div *ngIf=" submitted && f['company_name'].errors" class="invalid-feedback">
+                        <div *ngIf="submitted && f['company_name'].errors['required']">Company name is required
+                        </div>
+                    </div>
+                </div>
+                <div class="locateyourdata">
+                    <label class="titledata d-block py-3">Company Email Address</label>
+                    <input type="text" formControlName="email"
+                    maxlength="50"   [ngClass]="{ 'is-invalid': submitted && f['email'].errors}"
+                        class="locationdata" placeholder="Enter company email address">
+                    <div *ngIf=" submitted && f['email'].errors" class="invalid-feedback">
+                        <div *ngIf="submitted && f['email'].errors['required']">Email is required
+                        </div>
+                        <div *ngIf="submitted && f['email'].errors['pattern']">Enter a valid email
+                        </div>
+                    </div>
+ 
+                </div>
+            </div>
+        </div>
+
+        <div class="">
+            <div class="d-flex input-container">
+                <div class="locateyourdata  position-relative c_input">
+                    <label class="titledata d-block py-3">Company Contact Number</label>
+                    <div>
+                        <div class="position-relative">
+                            <!-- <select class="country-code mx-1">
+                                <option  >+91</option>           
+                                 </select> -->
+                            <input type="text" class=" countrycode locationdata ps-5"
+                            [ngClass]="{ 'is-invalid': submitted && f['contact_number'].errors}" maxlength="10"
+                             formControlName="contact_number" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" [(ngModel)]="counternumber"
+                             oninput="if(!this.value.match('^[1-9][0-9]*$'))this.value='';" placeholder="8586047187" />
+                            
+                            <p   class="country-code mx-1 pe-2">+91 | </p>
+                            <p class="counternumber px-2 text-center">
+                                <span
+                                    *ngIf="counternumber.length<=9 && counternumber.length>0">0</span>{{counternumber.length}}/10
+                            </p>
+                            <!-- <div *ngIf=" submitted && f['contact_number'].invalid" class="invalid-feedback">
+                                <div *ngIf="f['contact_number'].errors?.required">Contact number is required
+                                </div>
+                            </div> -->
+                        </div>
+                        <div *ngIf=" submitted && f['contact_number'].invalid">
+                            <div *ngIf="f['contact_number'].errors?.required" class="error-msg">Contact number is required
+                            </div>
+                        </div>
+                    </div>
+                   
+                    
+
+                    
+                </div>
+                <div class="locateyourdata">
+                    <label class="titledata d-block py-3">Address 1</label>
+                    <div>
+                        <div class="position-relative">
+                            <!-- <img class="droparrow" src="assets/images/gps.png"> -->
+                            <input type="text" formControlName="address1"
+                                [ngClass]="{ 'is-invalid': submitted && f['address1'].errors}"
+                                class=" locationdata" placeholder="Choose location 1" />
+                        </div>
+                        <div *ngIf=" submitted && f['address1'].invalid">
+                            <div *ngIf="submitted && f['address1'].errors?.required" class="error-msg">Address 1 is required
+                            </div>
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+
+        <div class="">
+            <div class="d-flex input-container">
+                <div class="locateyourdata">
+                    <label class="titledata d-block py-3">Address 2</label>
+                    <div>
+                        <div class="position-relative">
+                            <input type="text" formControlName="address2"
+                              [ngClass]="{ 'is-invalid': submitted && f['address2'].errors}"
+                                class=" locationdata" placeholder="Choose location 2" />
+                        </div>
+                        <div *ngIf=" submitted && f['address2'].invalid">
+                            <div *ngIf="submitted && f['address2'].errors?.required" class="error-msg">Address 2 is required
+                            </div>
+                        </div>
+                    </div>
+                  
+                </div>
+
+                <div class="locateyourdata">
+                    <label class="titledata d-block py-3">State</label>
+                    <!-- <div class="position-relative">
+                        <select formControlName="state" [ngClass]="{ 'is-invalid': submitted && f['state'].errors}"
+                        (change)=" getCity($event)"  class="form-select locationdata" max="999999">
+                            <option class="disabled" value="" disabled selected hidden>Select</option>
+                            <option *ngFor="let data of states" [value]="data.iso">{{data.name}}
+                        </select>
+                        <div *ngIf=" submitted && f['state'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['state'].errors['required']">State is required
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="d-flex flex-column">
+                        <mat-form-field appearance="fill" class="">
+                            <mat-select #select placeholder="State" formControlName="state"
+                                (selectionChange)="getCity($event)">
+                                <mat-option *ngFor="let data of states" [value]="data.iso">{{data?.name}}
+                                </mat-option>
+                            </mat-select>                        
+                        </mat-form-field>
+                        <small *ngIf="submitted && f.state.invalid" class="alert p-0 mb-0">
+                                <small *ngIf="submitted && f.state.errors?.required">
+                                State is required
+                                </small>
+                        </small>
+                    </div>
+
+                   
+                </div>
+
+                
+
+               
+            </div>
+        </div>
+
+        <div class="">
+            <div class="d-flex input-container">
+                <div class="locateyourdata">
+                    <label class="titledata  d-block py-3">City</label>
+                    <!-- <div class="position-relative">
+                        <select formControlName="city" [ngClass]="{ 'is-invalid': submitted && f['city'].errors}"
+                            class="form-select locationdata" max="999999">
+                            <option value="" disabled selected hidden>Select</option>
+                            <option *ngFor="let city of cities" [value]="city.name">
+                                {{city.name}}</option>
+                        </select>
+                        <div *ngIf=" submitted && f['city'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['city'].errors['required']">City is required
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="d-flex flex-column">
+                        <mat-form-field appearance="fill" class="">
+                            <mat-select #select placeholder="City" formControlName="city"
+                                (selectionChange)="getCity($event)">
+                                <mat-option *ngFor="let data of states" [value]="data.iso">{{data?.name}}
+                                </mat-option>
+                            </mat-select>                        
+                        </mat-form-field>
+                        <small *ngIf="submitted && f.state.invalid" class="alert p-0 mb-0">
+                                <small *ngIf="submitted && f.state.errors?.required">
+                                City is required
+                                </small>
+                        </small>
+                    </div>
+                </div>
+               
+                <div class="locateyourdata">
+                    <label class=" titledata  d-block py-3">Associate Industry</label>
+                    <input type="text" formControlName="associate_industry"
+                        [ngClass]="{ 'is-invalid': submitted && f['associate_industry'].errors}"
+                        class="locationdata" placeholder="Enter associate industry">
+                    <div *ngIf=" submitted && f['associate_industry'].errors" class="invalid-feedback">
+                        <div *ngIf="submitted && f['associate_industry'].errors['required']">Associate industry is
+                            required
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="">
+            <div class="d-flex input-container">
+                <div class="locateyourdata">
+                    <label class="titledata d-block py-3">Associate Category</label>
+                    <input type="text" formControlName="associate_category"
+                        class=" locationdata"
+                        [ngClass]="{ 'is-invalid': submitted && f['associate_category'].errors}"
+                        placeholder="Enter associate category" />
+                    <div *ngIf=" submitted && f['associate_category'].errors" class="invalid-feedback">
+                        <div *ngIf="submitted && f['associate_category'].errors['required']">Associate category is
+                            required
+                        </div>
+                    </div>
+                </div>
+                <div class="locateyourdata">
+                    <label class="titledata d-block py-3">GST Number</label>
+                    <!-- <div class="position-relative">
+                        <input type="text" formControlName="gst_number"
+                         maxlength="30"   [ngClass]="{ 'is-invalid': submitted && f['gst_number'].errors}"
+                            class=" locationdata" placeholder="GST number" />
+                        <div *ngIf=" submitted && f['gst_number'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['gst_number'].errors['required']">Gst number is required
+                            </div>
+                            <div *ngIf="submitted && f['gst_number'].errors['pattern']">Invalid GST number
+                            </div>
+                        </div>
+                        <p class="counternumber px-2 text-center">
+                            Status
+                        </p>
+                    </div> -->
+
+                    <div>
+                        <div class="position-relative">
+                            <input type="text" formControlName="gst_number"
+                            maxlength="30"   [ngClass]="{ 'is-invalid': submitted && f['gst_number'].errors}"
+                               class=" locationdata" placeholder="GST number" />
+                        
+                            <p class="counternumber px-2 text-center">
+                                Status
+                            </p>
+                            <!-- <div *ngIf=" submitted && f['contact_number'].invalid" class="invalid-feedback">
+                                <div *ngIf="f['contact_number'].errors?.required">Contact number is required
+                                </div>
+                            </div> -->
+                        </div>
+                        <div *ngIf=" submitted && f['gst_number'].invalid">
+                            <div *ngIf="f['gst_number'].errors?.required" class="error-msg">GST number is required</div>
+                            <div *ngIf="f['gst_number'].errors?.pattern" class="error-msg">Invalid GST number</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="">
+            <label class="titledata d-block py-3">Customer Category</label>
+            <div class="input-container input-container-padding-right">
+                <!-- <div class="locateyourdata w-100 ">
+
+                    <select formControlName="customer_category" type="text"
+                        class="locationdata form-select"
+                        [ngClass]="{ 'is-invalid': submitted && f['customer_category'].errors}" max="999999">
+                        <option value="" disabled selected hidden>Select</option>
+                        <option *ngFor="let data of customer" [value]="data.id">
+                            {{data.value}}</option>
+                                            </select>
+                    <div *ngIf=" submitted && f['customer_category'].errors" class="invalid-feedback">
+                        <div *ngIf="submitted && f['customer_category'].errors['required']">Customer category is
+                            required
+                        </div>
+                    </div>
+                </div> -->
+                <div class="d-flex flex-column">
+                    <mat-form-field appearance="fill" class="">
+                        <mat-select #select placeholder="Select" formControlName="customer_category"
+                            (selectionChange)="getCity($event)">
+                            <mat-option *ngFor="let data of customer" [value]="data.id">{{data?.value | titlecase}}
+                            </mat-option>
+                        </mat-select>                        
+                    </mat-form-field>
+                    <small *ngIf="submitted && f.state.invalid" class="alert p-0 mb-0">
+                            <small *ngIf="submitted && f.state.errors?.required">
+                            Customer category is required
+                            </small>
+                    </small>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="postdata d-flex justify-content-center pt-3 pb-5">
+            <!-- <button type="submit">{{addPage? 'Add' : 'Save' }}<img src="assets/images/login@3x .svg"></button> -->
+            <button class="px-4 submit-btn" *ngIf="!editFlag" (click)="submitClientForm(clientForm.value)">Add
+                <!-- <img src="assets/images/login.svg"> -->
+            </button>
+            <button class="px-4 submit-btn" *ngIf="editFlag" (click)="submitClientForm(clientForm.value)">Save
+                <!-- <img src="assets/images/login.svg"> -->
+
+            </button>
+        </div>
+    </form>
+</div>

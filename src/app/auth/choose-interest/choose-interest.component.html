@@ -1,0 +1,40 @@
+<div class="container-fluid p-0">
+    <div class="row m-0 d-flex justify-content-between bg-color">
+        <div class="col-md-6 p-0  sideimg">
+            <div class="signupback">
+                <img src="assets/images/auth.png">
+              </div>   
+                 </div>
+        <div class="col-md-6  p-0 m-auto interest">
+            <section class="main_comp ">
+                <div>
+                    <h1>Choose your interests</h1>
+                    <p>Pick a few to help us personalize your account</p>
+                </div>
+                <div [formGroup]="loginForm">
+                    <mat-button-toggle-group name="ingredients" aria-label="Ingredients" multiple formControlName="interest" >
+                        <mat-button-toggle  *ngFor="let items of interestName" [value]="items.id"  (click)="selectUser(items.id)">{{items.interest_name}}</mat-button-toggle>
+                    </mat-button-toggle-group>
+                    <small *ngIf="submitted && loginForm.controls['interest'].invalid " class="alert">
+                        <small *ngIf="submitted && loginForm.controls['interest'].errors.required">
+                            interest is required
+                        </small>
+                        </small>
+                </div>
+            </section>
+            <div class="result mt-3 d-flex justify-content-center ">
+                <p class="mb-0  d-flex align-items-center">
+                    <img class="me-3" src="assets/images/info-circle_red.svg" width="26px" height="26px" > Follow 3 or more categories to get
+                    started
+                </p>
+            </div>
+            <section class="main_comp">
+                <div class="d-flex justify-content-center main_comp btn-order mt-md-5 mt-3 flex-wrap pb-5">
+                    <button class="btn me-sm-2 me-0 mt-2 field">Add Custom Field</button>
+                    <button class="btn ms-sm-2 ms-0 mt-2 post" (click)="onVerify(loginForm.value)">Save & Continue
+                    </button>
+                </div>
+            </section>
+
+    </div>
+</div>

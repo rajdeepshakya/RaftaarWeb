@@ -1,0 +1,113 @@
+@import "../../../../../assets/variable.scss";
+@import "../../../../../assets/common.scss";
+.main{
+    background-color: #F2F8FF    ;
+    padding: 50px 145px;
+
+    .row{
+// background-color: white;
+    }
+}
+.profile{
+    background-color: #F9FBFE    ;
+    width: 200px;
+    border-radius: 10px 0px 0px 10px;
+}
+.banner{
+    width: calc(100% - 200px);
+    border-radius: 0px 10px 10px 0px;
+}
+.upperimgdata{
+    position: relative;
+    // margin-top: 75px !important;
+    background-color: white;
+}
+.logocapalldata{
+    background-color: rgba(71, 145, 255, 0.05);
+    
+}
+.logocap{
+    .logocapimage{
+        width:72px;
+        height:72px;
+    }
+    .gstimg{
+        width:37px;
+        height:37px;
+
+    }
+    .logocapdata{
+        h5{
+        @include fontStyleManager($fontFamilyAvenir,$fontWeightSemiBold,$fontSize16,$Color_0A0045);
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+    p{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_768DA9);
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+}
+
+}
+.aboutcapital{
+    p{
+        line-height: 32px ;
+        @include fontStyleManager($fontFamilyInterRegular,$fontWeightRegular,$fontSize16,$Color_768DA9);;
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+}
+.requirement{
+    background-color: #F3F6FB !important;
+    border-radius: 10px !important;
+}
+@media(min-width:768px){
+    .GstNumber{
+justify-content: center;
+    }
+}
+.main-comp {
+    h3{
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Color_002280);
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+
+    }
+    h2{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_768DA9);
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+}
+.see-products{
+    background-color: white;
+    border-radius: 0px 15px;
+}
+.ads{
+    p{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_768DA9);
+    }
+    button{
+        border: 1px solid #002280 !important;
+        border-radius: 40px;
+        width: 161px !important;
+        padding: 11px 10px !important;
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Color_002280); 
+    }
+}
+
+.user-details{
+    h4{
+        @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize16,$Color_002280); 
+    }
+    p{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_768DA9); 
+   
+    }
+}

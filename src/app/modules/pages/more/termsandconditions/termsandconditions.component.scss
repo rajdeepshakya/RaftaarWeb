@@ -1,0 +1,36 @@
+@import "../../../../../assets/variable.scss";
+@import "../../../../../assets/common.scss";
+.main_comp{
+    padding: 18px 35px ;
+    @media (max-width:768px) {
+        padding: 10px 15px;
+    }
+    
+}
+.main{
+    background-color: #EAF3FF    ;
+    @media (max-width:768px) {
+        padding: 15px;
+    }
+    p{
+        line-height: 35px;
+        @include fontStyleManager($fontFamilyInterRegular, $fontWeightRegular, $fontSize16, $Color_768DA9  );
+        @media (max-width:768px) {
+            font-size: 14px !important;     
+               }
+    }
+    span{
+        color:$Color_0A0045 !important;
+    }
+   
+}
+.add-new{
+    background-color: white;
+    border-radius: 15px;
+}
+h3{
+    @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize20,$Color_0A0045);  
+    @media (max-width:768px) {
+        font-size: 14px !important;     
+           }
+}

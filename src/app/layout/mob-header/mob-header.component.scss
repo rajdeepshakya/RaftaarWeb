@@ -1,0 +1,19 @@
+@import '../../../assets/common.scss';
+@import '../../../assets/variable.scss';
+h4{
+    @include fontStyleManager ($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Color_0A0045);
+
+}
+.btn-secondary{
+    background-color: #002280 !important    ;
+    color: white !important;
+    border-radius: 29px;
+}
+.dropdown{
+    padding: 5px;
+    a{
+        @include fontStyleManager ($fontFamilyInterMedium,$fontWeightMedium,$fontSize12,$Colorwhite);
+        font-size: 10px !important;
+
+    }
+}

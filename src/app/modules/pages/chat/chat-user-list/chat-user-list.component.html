@@ -1,0 +1,17 @@
+<div *ngFor="let data of userList">
+    <div class="d-flex justify-content-between align-items-start user-chat p-3 mb-3">
+        <div class="d-flex align-items-start">
+            <img src="assets/images/userchat.svg">
+            <div class="ms-3" (click)="sendId(data, 3)">
+                <h4>{{data?.Auth?.CompanyInfo?.company_name}}</h4>
+                <p>Hello There, Welcome to Tnumber...</p>
+            </div>
+        </div>
+        <div class="d-flex  flex-column justify-content-end align-items-end">
+            <h5>12:34 pm</h5>
+            <div class="notification">
+                <p>3</p>
+            </div>
+        </div>
+    </div>
+</div>

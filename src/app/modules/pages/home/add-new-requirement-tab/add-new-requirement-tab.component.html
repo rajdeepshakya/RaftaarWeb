@@ -1,0 +1,32 @@
+<div class="main">
+    <div class="d-flex ">
+        <img  (click)="goBack()" src="assets/images/arrow-circle-left.svg">
+        <h3 (click)="goBack()" class="ms-2 mb-0">Select Requirement</h3>
+    </div>
+    <div class="add-new p-md-5 p-3 mt-4">
+        <div class="row p-0 m-0">
+            <!-- <div class="post">
+                <button class="btn post me-2" [routerLink]="['/main/home/create-new-post']">Post</button>
+                <button class="btn requirement ms-2">Requirement</button>
+            </div> -->
+            <div class="col-lg-6 mt-md-3 mt-0" *ngFor="let item of items">
+                <div class="adddocumentpage ">
+                    <div class="locateyourdata pt-3 d-flex" >
+                        <input type="button" style="text-align:left !important" [value]="item.value" (click)="onCheckboxChange($event)" class="form-control locationdata  my-2 " [placeholder]="item.value"
+                        [ngClass]="item.isSelected ? 'white':'grey' "   [style.background-color]="item.isSelected ? '#EE7402':'#F5F6F6' " readonly>
+                            <label class="container1" (change)="onCheckboxChange($event)"> 
+                                <!-- <input type="checkbox" #i (change)="!i['checked']" [value]="item.value"> -->
+                                <input  type="checkbox" #i [value]="item.value" [checked]="item.isSelected">
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+            </div>
+        </div>
+        <div class="adddocumentpage py-md-5 py-2">
+            <div class="postdata button_center d-flex justify-content-center align-items-center">
+                <button (click)="confirmSelected()">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+</div>

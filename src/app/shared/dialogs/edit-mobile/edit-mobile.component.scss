@@ -1,0 +1,78 @@
+@import '../../../../assets/variable.scss';
+@import '../../../../assets/common.scss';
+
+.modal-body {
+    label {
+        @include fontStyleManager($fontFamilyInterRegular,$fontWeightSemiBold,$fontSize16,$Color_0A0045)
+    }
+    .input-container {
+        height: 90px;
+        input {
+            padding: 14px 50px 14px 45px;
+            border: 0.5px solid #768DA9;
+            border-radius: 40px;
+            width: 100%;
+        }
+    }
+
+    .btn-container {
+        button{
+            padding: 15px;
+            width: 240px;
+            max-width: 100%;
+            border-radius: 40px;
+            background-color: #EE7402  ;
+            @include fontStyleManager($fontFamilyInterRegular,$fontWeightMedium,$fontSize16,$Colorwhite)
+            
+        }
+    }
+}
+
+::placeholder{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Colorwhite);
+    color:#768DA9 !important;
+}
+.c_input {     
+    position: absolute;
+    left:6px;
+    top:14px;
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize18,$Color_0A0045
+    );
+    @media (max-width:768px) {
+      font-size: 14px !important;
+    }  
+  }
+  
+  .counternumber{
+    background-color:$Color_23C99A;
+    width:65px;
+  border-radius: 23px;
+  position: absolute;
+ right: 25px;
+ top: 25px;
+ margin: 0px;
+ padding: 1px;
+ margin-top: -12px !important;
+ color:#FFFFFF;
+ @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Colorwhite);
+
+  
+}
+
+.countrycode {
+  border-radius: 200px;
+  position: relative;
+  //padding-left:90px;
+  padding:14px 50px 14px 90px;
+  content: '+91';
+  background: url('../../../../assets/images/mobile.svg') no-repeat;
+  background-position: 16px 16px;
+  @media (max-width:768px) {
+    font-size: 14px !important;
+    background-size: 14px;
+    padding:14px 50px 14px 72px;
+
+  }
+}
+
+

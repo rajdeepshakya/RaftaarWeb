@@ -1,0 +1,170 @@
+<div class="ps-3">
+    <div class="pb-4">
+        <div class="add-post m-0 p-0">
+            <div class="result p-0">
+                <p class="mb-0" (click)="routeCustomerPurchaseOrder()" class="d-inline">
+                    <img src="assets/images/box-time.svg"> {{salesOrder? 'View customer purchase order' : 'Customer purchase order'}} 
+                </p>
+            </div>
+            <div class="text-end me-0 purchase-order p-0">
+                <button class="btn battery-btn position-relative me-4" [routerLink]="[addSalesOrder]" *ngIf="salesOrder">
+                    <img src="assets/images/Vector.svg" class="position-absolute add-img">
+                    <span class="ms-3">Add Sales order</span>
+                </button>
+                <!-- <button class="btn battery-btn me-4" [routerLink]="['../',addSalesOrder]" *ngIf="purchaseorder">
+                    <img src="assets/images/Vector.svg">
+                    Add Sales order
+                </button> -->
+                <img src="assets/images/filter (2).svg" class="cursor" (click)="filterDialog()">
+            </div>
+        </div>
+    </div>
+    <section class="main_comp">
+        <div *ngIf="salesOrder && IsDataFoundShow1==false">
+            <div class="card mt-3" *ngFor="let otherSalesOrder of salesOrderList;let i = index">
+                <div class="row g-0">
+                    <div class="col-3">
+                        <img [src]="otherSalesOrder.Media[0].url" class="img-fluid rounded-start" alt="..." width="231" height="231" onerror="this.src='assets/images/purchase-order.png'" (click)="viewEditRequest(otherSalesOrder.id)">
+                    </div>
+                    <!-- <div class="col-3" *ngIf="purchaseorder">
+                        <img src="assets/images/purchase-order.png" class="img-fluid rounded-start" alt="...">
+                    </div> -->
+                    <div class="col-9">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex">
+                                    <img src="assets/images/status.svg" class="image">
+                                    <div class="ms-2 sales-id-text">{{otherSalesOrder.hsn_code}}</div>
+                                </div>
+                                <img src="assets/images/kebab-menu.png" alt="" class="me-3 cursor" (click)="showdropdown(i)" />
+                            </div>
+                            <ul class="dropdown-menu border-0" [ngClass]="isShow? 'show':'hide'" (click)="showdropdown(i)" *ngIf="i===selectedInedx">
+                                <li class="cursor"><a class="dropdown-item cursor" *ngIf="salesOrder" [routerLink]="[editSalesOrder]" [queryParams]="otherSalesOrder">
+                                        <img src="assets/images/edit-2.svg" class="me-3">
+                                         Edit</a>
+                                </li>                                
+                                <li class="cursor"><a class="dropdown-item delete mt-3 cursor" (click)=" openConfirmDialog(otherSalesOrder.id)">
+                                        <img src="assets/images/trash.svg" class="me-3">
+                                        Delete</a>
+                                </li>
+                            </ul>
+                            <h5 class="card-title mt-md-3 mt-1">{{otherSalesOrder.product_type!=null?otherSalesOrder.product_type:otherSalesOrder.Category3.title}}</h5>
+                            <div class="d-flex">
+                                <img src="assets/images/courthouse.svg" class="image">
+                                <p class="mb-0 ms-2 enterprise">{{otherSalesOrder?.company_name==null?otherSalesOrder?.CompanyInfo?.company_name:otherSalesOrder?.company_name}}</p>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mt-md-4 mt-2">
+                                <button class="btn">
+                                    <img src="assets/images/calendar-edit-gray.svg">
+                                   {{otherSalesOrder.created_at|date}}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+
+        <div *ngIf="purchaseorder && IsDataFoundShow==false">
+            <div class="card mt-3" *ngFor="let details of otherSalesOrderList;let i = index">
+                <div class="row g-0">
+                    <!-- <div class="col-3" *ngIf="salesOrder">
+                        <img src="assets/images/machine_3.svg" class="img-fluid rounded-start" alt="...">
+                    </div> -->
+                    <div class="col-3">
+                        <img [src]="details.Media[0].url" class="img-fluid rounded-start" alt="..." width="231" height="231" onerror="this.src='assets/images/purchase-order.png'">
+                    </div>
+                    <div class="col-9">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex">
+                                    <img src="assets/images/status.svg" class="image">
+                                    <div [ngClass]="{'ms-2':true, statusPending: details.status == 'pending' || details.status == 'rejected' || details.status == 'Edit request sent • Version-1' || details.status == 'Edit request accepted • Version-1' || details.status == 'Edit request rejected • Version-1', statusDispatched: details.status == 'Dispatched • Version-1.2' || details.status == 'Accepted • Version-1.2', statusCompleted: details.status == 'Completed • Version-1' }">{{details.status}} • Version- {{details.version}}</div>
+                                </div>
+                                <img src="assets/images/kebab-menu.png" alt="" class="me-3 cursor" (click)="showdropdown(i)" />
+                            </div>
+                            <ul class="dropdown-menu border-0" [ngClass]="isShow? 'show':'hide'" (click)="showdropdown(i)" *ngIf="i===selectedInedx">
+                                <!-- <li class="cursor"><a class="dropdown-item cursor" *ngIf="salesOrder" routerLink="edit-purchase-order">
+                                        <img src="assets/images/edit-2.svg" class="me-3">
+                                         Edit</a>
+                                </li> -->
+                                <li class="cursor" *ngIf="details.status == 'pending'"><a class="dropdown-item cursor mb-3" (click)="routeToRequestEdit(details.id)">
+                                    <img src="assets/images/edit-2.svg" class="me-3">
+                                    Request edit</a>
+                                </li>
+                                <!-- <li class="cursor"><a class="dropdown-item cursor mb-3" *ngIf="details.status == 'Pending • Version-1'" (click)="viewEditRequest()">
+                                    <img src="assets/images/edit-2.svg" class="me-3">
+                                     View edit request</a>
+                                </li> -->
+    
+                                <li class="cursor mb-3" *ngIf="details.status == 'pending'" (click)="rejectCustomerPurchaseOrder(details.id)"><a class="dropdown-item cursor">
+                                        <img src="assets/images/box-remove.svg" class="me-3">
+                                         Reject</a>
+                                </li>
+
+                                <li class="cursor mb-3" *ngIf="details.status == 'Edit request rejected • Version-1'"><a class="dropdown-item  cursor">
+                                    <img src="assets/images/edit-2.svg" class="me-3">
+                                    Request edit</a>
+                                </li>
+    
+                                <li class="cursor mb-3" *ngIf="details.status == 'Edit request rejected • Version-1'"><a class="dropdown-item  cursor">
+                                    <img src="assets/images/reject-reason.svg" class="me-3">
+                                    Rejection reason</a>
+                                </li>
+
+                                <li class="cursor mb-3" *ngIf="details.status == 'Edit request accepted • Version-1'"><a class="dropdown-item cursor">
+                                    <img src="assets/images/view.svg" class="me-3">
+                                    View</a>
+                                </li>
+
+                                <li class="cursor mb-3" *ngIf="details.status == 'Edift request sent • Version-1'"><a class="dropdown-item cursor">
+                                    <img src="assets/images/view.svg" class="me-3">
+                                    View</a>
+                                </li>
+                                
+                                <li class="cursor" *ngIf="salesOrder || details.status == 'pending' || details.status == 'rejected' || details.status == 'Edit request rejected • Version-1' || details.status=='Edit request accepted • Version-1' || details.status=='Edit request sent • Version-1'"><a class="dropdown-item delete cursor">
+                                        <img src="assets/images/trash.svg" class="me-3" (click)="openConfirmDialogDeletePurchase(details.id)">
+                                        Delete</a>
+                                </li>
+                                
+                                <li class="cursor mb-3" *ngIf="details.status == 'accepted'" (click)="routeToAccept(details.id)"><a class="dropdown-item cursor">
+                                    <img src="assets/images/view.svg" class="me-3">
+                                    View</a>
+                                </li>
+                                <li class="cursor" *ngIf="details.status == 'accepted'" (click)="routeToReadyToDispatch(details.id)"><a class="dropdown-item cursor">
+                                    <img src="assets/images/box-remove.svg" class="me-3">
+                                    Ready to dispatch</a>
+                                </li>
+                                <li class="cursor" *ngIf="details.status == 'Dispatched • Version-1.2'"><a class="dropdown-item cursor" (click)="dispatchedCustomerPurchaseOrder()">
+                                    <img src="assets/images/view.svg" class="me-3">
+                                    View</a>
+                                </li>
+                                <li class="cursor" *ngIf="details.status == 'Completed • Version-1'"><a class="dropdown-item cursor" (click)="completedCustomerPurchaseOrder()">
+                                    <img src="assets/images/view.svg" class="me-3">
+                                    View</a>
+                                </li>
+                            </ul>
+                            <h5 class="card-title mt-md-3 mt-1">{{details.product_type!=null?details.product_type:details.Category3.title}}</h5>
+                            <div class="d-flex">
+                                <img src="assets/images/courthouse.svg" class="image">
+                                <p class="mb-0 ms-2 enterprise">{{details.company_name!=null?details.company_name:details.CompanyInfo.company_name}}</p>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mt-md-4 mt-2">
+                                <button class="btn">
+                                    <img src="assets/images/calendar-edit-gray.svg">
+                                   {{details.created_at|date}}
+                                </button>
+                                <button class="btn accept" *ngIf="details.status=='pending'" (click)="rejectCustomerPurchaseOrder(details.id)">Accept</button>  
+                                <button class="btn accept" *ngIf="details.status=='Edit request accepted • Version-1'">Edit</button>   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <mat-card *ngIf="salesOrder && IsDataFoundShow1" style="text-align: center;">No data found</mat-card>
+    <mat-card *ngIf="purchaseorder && IsDataFoundShow" style="text-align: center;">No data found</mat-card>
+</div>
+

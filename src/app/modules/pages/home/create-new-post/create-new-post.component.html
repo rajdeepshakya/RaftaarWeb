@@ -1,0 +1,247 @@
+<!-- <div class="main">
+    <div>
+        <div class="d-flex pb-3 my-2">
+            <img src="assets/images/arrow-circle-left.svg">
+            <h3 class="ms-2 mb-0">Add New</h3>
+        </div>
+    </div>
+    <div class="add-new p-md-5 p-3 mt-md-3 mt-0">
+        <div class="row p-0 m-0">
+            <div class="post">
+                <button class="btn post me-2">Post</button>
+                <button class="btn requirement ms-2">Requirement</button>
+            </div>
+            <div class="adddocumentpage ">
+                <div class="my-4 Unisenseimg">
+                    <img class="" src="assets/images/Avatar.svg" alt="">
+                    <span class="ms-2">Unisense Digital Agency</span>
+                </div>
+            </div>
+            <form>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="adddocumentpage ">
+                            <div class="addcontentdata">
+                                <h3>Description</h3>
+                                <textarea type="text" class="form-control addcontent ps-4 main_comp" formControlName="number"
+                                    maxlength="1500" [(ngModel)]="countnumber" placeholder="Please type here"></textarea>
+                               
+                                    <p class="counternumber  mt-2 text-center"><span
+                                        *ngIf="countnumber.length<=99 && countnumber.length>0">0</span>{{countnumber.length}}/1500
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="adddocumentpage ">
+                            <div class="locateyourdata mt-md-0 mt-5 ">
+                                <h3>Location</h3>
+                                <input type="text" class="form-control locationdata  my-2 " placeholder="Search by pincode">
+                                <img src="assets/images/gps.png">
+                            </div>
+                            <div class="mt-md-4 mt-3">
+                                <h3>Upload Files</h3>
+                                <div class="d-flex justify-content-between files px-3 py-4">
+                                    <div class="adddocument align-items-center flex-column d-flex">
+                                        <img src="assets/images/Group.svg" alt="" width="30px" height="30px">
+                                        <span class=" mt-2">
+                                            Add image
+                                        </span>
+                                    </div>
+                                    <div class="adddocument align-items-center flex-column d-flex ms-md-0 ms-2">
+                                        <img src="assets/images/Group-1.svg" alt="" width="30px" height="30px">
+                                        <span class=" mt-2">
+                                            Add Video
+                                        </span>
+                                    </div>
+                                    <div class="adddocument align-items-center flex-column d-flex">
+                                        <img src="assets/images/pdf 3 (1).svg" alt="" width="30px"
+                                            height="30px">
+                                        <span class=" mt-2">
+                                            Add Document
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+        
+                        </div>
+                        <div class="adddocumentpage py-3">
+                            <div class="postdata d-flex justify-content-between align-items-center">
+                                <p class="drag">Drag and drop, or <span class="select">select a file</span></p>
+                                <button (click)="postPublish()">Post<img></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </form>
+           
+        </div>
+
+    </div>
+
+</div>
+ -->
+<div class="main">
+    <div>
+        <div class="d-flex pb-3 my-2">
+            <img (click)="goBack()" src="assets/images/arrow-circle-left.svg">
+            <h3 (click)="goBack()" *ngIf="type == 'new'" class="ms-2 mb-0">Add New</h3>
+            <h3 (click)="goBack()" *ngIf="type != 'new'" class="ms-2 mb-0">Edit</h3>
+        </div>
+    </div>
+    <div class="add-new p-xl-5 p-3 mt-md-3 mt-0">
+        <div class="row p-0 m-0">
+            <div *ngIf="type == 'new'" class="post">
+                <button class="btn post me-2">Post</button>
+                <!-- <button class="btn requirement ms-2" [routerLink]="['/main/home/add-new-requirementtab']">Requirement</button> -->
+            </div>
+            <div class="adddocumentpage ">
+                <div class="my-4 Unisenseimg">
+                    <img class="rounded-circle"
+                        [src]="profileDetails.profile_pic==null?'assets/images/Profile_1.svg':profileDetails.profile_pic"
+                        alt="" onError="this.src='assets/images/Profile_1.svg'">
+                    <span class="ms-2">{{profileDetails?.company_name}}</span>
+                </div>
+            </div>
+            <form [formGroup]="myForm">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="adddocumentpage ">
+                            <div class="addcontentdata">
+                                <h3>Description</h3>
+                                <p class="counternumber px-2 text-center"><span
+                                        *ngIf="countnumber.length<=9 && countnumber.length>0">0</span>{{countnumber.length}}/1500
+                                </p>
+                                <textarea type="text" class=" addcontent ps-4 main_comp" formControlName="content"
+                                    [(ngModel)]="countnumber"
+                                    [ngClass]="{ 'is-invalid': submitted && f['content'].errors}" maxlength="1500"
+                                    placeholder="Enter description"></textarea>
+                                <div *ngIf=" submitted && f['content'].errors"
+                                    class="invalid-feedback position-absolute contenterror">
+                                    <div *ngIf="submitted && f['content'].errors['required']">Content is required
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="pt-5 mt-2">
+                            <input type="checkbox" /><label class="ps-2 checkbox-label">Comment disabled</label>
+                        </div> -->
+                    </div>
+                    <div class="col-md-6">
+                        <div class="adddocumentpage ">
+                            <div class="locateyourdata mt-md-0 mt-5 ">
+                                <h3>Location</h3>
+                                <input type="text" class="location locationdata   pe-3 " maxlength="30"
+                                    [ngClass]="{ 'is-invalid': submitted && f['location'].errors}"
+                                    placeholder="Add location here" formControlName="location">
+                                <div *ngIf=" submitted && f['location'].errors" class="invalid-feedback">
+                                    <div *ngIf="submitted && f['location'].errors['required']">Location is required
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="d-flex justify-content-between align-items-start max-file">
+                                    <h3>Upload Files</h3>
+                                    <p *ngIf="showText">Maximum 5 allowed</p>
+                                </div>
+
+                                <div class="d-flex justify-content-between files p-3">
+                                    <div (click)="selectFile.click()" style="cursor: pointer"
+                                        class="adddocument align-items-center flex-column d-flex">
+                                        <input style="display: none" type="file" (change)="fileupload($event)"
+                                            #selectFile accept="image/png, image/jpeg" multiple>
+                                        <!-- <img src="assets/images/Group.svg" alt="" width="30px" height="30px"> -->
+                                        <img src="assets/images/gallery-1.svg" alt="" width="30px" height="30px">
+
+                                        <span class="ms-2">
+                                            Add image
+                                        </span>
+                                    </div>
+                                    <div (click)="selectFile1.click()" style="cursor: pointer"
+                                        class="adddocument align-items-center flex-column d-flex">
+                                        <input style="display: none" type="file" accept="video/mp4"
+                                            (change)="fileupload($event)" #selectFile1 multiple>
+                                        <!-- <img src="assets/images/Group-1.svg" alt="" width="30px" height="30px"> -->
+                                        <img src="assets/images/video-playicon.svg" alt="" width="30px" height="30px">
+
+                                        <span class="ms-2">
+                                            Add Video
+                                        </span>
+                                    </div>
+                                    <div (click)="selectFile2.click()" style="cursor: pointer"
+                                        class="adddocument align-items-center flex-column d-flex">
+                                        <input style="display: none" type="file" (change)="fileupload($event)"
+                                            accept="application/pdf" #selectFile2 multiple>
+                                        <!-- <img src="assets/images/docu.svg" alt="" width="30px" height="30px"> -->
+                                        <img src="assets/images/documenticon.svg" alt="" width="30px" height="30px">
+
+                                        <span class="ms-2">
+                                            Add Document
+                                        </span>
+                                    </div>
+                                   
+                                </div>
+                                <div class="minimumFile " *ngIf=" submitted_1 && emptyFile">
+                                    File is required
+                                </div>
+                            </div>
+                            <div class="adddocumentpage py-3">
+                                <div class="postdata d-flex justify-content-between align-items-center">
+                                    <input style="display: none" type="file" (change)="fileupload($event)" #selectFile3
+                                        multiple>
+                                    <p class="drag" (fileDropped)="onFileDropped($event)" appDragAndDrop>Drag and drop,
+                                        or <span (click)="selectFile3.click()">select a file</span>
+                                    </p>
+                                </div>
+                                <div class="d-flex align-items-center flex-wrap">
+                                    <div class="upload-img position-relative d-inline-block mx-2 mb-3"
+                                        *ngFor="let image of images; let i = index">
+                                        <img [src]="image.url" width="90px" height="90px">
+                                        <img src="assets/images/close-circle.png" (click)="deleteImg(i,1)"
+                                            class="close position-absolute">
+                                    </div>
+                                    <div class="upload-img position-relative d-inline-block mx-2 mb-3"
+                                        *ngFor="let video of videos; let i = index">
+                                        <video width="90px" height="90px" controls>
+                                            <source [src]="video.url" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                        <img src="assets/images/close-circle.png" (click)="deleteImg(i,2)"
+                                            class="close position-absolute">
+                                    </div>
+
+                                    <div class="upload-img position-relative d-inline-block mx-2 mb-3"
+                                        *ngFor="let document of pdf; let i = index">
+                                        <a target="_self" [href]="document.url" download="pdf">
+                                            <img src="assets/images/pdf 3 (1).svg" width="90px" height="90px">
+                                        </a>
+                                        <img src="assets/images/close-circle.png" (click)="deleteImg(i,3)"
+                                            class="close position-absolute">
+                                    </div>
+                                </div>
+                                <!-- <div class="postdata d-flex justify-content-between align-items-center"
+                                    *ngFor="let file of files; let i = index">
+                                    <p>{{file.Key}}</p>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="adddocumentpage py-3">
+                            <div
+                                class="postdata d-flex justify-content-md-between justify-content-center align-items-center">
+                                <!-- <p class="drag">Drag and drop, or <span class="select">select a file</span></p> -->
+                                <!-- <button (click)="postPublish(myForm.value)">Post<img></button> -->
+                                <button *ngIf="!editFlag" (click)="postPublish(myForm.value)">Post<img></button>
+                                <button *ngIf="editFlag" (click)="postPublish(myForm.value)">Save<img></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,53 @@
+@import "../../../../../assets/variable.scss";
+@import "../../../../../assets/common.scss";
+.main_comp{
+    padding: 18px 35px ;
+    @media (max-width:768px) {
+        padding: 10px 15px;
+    }
+}
+.main{
+    background-color: #EAF3FF    ;
+    padding: 30px 175px;
+    @media (max-width:768px) {
+        padding: 15px;
+    }
+    
+h3{
+    @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize20,$Color_0A0045);
+    @media (max-width:768px) {
+        font-size: 14px !important;
+        }
+}
+}
+span{
+    @include fontStyleManager($fontFamilyAvenir,$fontWeightSemiBold,$fontSize15,$Color_0A0045);
+    @media (max-width:768px) {
+        font-size: 14px !important;
+        }
+
+}
+.add-new{
+background-color: white;
+border-radius: 15px;
+    }
+        .postdata{
+        
+        button{
+            background: #EE7402;
+            padding:12px 10px;
+            width: 155px;
+            border-radius: 40px;
+            @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize18,$Colorwhite);
+            @media (max-width:768px) {
+                font-size: 16px !important;
+                }
+        }
+        }
+        ::placeholder{
+            @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_0A0045);
+            color:#768DA9 !important;
+            @media (max-width:768px) {
+                font-size: 14px !important;
+                }
+        }

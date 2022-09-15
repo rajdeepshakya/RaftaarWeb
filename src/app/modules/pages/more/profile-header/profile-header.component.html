@@ -1,0 +1,90 @@
+<div class="row mx-md-5 mx-3 mt-md-3 mt-0">
+    <!-- <div class="logocap d-flex align-items-center ">
+        <img class="logocapimage rounded-circle"  [src]="companyProfile?.profile_pic ? companyProfile.profile_pic :'assets/images/Profile_1.svg'" alt="" width="130px" height="130px">
+        <div class="logocapdata ms-4 ">
+            <h5>{{companyProfile?.company_name}}</h5>
+        </div>
+    </div> -->
+    <div class="col-md-10">
+      <div class="dashboard-container">
+        <form [formGroup]="profileForm" >
+            <div class="behindimgdata position-relative">
+                <label class="hoverable" for="fileInput">
+                  <img class="clickback position-absolute" src="assets/images/Camera(1x).png" alt="">
+                    <img class="clickbackphoto position-absolute" src="assets/images/Camera(1x).png" alt="">
+                </label>
+                <input id="fileInput" type='file'  (change)="onFileChange($event)">
+                <!-- <button *ngIf="url" (click)="delete()">delete</button> -->
+                <img class="logocapimage rounded-circle"  [src]="companyProfile?.profile_pic ? companyProfile.profile_pic :'assets/images/Profile_1.svg'" alt="" width="130px" height="130px">
+
+            </div>
+            <div class="details">
+              <h5>{{companyProfile?.company_name}}</h5>
+              <div class="d-flex align-items-start">
+                    <img src="assets/images/location_2.svg" alt="">
+                    <p>{{companyProfile?.address}}</p>
+                </div>
+    
+            </div>
+        </form>
+    </div>
+
+    </div>
+    <div class="col-md-2 d-flex">
+      <svg (click)="routeToEdit()" *ngIf="!editProfile" class="me-2 edit" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M29.3327 3.66797H14.666C7.33268 3.66797 3.66602 7.33464 3.66602 14.668V38.5013C3.66602 39.5096 4.49102 40.3346 5.49935 40.3346H29.3327C36.666 40.3346 40.3327 36.668 40.3327 29.3346V14.668C40.3327 7.33464 36.666 3.66797 29.3327 3.66797Z" stroke="#002280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M23.6681 14.3726L14.1531 23.8876C13.7864 24.2543 13.4381 24.9693 13.3648 25.4826L12.8515 29.1126C12.6681 30.4326 13.5848 31.3493 14.9048 31.166L18.5348 30.6526C19.0481 30.5793 19.7631 30.231 20.1298 29.8643L29.6448 20.3493C31.2765 18.7176 32.0648 16.811 29.6448 14.391C27.2248 11.9526 25.3181 12.7226 23.6681 14.3726Z" stroke="#002280" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M22.3105 15.7305C23.1172 18.6088 25.3722 20.8821 28.2689 21.6888" stroke="#002280" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+        <img src="assets/images/message-edit_3.svg" alt="" *ngIf="editProfile" width="44" height="44" class="me-2"/>
+        
+        <div class="dropdown">
+                <img class="ms-2 me-md-5 me-0 edit" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" src="assets/images/setting-2.svg" width="44px" height="44px">
+              <ul class="dropdown-menu p-4"  id="drop">
+                <li class="d-flex align-items-start"    [routerLink]="['/main/more/saved']">
+                  <img src="assets/images/save_2.svg" width="24px" height="24px">
+                  <a class="dropdown-item">
+                   <h4 class="mb-0">Saved</h4>
+                  <p>Pellentesque vivamus nulla est, </p>
+                </a></li>
+                <li class="d-flex align-items-start" [routerLink]="['/main/more/interests']">
+                  <img src="assets/images/heart.svg"  width="24px" height="24px">
+                  <a class="dropdown-item">
+                   <h4 class="mb-0">Interests</h4>
+                  <p>Pellentesque vivamus nulla est, </p>
+                </a></li>
+                <li class="d-flex align-items-start" [routerLink]="['/main/more/interests']">
+                  <img src="assets/images/setting-2.svg"  width="24px" height="24px">
+                  <a class="dropdown-item">
+                   <h4 class="mb-0">Settings</h4>
+                  <p>Pellentesque vivamus nulla est, </p>
+                </a></li>
+                <li class="d-flex align-items-start" [routerLink]="['/main/more/change-password']">
+                  <img src="assets/images/key.svg"  width="24px" height="24px">
+                  <a class="dropdown-item">
+                   <h4 class="mb-0">Change Password</h4>
+                  <p>Pellentesque vivamus nulla est, </p>
+                </a></li>
+                <li class="d-flex align-items-start" [routerLink]="['/main/more/privacy-policy']">
+                  <img src="assets/images/security-safe.svg"  width="24px" height="24px">
+                  <a class="dropdown-item" >
+                   <h4 class="mb-0">Privacy Policy</h4>
+                  <p>Pellentesque vivamus nulla est, </p>
+                </a></li>
+                <li class="d-flex align-items-start"  [routerLink]="['/main/more/terms-conditions']">
+                    <img src="assets/images/simcard-2.svg"  width="24px" height="24px">
+                    <a class="dropdown-item" >
+                     <h4 class="mb-0">Terms of Use</h4>
+                    <p>Pellentesque vivamus nulla est, </p>
+                  </a></li>
+                  <li class="d-flex align-items-start" (click)=" logout()">
+                    <img src="assets/images/logout.svg"  width="24px" height="24px">
+                    <a class="dropdown-item">
+                     <h4 class="mb-0">Logout</h4>
+                    <p>Pellentesque vivamus nulla est, </p>
+                  </a></li>
+              </ul>
+          </div>
+    </div>
+</div>

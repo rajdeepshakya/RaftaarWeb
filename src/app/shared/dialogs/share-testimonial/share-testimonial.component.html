@@ -1,0 +1,18 @@
+<div class="modal-header pt-0 pb-0">
+    <!-- <button class="button-close mb-2" mat-button [mat-dialog-close]="false">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"/>
+        </svg>
+    </button> -->
+</div>
+<div class="modal-body mt-4">
+    <h1 class=" ">Share testimonial</h1>
+    <p>Your opinion matters to us!</p>
+    <img class="mb-3" src="assets/images/starimg.svg">
+  <textarea type="text" maxlength="300" placeholder="Write"   [(ngModel)]="comment"></textarea>
+</div>
+<div class="modal-footer d-flex justify-content-between mt-3">
+    <button type="button" class="btn cancel me-2" [mat-dialog-close]="false"  >Cancel</button>
+    <button type="button" class="btn report ms-2" [mat-dialog-close]="true"  (click)="submitBtn()">Submit</button>
+</div>
+

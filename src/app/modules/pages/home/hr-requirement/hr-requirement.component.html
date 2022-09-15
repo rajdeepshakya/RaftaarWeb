@@ -1,0 +1,140 @@
+<div class="main">
+    <div class="d-flex ">
+        <img  (click)="goBack()" src="assets/images/arrow-circle-left.svg">
+        <h3 (click)="goBack()" class="ms-2 mb-0">HR Requirement</h3>
+    </div>
+    <div class="add-new p-md-5 p-3 mt-4">
+        <div class="row p-0 m-0" [formGroup]="hrRequirementForm">
+            <div class="col-lg-6">
+                <div class="adddocumentpage ">
+                    <div class="locateyourdata ">
+                        <h3>Requirement title</h3>
+                        <input type="text" class=" locationdata "
+                       maxlength="30" minlength="5" [ngClass]="{ 'is-invalid': submitted && f['title'].errors}" formControlName="title"
+                       oninput="this.value = this.value.replace(/[^a-z,^A-Z ]/g, '').replace(/(\..*)\./g, '$1');"  placeholder="Enter requirement title">
+                        <div *ngIf=" submitted && f['title'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['title'].errors['required']">Title is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="locateyourdata ">
+                        <h3>Experience needed</h3>
+                        <input type="text" class=" locationdata "
+                        maxlength="9"  [ngClass]="{ 'is-invalid': submitted && f['experience_needed'].errors}" formControlName="experience_needed"
+                        oninput="this.value = this.value.replace(/[^0-9,^A-Z,^a-z,']/g, '').replace(/(\..*)\./g, '$1');" placeholder="Enter experience needed">
+                        <div *ngIf=" submitted && f['experience_needed'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['experience_needed'].errors['required']">Experience is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="locateyourdata ">
+                        <h3>Description / Role responsibility</h3>
+                        <textarea type="text" class=" addcontent ps-4 main_comp"
+                        maxlength="1500"  minlength="5"  [ngClass]="{ 'is-invalid': submitted && f['description'].errors}"
+                            formControlName="description"
+                            placeholder="Enter Description"></textarea>
+                        <div *ngIf=" submitted && f['description'].errors" class="invalid-feedback mt-0">
+                            <div *ngIf="submitted && f['description'].errors['required']">Description is required
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="adddocumentpage ">
+                    <div class="locateyourdata position-relative">
+                        <h3>Salary</h3>
+                        <input type="text" class=" locationdata ps-5"
+                        maxlength="9" [ngClass]="{ 'is-invalid': submitted && f['salary'].errors}" formControlName="salary"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  placeholder="Enter salary">
+                            <p class="position-absolute price">₹</p>
+
+                        <div *ngIf=" submitted && f['salary'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['salary'].errors['required']">Salary is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="locateyourdata Joining ">
+                        <h3>Joining date</h3>
+                        <img class="calender" src="assets/images/calendar-2.png" alt="">
+                        <mat-form-field appearance="fill" style="width:100%">
+                            <input matInput [matDatepicker]="picker "
+                            (click)="picker.open()" readonly placeholder="Select date"
+                                formControlName="joining_date">
+                            <mat-datepicker-toggle matSuffix [for]="picker">
+                            </mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+                        <small *ngIf="submitted && hrRequirementForm.controls['joining_date'].invalid " class="alert px-0 select-box-alert">
+                            <small *ngIf="submitted && hrRequirementForm.controls['joining_date'].errors.required">
+                                Joining date is required
+                            </small>
+                        </small>
+                    </div>
+                    <div class="locateyourdata ">
+                        <h3>Notice</h3>
+                        <input type="text" class=" locationdata "
+                        maxlength="9"  [ngClass]="{ 'is-invalid': submitted && f['notice'].errors}" formControlName="notice"
+                        oninput="this.value = this.value.replace(/[^0-9,^A-Z,^a-z,']/g, '').replace(/(\..*)\./g, '$1');" pattern="^[1-9][0-9]*$" placeholder="Enter the notice">
+                        <div *ngIf=" submitted && f['notice'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['notice'].errors['required']">Notice period is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="locateyourdata " formArrayName="custom_fields">
+                        <div [formGroupName]="i" *ngFor="let customfield of customfields; let i=index;">
+                            <h3>{{customfield}}</h3>
+                            <input type="text" class=" locationdata mb-2"
+                            maxlength="30" [ngClass]="{ 'is-invalid': submitted && f['content'].errors}" formControlName="content"
+                                placeholder="Please enter {{customfield}}">
+                            <div *ngIf=" submitted && f['content'].errors" class="invalid-feedback">
+                                <div *ngIf="submitted && f['content'].errors['required']">Content is required
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="locateyourdata mt-3">
+                        <div class="d-flex align-items-start justify-content-between max-file">  
+                            <h3>Upload Resume</h3>
+                            <p *ngIf="showText" >Maximum 5 allowed</p>
+                        </div>
+                       
+
+                        <input style="display: none" type="file"  formControlName="upload_resume" accept="application/pdf"
+                        [ngClass]="{ 'is-invalid': submitted && f['upload_resume'].errors}" (change)="fileupload($event)" #selectFile>
+                        <button (click)="selectFile.click()" class="attachfile">Attach File</button>
+                        <!-- <div class="postdata d-flex justify-content-between align-items-center"
+                            *ngFor="let file of files; let i = index">
+                            <p>{{file.Key}}</p>
+                        </div> -->
+                       
+                        <div *ngIf=" submitted && f['upload_resume'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['upload_resume'].errors['required']">upload_resume is required
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="files" class="upload-img position-relative d-inline-block mx-2 mb-3 mt-3">
+                    <a target="_self" [href]="files" download="pdf">
+                        <img src="assets/images/pdf 3 (1).svg" width="90px" height="90px">
+                    </a>
+                    <img src="assets/images/close-circle.png" (click)="deleteImg()"
+                        class="close position-absolute">
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="adddocumentpage d-flex mt-5 justify-content-center">
+                <div class="postdata d-flex justify-content-between align-items-center me-2">
+                    <button class="customfield" (click)="addfield()">Add Custom Field<img></button>
+                </div>
+                <div class="postdata d-flex justify-content-between align-items-center ms-2">
+                    <button  *ngIf="!editFlag" (click)="postPublish(hrRequirementForm.value)">Post<img></button>
+                    <button *ngIf="editFlag" (click)="postPublish(hrRequirementForm.value)">Save<img></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

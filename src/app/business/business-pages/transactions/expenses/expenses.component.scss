@@ -1,0 +1,142 @@
+@import "../../../../../assets/variable.scss";
+
+.active-link {
+    background-color: $Color_0093D6;
+    border-radius: 100px;
+    padding: 11px 19px;
+    width: 188px;
+    @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Colorwhite)
+}
+
+.add-expense-img {
+    top: 50%;
+    left: 10px;
+    transform: translate(0px,-50%);
+}
+
+.main_comp {
+    .card {
+        border-radius: 15px;
+        border-radius: 10px;
+        .kebab-menu-container {
+            top: 10px;
+            right: 10px;
+            img {
+                cursor: pointer;
+            }
+            .dropdown-menu{
+                right: 0px;
+                box-shadow: 0px 11px 110px rgba(0, 50, 123, 0.2);
+                border-radius: 8px;
+                padding: 25px 0px;
+                li {
+                    cursor: pointer;
+                }
+            }
+            .dropdown-item.active, .dropdown-item:active{
+                background-color: white;
+            }
+            .dropdown-item.active, .dropdown-item:hover{
+                background-color: white;
+            }
+            .dropdown-item{
+                @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_0A0045)
+            }
+            .delete{
+                color:#FF5C5C !important;
+            }
+        }
+    }
+    h5 {
+        @include fontStyleManager($fontFamilyAvenir, $fontWeightSemiBold, $fontSize26, $Color_0A0045);
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+    h2{
+        @include fontStyleManager($fontFamilyAvenir, $fontWeightSemiBold, $fontSize20, $Color_0A0045);
+        @media (max-width:768px) {
+            font-size: 12px !important;
+        }
+    }
+}
+.card-img {
+    max-width: 120px;
+    @media (max-width:768px) {
+        max-width: 60px;
+    }
+}
+.address-row {
+    h6 {
+        @include fontStyleManager($fontFamilyInterMedium, $fontWeightMedium, $fontSize12, $Color_5B6D8E);
+    }
+    h5 {
+        @include fontStyleManager($fontFamilyAvenir, $fontWeightSemiBold, $fontSize16, $Color_0A0045);
+    }
+}
+span{
+    @include fontStyleManager($fontFamilyInterMedium, $fontWeightMedium, $fontSize20, $Color_5B6D8E);
+    @media (max-width:768px) {
+        font-size: 12px !important;
+    }
+
+}
+.position-sticky{
+    button{
+        @include fontStyleManager($fontFamilyInterSemiBold, $fontWeightSemiBold, $fontSize20, $Color_768DA9
+        );
+        padding: 23px 10px ;
+        @media (max-width:768px) {
+            padding: 10px 10px ;
+        }
+    }
+    .payment{
+        color: white !important;
+        background: #4791FF;
+
+    }
+}
+.net-btn{
+    @include fontStyleManager($fontFamilyInterSemiBold, $fontWeightSemiBold, $fontSize14, $Color_768DA9);
+    background: rgba(255, 100, 43, 0.1);
+    color: #FF642B !important;
+    padding: 9px 18px;
+border-radius: 44px;
+@media (max-width:768px) {
+    padding: 5px 8px;
+    font-size: 12px !important;
+}
+}
+.error-btn{
+    @include fontStyleManager($fontFamilyInterSemiBold, $fontWeightSemiBold, $fontSize14, $Color_768DA9);
+    background: rgba(255, 100, 43, 0.1);
+    padding: 9px 18px;
+border-radius: 44px;
+    color: #FF4746 !important    ;
+    @media (max-width:768px) {
+        padding: 5px 8px;
+        font-size: 12px !important;
+    }
+}
+.dropdown-menu{
+    right: 0px;
+    box-shadow: 0px 11px 110px rgba(0, 50, 123, 0.38);
+border-radius: 8px;
+padding: 25px 0px;
+}
+.dropdown-item.active, .dropdown-item:active{
+    background-color: white;
+}
+.dropdown-item.active, .dropdown-item:hover{
+    background-color: white;
+}
+.dropdown-item{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_0A0045);
+    @media (max-width:768px) {
+        font-size: 12px !important;
+    }
+    cursor: pointer;
+}
+.delete{
+    color:#FF5C5C !important;
+}

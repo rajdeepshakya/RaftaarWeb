@@ -1,0 +1,22 @@
+@import "../../../../../assets/variable.scss";
+@import "../../../../../assets/common.scss";
+
+.main{
+    background-color: #EAF3FF    ;
+    h3{
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize20,$Color_0A0045);  
+    }
+    .chat{
+        background-color: white;
+        border-radius: 15px;
+        min-height: 500px
+    }
+    h2{
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize26,$Color_0A0045); 
+        color: #959595 !important        ; 
+    }
+    p{
+        @include fontStyleManager($fontFamilyInterRegular,$fontWeightRegular,$fontSize18,$Color_0A0045); 
+        color: #A7A4A4        !important;
+    }
+}

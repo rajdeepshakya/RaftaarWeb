@@ -1,0 +1,231 @@
+
+<div class="main_comp px-md-5 px-3 pt-3 pb-md-5 pb-3">
+    <div class="d-flex pb-3 my-2">
+        <img (click)="goBack()" src="assets/images/arrow-circle-left.svg">
+        <h3 (click)="goBack()" class="ms-2 mb-0">Profile</h3>
+    </div>
+    <div class="requirementdata">
+        <div class="bg-white">
+            <div class="requirements-wrapper">
+                <div class="requirement-content py-3">
+                    <div class="row mx-md-5 mx-3 mt-md-3 mt-0">
+                        <!-- <div class="logocap d-flex align-items-center ">
+                            <img class="logocapimage rounded-circle"  [src]="companyProfile?.profile_pic ? companyProfile.profile_pic :'assets/images/Profile_1.svg'" alt="" width="130px" height="130px">
+                            <div class="logocapdata ms-4 ">
+                                <h5>{{companyProfile?.company_name}}</h5>
+                            </div>
+                        </div> -->
+                        <div class="col-md-12">
+                          <div class="dashboard-container">
+                            <form  >
+                                <div class="position-relative userdiv">
+                                    <div class="position-relative ">
+                                        <img [ngClass]="{
+                                            'backimg': companyProfile?.profile_cover,
+                                            'backimg1': !companyProfile?.profile_cover
+                                            }" [src]="companyProfile?.profile_cover? companyProfile?.profile_cover:'assets/images/Placeholdder_image.jpg'"
+                                        onError="this.src='assets/images/Placeholdder_image.jpg';this.style='object-fit:contain'" width="100%" height="200px">
+                                        
+    
+                                    </div>
+                                    <div class="position-absolute profilepic">
+                                        <div class=" position-relative">
+        
+                                            <!-- <button *ngIf="url" (click)="delete()">delete</button> -->
+                                            <img class="logocapimage rounded-circle"  [src]="companyProfile?.profile_pic ? companyProfile.profile_pic :'assets/images/Profile_1.svg'"
+                                            onError="this.src='assets/images/Profile_1.svg'"  alt="" width="130px" height="130px">
+                            
+                                        </div>
+                                    </div>
+                                  
+                                </div>
+                                <div class="details">
+                                  <h5>{{companyProfile?.company_name}}</h5>
+                                  <div class="d-flex align-items-start">
+                                        <img src="assets/images/location_2.svg" alt="">
+                                        <p>{{companyProfile?.address}}</p>
+                                    </div>
+                        
+                                </div>
+                            </form>
+                        </div>
+                    
+                        </div>
+                       
+                    </div>
+                    <div class=" d-flex justify-content-end me-md-0 me-3">
+                        <svg (click)="routeToEdit()" *ngIf="!editProfile" class="me-2 edit" width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M29.3327 3.66797H14.666C7.33268 3.66797 3.66602 7.33464 3.66602 14.668V38.5013C3.66602 39.5096 4.49102 40.3346 5.49935 40.3346H29.3327C36.666 40.3346 40.3327 36.668 40.3327 29.3346V14.668C40.3327 7.33464 36.666 3.66797 29.3327 3.66797Z" stroke="#002280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M23.6681 14.3726L14.1531 23.8876C13.7864 24.2543 13.4381 24.9693 13.3648 25.4826L12.8515 29.1126C12.6681 30.4326 13.5848 31.3493 14.9048 31.166L18.5348 30.6526C19.0481 30.5793 19.7631 30.231 20.1298 29.8643L29.6448 20.3493C31.2765 18.7176 32.0648 16.811 29.6448 14.391C27.2248 11.9526 25.3181 12.7226 23.6681 14.3726Z" stroke="#002280" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path d="M22.3105 15.7305C23.1172 18.6088 25.3722 20.8821 28.2689 21.6888" stroke="#002280" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                          </svg>
+                  
+                          <img src="assets/images/message-edit_3.svg" alt="" *ngIf="editProfile" width="44" height="44" class="me-2"/>
+                          
+                          <div class="dropdown">
+                                  <img class="ms-2 me-md-5 me-0 edit" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" src="assets/images/setting-2.svg" width="44px" height="44px">
+                                <ul class="dropdown-menu p-4"  id="drop">
+                                  <li class="d-flex align-items-start"    [routerLink]="['/main/more/saved']">
+                                    <img src="assets/images/save_2.svg" width="24px" height="24px">
+                                    <a class="dropdown-item">
+                                     <h4 class="mb-0">Saved</h4>
+                                    <!-- <p>Pellentesque vivamus nulla est, </p> -->
+                                  </a></li>
+                                  <li class="d-flex align-items-start" [routerLink]="['/main/more/interests']">
+                                    <img src="assets/images/heart.svg"  width="24px" height="24px">
+                                    <a class="dropdown-item">
+                                     <h4 class="mb-0">Interests</h4>
+                                    <!-- <p>Pellentesque vivamus nulla est, </p> -->
+                                  </a></li>
+                                  <li class="d-flex align-items-start" [routerLink]="['/main/more/settings']">
+                                    <img src="assets/images/setting-2.svg"  width="24px" height="24px">
+                                    <a class="dropdown-item">
+                                     <h4 class="mb-0">Settings</h4>
+                                    <!-- <p>Pellentesque vivamus nulla est, </p> -->
+                                  </a></li>
+                                  <li class="d-flex align-items-start" [routerLink]="['/main/more/change-password']">
+                                    <img src="assets/images/key.svg"  width="24px" height="24px">
+                                    <a class="dropdown-item">
+                                     <h4 class="mb-0">Change Password</h4>
+                                    <!-- <p>Pellentesque vivamus nulla est, </p> -->
+                                  </a></li>
+                                  <li class="d-flex align-items-start" [routerLink]="['/main/more/privacy-policy']">
+                                    <img src="assets/images/security-safe.svg"  width="24px" height="24px">
+                                    <a class="dropdown-item" >
+                                     <h4 class="mb-0">Privacy Policy</h4>
+                                    <!-- <p>Pellentesque vivamus nulla est, </p> -->
+                                  </a></li>
+                                  <li class="d-flex align-items-start"  [routerLink]="['/main/more/terms-conditions']">
+                                      <img src="assets/images/simcard-2.svg"  width="24px" height="24px">
+                                      <a class="dropdown-item" >
+                                       <h4 class="mb-0">Terms of Use</h4>
+                                      <!-- <p>Pellentesque vivamus nulla est, </p> -->
+                                    </a></li>
+                                    <li class="d-flex align-items-start" (click)=" logout()">
+                                      <img src="assets/images/logout.svg"  width="24px" height="24px">
+                                      <a class="dropdown-item">
+                                       <h4 class="mb-0">Logout</h4>
+                                      <!-- <p>Pellentesque vivamus nulla est, </p> -->
+                                    </a></li>
+                                </ul>
+                            </div>
+                      </div>
+                    <div>
+                        <div class="row userlabel mt-md-5 mt-3 w-100 ms-0 px-md-5 px-0" >
+                            <div class="col-md-12 m-auto border-top px-md-5 px-3">
+                                <div class=" my-4 row " >
+                                    <div class="d-flex col-md-5 col-6 justify-content-start align-items-start">
+                                        <img class="me-2 ms-md-5 ms-0"
+                                            src="assets/images/building.svg">
+                                        <p class="ms-2">Company Name</p>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <h5 class="">{{companyProfile?.company_name}}</h5>
+                                    </div>
+                                </div>
+                                <div class=" my-4 row ">
+                                    <div class="d-flex col-md-5 col-6 justify-content-start align-items-start">
+                                        <img class="me-2 ms-md-5 ms-0"
+                                        src="assets/images/firstline.svg">                                        <p class="ms-2">Company Description</p>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <h5 class="">{{companyProfile?.description}}</h5>
+                                    </div>
+                                </div>
+                                <div class=" my-4 row ">
+                                    <div class="d-flex col-md-5 col-6 justify-content-start align-items-start">
+                                        <img class="me-2 ms-md-5 ms-0"
+                                        src="assets/images/health.svg">     
+                                        <p class="ms-2">Business Activity</p>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <h5 class="">{{businessActivity}}</h5>
+                                    </div>
+                                </div>
+                                <div class=" my-4 row ">
+                                    <div class="d-flex col-md-5 col-6 justify-content-start align-items-start">
+                                        <img class="me-2 ms-md-5 ms-0"
+                                        src="assets/images/hospital.svg">     
+                                        <p class="ms-2">Industry</p>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <h5 class="">{{companyProfile?.Category1?.title}}</h5>
+                                    </div>
+                                </div>
+                                <div class=" my-4 row ">
+                                    <div class="d-flex col-md-5 col-6 justify-content-start align-items-start">
+                                        <img class="me-2 ms-md-5 ms-0"
+                                        src="assets/images/folder-connection11.svg">     
+                                       <p class="ms-2">Sub Category</p>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <h5 class="">{{subCategory}}</h5>
+                                    </div>
+                                </div>
+                                <div class=" my-4 row ">
+                                    <div class="d-flex col-md-5 col-6 justify-content-start align-items-start">
+                                        <img class="me-2 ms-md-5 ms-0"
+                                        src="assets/images/Sub_activity.png">     
+                                       <p class="ms-2">Sub Activity</p>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <h5 class="">{{subActivity}}</h5>
+                                    </div>
+                                </div>
+                                <div class=" my-4 row ">
+                                    <div class="d-flex col-md-5 col-6 justify-content-start align-items-start">
+                                        <img class="me-2 ms-md-5 ms-0"
+                                        src="assets/images/profile-2user_3.svg">  
+                                      <p class="ms-2">Company Size</p>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <h5 class="">{{companyProfile?.company_size}}</h5>
+                                    </div>
+                                </div>
+                                <div class=" my-4 row ">
+                                    <div class="d-flex col-md-5 col-6 justify-content-start align-items-start">
+                                        <img class="me-2 ms-md-5 ms-0"
+                                        src="assets/images/receipt-minus.svg">                                        <p class="ms-2">GST Number</p>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <h5 class="">{{companyProfile?.gst_no}}</h5>
+                                    </div>
+                                </div>
+                                <div class=" my-4 row ">
+                                    <div class="d-flex col-md-5 col-6 justify-content-start align-items-start">
+                                        <img class="me-2 ms-md-5 ms-0"
+                                        src="assets/images/location-minus11.svg"  width="24px " height="24px">                                        <p class="ms-2">Address</p>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start text-break">
+                                        <h5 class="">{{companyProfile?.address}}</h5>
+                                    </div>
+                                </div>
+                                <div class=" my-4 row ">
+                                    <div class="d-flex col-md-5 col-6 justify-content-start align-items-start">
+                                        <img class="me-2 ms-md-5 ms-0"
+                                        src="assets/images/sms.svg">
+                                        <p class="ms-2">Email Address</p>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <h5 class="">{{companyProfile?.Auth?.email}}</h5>
+                                    </div>
+                                </div>
+                                <div class=" my-4 row ">
+                                    <div class="d-flex col-md-5 col-6 justify-content-start align-items-start">
+                                        <img class="me-2 ms-md-5 ms-0"
+                                        src="assets/images/call.svg">                                        <p class="ms-2">Contact Number</p>
+                                    </div>
+                                    <div class="col-6 d-flex justify-content-start">
+                                        <h5 class="">{{companyProfile?.Auth?.phone_no}}</h5>
+                                    </div>
+                                </div>
+                            </div>
+    
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

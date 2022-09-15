@@ -1,0 +1,126 @@
+<div class="main">
+    <div class="d-flex">
+        <img  (click)="goBack()" src="assets/images/arrow-circle-left.svg">
+        <h3 (click)="goBack()" class="ms-2 mb-0">Finance</h3>
+    </div>
+    <div class="add-new p-md-5 p-3 mt-4">
+        <div class="row p-0 m-0" [formGroup]="finaceForm">
+            <div class="col-md-6">
+                <div class="adddocumentpage ">
+                    <div class="locateyourdata ">
+                        <h3>Requirement title</h3>
+                        <input type="text" class="locationdata "
+                        oninput="this.value = this.value.replace(/[^a-z,^A-Z ]/g, '').replace(/(\..*)\./g, '$1');"  [ngClass]="{ 'is-invalid': submitted && f['title'].errors}"
+                        minlength="5" maxlength="30" formControlName="title"
+                            placeholder="Enter requirement title">
+                            <div *ngIf="f.title.invalid" class="invalid-feedback">
+                                <div *ngIf="f['title'].errors['required']">Title is required
+                                </div>
+                                <div *ngIf="f['title'].errors['pattern']">Invalid requirement title
+                                </div>
+                            </div>
+                    </div>
+                    <div class="locateyourdata ">
+                        <h3>Description</h3>
+                        <textarea type="text" class=" addcontent ps-4 main_comp"
+                            formControlName="description" maxlength="1500" minlength="5"
+                            [ngClass]="{ 'is-invalid': submitted && f['description'].errors}"
+                            placeholder="Enter Description"></textarea>
+                            <div *ngIf="f.description.invalid" class="invalid-feedback mt-0">
+                                <div *ngIf="f['description'].errors['required']">Description is required
+                                </div>
+                            </div>
+                    </div>
+                    <div class="locateyourdata mt-1">
+                        <h3>Contact detail</h3>
+                        <input type="text" class="locationdata  "
+                        [ngClass]="{ 'is-invalid': submitted && f['contact'].errors}" minlength="10" maxlength="10"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" formControlName="contact"
+                            placeholder="Enter contact detail">
+                            <div *ngIf="f.contact.invalid" class="invalid-feedback">
+                                <div *ngIf="f['contact'].errors['required']">Contact is required
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="adddocumentpage ">
+                    
+                    <div class="locateyourdata ">
+                        <h3>GST</h3>
+                        <input type="text" class="locationdata " 
+                       maxlength="30" [ngClass]="{ 'is-invalid': submitted && f['gst'].errors}" formControlName="gst"
+                            placeholder="Enter GST">
+                            <div *ngIf="f.gst.invalid" class="invalid-feedback">
+                                <div *ngIf="f['gst'].errors['required']">GST is required
+                                </div>
+                                <div *ngIf="f['gst'].errors['pattern']">Invalid GST
+                                </div>
+                            </div>
+                    </div>
+                    <div class="locateyourdata ">
+                        <h3>PAN</h3>
+                        <input type="text" class="locationdata" 
+                        maxlength="30" [ngClass]="{ 'is-invalid': submitted && f['pan'].errors}" formControlName="pan"
+                            placeholder="Enter PAN">
+                            <div *ngIf="f.pan.invalid" class="invalid-feedback">
+                                <div *ngIf="f['pan'].errors['required']">PAN is required
+                                </div>
+                                <div *ngIf="f['pan'].errors['pattern']">Invalid PAN
+                                </div>
+                            </div>
+                    </div>
+                    <div class="locateyourdata " *ngIf="!editFlag">
+                        <div class="d-flex flex-column locateyourdata phonedetails">
+                            <h3>Acceptance of T&C</h3>
+                            <mat-form-field appearance="fill" class="">
+                        <mat-select type="text" placeholder="Acceptance of T&C"
+                         ng-disabled="disable" 
+                            formControlName="term_condition">
+                            <mat-option *ngFor="let data of term_condition" [value]="data.id">{{data.value}}
+                     </mat-option>
+                     </mat-select>
+                     </mat-form-field>
+                     </div>
+                     <small *ngIf="submitted && finaceForm.controls['term_condition'].invalid " class="alert px-0 select-box-alert">
+                        <small *ngIf="submitted && finaceForm.controls['term_condition'].errors.required">
+                            Acceptance of T&C is required
+                        </small>
+                    </small>
+                    </div>
+                    <div class="locateyourdata " formArrayName="custom_fields">
+                        <div [formGroupName]="i" *ngFor="let customfield of customfields; let i=index;">
+                            <h3>{{customfield}}</h3>
+                            <input type="text" class="locationdata mb-2" formControlName="content"
+                                placeholder="Please enter {{customfield}}">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="adddocumentpage d-flex mt-5 justify-content-center">
+                    <div class="postdata d-flex justify-content-between align-items-center me-2">
+
+                        <button class="customfield" (click)="addfield()">Add Custom Field<img></button>
+                    </div>
+                    <div class="postdata d-flex justify-content-between align-items-center ms-2">
+
+                        <button *ngIf="!editFlag" (click)="postPublish(finaceForm.value)">Post<img></button>
+                        <button *ngIf="editFlag" (click)="postPublish(finaceForm.value)">Save<img></button>
+
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="adddocumentpage py-3">
+                <div class="postdata button_center d-flex justify-content-between align-items-center">
+               
+                    <button (click)="postPublish(finaceForm.value)">Post<img
+                            ></button>
+                </div>
+            </div> -->
+        </div>
+
+    </div>
+</div>

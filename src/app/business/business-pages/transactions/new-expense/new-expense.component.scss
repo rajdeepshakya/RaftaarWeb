@@ -1,0 +1,180 @@
+
+
+@import "../../../../../assets/variable.scss";
+@import "../../../../../assets/common.scss";
+
+.add-customer-heading {
+  @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize20,$Color_0A0045);
+}
+
+.add-customer-container {
+    padding: 81px 40px 0px 40px;
+    background-color: $Colorwhite;
+    border-radius: 15px;
+    @media(min-width: 576px) {
+        padding: 81px 100px 0px 100px;
+    }
+    .input-container {
+        flex-direction: column;
+        grid-column-gap: 40px;
+        @media(min-width: 1224px) {
+            flex-direction: row;
+        }
+        .locateyourdata{
+            position: relative;
+            width: 100%;
+            @media(min-width: 1224px) {
+                width: 50%;
+            }
+            .locationdata{
+                width: 100%;
+                padding:19px 36px;
+                border-radius: 200px;
+                border: 0.5px solid #BFD1E3;
+                @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_0A0045);
+                @media (max-width:768px) {
+                    font-size: 14px !important;
+                }
+                ::placeholder{
+                    color:#768DA9;
+                }
+                .statusupdate{
+                    background-color: #23C99A;
+                    padding:2px 8px;
+                    border-radius: 50px;;
+                    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Colorwhite);
+            
+                }
+            }
+            .droparrow{
+                position: absolute;
+                right:25px;
+                top:20px;
+            }
+        }
+        // @media (min-width: 768px) {
+        //     flex-direction: row ;
+        // }
+    }
+
+    .input-container-padding-right {
+        width: 100%;
+        padding-right: 0px;
+        @media (min-width: 1224px) {
+            padding-right: 30px;
+            width: 50%;
+        }
+    }
+
+
+    .addcontentdata{
+        position:relative;
+        .addcontent{
+            height:150px;
+            width:100%;
+            border: none;
+            padding-left: 50px;
+        }
+        .counternumber {
+            background-color:  #23C99A;;
+            width:80px;
+            padding:5px 10px;
+            border-radius: 10px;
+            color:white !important;
+            position: absolute;
+            right: 20px;
+            bottom:0;
+        }
+    }
+
+
+    label {
+      //color: $sky;
+      font-size: 20px;
+    }
+    .counternumber{
+        background-color: #23C99A;
+        width:70px;
+        border-radius: 10px;
+        color:#FFFFFF !important;
+        position: absolute;
+        right: 25px;
+        top: 50%;
+        margin: 0px;
+        padding: 0px;
+        margin-top: -12px !important;
+    }
+  
+
+    .c_input {
+        small{
+            color:red;
+            position: absolute;
+        }    
+        padding-left: 0px;
+      
+        .country-code {
+            position: absolute;
+            border: navajowhite;
+            background: white;
+            top: 50%;
+            left: 33px;
+            transform: translateY(-50%);
+            border-right: 1px solid #BFD1E3;
+            outline: none;
+            z-index: 1;
+        }
+
+    }
+
+    .postdata{
+        .transaction-btn {
+            padding:14px 10px;
+            border: 0.5px solid #BFD1E3 !important;
+            border-radius: 40px;
+            background-color: $Colorwhite;
+            // width: 161px;
+            max-width: 100%;
+            @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize18,$Color_0A0045);
+            @media (max-width:768px) {
+                width: 100%;
+            }
+        }
+        .submit-btn {
+            background: #EE7402;
+            padding:14px 10px;
+            border-radius: 40px;
+            width: 161px;
+            // width: 161px;
+            max-width: 100%;
+            @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize18,$Colorwhite);
+            @media (max-width:768px) {
+                width: 100%;
+            }
+        }
+    }
+
+    .aftertransaction{
+        padding: 21px 19px;
+        background: #EAFFF9;
+        border-radius: 12px;
+        @include fontStyleManager($fontFamilyInterRegular,$fontWeightMedium,$fontSize16,$Color_0A0045);
+        @media (max-width:768px) {
+            font-size: 12px !important;
+        }
+    }
+
+    .titledata{
+        white-space: nowrap;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        
+        @include fontStyleManager($fontFamilyAvenir,$fontWeightBold,$fontSize14,$Color_0A0045);
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+}
+    
+

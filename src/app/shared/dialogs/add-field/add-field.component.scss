@@ -1,0 +1,56 @@
+@import '../../../../assets/variable.scss';
+@import '../../../../assets/common.scss';
+.modal-header{
+    border-bottom: 0px !important;
+    justify-content: end !important;
+    .button-close {
+        justify-self: right;
+        text-align: end ;
+        border: none;
+        background-color: #FFFFFF;
+        outline: none;  
+        cursor: pointer;
+        svg{
+            height: 20px;
+            width: 20px;
+            cursor: pointer;
+        }      
+    }
+}
+h1{
+    @include fontStyleManager($fontFamilyAvenir,$fontWeightBold,$fontSize16,$Color_0A0045);
+}
+.modal-body {
+    // text-align: center !important;
+    margin-top: -20px;
+    label {
+        font-family: 'Avenir' !important;
+        font-weight: 600 !important;
+        font-size: 18px !important;
+        color:#0A0045 !important;
+    }
+}
+.modal-footer{
+    border-top: 0px !important;
+    justify-content: center !important;
+    button{
+        padding: 15px;
+        width: 240px;
+        max-width: 100%;
+        border-radius: 40px;
+        background-color: #EE7402  ;
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize18,$Colorwhite)
+        
+    }
+}
+input{
+    border: 0.5px solid #768DA9 !important;
+    border-radius: 40px;
+    padding: 17px 25px;
+    width: 100%;
+}
+::placeholder{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Colorwhite);
+color:#768DA9 !important;
+
+}

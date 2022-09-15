@@ -1,0 +1,31 @@
+@import '../../../../../assets/variable.scss';
+h3{
+    @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize20,$Color_0A0045); 
+    @media (max-width:768px) {
+        font-size: 14px !important;
+    }
+}
+p{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_768DA9); 
+    @media (max-width:768px) {
+        font-size: 14px !important;
+    }
+}
+
+.modal-header{
+    border-bottom: 0px !important;
+    justify-content: end !important;
+    .button-close {
+        justify-self: right;
+        text-align: end ;
+        border: none;
+        background-color: #FFFFFF;
+        outline: none;  
+        cursor: pointer;
+        svg{
+            height: 20px;
+            width: 20px;
+            cursor: pointer;
+        }      
+    }
+}

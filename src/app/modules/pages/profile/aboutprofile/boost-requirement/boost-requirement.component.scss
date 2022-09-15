@@ -1,0 +1,45 @@
+@import "../../../../../../assets/variable.scss";
+.main-comp{
+    padding:18px 45px;
+    p{
+        @include fontStyleManager($fontFamilyInterRegular,$fontWeightRegular,$fontSize16,$Color_768DA9);
+        line-height: 35px;
+        span{
+            @include fontStyleManager($fontFamilyInterRegular,$fontWeightSemiBold,$fontSize16,$Color_002280);
+        }
+    }
+}
+.locateyourdata {
+    position: relative;
+    .droparrow{
+        position: absolute;
+        right:10px;
+        top:22px;
+    }
+    .locationdata {
+        padding: 18px 40px 18px 5px;
+        border-radius: 100px;
+        border: 0.5px solid #BFD1E3;
+        
+               font-size: 16px;
+     @include fontStyleManager($fontFamilyInterMedium, $fontWeightMedium, $fontSize16, $Color_0A0045);
+   
+    }
+
+    
+}
+.postdata{
+    float:right;
+    //margin:42px 48px 60px 0;
+    // margin-right:3rem;
+    // margin-bottom:60px;
+
+button{
+    background: #EE7402;
+    padding:18px 59px;
+    border-radius: 40px;
+    
+color:white !important;
+
+}
+}

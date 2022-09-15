@@ -1,0 +1,105 @@
+@import '../../../assets/common.scss';
+@import '../../../assets/variable.scss';
+.interest{
+      @media (max-width:768px) {
+        padding-top: 20px !important;  
+    }
+}
+.main_comp{
+    padding: 0px 35px;
+    @media (max-width:768px) {
+        padding: 0px 15px;
+    }  
+    h1{
+        @include fontStyleManager($fontFamilyAvenir,$fontWeightBold,$fontSize26,$Color_0A0045);
+        @media (max-width:768px) {
+        font-size: 26px !important;        }
+    }
+    p{
+        font-size: 16px !important;
+    }
+}
+.alert{
+    color: red;
+}
+.result{
+    background-color:#FFF3EE    ;
+    padding: 11px 35px;
+    p{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_0A0045);
+        @media (max-width:768px) {
+            font-size: 12px !important;    
+            }
+    }
+   
+
+}
+button{
+    border: 1px solid #DBE9F5 !important;
+box-sizing: border-box;
+border-radius: 40px;
+@include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Color_0A0045);
+width: 240px;
+max-width: 100%;
+padding: 16px 5px;
+@media (max-width:768px) {
+    width: 100%;
+}
+}
+.post{
+    background-color:#EE7402    ;
+    color: white !important;
+}
+.sideimg{
+    background-image:url('../../../assets/images/back.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 50px 70px !important;
+    app-side-img{
+        width: 100%;
+          height: 100vh;
+          align-items: center;
+          display: flex;
+          text-align: center;
+      }
+    @media (max-width:768px) {
+        display: none;
+    }
+}
+
+.bg-color {
+    background-color: #FFFFFF;
+}
+
+  ::placeholder{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_5B6D8E);
+  
+  }
+  input{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize18,$Color_0A0045);
+  
+  }
+  .signupback{
+      img{
+          width: 100%;
+      }
+  }
+  .btn-order .field{
+order: 0;
+@media (max-width:768px) {
+    order: 1;
+}
+  }
+  .btn-order .post{
+    order: 1;
+    @media (max-width:768px) {
+        order: 0;
+    }
+      }
+
+      .interest{
+        margin-top: 150px ;
+        @media (max-width:768px) {
+          margin-top: 0px;
+        }
+      }

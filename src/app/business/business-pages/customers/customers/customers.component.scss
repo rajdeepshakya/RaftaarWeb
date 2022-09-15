@@ -1,0 +1,54 @@
+@import '../../../../../assets/variable.scss';
+
+.main_comp{
+    padding: 0px 0px 0px 0px;
+    .top-menu {
+        // li {
+        //     a {
+        //         @include fontStyleManager($fontFamilyInterMedium, $fontWeightMedium, $fontSize20, $Color_002280);
+        //         text-decoration: none;
+        //     }
+        // }
+       
+    } 
+    .cursor-pointer {
+        cursor: pointer;
+    }
+}
+
+button{
+    background-color: #FFFFFF;
+    border-radius: 36px;
+    padding: 9px 19px;
+    @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Color_8A94A6)
+}
+
+.battery-btn {
+    width: 181px;
+    height: 46px;
+}
+
+.active-link{
+    
+    background-color: #0093D6 !important;
+    @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Colorwhite);
+    img {
+        top: 50%;
+        left: 10px;
+        transform: translate(0px, -50%);
+    }
+} 
+
+.unblock-btn {
+    width: 46px;
+    height: 46px;
+}
+
+
+
+
+
+
+
+
+

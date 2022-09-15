@@ -1,0 +1,412 @@
+// @import '../../../../../assets/variable.scss';
+// @import '../../../../../assets/common.scss';
+
+// .main_comp{
+//     padding: 20px 35px;
+// @media (max-width:768px) {
+//     padding: 10px 15px;
+// }
+// }
+
+// .battery-btn{
+//     background-color: #4791FF;
+//     border-radius: 100px;
+//     padding: 9px 19px;
+//     @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize18,$Colorwhite)
+// }
+// .card{
+// box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.15);
+// border-radius: 20px;
+// border:0px;
+// min-height: 229px;
+// @media (max-width:768px) {
+//     min-height: auto;
+// }
+// .product-design{
+//     @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_768DA9);
+//     color: #FF642B    !important    ;
+//     @media (max-width:768px) {
+//         font-size: 10px !important;
+//     }
+// }
+// h5{
+//     font-family: 'Avenir';
+//     font-weight: 600;
+//     font-size: 26px;
+//     color: #1B194B    ;
+//     @media (max-width:768px) {
+//         font-size: 14px;
+//     }
+// }
+// button{
+//     background: rgba(82, 255, 206, 0.1);
+//     font-family: 'Inter-SemiBold' !important;
+//     border-radius: 50px;
+// color:#23C99A !important;
+// font-size: 14px !important;
+// padding: 11px 13px;
+// img{
+//     @media (max-width:768px) {
+// width: 12px;   
+//  }
+// }
+// @media (max-width:768px) {
+//     font-size: 10px !important;
+//     padding: 8px;
+
+// }
+// }
+// .accept{
+//     background-color: #EE7402  !important  ;
+//     color: white !important;
+//     padding: 12px;
+//     width: 130px;
+//     @media (max-width:768px) {
+//         font-size: 10px !important;
+//         width: 84px;
+//         padding: 8px;
+
+//     }
+// }
+// .price{
+//     @include fontStyleManager($fontFamilyAvenir,$fontWeightBold,$fontSize20,$Color_0A0045)
+// }
+// }
+// .result{
+//     background-color: #E5FFF8    ;
+//     padding: 25px 35px;
+//     p{
+//         @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize18,$Color_0A0045);
+//     }
+// }
+// .breadcrumb-item {
+//     font-size: 24px !important;
+// }
+// .dropdown-menu{
+//     right: 32px;
+//     box-shadow: 0px 11px 110px rgba(0, 50, 123, 0.38);
+//     border-radius: 8px;
+// padding: 25px 0px;
+// }
+// .dropdown-item.active, .dropdown-item:active{
+//     background-color: white;
+// }
+// .dropdown-item.active, .dropdown-item:hover{
+//     background-color: white;
+// }
+// .dropdown-item{
+//     @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_0A0045)
+// }
+// .delete{
+//     color:#FF5C5C !important;
+// }
+// .enterprise{
+//     @media (max-width:768px) {
+//         font-size: 12px !important;
+//     }
+// }
+// .image{
+//     @media (max-width:768px) {
+// width: 12px;    }
+// }
+// .purchase-order{
+//     @media (max-width:768px) {
+//         position: fixed;
+//         bottom: 12px;
+//         z-index: 1;
+//        }
+// }
+
+// @import '../../../../../assets/variable.scss';
+// @import '../../../../../assets/common.scss';
+
+// .main_comp{
+//     padding: 20px 35px;
+// @media (max-width:768px) {
+//     padding: 10px 15px;
+// }
+// }
+
+// .battery-btn{
+//     background-color: #4791FF;
+//     border-radius: 100px;
+//     padding: 9px 19px;
+//     @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize18,$Colorwhite)
+// }
+// .card{
+// box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.15);
+// border-radius: 20px;
+// border:0px;
+// min-height: 229px;
+// @media (max-width:768px) {
+//     min-height: auto;
+// }
+// .product-design{
+//     @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_768DA9);
+//     color: #FF642B    !important    ;
+//     @media (max-width:768px) {
+//         font-size: 10px !important;
+//     }
+// }
+// h5{
+//     font-family: 'Avenir';
+//     font-weight: 600;
+//     font-size: 26px;
+//     color: #1B194B    ;
+//     @media (max-width:768px) {
+//         font-size: 14px;
+//     }
+// }
+// button{
+//     background: rgba(82, 255, 206, 0.1);
+//     font-family: 'Inter-SemiBold' !important;
+//     border-radius: 50px;
+// color:#23C99A !important;
+// font-size: 14px !important;
+// padding: 11px 13px;
+// img{
+//     @media (max-width:768px) {
+// width: 12px;   
+//  }
+// }
+// @media (max-width:768px) {
+//     font-size: 10px !important;
+//     padding: 8px;
+
+// }
+// }
+// .accept{
+//     background-color: #EE7402  !important  ;
+//     color: white !important;
+//     padding: 12px;
+//     width: 130px;
+//     @media (max-width:768px) {
+//         font-size: 10px !important;
+//         width: 84px;
+//         padding: 8px;
+
+//     }
+// }
+// .price{
+//     @include fontStyleManager($fontFamilyAvenir,$fontWeightBold,$fontSize20,$Color_0A0045)
+// }
+// }
+// .result{
+//     background-color: #E5FFF8    ;
+//     padding: 25px 35px;
+//     p{
+//         @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize18,$Color_0A0045);
+//     }
+// }
+// .breadcrumb-item {
+//     font-size: 24px !important;
+// }
+// .dropdown-menu{
+//     right: 32px;
+//     box-shadow: 0px 11px 110px rgba(0, 50, 123, 0.38);
+//     border-radius: 8px;
+// padding: 25px 0px;
+// }
+// .dropdown-item.active, .dropdown-item:active{
+//     background-color: white;
+// }
+// .dropdown-item.active, .dropdown-item:hover{
+//     background-color: white;
+// }
+// .dropdown-item{
+//     @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_0A0045)
+// }
+// .delete{
+//     color:#FF5C5C !important;
+// }
+// .enterprise{
+//     @media (max-width:768px) {
+//         font-size: 12px !important;
+//     }
+// }
+// .image{
+//     @media (max-width:768px) {
+// width: 12px;    }
+// }
+// .purchase-order{
+//     @media (max-width:768px) {
+//         position: fixed;
+//         bottom: 12px;
+//         z-index: 1;
+//        }
+// }
+
+@import '../../../../../assets/variable.scss';
+@import '../../../../../assets/common.scss';
+
+.main_comp{
+    padding: 20px 35px;
+    @media (max-width:768px) {
+        padding: 10px 15px;
+    }
+    // padding: 20px 40px;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    .nodata{
+        min-height: 500px;
+        p{
+            font-size: 35px !important;
+        }
+    }
+}
+
+.battery-btn{
+    width: 181px;
+    background-color: #0093D6;
+    border-radius: 100px;
+    padding: 9px 0px;
+    @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize14,$Colorwhite)
+}
+
+.card {
+    border: 1px solid #F3F3F3 !important;
+    border-radius: 20px;
+    border:0px;
+    min-height: 229px;
+    @media (max-width:768px) {
+        min-height: auto;
+    }
+
+    .banner-img {
+        width: 231px;
+        height: 231px;
+    }
+
+    h5{
+        font-family: 'Avenir';
+        font-weight: 600;
+        font-size: 26px;
+        color: #1B194B    ;
+        @media (max-width:768px) {
+            font-size: 14px;
+        }
+    }
+    button{
+        background: #F9F9F9;
+        font-family: 'Inter-SemiBold' !important;
+        border-radius: 50px;
+        color:#979797 !important;
+        font-size: 14px !important;
+        padding: 11px 13px;
+        img{
+            @media (max-width:768px) {
+                width: 12px;   
+            }   
+        }
+        @media (max-width:768px) {
+            font-size: 10px !important;
+            padding: 8px;
+
+        }
+    }
+    .accept{
+        background-color: #EE7402  !important  ;
+        color: white !important;
+        padding: 12px;
+        width: 130px;
+        @media (max-width:768px) {
+            font-size: 10px !important;
+            width: 84px;
+            padding: 8px;
+
+        }
+    }
+    .price{
+        @include fontStyleManager($fontFamilyAvenir,$fontWeightBold,$fontSize20,$Color_0A0045)
+    }
+
+    .statusPending {
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_FF642B);
+        @media (max-width:768px) {
+            font-size: 10px !important;
+        }
+    }
+
+    // .statusAccepted {
+    //     @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_104798);
+    //     @media (max-width:768px) {
+    //         font-size: 10px !important;
+    //     }
+    // }
+
+    .statusDispatched {
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_104798);
+        @media (max-width:768px) {
+            font-size: 10px !important;
+        }
+    }
+
+    .statusCompleted {
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_23C99A);
+        @media (max-width:768px) {
+            font-size: 10px !important;
+        }
+    }
+}
+.result{
+    p{
+        display: inline;
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize18,$Color_0A0045);
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+}
+
+.breadcrumb-item {
+    font-size: 24px !important;
+}
+
+.dropdown-menu{
+    right: 32px;
+    box-shadow: 0px 11px 110px rgba(0, 50, 123, 0.38);
+    border-radius: 8px;
+    padding: 25px 0px;
+    z-index: 1 !important;
+}
+
+.dropdown-item.active, .dropdown-item:active{
+    background-color: white;
+}
+
+.dropdown-item.active, .dropdown-item:hover{
+    background-color: white;
+}
+
+.dropdown-item{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_0A0045)
+}
+
+.delete{
+    color:#FF5C5C !important;
+}
+
+.enterprise{
+    @media (max-width:768px) {
+        font-size: 12px !important;
+    }
+}
+
+.image{
+    @media (max-width:768px) {
+        width: 12px;    
+    }
+}
+
+.purchase-order{
+    @media (max-width:768px) {
+        position: fixed;
+        bottom: 12px;
+        z-index: 1;
+    }
+    .add-purchase-btn {
+        top: 50%;
+        left: 10px;
+        transform: translate(0px, -50%);
+    }
+}

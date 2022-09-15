@@ -1,0 +1,208 @@
+<div class="container-fluid p-0 signup">
+    <div class="row m-0 d-flex justify-content-between bg-color">
+        <div class="col-md-6 p-0  sideimg">
+            <div class="signupback">
+                <img src="assets/images/auth.png">
+              </div>   
+                 </div>
+        <form class="col-md-6 pt-md-5 pt-3 px-md-5 mx-0 m-auto" [formGroup]="loginForm" autocomplete="off" (submit)="onSubmit(loginForm.value)">
+            <img class="logo" src="assets/images/raftaarrlogo.png" alt="">
+            <h4 class="mt-4">Create an account</h4>
+            <p class="mt-1 formabout">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. lorem is Sed laying
+            </p>
+
+            <div>
+
+                <div class="phonedetail d-grid ">
+                    <div class="w-100  mt-2">
+                        <input type="text" class="form-control companydetail" placeholder="Company name" maxlength="50"
+                            oninput="this.value = this.value.replace(/[^a-z A-Z]/g, '').replace(/(\..*)\./g,);"
+                            formControlName="company_name">
+                        <!-- <small *ngIf="(submitted && loginForm.get('number').invalid)">Mobile Number is required</small>  -->
+                        <small *ngIf="submitted && loginForm.controls['company_name'].invalid " class="alert">
+                            <small *ngIf="submitted && loginForm.controls['company_name'].errors.required">
+                                Company name is required
+                            </small>
+                           
+                        </small>
+                    </div>
+                </div>
+
+
+
+                <div class="phonedetail position-relative d-grid ">
+                    <!-- <img class="smsdata" src="assets/images/arrow-down.svg" alt=""> -->
+                    <div class="w-100  mt-3 d-flex flex-column">
+                        <mat-form-field appearance="fill" class="">
+                            <mat-select #select placeholder="Business activity" formControlName="business_activity"
+                                (selectionChange)="fix($event)" multiple>
+                                <mat-option *ngFor="let items of data" [value]="items">{{items.industry_name}}
+                                </mat-option>
+                            </mat-select>
+                            <!-- <small *ngIf="submitted && loginForm.controls['Objindustry'].invalid" class="alert">
+                                <small *ngIf="submitted && loginForm.controls['Objindustry'].errors.required">
+                                Please Enter Company Name
+                                </small>
+                            </small> -->
+                            
+                        </mat-form-field>
+                        <small *ngIf="submitted && loginForm.controls['company_name'].invalid " class="alert select-box-alert">
+                            <small *ngIf="submitted && loginForm.controls['company_name'].errors.required">
+                                Business activity is required
+                            </small>
+                        </small>
+                    </div>
+                    <div class="w-100  mt-3 d-flex flex-column">
+                        <mat-form-field appearance="fill" class="">
+                            <mat-select placeholder="Select industry" formControlName="category1_id"
+                                (change)="fix($event)">
+                                <mat-option *ngFor="let items of categories" [value]="items.id">{{items.title}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <small *ngIf="submitted && loginForm.controls['company_name'].invalid " class="alert select-box-alert">
+                            <small *ngIf="submitted && loginForm.controls['company_name'].errors.required">
+                             Industry is required
+                            </small>
+                        </small>
+                       
+                    </div>
+                </div>
+
+
+                <div class="phonedetail position-relative d-grid ">
+                    <img class="smsdata" src="assets/images/sms-edit.svg" alt="">
+                    <div class="w-100  mt-3">
+                        <input type="text" class="form-control companydetail" placeholder="Company email address"
+                            maxlength="50" formControlName="email">
+                        <!-- <small *ngIf="(submitted && loginForm.get('number').invalid)">Mobile Number is required</small>  -->
+                        <small *ngIf="submitted && loginForm.controls['email'].invalid" class="alert">
+                            <small *ngIf="submitted && loginForm.controls['email'].errors.required">
+                                Email is required
+                            </small>
+                            <small *ngIf="loginForm.get('email').errors.pattern">
+                                Please enter valid email address
+                            </small>
+                        </small>
+                    </div>
+                </div>
+
+
+                <div class="phonedetail d-grid ">
+                    <div class="w-100 position-relative  mt-3">
+                        <p class="position-absolute c_input">+91 <span class="text-muted ">|</span></p>
+
+                        <p class="counternumber px-2 text-center"><span
+                                *ngIf="countnumber.length<=9 && countnumber.length>0">0</span>{{countnumber.length}}/10
+                        </p>
+                        <input type="text" class="form-control countrycode"  maxlength="10"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                            (keydown)="validators.avoidSpace($event)" [(ngModel)]="countnumber"
+                            placeholder="Enter phone number" formControlName="phone_no">
+                        <!-- <small *ngIf="(submitted && loginForm.get('number').invalid)">Mobile Number is required</small>  -->
+                        <small *ngIf="submitted && loginForm.controls['phone_no'].invalid" class="alert">
+                            <small *ngIf="submitted && loginForm.controls['phone_no'].errors.required">
+                                Phone number is required
+                            </small>
+                        </small>
+                    </div>
+                </div>
+
+
+
+                <!-- <div class="phonedetail position-relative d-grid ">
+
+                    <span class="smsdata checkstatus"> status</span>
+                    <div class="w-100  mt-3">
+                        <input type="text" class="form-control companydetail"  maxlength="15" placeholder="GST Number (Optional)"
+                            formControlName="gst_no">
+                        <small *ngIf="loginForm.controls['gst_no'].invalid && (loginForm.controls['gst_no'].dirty || loginForm.controls['gst_no'].touched)" class="alert">
+                            <small *ngIf="loginForm.controls['gst_no'].errors.required">
+                            Please Enter GST Number
+                            </small>
+                        </small>
+                    </div>
+                </div> -->
+
+
+                <div class="phonedetail position-relative d-grid ">
+                    <div (click)="onClick()">
+                        <img class="smsdata" *ngIf="!show" src="assets/images/lock@1x.png" alt=""  width="20px" height="20px">
+                        <img class="smsdata smsdata1" *ngIf="show" src="assets/images/unlock.png" alt="" width="20px" height="20px">
+                    </div>
+                  
+
+                    <div class="w-100  mt-3">
+                        <input [type]="password" class="form-control companydetail"
+                            placeholder="Enter new password" maxlength="16" formControlName="password" autocomplete="new-password">
+                        <!-- <mat-form-field>
+                                <input matInput placeholder="Enter new password" [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                <mat-hint *ngIf="!passwordInput.value">Enter your password</mat-hint>
+                                </mat-form-field> -->
+                        <!-- <small *ngIf="(submitted && loginForm.get('number').invalid)">Mobile Number is required</small>  -->
+                        <small *ngIf="submitted && loginForm.controls['password'].invalid" class="alert">
+                            <small *ngIf="submitted && loginForm.controls['password'].errors.required">
+                                password is required
+                            </small>
+                            <small *ngIf="loginForm.get('password').errors.pattern">
+                                Password must contain at least one number, one uppercase and one special
+                                and at least 8 characters
+                            </small>
+                        </small>
+
+                    </div>
+                </div>
+
+                <div class="phonedetail position-relative d-grid ">
+                    <div (click)="confirm()">
+                        <img class="smsdata" *ngIf="!confirmshow" src="assets/images/lock@1x.png" alt=""  width="20px" height="20px">
+                        <img class="smsdata smsdata1" *ngIf="confirmshow" src="assets/images/unlock.png" alt="" width="20px" height="20px">
+                    </div>
+                    <div class="w-100  mt-3">
+                        <input [type]="confirmpassword" class="form-control companydetail"
+                            placeholder="Confirm new password" maxlength="16" formControlName="confirm_password">
+                        <!-- <small *ngIf="(submitted && loginForm.get('number').invalid)">Mobile Number is required</small> -->
+                        <small *ngIf="submitted && loginForm.controls['confirm_password'].invalid " class="alert">
+                            <small *ngIf="submitted && loginForm.controls['confirm_password'].errors.required">
+                                Confirm password is required
+                            </small>
+                            <small *ngIf="loginForm.get('confirm_password').errors.confirmPasswordValidator">Passsword
+                                and
+                                Confirm Password didn't match. </small>
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="social-login text-center mt-4">
+                    <p>
+                        Or Sign up With
+                    </p>
+                    <button type="button" (click)="facebookSignIn()" class=" py-1"><img src="assets/images/fb.svg" alt=""></button>
+                    <button type="button" (click)="googleSignin()" class="mx-2  py-1"><img src="assets/images/google.svg" alt=""></button>
+                    <button type="button" class=" py-1"><img src="assets/images/linkdin.svg" alt=""></button>
+                </div>
+            </div>
+
+            <!-- login with Email -->
+
+
+            <div class="text-center mt-5">
+                <button type="submit" class="loginbtn">Next</button>
+            </div>
+            <div class="text-center mt-3">
+                <p class="noaccount">Already a Raftaarr member?<button routerLink="/"
+                        class="createaccount ms-2">Login</button></p>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

@@ -1,0 +1,274 @@
+<section class="main_comp py-3 px-md-5 px-3">
+    <div class="d-flex mb-3 cursor-pointer">
+        <img (click)="goBack()"  src="assets/images/arrow-circle-left.svg">
+        <h3 (click)="goBack()" class="mb-0 ms-2 marketplace-Product"> Post details
+        </h3>
+    </div>
+    <div>
+        <div class="row mt-0">
+            <div class="col-lg-6 pb-3">
+                <div class="card p-md-4 p-md-3 p-0" >
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-md-center align-items-start">
+                            <div class="d-flex justify-content-between align-items-md-center align-items-start">
+                                <!-- <img src="assets/images/Avatar.svg"> -->
+                 
+                                <div class="fltr-field-wrap">
+                                    <!-- <figure  class="profile-pic"> -->
+                                        <!-- <img width="72px" height="72px" [src]="details?.Auth?.CompanyInfo.profile_pic"> -->
+                                        <img class="profile-pic rounded-circle"
+                                    [src]="details?.Auth?.CompanyInfo.profile_pic!=null?details?.Auth?.CompanyInfo.profile_pic:'assets/images/Profile_1.svg'"
+                                    onError="this.src='assets/images/Profile_1.svg'"
+                                    width="72px" height="72px">
+                                    <!-- </figure> -->
+                                    <!-- <ng-template #pic>
+                                        <figure class="amenity-icon-wrap amenity-img">
+                                            <img width="60px" height="60px" [src]="details?.Auth?.CompanyInfo?.profile_pic==null?'assets/images/Profile_1.svg':details.Auth.CompanyInfo?.profile_pic">
+                                        </figure>
+                                    </ng-template> -->
+                                </div>
+                                <div class="ms-4">
+                                    <h2 class="mb-0">{{details?.Auth?.CompanyInfo.company_name}}</h2>
+                                    <h3 class="min-ago">{{details?.created_at | dateAgo}}</h3>
+                                </div>
+                            </div>
+                            <img src="assets/images/Group 1023.svg" width="25px" height="25px" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" 
+                            >
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2" *ngIf="details?.editlist">
+                                <li (click)="edit(details.id)"><a class="dropdown-item"> 
+                                    <img src="assets/images/edit-2.svg" class="me-3">
+                                    Edit</a></li>
+                            <li (click)="delete(details.id)"><a class="dropdown-item delete mt-3">
+                                    <img src="assets/images/trash.svg" class="me-3">
+                                    Delete</a></li>
+                              </ul> 
+                              <ul class="dropdown-menu  report-drop p-1 border-0" aria-labelledby="dropdownMenuLink" *ngIf="!details?.editlist">
+                                <li (click)="report(details,1)"><a class="dropdown-item report">
+                                       <img class="me-2" width="24px" height="24px" src="assets/images/info-circle.svg"> Report</a></li>
+
+                            </ul>                             </div>
+                        <h3 class="card-text mt-3 ">{{details?.content}}</h3>
+                        <owl-carousel-o [options]="customOptions" style="width: 100%">
+
+                            <ng-container  *ngFor="let slide of details?.slides">
+                                <ng-template   *ngIf="slide.type == 'image'" carouselSlide>
+                                    <!-- <a target="_self" [href]="slide.download" [download]="slide.download"> -->
+                                        <img style="width:100%;height:400px;" (click)="viewImage(slide.url)" [src]="slide.url" >
+                                    <!-- </a> -->
+                                    
+
+                                </ng-template>
+                                <ng-template   *ngIf="slide.type == 'pdf'" carouselSlide>
+                                    <a target="_self" [href]="slide.download" [download]="slide.download">
+                                        <img style="width:100%;height:400px;" [src]="slide.url" >
+                                    </a>
+                                    
+
+                                </ng-template>
+                                <ng-template *ngIf="slide.type == 'video'" carouselSlide [id]="slide.id">
+
+                                    <video *ngIf="slide.type == 'video'" controls style="width:100%;height:400px">
+                                        <source [src]="slide.url" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </ng-template>
+                            </ng-container>
+
+                        </owl-carousel-o>                       <div class="d-flex justify-content-between align-items-center like-section">
+                            <div class="d-flex align-items-center justify-content-between me-lg-5 me-2" (click)="hitLike(details.id)">
+                                <img [src]="details?.isLiked==true ? 'assets/images/like_2.svg':'assets/images/like_1.svg'" width="28px" height="28px" class="show-interest">
+                                <h3  [ngClass]="details?.isLiked==true ? 'color_red' : 'color_grey'" class="mb-0  ms-1">{{details?.likes_count > 1? details?.likes_count + ' Likes': details?.likes_count + ' Like'}} </h3>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between me-lg-5 me-2">
+                                <img src="assets/images/Chat.svg">
+                                <h3 class="ms-2 mb-0  color_orange">{{details?.comment_count}} comment</h3>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between" (click)="shareHome(details.id)">
+                                <img src="assets/images/Shape.svg">
+                                <h3 class="ms-2 mb-0 color_grey">{{details?.postShare_count}} share</h3>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <img src="assets/images/Avatar.svg">
+                                <div class="ms-4">
+                                    <h2 class="mb-0">{{details?.Auth.CompanyInfo.company_name}}</h2>
+                                    <h3 class="min-ago">{{details?.created_at}}</h3>
+                                </div>
+                            </div>
+                            <img src="assets/images/Group 1023.svg">
+                        </div>
+                        <h3 class="card-text mt-3">{{details.content}}</h3>
+                        <img class="mt-3" src="assets/images/user-detail.svg" width="100%" height="100%">
+                        <div class="d-flex justify-content-between align-items-center like-section">
+                            <div class="d-flex align-items-center justify-content-between me-lg-5 me-2">
+                                <img src="assets/images/like_1.svg">
+                                <h3 class="mb-0 ms-2 color_grey">103 like</h3>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between me-lg-5 me-2">
+                                <img src="assets/images/Chat.svg">
+                                <h3 class="ms-2 mb-0  color_orange">67 comment</h3>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <img src="assets/images/Shape.svg">
+                                <h3 class="ms-2 mb-0 color_grey">10 share</h3>
+                            </div>
+                        </div>
+                    </div> -->
+
+                </div>
+            </div>
+            <div class="col-lg-6">
+
+                <div class=" like-section">
+                    <div class=" comment" *ngFor="let post of commentList;let i=index">
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex">
+                                <div>
+                                    <img class="rounded-circle" [src]="post.Auth.CompanyInfo.profile_pic != null?
+                                     post.Auth.CompanyInfo.profile_pic:'assets/images/Profile_1.svg'"
+                                     onError="this.src='assets/images/Profile_1.svg'" width="44px" height="44px">
+                                </div>
+                                <div>
+                                    <!-- <h1>{{i}}</h1> -->
+                                    <div class="ms-3">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <div>
+                                                <h4 class="">{{post.Auth.CompanyInfo.company_name}}</h4>
+                                                <h3 class="" >{{post.created_at | dateAgo}}</h3>
+                                            </div>
+
+                                        </div>
+                                        <p class="mb-0 ">{{post.comment_text}}</p>
+                                        <div class="d-flex align-items-center mt-2">
+                                            <div class="d-flex align-items-center" (click)="hitLikeComment(post?.id)">
+                                                <img src="assets/images/like_1.svg" width="21px" height="21px">
+                                                <h3 class="mb-0 ms-2 color_grey">{{post.likeCount + ' Likes'}}</h3>
+                                            </div>
+                                            <div class="d-flex align-items-center  ms-2 ms-md-5"
+                                                (click)="ReplyComment($event,post.id,i)">
+                                            <div class="d-flex align-items-center"  (click)="openReply(i)">
+                                                <img src="assets/images/Chat.svg" width="21px" height="21px">
+                                                <h3 class="mb-0 ms-2 color_grey">Reply</h3>
+                                            </div>
+                                              
+                                            </div>
+
+                                        </div>
+
+                                        <!-- <div class="d-flex px-4   position-relative user-comment" *ngIf="isReply===true"> -->
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div>
+                                <div class="dropdown ">
+                                    <div class="d-flex justify-content-end dropdown">
+                                        <img src="assets/images/Group 1023.svg" width="25px" height="25px" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" 
+                                        >
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2" *ngIf="post?.edit">
+                                            <li (click)="eidtComment(post)"><a class="dropdown-item align-items-center"> 
+                                                <img src="assets/images/edit-2.svg" class="me-3 pb-2">
+                                                Edit</a></li>
+                                        <li (click)="deleteComment(post)"><a class="dropdown-item delete mt-3" >
+                                                <img src="assets/images/trash.svg" class="me-3 pb-2">
+                                                Delete</a></li>
+                                          </ul>
+                                          <ul class="dropdown-menu  report-drop p-1 border-0" aria-labelledby="dropdownMenuLink" *ngIf="!post?.edit">
+                                            <li (click)="report(post,2)"><a class="dropdown-item report">
+                                                   <img class="me-2" width="24px" height="24px" src="assets/images/info-circle.svg"> Report</a></li>
+            
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" ms-md-5 ms-3" >
+                            <div *ngIf="showReply[i]" class="d-flex   position-relative py-3">
+                                <img class="post-image rounded-circle" width="40px" height="40px"  [src]="profileDetails.profile_pic != null?
+                                profileDetails.profile_pic:'assets/images/Profile_1.svg'" onError="this.src='assets/images/Profile_1.svg'">
+                                <input type="text" class="search ms-3" placeholder="Add a reply..."
+                                    [(ngModel)]="replyComment[i]">
+                                <h3 class="position-absolute post">
+                                    <img src="assets/images/comment.svg"
+                                        (click)="sendReplyComment(post?.post_id,post?.id,i)">
+                                </h3>
+                            </div>
+                            <div class="d-flex justify-content-between" *ngFor="let reply of post?.commentReply">
+                                <div class="d-flex mt-3">
+                                    <div>
+                                        <img [src]="reply.Auth.CompanyInfo.profile_pic != null?
+                                        reply.Auth.CompanyInfo.profile_pic:'assets/images/Profile_1.svg'"
+                                        onError="this.src='assets/images/Profile_1.svg'" width="44px" height="44px" class="rounded-circle">
+                                    </div>
+                                    <div>
+                                        <div class="ms-3">
+                                            <div class="d-flex justify-content-between align-items-start">
+                                                <div>
+                                                    <h4 class="">{{reply.Auth.CompanyInfo.company_name}}</h4>
+                                                    <h3 class="">{{reply.created_at | dateAgo}}</h3>
+                                                </div>
+
+                                            </div>
+                                            <p class="mb-0 ">{{reply.comment_text}}</p>
+                                            <div class="d-flex align-items-center mt-2">
+                                                <div class="d-flex align-items-center" (click)="hitLikeComment(reply?.id)">
+                                                    <img src="assets/images/like_1.svg" width="21px" height="21px">
+                                                    <h3 class="mb-0 ms-2 color_grey">{{reply.likeCount + ' Likes'}}</h3>
+                                                </div>
+                                                <!-- <div class="d-flex align-items-center  ms-2 ms-md-5"
+                                                    (click)="ReplyComment($event,post.id,i)">
+                                                    <img src="assets/images/Chat.svg" width="21px" height="21px">
+                                                    <h3 class="mb-0 ms-2 color_grey">Reply</h3>
+                                                </div> -->
+                                            </div>
+                                            
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="dropdown mt-3">
+                                        <!-- <div class="d-flex justify-content-end dropdown">
+                                            <img src="assets/images/Group 1023.svg" width="25px" height="25px" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" 
+                                            >
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2" *ngIf="reply?.edit">
+                                                <li ><a class="dropdown-item"> 
+                                                    <img src="assets/images/edit-2.svg" class="me-3">
+                                                    Edit</a></li>
+                                            <li ><a class="dropdown-item delete mt-3" >
+                                                    <img src="assets/images/trash.svg" class="me-3">
+                                                    Delete</a></li>
+                                              </ul>
+                                              <ul class="dropdown-menu  report-drop p-1 border-0" aria-labelledby="dropdownMenuLink" *ngIf="!reply?.edit">
+                                                <li><a class="dropdown-item report">
+                                                       <img class="me-2" width="24px" height="24px" src="assets/images/info-circle.svg"> Report</a></li>
+                
+                                            </ul>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex mt-3 position-relative px-md-4 px-2 mb-3">
+                                <img class="rounded-circle"
+                                    [src]="profileDetails?.profile_pic != null?
+                                    profileDetails.profile_pic:'assets/images/Profile_1.svg'"
+                                    width="40px" height="40px" onError="this.src='assets/images/Profile_1.svg'">
+                                <textarea type="search" class="search ms-3" placeholder="Write your comment…"
+                                    [(ngModel)]="comment"></textarea>
+                                <h3 class="position-absolute post" (click)="sendComment()">
+                                    <img src="assets/images/comment.svg">
+                                </h3>
+                            </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

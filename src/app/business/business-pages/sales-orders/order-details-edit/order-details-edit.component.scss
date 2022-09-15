@@ -1,0 +1,35 @@
+@import "../../../../../assets/variable.scss";
+.main_comp{
+    padding: 18px 35px;
+}
+button {
+    @include fontStyleManager($fontFamilyInterSemiBold, $fontWeightSemiBold, $fontSize18, $Color_0A0045);
+    padding: 10px 60px !important;
+}
+
+@media screen and (max-width: 1023px) {
+    button {
+        padding: 10px 40px !important;
+        margin-bottom: 30px !important;
+        width: 177px;
+        max-width: 100%
+    }
+
+    h5 {
+
+        @include fontStyleManager($fontFamilyInterMedium, $fontWeightMedium, $fontSize16, $Color_0A0045);
+      
+    }
+
+}
+
+.btn-danger {
+    background: #EE7402;
+    border: 1px solid #EE7402;
+    color: #fff !important;
+}
+
+.bg-white {
+    border: 1px solid #DBE9F5 !important;
+    color: #0A0045 !important;
+}

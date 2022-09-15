@@ -1,0 +1,146 @@
+
+<section class="main_comp mt-0 px-2 ">
+    <div class="row mt-0 p-md-3 p-2 m-0 px-0">
+        <div class="col-sm-12 p-0">
+            <owl-carousel-o [options]="customOptions" style="width: 100%">
+
+                <ng-container *ngFor="let slide of imageObject">
+                  <ng-template *ngIf="slide.type == 'image' || slide.type == 'pdf'" carouselSlide [id]="slide.id">
+                    <img  style="width:100%;height:384px" [src]="slide.image" [alt]="slide.alt" [title]="slide.title">
+                    
+                  </ng-template>
+                  <ng-template *ngIf="slide.type == 'video'" carouselSlide [id]="slide.id">
+                    
+                    <video *ngIf="slide.type == 'video'" controls style="width:100%;height:384px">
+                        <source [src]="slide.image" type="video/mp4">
+                        Your browser does not support the video tag.
+                      </video>
+                  </ng-template>
+                </ng-container>
+            
+              </owl-carousel-o>
+        </div>
+    </div>
+    <div class="p-3 details">
+        <h1>{{data.Category3?data.Category3.title:data.product_type | titlecase}}</h1>
+        <div class="d-flex justify-content-between">
+            <div class="d-flex mt-2">
+                <img src="assets/images/tag2.svg" height="20px" width="20px">
+                <span class="ps-2">
+                    {{data.Category1.title}}
+                </span>
+                <ul>
+                    <li>{{data.Category2.title}}</li>
+                </ul>
+            </div>
+            <div>
+                <p class="price">&#x20b9; {{data.price}}</p>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between">
+            <div class="d-flex align-items-center">
+                <img src="assets/images/location_2.svg" width="24px" height="24px">
+                <span class="location ps-2">{{data.location}}, {{data.country_origin}}</span>
+            </div>
+            <!-- <div>
+                <button class="verify">
+                    <img src="assets/images/verify._2.svg">
+                    Raftaarr verified
+                </button>
+            </div> -->
+        </div>
+        <div class="d-flex justify-content-between info-container mt-3">
+            <div class="d-flex">
+                <img src="assets/images/profile-circle_1.svg" height="30px" width="30px">
+                <div class="px-3">
+                    <p class="m-0 type ">Ownership Type</p>
+                    <p class="m-0 value">{{data.ownership_type}}</p>
+                </div>
+
+            </div>
+            <div class="d-flex">
+                <img src="assets/images/clock_2.svg" height="30px" width="30px">
+                <div class="px-3">
+                    <p class="m-0 type">Purchased Year</p>
+                    <p class="m-0 value">{{data.purchase_year | date :'yyyy'}}</p>
+                </div>
+
+            </div>
+            <div class="d-flex">
+                <img src="assets/images/box.svg" height="30px" width="30px">
+                <div class="px-3">
+                    <p class="m-0 type">Product Condition</p>
+                    <p class="m-0 value">{{data.product_condition | titlecase}}</p>
+                </div>
+
+            </div>
+            <div class="d-flex">
+                <img src="assets/images/hypothe.svg" height="30px" width="30px">
+                <div class="px-3 type">
+                    <p class="m-0 type" >Product under hypothecation?</p>
+                    <p class="m-0 value">{{data.under_hypothecation | titlecase}}</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="mt-5 title">
+            <h1>About {{data.Category3?data.Category3.title:data.product_type | titlecase}}</h1>
+            <p>{{data.description}}
+            </p>
+        </div>
+    </div>
+</section>
+<!-- <div class="d-flex justify-content-end add-post ">
+        <div class="d-flex justify-content-end add-post">
+            <button class="btn battery-btn me-4">
+                <img src="assets/images/Vector.svg">
+                Add Post</button>
+            <img src="assets/images/filter (2).svg" class="cursor-pointer" (click)="filterDialog()">
+        </div>
+       
+    </div>
+    <section class="main_comp ">
+        <div>
+<div class="card mb-5 mt-3"  *ngFor="let card of cards">
+    <div class="row g-0">
+      <div class="col-3">
+        <img [src]="card.img" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-9">
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex">
+                    <img src="assets/images/tag.svg">
+                    <p class="product-design mb-0 ms-2 mt-md-2 mt-0">Product design  •  Robotics</p>
+                </div>
+                <img class="me-3" src="assets/images/dott.svg" (click)="showdropdown()">
+            </div>
+            <ul class="dropdown-menu border-0" [ngClass]="isShow ? 'show':'hide'">
+                <li><a class="dropdown-item">
+                    <img src="assets/images/edit-2.svg" class="me-3">
+                    Edit</a></li>
+                    <li><a class="dropdown-item mt-3">
+                        <img src="assets/images/box.svg" class="me-3">
+                        Share to Marketplace</a></li>
+                <li><a class="dropdown-item delete mt-3" (click)=" delete()">
+                    <img src="assets/images/trash.svg" class="me-3">
+                    Delete</a></li>
+              </ul>
+         <h5 class="card-title mt-md-3 mt-1">Pudding Beansprout Robot</h5>
+        <div class="d-flex">                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+            <img src="assets/images/location.svg">
+            <p class="mb-0 ms-2 address">Alwarpet, Chennai</p>
+        </div>
+        <div class="d-flex justify-content-between align-items-center mt-md-4 mt-2">
+            <button class="btn">
+                <img src="assets/images/tick-circle.svg">
+                Raftaarr verified
+            </button>
+            <p class="price mb-0 me-3">₹25,000</p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section> -->

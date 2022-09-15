@@ -1,0 +1,132 @@
+@import '../../../../../assets/variable.scss';
+@import '../../../../../assets/common.scss';
+.main_comp{
+    padding:0px ;
+    background-color: #EAF3FF;
+    height: 100%;
+
+}
+.add-post{
+    padding:18px 35px ;
+    @media (max-width:768px) {
+        padding:15px ;
+    }
+}
+
+.battery-btn{
+    background-color: #4791FF;
+    border-radius: 100px;
+    margin-right: 40px;
+    padding: 9px 19px;
+    @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize18,$Colorwhite)
+}
+.card{
+    border: 0px !important;
+    border-radius: 13.6418px;
+    // margin: 25px 35px;
+    @media (max-width:768px) {
+        margin: 0px;
+
+    }
+    .min-ago{
+        color: #5B6D8E !important ;
+    }
+    .card-text{
+        color: $Color_768DA9;
+        font-size: 15px !important;
+    }
+    .card-header{
+        background-color: #002280 ;
+        border-radius: 13px 13px 0px 0px;
+        h4{
+            color: white !important;
+            font-size: 14.66px !important;
+        }
+    }
+    .card-body{
+        // width: 510px;
+        margin: auto;
+        max-width: 100%;
+        @media (max-width:768px) {
+            padding: 0px;
+        }
+
+    }
+}
+.search{
+    border-radius: 64px;
+    background-color: #FAFBFC;
+    border:0px;
+    width: 100%;
+    padding: 13px 20px;
+}
+.comment{
+    border: 1.46608px solid #EDF5F9;
+    padding: 20px;
+    border-radius: 14.6608px;
+}
+::placeholder{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize18,$Color_A1B3C9)
+}
+.requirement{
+    h3{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize18,$Color_5B6D8E);
+        @media (max-width:768px) {
+        font-size: 14px !important;
+        }
+    }
+    h2{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize22,$Color_0A0045);
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+    div{
+        padding-left:35px;
+        @media (max-width:768px) {
+            padding-left:10px;
+        }
+    }
+    
+}
+table{
+    table-layout: fixed;
+    td{
+        padding-left: 35px;
+        @media (max-width:768px) {
+            padding-left:5px !important;
+
+        }
+    }
+}
+.breadcrumb-item{
+    font-size: 20px !important;
+}
+.requirement-detail{
+    background-color: white;
+}
+.heading {
+    h2{
+        font-size: 16px !important;
+    }
+    h3{
+        font-size: 14px !important;
+
+    }
+}
+.color_grey{
+    font-size: 14px !important;
+    @media (max-width:768px) {
+        font-size: 12px !important;
+    }
+}
+.card-interest{
+    border: 1px solid #D7DAE2 !important;
+    @media (max-width:768px) {
+        border: 0px !important;
+    }
+
+}
+.title{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize24,$Color_EE7402);
+}

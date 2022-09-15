@@ -1,0 +1,155 @@
+<nav *ngIf="currentProfile != 'other'" class="navbar navbar-expand-lg ">
+  <div class="container-fluid p-lg-0 p-2">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+      aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon">
+        <!-- <img class="pt-1" src="assets/images/three-bars.svg"> -->
+      </span>
+    </button>
+    <a class="navbar-brand user" [routerLinkActive]="['active']" aria-current="page" [routerLink]="['/main/home']"> <img class="" src="assets/images/top_logo.png" alt="">
+    </a>
+    <div class="collapse navbar-collapse mt-lg-0 mt-2" id="navbarTogglerDemo01">
+
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item" >
+          <a  routerLinkActive="active"  class="nav-link "  [routerLink]="['/main/home']"><span
+              class="hightlight">Ho</span>me</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  routerLinkActive="active"  [routerLink]="['/main/marketplace']"><span
+              class="hightlight">Ma</span>rketplace</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  routerLinkActive="active" [routerLink]="['/business']">
+            <span
+            class="hightlight">Bu</span>siness</a>        </li>
+        <li class="nav-item">
+          <a class="nav-link"   routerLinkActive="active" [routerLink]="['/main/profile']"><span class="profile">Pr</span>ofile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  routerLinkActive="active"  [routerLink]="['/main/more']"><span class="hightlight">Mo</span>re</a>
+        </li>
+      </ul>
+    </div>
+    <form class="d-flex me-4">
+      <div class="search">
+        <input [formControl]="searchControl" class="form-control " type="search" placeholder="Search" aria-label="Search">
+        <img src="assets/images/search-normalicon.svg">
+      </div>
+    </form>
+    <!-- <div class="d-flex">
+      <select class="form-select ps-0 ps-lg-3 pe-0" aria-label="Default select example">
+        <option selected>English</option>
+        <option value="1">Hindi</option>
+      </select>
+      <img class="pe-md-4 pe-2 ps-1" src="assets/images/down-arrow.svg">
+    </div> -->
+
+    <div>
+      <div class="dropdown">
+        <div class="me-md-3 me-2" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <img class="rounded-circle" width="35px" height="35px" src="assets/images/nav.svg">
+        </div>
+        <ul class="dropdown-menu p-4" aria-labelledby="dropdownMenuLink">
+          <li class="d-flex align-items-start" [routerLink]="['/main/profile/about']" >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12.1207 12.7805C12.0507 12.7705 11.9607 12.7705 11.8807 12.7805C10.1207 12.7205 8.7207 11.2805 8.7207 9.51047C8.7207 7.70047 10.1807 6.23047 12.0007 6.23047C13.8107 6.23047 15.2807 7.70047 15.2807 9.51047C15.2707 11.2805 13.8807 12.7205 12.1207 12.7805Z"
+                stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M18.7398 19.3786C16.9598 21.0086 14.5998 21.9986 11.9998 21.9986C9.39977 21.9986 7.03977 21.0086 5.25977 19.3786C5.35977 18.4386 5.95977 17.5186 7.02977 16.7986C9.76977 14.9786 14.2498 14.9786 16.9698 16.7986C18.0398 17.5186 18.6398 18.4386 18.7398 19.3786Z"
+                stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <a class="dropdown-item">
+              <h4 class="mb-0">Profile</h4>
+              <!-- <p>Pellentesque vivamus nulla est, </p> -->
+            </a>
+          </li>
+          <li class="d-flex align-items-start" [routerLink]="['/main/home/my-post-list']">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M21.6789 16.9596L18.5489 9.64964C17.4889 7.16964 15.5389 7.06964 14.2289 9.42964L12.3389 12.8396C11.3789 14.5696 9.58895 14.7196 8.34895 13.1696L8.12895 12.8896C6.83895 11.2696 5.01895 11.4696 4.08895 13.3196L2.36895 16.7696C1.15895 19.1696 2.90895 21.9996 5.58895 21.9996H18.3489C20.9489 21.9996 22.6989 19.3496 21.6789 16.9596Z"
+                stroke="#0A0045" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M6.96875 8C8.6256 8 9.96875 6.65685 9.96875 5C9.96875 3.34315 8.6256 2 6.96875 2C5.3119 2 3.96875 3.34315 3.96875 5C3.96875 6.65685 5.3119 8 6.96875 8Z"
+                stroke="#0A0045" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <a class="dropdown-item">
+              <h4 class="mb-0">My Post</h4>
+              <!-- <p>Pellentesque vivamus nulla est, </p> -->
+            </a>
+          </li>
+          <li class="d-flex align-items-start" [routerLink]="['/main/home/manufacturing-o-r-list']">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21 7L21 17C21 20 19.5 22 16 22L8 22C4.5 22 3 20 3 17L3 7C3 4 4.5 2 8 2L16 2C19.5 2 21 4 21 7Z"
+                stroke="#0D0849" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M14.5 4.5V6.5C14.5 7.6 15.4 8.5 16.5 8.5H18.5" stroke="#0D0849" stroke-width="1.25"
+                stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M8 13H12" stroke="#0D0849" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M8 17H16" stroke="#0D0849" stroke-width="1.25" stroke-miterlimit="10" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <a class="dropdown-item">
+              <h4 class="mb-0"> My Requirement</h4>
+              <!-- <p>Pellentesque vivamus nulla est, </p> -->
+            </a>
+          </li>
+          <li class="d-flex align-items-start mb-0" [routerLink]="['/main/myMarketplace']">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3.16992 7.4375L11.9999 12.5475L20.7699 7.4675" stroke="#0D0849" stroke-width="1.25"
+                stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M12.001 21.6091L12.001 12.5391" stroke="#0D0849" stroke-width="1.25" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path
+                d="M9.93062 2.48126L4.59063 5.44126C3.38063 6.11126 2.39062 7.79126 2.39062 9.17126L2.39062 14.8213C2.39062 16.2013 3.38063 17.8813 4.59063 18.5513L9.93062 21.5213C11.0706 22.1513 12.9406 22.1513 14.0806 21.5213L19.4206 18.5513C20.6306 17.8813 21.6206 16.2013 21.6206 14.8213L21.6206 9.17126C21.6206 7.79126 20.6306 6.11126 19.4206 5.44126L14.0806 2.47126C12.9306 1.84126 11.0706 1.84126 9.93062 2.48126Z"
+                stroke="#0D0849" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <a class="dropdown-item">
+              <h4 class="mb-0">My Marketplace Products</h4>
+              <!-- <p>Pellentesque vivamus nulla est, </p> -->
+            </a>
+          </li>
+          <!-- <li class="d-flex align-items-start" [routerLink]="['/main/profile/ads']">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M4.40476 15.5264L8.93476 20.0564C10.7948 21.9164 13.8148 21.9164 15.6848 20.0564L20.0748 15.6664C21.9348 13.8064 21.9348 10.7864 20.0748 8.91637L15.5348 4.39637C14.5848 3.44637 13.2748 2.93637 11.9348 3.00637L6.93476 3.24637C4.93476 3.33637 3.34476 4.92637 3.24476 6.91637L3.00476 11.9164C2.94476 13.2664 3.45476 14.5764 4.40476 15.5264Z"
+                stroke="#0D0849" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+              <path
+                d="M9.73438 12.2266C11.1151 12.2266 12.2344 11.1073 12.2344 9.72656C12.2344 8.34585 11.1151 7.22656 9.73438 7.22656C8.35366 7.22656 7.23438 8.34585 7.23438 9.72656C7.23437 11.1073 8.35366 12.2266 9.73438 12.2266Z"
+                stroke="#0D0849" stroke-width="1.25" stroke-linecap="round" />
+              <path d="M13.2344 17.2266L17.2344 13.2266" stroke="#0D0849" stroke-width="1.25" stroke-miterlimit="10"
+                stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            <a class="dropdown-item">
+              <h4 class="mb-0">Ads</h4>
+              <p>Pellentesque vivamus nulla est, </p>
+            </a>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+    <div [routerLink]="['/main/chat']">
+      <!-- <img class="me-md-3 me-1" src="assets/images/message-notif.svg"> -->
+      <img class="" width="40px" height="40px" src="assets/images/messageicon.svg">
+
+    </div>
+    <!-- <div class="d-flex flex-nowrap">
+      <img class="rounded-circle user-img" width="35px" height="35px" src="assets/images/user-solid.svg">
+      <img class="ms-1" src="assets/images/down-arrow.svg">
+    </div> -->
+
+  </div>
+</nav>
+<!-- <div *ngIf="currentProfile == 'other'">
+  <button (click)="goBack()">Back</button>
+</div> -->
+<!-- <div *ngIf="currentProfile == 'other'" class="d-flex ">
+  <img  (click)="goBack()" src="assets/images/arrow-circle-left.svg">
+  <h3 (click)="goBack()" class="ms-2 mb-0">Back</h3>
+</div> -->

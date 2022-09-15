@@ -1,0 +1,131 @@
+@import '../../../../../assets/variable.scss';
+@import '../../../../../assets/common.scss';
+.main_comp{
+    padding:0px ;
+    background-color: #EAF3FF;
+    height: 100%;
+
+}
+.main{
+h3{
+    @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize20,$Color_0A0045); 
+}
+}
+h1{
+    @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize24,$Color_EE7402); 
+ 
+}
+p{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize15,$Color_768DA9); 
+    line-height: 26px;
+  
+}
+.card{
+    border: 0px !important;
+}
+.requirement{
+    h3{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize18,$Color_5B6D8E);
+        @media (max-width:768px) {
+        font-size: 14px !important;
+        }
+    }
+    h2{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize22,$Color_0A0045);
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }  
+}
+.requirement-detail{
+    background-color: white;
+    border-radius: 10px;
+}
+.color_grey{
+    font-size: 14px !important;
+    @media (max-width:768px) {
+        font-size: 12px !important;
+    }
+}
+
+.catagory{
+    @media (max-width:768px) {
+       margin-top: 10px;
+    }
+    h2{
+        @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize16,$Color_002280);  
+    }
+    h3{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_768DA9);  
+    }
+}
+
+.profile_heading{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_5B6D8E);  
+
+}
+  .requirement{
+      background-color: #F3F6FB;
+      border-radius: 0px 0px 20px 20px;
+      padding: 20px 120px;
+      margin: 0px 40px;
+      @media (max-width:992px) {
+        padding: 20px 20px;
+        margin: 0px 18px;
+
+    }
+  }
+  .resume{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize13,$Color_768DA9);  
+  }
+  .Interests-user{
+      padding: 20px 200px;
+      @media (max-width:992px) {
+        padding: 20px 14px;
+    }
+  }
+  strong{
+    @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Color_1A264E);   
+  }
+
+  .hrdivider {
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .hrdivider span {
+    position: absolute;
+    top: -11px;
+    background: #fff;
+    padding: 0 20px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #EE7402;
+    background-color: #F3F6FB;
+    left: 1px;
+  }
+
+.dropdown-menu{
+    right: 0px;
+    box-shadow: 0px 11px 110px rgba(0, 50, 123, 0.38);
+border-radius: 8px;
+padding: 25px 0px;
+}
+.dropdown-item.active, .dropdown-item:active{
+    background-color: white;
+}
+.dropdown-item.active, .dropdown-item:hover{
+    background-color: white;
+}
+.dropdown-item{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_0A0045);
+    @media (max-width:768px) {
+        font-size: 12px !important;
+    }
+    cursor: pointer;
+}
+.delete{
+    color:#FF5C5C !important;
+}

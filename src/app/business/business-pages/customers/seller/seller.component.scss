@@ -1,0 +1,151 @@
+// @import "../../../../../assets/variable.scss";
+// @import "../../../../../assets/common.scss";
+
+// .main_comp{
+//     padding: 31px 38px 0px 38px;
+//     @media (max-width:768px) {
+//         padding: 10px 15px;
+//     }
+//     .card-container {
+//         border-top: 1px solid #F3F3F3;
+//         border-bottom: 1px solid #F3F3F3;
+//         border-radius: 20px;
+//         cursor: pointer;
+//     }
+// }
+
+
+// .container-fluid {
+//     padding: 0px 0px 31px 0px;
+//     background: #FFFFFF;
+//     border-radius: 15px;
+//     .card-img {
+//         border-radius: 12px;
+//         max-height: 150px;
+//         max-width: 150px;
+//         height: 100%;
+//     }
+
+//     span {
+//         @include fontStyleManager($fontFamilyInterMedium, $fontWeightMedium, $fontSize18, $Color_5B6D8E);
+//         @media (max-width:768px) {
+//             font-size: 12px !important;
+//         }
+//     }
+
+//     h5 {
+//         @include fontStyleManager($fontFamilyInterMedium, $fontWeightRegular, $fontSize26, $Color_0A0045);
+//         @media (max-width:768px) {
+//             font-size: 16px !important;
+//         }
+//     }
+
+//     small {
+//         @include fontStyleManager($fontFamilyInterMedium, $fontWeightMedium, $fontSize18, $Color_4791FF);
+//         @media (max-width:768px) {
+//             font-size: 12px !important;
+//         }
+//     }
+// }
+
+// .dropdown-menu{
+//     box-shadow: 0px 11px 110px rgba(0, 50, 123, 0.38);
+// border-radius: 8px;
+// padding: 25px 0px;
+// }
+// .dropdown-item.active, .dropdown-item:active{
+//     background-color: white;
+// }
+// .dropdown-item.active, .dropdown-item:hover{
+//     background-color: white;
+// }
+// .dropdown-item{
+//     @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_0A0045);
+//     @media (max-width:768px) {
+//         font-size: 12px !important;
+//     }
+//     cursor: pointer;
+// }
+// .delete{
+//     color:#FF5C5C !important;
+// }
+
+@import "../../../../../assets/variable.scss";
+@import "../../../../../assets/common.scss";
+
+.main_comp{
+    padding: 31px 38px 0px 38px;
+    @media (max-width:768px) {
+        padding: 10px 15px;
+    }
+    .card-container {
+        border-top: 1px solid #F3F3F3;
+        border-bottom: 1px solid #F3F3F3;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+}
+
+
+.container-fluid {
+    padding: 0px 0px 31px 0px;
+    background: #FFFFFF;
+    border-radius: 15px;
+    .card-img {
+        border-radius: 12px;
+        max-height: 150px;
+        max-width: 150px;
+        height: 100%;
+    }
+
+    span {
+        @include fontStyleManager($fontFamilyInterRegular, $fontWeightMedium, $fontSize18, $Color_5B6D8E);
+        @media (max-width:768px) {
+            font-size: 12px !important;
+        }
+    }
+
+    h5 {
+        @include fontStyleManager($fontFamilyAvenir, $fontWeightExtremeBold, $fontSize26, $Color_1B194B);
+        @media (max-width:768px) {
+            font-size: 16px !important;
+        }
+    }
+
+    small {
+        @include fontStyleManager($fontFamilyInterRegular, $fontWeightMedium, $fontSize18, $Color_4791FF);
+        @media (max-width:768px) {
+            font-size: 12px !important;
+        }
+    }
+
+    .nodata{
+        min-height: 500px;
+        p{
+            font-size: 35px !important;
+        }
+    }
+}
+
+.dropdown-menu{
+    box-shadow: 0px 11px 110px rgba(0, 50, 123, 0.38);
+border-radius: 8px;
+padding: 25px 0px;
+}
+.dropdown-item.active, .dropdown-item:active{
+    background-color: white;
+}
+.dropdown-item.active, .dropdown-item:hover{
+    background-color: white;
+}
+.dropdown-item{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_0A0045);
+    @media (max-width:768px) {
+        font-size: 12px !important;
+    }
+    cursor: pointer;
+}
+.delete{
+    color:#FF5C5C !important;
+}
+

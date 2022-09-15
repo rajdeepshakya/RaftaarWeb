@@ -1,0 +1,23 @@
+<div class="modal-body pt-0 px-3">
+    <form [formGroup]="editForm" (submit)="onSubmit()">
+        <div class="d-flex justify-content-between align-items-center py-4">
+            <label class="mb-0">Mobile Number</label>
+            <img src="assets/images/close.png" alt="" mat-button (click)="close()">
+        </div>
+        <div class="input-container position-relative">
+            <p class="position-absolute c_input">+91</p>
+            <p class="counternumber px-2 text-center"><span
+                    *ngIf="countnumber.length<=9 && countnumber.length>0">0</span>{{countnumber.length}}/10
+            </p>
+            <input type="text"  [(ngModel)]="countnumber" formControlName="phone"
+            oninput="if(!this.value.match('^[1-9][0-9]*$'))this.value='';" (keypress)="isNumberKey($event)" [ngClass]="{'is-invalid': submitted && f.phone.errors}"  placeholder="Enter mobile number" maxlength="10"/>
+            <div *ngIf="f.phone.invalid" class="invalid-feedback">
+                <div *ngIf="f.phone?.errors?.required">Phone field is required</div>
+                <div *ngIf="f.phone?.errors?.pattern">Phone must have 10 digits.</div>
+            </div>
+        </div>
+        <div class="text-center btn-container">
+            <button type="submit" class="btn report">Confirm and resend</button>
+        </div>
+    </form>
+</div>

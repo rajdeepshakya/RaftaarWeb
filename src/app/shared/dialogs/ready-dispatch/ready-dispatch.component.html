@@ -1,0 +1,21 @@
+<div class="modal-header pb-0">
+    <img src="assets/images/close.png" alt="" class="cursor" [mat-dialog-close]="false">
+</div>
+<div class="modal-body pt-0">
+    <form>
+        <label>{{data?.heading}}</label>
+        <div class="d-flex justify-content-between flex-column">
+            <mat-form-field appearance="fill">
+                <mat-label>Milestone 1</mat-label>
+                <mat-select>
+                    <mat-option>Milestone 1</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </form>
+   
+</div>
+<div class="modal-footer d-flex justify-content-between pt-4">
+    <button type="button" class="btn cancel" [mat-dialog-close]="true" (click)="onSubmit()" >{{data?.submit}}</button>
+    
+</div>

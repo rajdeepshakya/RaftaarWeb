@@ -1,0 +1,137 @@
+@import "../../../../../assets/variable.scss";
+@import "../../../../../assets/common.scss";
+.main_comp{
+    padding: 24px 45px;
+}
+.main{
+    background-color: #EAF3FF    ;
+    padding: 30px 170px;
+    @media (max-width:768px) {
+        padding: 15px 15px;
+    }
+}
+.adddocumentpage{
+h3{
+    @include fontStyleManager($fontFamilyAvenir,$fontWeightSemiBold,$fontSize15,$Color_0A0045);
+    color: #000000 !important    ;
+}
+.Unisenseimg{
+    img{
+        width:50px;
+        height:50px;
+    }
+span{
+        font-weight: 800;
+        font-size: 16px;
+    }
+}
+.hrborder{
+     border: 0.5px solid rgba(71, 145, 255, 0.4);;
+     width:100%;
+
+}
+.addcontentdata{
+    position:relative;
+.addcontent{
+    height:289px;
+    width:100%;
+    border: none;
+    
+}
+.counternumber {
+    // background-color:  #23C99A;;
+ width:100px;
+ padding:5px 10px;
+  border-radius: 10px;
+  color:white;
+  position: absolute;
+   right: 20px;
+   bottom:0;
+   //margin: 0px;
+   //padding: 0px;
+  // margin-top: -12px !important;
+
+}
+ 
+}
+.locateyourdata{
+    position: relative;
+.locationdata{
+    width:100%;
+    //height: 64px;
+    padding:19px 36px;
+    border-radius: 200px;
+    border: 0.5px solid #BFD1E3;
+   // padding-left:36px;
+   @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_0A0045)
+}
+::placeholder{
+    color:#768DA9;
+}
+img{
+    position: absolute;
+    right:18px;
+    bottom:19px;
+}
+
+}
+.adddocument{
+    img{
+        height:30px;
+        width:30px;
+    }
+    span{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize13,$Color_768DA9);  
+    }
+}
+.postdata{
+    p{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_768DA9);  
+    }
+
+button{
+    background: #EE7402;
+    padding:12px 10px;
+    width: 155px;
+    border-radius: 40px;
+    color:white;
+}
+}
+}
+.post{
+    button{
+        border-radius: 40px;
+        padding: 12px 10px;
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize20,$Color_0A0045);
+        @media (max-width:768px) {
+            font-size: 16px !important;
+        }
+    }
+    .post{
+        color: #EE7402 !important        ;
+        border: 1px solid #EE7402 !important;
+        width: 155px;
+        @media (max-width:768px) {
+            width: 125px;
+        }
+    }
+    .requirement{
+        color: #9A9B9B !important        ;
+        background-color: #F5F6F6        ;
+        width: 195px;
+        @media (max-width:768px) {
+            width: 125px;
+        }
+    }
+}
+.add-new{
+    background-color: white;
+}
+textarea{
+    border: 0.5px solid #BFD1E3 !important;
+border-radius: 40px;
+}
+.files{
+    background-color: #F2F8FF   ;
+    border-radius: 8px;
+}

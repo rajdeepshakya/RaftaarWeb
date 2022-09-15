@@ -1,0 +1,59 @@
+<!-- <app-header>
+    <li class="breadcrumb-item active">Sales Order</li>
+</app-header> -->
+<div class="">
+    <div class="row add-post m-0 p-0 align-items-center">
+        <div class="result col-md-8 text-center">
+            <p class="mb-0 ">
+                <img src="assets/images/box-time.svg"> View customer purchase order
+            </p>
+        </div>
+        <div class="col-md-4 text-end pe-md-4 me-0 purchase-order">
+            <button class="btn battery-btn me-4 ">
+                <img src="assets/images/Vector.svg">
+                Add Purchase Order</button>
+            <img class="me-2" src="assets/images/filter (2).svg" (click)="filterDialog()">
+        </div>
+    </div>
+</div>
+<section class="main_comp ">
+    <div class="card mt-3" *ngFor="let card of cards">
+        <div class="row g-0">
+            <div class="col-3">
+                <img [src]="card.img" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-9">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex">
+                            <img src="assets/images/status.svg" class="image">
+                            <p class="product-design mb-0 ms-2 ">Pending</p>
+                        </div>
+                        <img class="me-3" src="assets/images/dot.svg" (click)="showdropdown()">
+                    </div>
+                    <ul class="dropdown-menu border-0" [ngClass]="isShow ? 'show':'hide'">
+                        <li><a class="dropdown-item">
+                                <img src="assets/images/edit-2.svg" class="me-3">
+                                Request Edit</a></li>
+                        <li><a class="dropdown-item delete mt-3" (click)=" delete()">
+                                <img src="assets/images/trash.svg" class="me-3">
+                                Delete</a></li>
+                    </ul>
+                    <h5 class="card-title mt-md-3 mt-1">Pudding Beansprout Robot</h5>
+                    <div class="d-flex">
+                        <img src="assets/images/courthouse.svg" class="image">
+                        <p class="mb-0 ms-2 enterprise">LG Enterprises</p>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mt-md-4 mt-2">
+                        <button class="btn">
+                            <img src="assets/images/calendar-edit.svg">
+                            22/02/2022
+                        </button>
+                        <button class="btn accept">
+                            Accept
+                        </button>                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

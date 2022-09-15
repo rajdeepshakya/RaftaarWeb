@@ -1,0 +1,224 @@
+<div class="main">
+    <div class="d-flex ">
+        <img (click)="goBack()" src="assets/images/arrow-circle-left.svg">
+        <h3 (click)="goBack()" class="ms-2 mb-0">Manufacturing Order Requirement</h3>
+    </div>
+    <div class="add-new p-md-5 p-3 mt-4">
+        <div class="row p-0 m-0" [formGroup]="mor_form">
+            <!-- <div class="adddocumentpage ">
+            </div> -->
+            <div class="col-lg-6">
+                <div class="adddocumentpage ">
+                    <div class="locateyourdata">
+                        <div class="d-flex flex-column locateyourdata phonedetails">
+                        <h3>Manufacture category</h3>
+                        <mat-form-field appearance="fill" class="">
+                        <mat-select type="text"
+                            class="" max="999999" placeholder="Please select"
+                            formControlName="industry_id" (selectionChange)="getCategories($event)">
+                            <mat-option *ngFor="let industry of industrylist" [value]="industry.id">
+                                {{industry.industry_name}}</mat-option>
+                                </mat-select>
+                        </mat-form-field>
+                        </div>
+                        <small *ngIf="submitted && mor_form.controls['industry_id'].invalid " class="alert px-0 select-box-alert">
+                            <small *ngIf="submitted && mor_form.controls['industry_id'].errors.required">
+                                Manufacture category is required
+                            </small>
+                        </small>
+                    </div>
+                    <div class="locateyourdata ">
+                        <div class="d-flex flex-column locateyourdata phonedetails">
+                        <h3>Manufacture sub-category</h3>
+                        <mat-form-field appearance="fill" class="">
+                        <mat-select type="text" placeholder="Please select"
+                            max="999999"
+                            formControlName="category1_id">
+                            <mat-option *ngFor="let category1 of category1List" [value]="category1.id">{{category1.title}}
+                            </mat-option>
+                        </mat-select>
+                        </mat-form-field>
+                        </div>
+                        <small *ngIf="submitted && mor_form.controls['category1_id'].invalid " class="alert px-0 select-box-alert">
+                            <small *ngIf="submitted && mor_form.controls['category1_id'].errors.required">
+                                Manufacture sub category is required
+                            </small>
+                        </small>
+                    </div>
+                    
+                    <div class="locateyourdata ">
+                        <h3>Requirement title</h3>
+                        <input type="text" class=" locationdata  " minlength="5" maxlength="30"
+                        oninput="this.value = this.value.replace(/[^a-z,^A-Z ]/g, '').replace(/(\..*)\./g, '$1');"  [ngClass]="{ 'is-invalid': submitted && f['title'].errors}" formControlName="title"
+                            placeholder="Enter requirement title">
+                        <div *ngIf=" submitted && f['title'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['title'].errors['required']">Title is required</div>
+                        </div>
+                    </div>
+                    <div class="locateyourdata ">
+                        <h3>Order description</h3>
+                        <textarea type="text" class=" addcontent ps-4 main_comp"
+                            [ngClass]="{ 'is-invalid': submitted && f['description'].errors}"
+                            formControlName="description" minlength="5" maxlength="1500" style="height:228px"
+                            placeholder="Enter order description"></textarea>
+                        <div *ngIf=" submitted && f['description'].errors" class="invalid-feedback mt-0">
+                            <div *ngIf="submitted && f['description'].errors['required']">Description is required</div>
+                        </div>
+                    </div>
+                    <div class="locateyourdata mt-1">
+                        <h3>Units</h3>
+                        <input type="text" class=" locationdata "
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" pattern="^[1-9][0-9]*$"   maxlength="9" [ngClass]="{ 'is-invalid': submitted && f['unit_type'].errors}" formControlName="unit_type"
+                            placeholder="Enter no. of units required">
+                        <div *ngIf=" submitted && f['unit_type'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['unit_type'].errors['required']">Units is required</div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="adddocumentpage ">
+
+                    <div class="locateyourdata ">
+                        <h3>Rate</h3>
+                        <input type="text" class=" locationdata  "
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" 
+                        pattern="^[1-9][0-9]*$"   maxlength="9"  [ngClass]="{ 'is-invalid': submitted && f['rate'].errors}" formControlName="rate"
+                            placeholder="Enter the rate">
+                        <div *ngIf=" submitted && f['rate'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['rate'].errors['required']">Rate is required</div>
+                        </div>
+                    </div>
+                    <div class="locateyourdata ">
+                        <h3>Delivery details</h3>
+                        <input type="text" class=" locationdata  "
+                           maxlength="30" [ngClass]="{ 'is-invalid': submitted && f['delivery_details'].errors}"
+                            formControlName="delivery_details" placeholder="Enter delivery details">
+                        <div *ngIf=" submitted && f['delivery_details'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['delivery_details'].errors['required']">Delivery details is
+                                required</div>
+                        </div>
+                    </div>
+                    <div class="locateyourdata">
+                        <h3>Payment terms</h3>
+                        <input type="text" class="locationdata"
+                          maxlength="30"  [ngClass]="{ 'is-invalid': submitted && f['payment_term'].errors}"
+                            formControlName="payment_term" placeholder="Enter payment terms">
+                        <div *ngIf=" submitted && f['payment_term'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['payment_term'].errors['required']">Payment term is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="locateyourdata " formArrayName="custom_fields">
+                        <div [formGroupName]="i" *ngFor="let customfield of customfields; let i=index;">
+                            <h3>{{customfield}}</h3>
+                            <input type="text" class=" locationdata mb-2" formControlName="content"
+                                placeholder="Please enter {{customfield}}">
+                            <!-- <div *ngIf=" submitted && t['content'].errors" class="invalid-feedback">
+                                    <div *ngIf="submitted && t['content'].errors['required']">content is required
+                                    </div>
+                                </div> -->
+                        </div>
+
+                    </div>
+
+                    <div class="">
+                        <div class="d-flex align-items-start justify-content-between max-file">  
+                            <h3>Upload Files</h3>
+                            <p *ngIf="showText" >Maximum 5 allowed</p>
+                        </div>
+                        <div class="d-flex justify-content-between files p-3">
+                            <div (click)="selectFile.click()" style="cursor: pointer"
+                                class="adddocument align-items-center flex-column d-flex">
+                                <input style="display: none" type="file" (change)="fileupload($event)" #selectFile
+                                    accept="image/*" multiple>
+                               <!-- <img src="assets/images/Group.svg" alt="" width="30px" height="30px"> -->
+                               <img src="assets/images/gallery-1.svg" alt="" width="30px" height="30px">
+                                    <span class="ms-2">
+                                    Add image
+                                </span>
+                            </div>
+                            <div (click)="selectFile1.click()" style="cursor: pointer"
+                                class="adddocument align-items-center flex-column d-flex">
+                                <input style="display: none" type="file" accept="video/*" (change)="fileupload($event)"
+                                    #selectFile1 multiple>
+                                 <!-- <img src="assets/images/Group-1.svg" alt="" width="30px" height="30px"> -->
+                                 <img src="assets/images/video-playicon.svg" alt="" width="30px" height="30px">
+                                    <span class="ms-2">
+                                    Add Video
+                                </span>
+                            </div>
+                            <div (click)="selectFile2.click()" style="cursor: pointer"
+                                class="adddocument align-items-center flex-column d-flex">
+                                <input style="display: none" type="file" (change)="fileupload($event)"
+                                    accept="application/pdf" #selectFile2 multiple>
+                                 <!-- <img src="assets/images/docu.svg" alt="" width="30px" height="30px"> -->
+                                 <img src="assets/images/documenticon.svg" alt="" width="30px" height="30px">
+                                    <span class="ms-2">
+                                    Add Document
+                                </span>
+                            </div>
+                        </div>
+                        <div class="minimumFile mt-1 " *ngIf=" submitted_1 && emptyFile">
+                            File is required
+                        </div>
+                    </div>
+
+                </div>
+                <div class="adddocumentpage py-3">
+                    <div class="postdata d-flex justify-content-between align-items-center">
+                        <input style="display: none" type="file" (change)="fileupload($event)" #selectFile3 multiple>
+                        <p class="drag" (fileDropped)="onFileDropped($event)" appDragAndDrop>Drag and drop, or <span
+                                (click)="selectFile3.click()">select a file</span>
+                        </p>
+                    </div>
+                    <div class="d-flex align-items-center flex-wrap">
+                        <div class="upload-img position-relative d-inline-block mx-2 mb-3"
+                            *ngFor="let image of images; let i = index">
+                            <img [src]="image.url" width="90px" height="90px">
+                            <img src="assets/images/close-circle.png" (click)="deleteImg(i,1)"
+                                class="close position-absolute">
+                        </div>
+                        <div class="upload-img position-relative d-inline-block mx-2 mb-3"
+                            *ngFor="let video of videos; let i = index">
+                            <video width="90px" height="90px" controls>
+                                <source [src]="video.url" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <img src="assets/images/close-circle.png" (click)="deleteImg(i,2)"
+                                class="close position-absolute">
+                        </div>
+
+                        <div class="upload-img position-relative d-inline-block mx-2 mb-3"
+                            *ngFor="let document of pdf; let i = index">
+                            <a target="_self" [href]="document.url" download="pdf">
+                                <img src="assets/images/pdf 3 (1).svg" width="90px" height="90px">
+                            </a>
+                            <img src="assets/images/close-circle.png" (click)="deleteImg(i,3)"
+                                class="close position-absolute">
+                        </div>
+                    </div>
+                    <!-- <div class="postdata d-flex justify-content-between align-items-center"
+                        *ngFor="let file of files; let i = index">
+                        <p>{{file.Key}}</p>
+                    </div> -->
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="adddocumentpage post-btn d-flex  mt-md-5 mt-3 justify-content-center ">
+                    <div class="postdata me-2">
+                        <button class="customfield" (click)="addfield()">Add Custom Field</button>
+                    </div>
+                    <div class="postdata  ms-md-2 ms-0 mt-md-0 mt-3">
+                        <button *ngIf="!editFlag" (click)="submit(mor_form.value)">Post</button>
+                        <button *ngIf="editFlag" (click)="submit(mor_form.value)">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

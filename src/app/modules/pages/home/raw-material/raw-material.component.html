@@ -1,0 +1,182 @@
+<div class="main">
+    <div class="d-flex">
+        <img (click)="goBack()" src="assets/images/arrow-circle-left.svg">
+        <h3 (click)="goBack()" class="ms-2 mb-0">Raw Material</h3>
+    </div>
+    <div class="add-new p-md-5 p-3 mt-4">
+        <div class="row p-0 m-0" [formGroup]="rawMaterialForm">
+            <div class="adddocumentpage ">
+            </div>
+            <div class="col-md-6">
+                <div class="adddocumentpage ">
+                    <div class="locateyourdata ">
+                        <div class="d-flex flex-column locateyourdata phonedetails">
+                        <h3>Business Activity</h3>
+                        <mat-form-field appearance="fill" class="">
+                        <!-- <img class="droparrow" src="assets/images/arrow-down.svg"> -->
+                        <mat-select type="text" placeholder="Select business activity"
+                            max="999999"
+                            formControlName="industry_id" (selectionChange)="category2($event)">
+                            <mat-option *ngFor="let industry of industrylist" [value]="industry.id">
+                                {{industry.industry_name}}</mat-option>
+                        </mat-select>
+                        </mat-form-field>
+                        </div>
+                        <small *ngIf="submitted && rawMaterialForm.controls['industry_id'].invalid "
+                            class="alert px-0 select-box-alert">
+                            <small *ngIf="submitted && rawMaterialForm.controls['industry_id'].errors.required">
+                                Business activity is required
+                            </small>
+                        </small>
+                    </div>
+                    <div class="locateyourdata ">
+                        <div class="d-flex flex-column locateyourdata phonedetails">
+                        <h3>Machine sub-category 1</h3>
+                        <mat-form-field appearance="fill" class="">
+                        <!-- <img class="droparrow" src="assets/images/arrow-down.svg"> -->
+                        <mat-select placeholder="Enter the Machine sub-category 1"
+                            (selectionChange)="category3($event)" formControlName="category1_id">
+                            <mat-option *ngFor="let category1 of category1List" [value]="category1.id">{{category1.title}}
+                            </mat-option>
+                        </mat-select>
+                        </mat-form-field>
+                        </div>
+                        <small *ngIf="submitted && rawMaterialForm.controls['category1_id'].invalid "
+                            class="alert px-0 select-box-alert">
+                            <small *ngIf="submitted && rawMaterialForm.controls['category1_id'].errors.required">
+                                Machine sub category 1 is required
+                            </small>
+                        </small>
+                    </div>
+                    <div class="locateyourdata ">
+                        <div class="d-flex flex-column locateyourdata phonedetails">
+                        <h3>Machine sub-category-2</h3>
+                        <mat-form-field appearance="fill" class="">
+                        <!-- <img class="droparrow" src="assets/images/arrow-down.svg"> -->
+                        <mat-select type="text" placeholder="Enter the Machine sub-category 2"
+                            formControlName="category2_id"  (selectionChange)="productTypes($event)">
+                            <mat-option *ngFor="let category2 of category2List" [value]="category2.id">{{category2.title}}
+                            </mat-option>
+                            </mat-select>
+                            </mat-form-field>
+                            </div>
+                            <small *ngIf="submitted && rawMaterialForm.controls['category2_id'].invalid "
+                            class="alert px-0 select-box-alert">
+                            <small *ngIf="submitted && rawMaterialForm.controls['category2_id'].errors.required">
+                                Machine sub category 2 is required
+                            </small>
+                        </small>
+                    </div>
+                    <div class="d-flex flex-column locateyourdata">
+                        <div class="d-flex flex-column locateyourdata mt-0 phonedetails">
+                        <h3>Machine sub-category-3</h3>
+                        <mat-form-field appearance="fill" class="">
+                            <mat-select placeholder="Select product type" placeholder="Enter the Machine sub-category 3"
+                             formControlName="category3_id">
+                                <mat-option *ngFor="let items of producttype" [value]="items.id">{{items.title}}
+                                </mat-option>
+                            </mat-select>
+                            </mat-form-field>
+                            </div>
+                            <small *ngIf="submitted && rawMaterialForm.controls['category3_id'].invalid "
+                            class="alert px-0 select-box-alert">
+                            <small *ngIf="submitted && rawMaterialForm.controls['category3_id'].errors.required">
+                                Machine sub category 3 is required
+                            </small>
+                        </small>
+                    </div>
+                    <div class="locateyourdata ">
+                        <h3>Requirement title</h3>
+                        <input type="text" class=" locationdata " maxlength="30"
+                        oninput="this.value = this.value.replace(/[^a-z,^A-Z ]/g, '').replace(/(\..*)\./g, '$1');"   [ngClass]="{ 'is-invalid': submitted && f['title'].errors}" minlength="5"
+                            placeholder="Enter the Requirement title" formControlName="title">
+                        <div *ngIf=" submitted && f['title'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['title'].errors['required']">Title is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="locateyourdata ">
+                        <h3>Capacity</h3>
+                        <input type="text" class="locationdata  " maxlength="9"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"  [ngClass]="{ 'is-invalid': submitted && f['capacity'].errors}" formControlName="capacity"
+                            placeholder="Enter the Capacity">
+                        <div *ngIf=" submitted && f['capacity'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['capacity'].errors['required']">Capacity is required
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="locateyourdata ">
+                        <h3>Price</h3>
+                        <input type="text" class="form-control locationdata  my-2 " formControlName="" placeholder="Enter the price">
+                    </div> -->
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="adddocumentpage ">
+                    <div class="locateyourdata ">
+                        <h3>Description</h3>
+                        <textarea type="text" class=" addcontent ps-4 main_comp" formControlName="description"
+                            maxlength="1500" [ngClass]="{ 'is-invalid': submitted && f['description'].errors}"
+                            minlength="5"
+                            placeholder="Enter order Description"></textarea>
+                        <div *ngIf=" submitted && f['description'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['description'].errors['required']">Description is required
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="locateyourdata mt-1">
+                        <h3>Units</h3>
+                        <input type="text" class=" locationdata " maxlength="9"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" [ngClass]="{ 'is-invalid': submitted && f['unit_type'].errors}" formControlName="unit_type"
+                            placeholder="Enter the Units">
+                        <div *ngIf=" submitted && f['unit_type'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['unit_type'].errors['required']">Unit type is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="locateyourdata ">
+                        <h3>Price</h3>
+                        <input type="text" class=" locationdata ps-5 " maxlength="9"
+                            [ngClass]="{ 'is-invalid': submitted && f['price'].errors}"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                            formControlName="price" placeholder="Enter the Price">
+                            <p class="position-absolute price">₹</p>
+                        <div *ngIf=" submitted && f['price'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['price'].errors['required']">Price is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="locateyourdata " formArrayName="custom_fields">
+                        <div [formGroupName]="i" *ngFor="let customfield of customfields; let i=index;">
+                            <h3>{{customfield}}</h3>
+                            <input type="text" class=" locationdata mb-2 " formControlName="content"
+                                placeholder="Please enter {{customfield}}">
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="adddocumentpage py-5">
+                    <div class="postdata d-flex justify-content-between align-items-center">
+                   
+                        <button (click)="postPublish(rawMaterialForm.value)">Post<img
+                                ></button>
+                    </div>
+                </div> -->
+            </div>
+            <div class="row">
+                <div class="adddocumentpage d-flex mt-5 justify-content-center">
+                    <div class="postdata d-flex justify-content-between align-items-center me-2">
+                        <button class="customfield" (click)="addfield()">Add Custom Field<img></button>
+                    </div>
+                    <div class="postdata d-flex justify-content-between align-items-center ms-2">
+                        <button *ngIf="!editFlag" (click)="postPublish(rawMaterialForm.value)">Post<img></button>
+                        <button *ngIf="editFlag" (click)="postPublish(rawMaterialForm.value)">Save<img></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

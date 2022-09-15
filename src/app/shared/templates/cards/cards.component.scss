@@ -1,0 +1,49 @@
+@import '../../../../assets/variable.scss';
+.image{
+    background-image: url('/assets/images/Rectangle\ 150949.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    min-height: 100%;
+    padding-bottom: 65px;
+    @media (max-width:768px) {
+       padding-bottom: 20px;
+    }
+    h2{
+        padding: 52px 0px 0px 30px;
+        line-height: 40px;
+        font-style: italic;
+        @include fontStyleManager($fontFamilyPoppinsBold,$fontWeightBold,$fontSize40,$Colorwhite);
+        @media (max-width:768px) {
+            font-size: 24px !important;
+            line-height: 26px;
+            padding-top: 20px;
+        }
+    }
+    button{
+        background-color: $bgred;
+        border-radius: 28px;
+        margin: 0px 0px 0px 30px;
+        padding: 16px 15px;
+        width: 235px;
+        max-width: 100%;
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize18,$Colorwhite);
+        @media (max-width:768px) {
+            font-size: 11px !important;
+            width: 120px;
+            padding: 10px;
+        }
+
+    }
+}
+.image_2{
+    background-image: url('/assets/images/Rectangle\ 150950.png');
+    button{
+        background-color:$bgBlue;
+    }
+}
+.row{
+    @media (max-width:991px) {
+        flex-wrap: nowrap;
+        overflow: scroll;
+    }
+}

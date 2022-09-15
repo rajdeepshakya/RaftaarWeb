@@ -1,0 +1,354 @@
+@import '../../../../../assets/variable.scss';
+@import '../../../../../assets/common.scss';
+.section{
+    padding: 0px 35px;
+    @media (max-width:1024px) {
+        padding: 0px 15px;
+    }
+}
+.main_comp{
+    background-color: #EAF3FF;
+}
+.card{
+    border:0px solid rgba(161, 179, 201, 0.6) !important;
+    .card-body{
+        padding: 20px 35px ;
+        @media (max-width:1024px) {
+            padding: 10px 15px !important;
+
+        }
+    }
+    .min-ago{
+        color: #5B6D8E !important ;
+    }
+    .card-text{
+        color: $Color_768DA9;
+        word-break: break-word;
+        font-size: 16px !important;
+        @media (max-width:1024px) {
+            font-size: 12px !important;
+            
+         }
+    }
+    .card-header{
+        border-radius:  0px;
+        border:0px;
+        background-color: transparent;
+        h4{
+            color: #FF642B            !important;
+            font-size: 14px !important;
+        }
+    }
+}
+.search{
+    border: 1px solid #A1B3C9;
+    border-radius: 0px 8px 8px 8px;
+    background-color: #FAFBFC;
+    width: 100%;
+    padding: 13px 50px 13px 20px;
+    resize: none;
+}
+.post{
+    right: 48px;
+    top:23px;
+    @media (max-width:1024px) {
+        right: 27px;
+    }
+}
+.post-comment{
+        right: 20px;
+        top:23px;
+        @media (max-width:1024px) {
+            right: 27px;
+        } 
+}
+.comment{
+    border: 1.46608px solid #EDF5F9;
+    background-color: #F2F8FF    ;
+    padding: 20px;
+    border-radius: 14.6608px;
+    @media (max-width:1024px) {
+        padding: 15px 8px;
+        border: 0px;
+    }
+    p
+    {
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize13,$Color_768DA9);
+        @media (max-width:1024px) {
+            font-size: 12px !important;
+        }
+    }
+    h4{
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize13,$Color_1A264E); 
+    }
+    h3{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize12,$Color_A1B3C9);
+    }
+}
+h3{
+    @media (max-width:1024px) {
+        font-size: 12px !important;
+    }
+}
+.like-img
+{
+    h3{
+        font-size: 14px !important;
+        @media (max-width:1024px) {
+            font-size: 12px !important;
+        }
+    }
+    img{
+        @media (max-width:1024px) {
+            width: 18px ;
+        }
+} 
+}
+.card-heading{
+    a{
+       font-size: 12px !important;
+       
+    }
+    h2{
+        @include fontStyleManager($fontFamilyAvenir,$fontWeightExtraBold,$fontSize20,$Color_0A0045);
+        @media (max-width:1024px) {
+           font-size: 14px !important;
+
+        }
+        
+    }
+    h3{
+        font-size: 12px !important;
+        @media (max-width:1024px) {
+            font-size: 12px !important;
+            
+         }
+    }
+}
+.user{
+    background-color: #002280    ;
+    border-radius: 0px 15px 15px 15px;
+}
+.rating{
+    .gst{
+        border-radius: 0px 0px 0px 15px;
+
+    }
+    // background-color: white;
+
+    h6{
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Color_0A0045);
+        @media (max-width:1024px) {
+            font-size: 14px !important;
+        }
+    }
+    p{
+        @include fontStyleManager($fontFamilyInterRegular,$fontWeightRegular,$fontSize12,$Color_768DA9)
+  
+    }
+}
+.user{
+    .user-img{
+        box-shadow: (0px 14px 51.3333px rgba(0, 0, 0, 0.12));
+        border: 2px solid #FFFFFF;
+        border-radius: 100px
+    }
+    p{
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize18,$Colorwhite);
+        @media (max-width:1024px) {
+            font-size: 14px !important;
+        }
+    }
+    span{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_768DA9);
+        @media (max-width:1024px) {
+            font-size: 12px !important;
+        }
+    }
+}
+.industry{
+    h5{
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize13,$Color_002280);
+    }
+    p{
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize13,$Color_768DA9); 
+    }
+}
+.details{
+    background-color: #F2F8FF;
+    border-radius: 0px 15px 0px 15px;
+
+}
+.ads{
+    p{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_768DA9);
+    }
+    button{
+        width: 161px;
+        padding: 11px 10px;
+        border: 1px solid #002280 !important;
+        border-radius: 40px;
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Color_002280); 
+    }
+    img{
+        border-radius: 100px;
+    }
+}
+.ads-para{
+    p{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_5B6D8E);
+    }
+}
+.see-products{
+    background-color: white;
+    border-radius: 0px 15px;
+}
+.files{
+    h5{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_0A0045);  
+    }
+}
+.create-post{
+    background-color: white;
+    border-radius: 15px;
+h4{
+    @include fontStyleManager($fontFamilyAvenir,$fontWeightExtraBold,$fontSize20,$Color_0A0045);  
+    opacity: 0.5;
+    @media (max-width:1024px) {
+        font-size: 14px !important;
+    }
+}
+}
+.avatar{
+    @media (max-width:1024px) {
+width: 32px;
+height: 32px;
+    }  
+}
+.show-interest{
+    @media (max-width:1024px) {
+        width: 20px !important;
+        height: 20px !important;
+            }   
+}
+.profile-pic{
+    border-radius: 100px;
+    @media (max-width:1024px) {
+        width: 35px !important;
+        height: 35px !important;
+            }  
+}
+[type=search]{
+    outline: 0px;
+}
+.carousel-control-next-icon{
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 100px;
+    background-size: 25px 25px;
+}
+.carousel-control-prev-icon{
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 100px;
+    background-size: 25px 25px;
+}
+::placeholder{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize12,$Color_A1B3C9);
+    padding-top: 15px;
+}
+.video{
+    top:0px;
+    left:0px;
+    right:0px;
+    bottom: 0px;
+    margin: auto;
+}
+.add-image{
+    opacity: 0;
+    width: 75px;
+}
+.dropdown-menu{
+    right: 0px;
+    box-shadow: 0px 11px 110px rgba(0, 50, 123, 0.38);
+border-radius: 8px;
+padding: 25px 0px;
+}
+.dropdown-item.active, .dropdown-item:active{
+    background-color: white;
+}
+.dropdown-item.active, .dropdown-item:hover{
+    background-color: white;
+}
+.dropdown-item{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_0A0045);
+    @media (max-width:1024px) {
+        font-size: 12px !important;
+    }
+}
+.carousel-item img{
+    object-fit: cover;
+}
+.dropdown-menu{
+    right: 0px;
+    box-shadow: 0px 11px 110px rgba(231, 235, 240, 0.38);
+border-radius: 8px;
+padding: 25px 0px;
+}
+.dropdown-item.active, .dropdown-item:active{
+    background-color: white;
+}
+.dropdown-item.active, .dropdown-item:hover{
+    background-color: white;
+}
+.dropdown-item{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_0A0045);
+    @media (max-width:1024px) {
+        font-size: 12px !important;
+    }
+}
+.delete{
+    color:#FF5C5C !important;
+}
+.color_red{
+    color: #EE7402    !important;
+}
+
+.shared{
+    // color: #99b1d1 !important;
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_5B6D8E);
+    @media (max-width:1024px) {
+        font-size: 14px !important;
+    }
+}
+.shared-container{
+align-items: center;
+margin: 20px 0px 0px 28px;
+@media (max-width:1025px) {
+    margin: 10px 0px 0px 3px;
+}
+}
+
+.shared-hr{
+    color: #768DA9;
+}
+.report{
+    color:#FF5C5C !important;
+  
+}
+.report-drop{
+    box-shadow: 0px 18px 107px rgb(13 8 73 / 18%);
+    border-radius: 8px;
+    border: 0px !important;
+    padding: 8px 0px 8px 0px !important;
+    inset: 28px 0px auto auto !important;
+    transform: none !important;
+    z-index: 1;
+}
+
+::ng-deep .break-wrap{
+    margin-bottom: 0px;
+}
+    
+::ng-deep .toast-bottom-right{
+    position: fixed;
+    bottom: 50px;
+}

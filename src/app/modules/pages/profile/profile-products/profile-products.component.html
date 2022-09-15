@@ -1,0 +1,55 @@
+<div class="main ">
+  <div *ngIf="!myProfile" class="d-flex ">
+    <img  (click)="goBack()" src="assets/images/arrow-circle-left.svg">
+    <h3 (click)="goBack()" class="ms-2 mb-0">Back</h3>
+  </div>
+    <div Class="row m-0 ">
+        <div class="col-lg-2 p-0 profile mt-0 position-relative">
+            <app-profile-front-page></app-profile-front-page>
+        </div>
+        <div class="col-lg-7 bg-white py-3 banner">
+            <app-menu-card></app-menu-card>
+    <div class="upperimgdata bg-white">
+        <div class="row requirement   mt-5 w-100 ms-0 ">
+            <div class="d-flex justify-content-between main-comp "  *ngFor="let list of data">
+              
+                <div class="mb-4 d-flex align-items-start products" >
+                    <img [src]="list.shapeImageUrl" onError="this.src='assets/images/placeholder-img.svg'" width="241px" height="198px" (click)="onview(list.id)">
+
+                    <div class="ms-3">
+                        <h3 class="mb-0 heading">{{list.title}}</h3>
+                        <h2 class="heading">{{list.description}}</h2>
+                    </div>
+                </div>
+                <div *ngIf="myProfile" class="d-flex justify-content-end dropdown">
+                  <img src="assets/images/Group 1023.svg" width="25px" height="25px" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" 
+                  >
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                      <li (click)="edit(list.id)"><a class="dropdown-item"> 
+                          <img src="assets/images/edit-2.svg" class="me-3">
+                          Edit</a></li>
+                  <li (click)="productDelete(list.id)"><a class="dropdown-item delete mt-3">
+                          <img src="assets/images/trash.svg" class="me-3">
+                          Delete</a></li>
+                    </ul>
+              </div>
+            </div>
+        </div>
+    </div>
+   
+</div>
+<!-- <div class="col-lg-3 mt-lg-0 mt-3 px-md-3 p-0">
+    <div class="see-products p-2">
+      <div class="d-flex justify-content-end ads-para">
+        <p class="me-3">Ad...</p>
+      </div>
+      <div class="text-center ads">
+        <img src="assets/images/img4.svg" width="120px" height="120px">
+        <p class="mb-0 my-2">Hey Sequa, explore products
+          that match your requirements</p>
+        <button class="btn my-3 p-2 px-3 w-auto">See Products</button>
+      </div>
+
+    </div>
+  </div> -->
+</div>

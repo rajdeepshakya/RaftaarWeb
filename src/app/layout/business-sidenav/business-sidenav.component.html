@@ -1,0 +1,49 @@
+
+<div class=" sidenavdata ">
+    <!-- <img class="raftarlogo ps-4" src="assets/images/top_logo.png" alt="">
+    <div class="mt-4 ps-4 logocap d-flex">
+        <img class="logocapimage mt-1 " src="assets/images/Vector@1x.png" alt="">
+        <div class="logocapdata ms-2">
+            <h5>Sequa Capital</h5>
+            <p class="text-truncate logocapsubdata">6391 Elgin St. Celing  data is</p>
+        </div>
+    </div>
+    <button class="btn back-btn ms-4">
+     <img src="assets/images/login_1.svg"> Back to home</button> -->
+     <!-- <app-mob-header></app-mob-header> -->
+     <app-mob-sidenav></app-mob-sidenav>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid p-0">
+          <div class="d-flex justify-content-between align-items-center mob-view">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+              <span onclick="openNav()" class="navbar-toggler-icon" ></span>
+            </button>
+            <!-- <img class="user" src="assets/images/top_logo.png" alt=""> -->
+         
+          </div>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+            <ul class="navbar-nav  flex-column w-100">
+              <li class="nav-item" *ngFor="let item of itemsList">
+                <a class="nav-link active px-4 py-3" aria-current="page" [routerLink]="['/business',item.pathModule]" routerLinkActive="active-item">{{item.list}}</a>
+                <!-- <img class="pe-3" src="assets/images/Vectorprofile.svg"> -->
+              </li>
+            </ul>
+            <!-- <ul class="navbar-nav  flex-column w-100">
+              <li class="nav-item" *ngFor="let item of itemsList; let i = index">
+                <a class="nav-link px-4 py-3" aria-current="page" (click)="routeToModules(i)" [routerLink]="['/main/profile',item.pathModule]"
+                [routerLinkActiveOptions]={exact:true} routerLinkActive="active-item" >{{item.list}}</a>
+                <img *ngIf="showIcon[i]" class="pe-3" src="assets/images/Vectorprofile.svg">
+              </li>
+            </ul> -->
+          </div>
+        </div>
+      </nav>
+      <!-- <hr> -->
+      <div class="px-4 py-3">
+        <button class="px-4 py-2 border-0 helpuser"> Help</button>
+    </div>
+</div>
+
+
+
+

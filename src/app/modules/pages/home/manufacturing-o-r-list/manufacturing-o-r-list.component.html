@@ -1,0 +1,290 @@
+
+<section class="main_comp px-md-5 px-3 pb-md-5 pb-3 pt-4">
+    <div class="d-flex mb-4 cursor-pointer" [routerLink]="['/main/home']">
+        <img   src="assets/images/arrow-circle-left.svg">
+        <h3  class="mb-0 ms-2 marketplace-Product "> Requirement list
+        </h3>
+    </div>
+    <!-- <div class="d-flex mb-4 main">
+        <img src="assets/images/arrow-circle-left.svg">
+        <h3 class="mb-0 ms-2">Manufacturing Order Requirement</h3>
+    </div> -->
+    <div class="requirement-detail">
+        <div *ngFor="let card of cards">
+            <div class="row mt-0 p-md-4 p-2 m-0" *ngIf="card.req_type == 'manufacturing order requirement'">
+                    <div class="col-sm-6">
+                        <img class="rounded" src="assets/images/Dribbble 2 1 (13).svg" width="100%" (click)="openDetails(card)">
+                    </div>
+                    <div class="col-sm-6 p-0  mt-md-0 mt-3" >
+                        <div class="card mb-0">
+                            <div class="card-body pt-0">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class=" heading">
+                                            <h2 class="mb-0">{{card.req_type | titlecase}}</h2>
+                                            <p class="mb-0">{{card.description}}</p>
+                                        </div>
+                                    </div>
+                                    <img src="assets/images/Group 1023.svg" width="25px" height="25px" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" >
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                        <li (click)="edit(card)"><a class="dropdown-item"> 
+                                            <img src="assets/images/edit-2.svg" class="me-3">
+                                            Edit</a></li>
+                                    <li (click)="delete(card.id,1)" ><a class="dropdown-item delete mt-3">
+                                            <img src="assets/images/trash.svg" class="me-3">
+                                            Delete</a></li>
+                                      </ul>                               </div>
+                                <div class="d-flex justify-content-between mt-2 card card-interest p-md-3 p-2">
+                                    <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                        <div class="d-flex align-items-center justify-content-between ">
+                                            <img [src]="icons.units">
+                                            <h3 class="mb-0 ms-2 color_grey">Units Required:
+                                                <span>{{card.unit_type}}</span>
+                                            </h3>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between mt-md-0 mt-3">
+                                            <img [src]="icons.price">
+                                            <h3 class="mb-0 ms-2 color_grey">Price:
+                                                <span>₹ {{card.rate}}</span>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      
+                    </div>
+                    </div>
+                <div class="row mt-0 p-md-4 p-2 m-0" *ngIf="card.req_type == 'hr'">
+                    <div class="col-sm-6">
+                        <img class="rounded" src="assets/images/HR_List.svg" width="100%" (click)="openDetails(card)">
+                    </div>
+                    <div class="col-sm-6 p-0  mt-md-0 mt-3" >
+                        <div class="card mb-0">
+                            <div class="card-body pt-0">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class=" heading">
+                                            <h2 class="mb-0">{{card.req_type | titlecase}}</h2>
+                                            <p class="mb-0">{{card.description}}</p>
+                                        </div>
+                                    </div>
+                                    <img src="assets/images/Group 1023.svg" width="25px" height="25px" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" 
+                                    >
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                        <li (click)="edit(card)"><a class="dropdown-item"> 
+                                            <img src="assets/images/edit-2.svg" class="me-3">
+                                            Edit</a></li>
+                                    <li (click)="delete(card.id,2)" ><a class="dropdown-item delete mt-3">
+                                            <img src="assets/images/trash.svg" class="me-3">
+                                            Delete</a></li>
+                                      </ul>                               </div>
+                                <div class="d-flex justify-content-between mt-2 card card-interest p-md-3 p-2">
+                                    <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                        <div class="d-flex align-items-center justify-content-between ">
+                                            <img [src]="icons.date">
+                                            <h3 class="mb-0 ms-2 color_grey">Joining Date: 
+                                                <span>{{card.joining_date | date:'yyyy/mm/dd'}}</span>
+                                            </h3>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between mt-md-0 mt-3">
+                                            <img [src]="icons.price">
+                                            <h3 class="mb-0 ms-2 color_grey">Salary:
+                                                <span>{{card.salary}}</span>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      
+                    </div>
+                </div>
+                <div class="row mt-0 p-md-4 p-2 m-0" *ngIf="card.req_type == 'machine'">
+                    <div class="col-sm-6">
+                        <img class="rounded" src="assets/images/Machine_List.svg" width="100%" (click)="openDetails(card)">
+                    </div>
+                    <div class="col-sm-6 p-0  mt-md-0 mt-3" >
+                        <div class="card mb-0">
+                            <div class="card-body pt-0">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class=" heading">
+                                            <h2 class="mb-0">{{card.req_type | titlecase}}</h2>
+                                            <p class="mb-0">{{card.description}}</p>
+                                        </div>
+                                    </div>
+                                    <img src="assets/images/Group 1023.svg" width="25px" height="25px" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" 
+                                    >
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                        <li (click)="edit(card)"><a class="dropdown-item"> 
+                                            <img src="assets/images/edit-2.svg" class="me-3">
+                                            Edit</a></li>
+                                    <li (click)="delete(card.id,3)" ><a class="dropdown-item delete mt-3">
+                                            <img src="assets/images/trash.svg" class="me-3">
+                                            Delete</a></li>
+                                      </ul>                                </div>
+                                <div class="d-flex justify-content-between mt-2 card card-interest p-md-3 p-2">
+                                    <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                        <div class="d-flex align-items-center justify-content-between ">
+                                            <img [src]="icons.capacity">
+                                            <h3 class="mb-0 ms-2 color_grey">Capacity:
+                                                <span>{{card.capacity}}</span>
+                                            </h3>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between mt-md-0 mt-3">
+                                            <img [src]="icons.price">
+                                            <h3 class="mb-0 ms-2 color_grey">Price:
+                                                <span>{{card.price}}</span>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      
+                    </div>
+                </div>
+                <div class="row mt-0 p-md-4 p-2 m-0" *ngIf="card.req_type == 'raw material'">
+                    <div class="col-sm-6">
+                        <img class="rounded" src="assets/images/Raw Material_List.svg" width="100%" (click)="openDetails(card)">
+                    </div>
+                    <div class="col-sm-6 p-0  mt-md-0 mt-3" >
+                        <div class="card mb-0">
+                            <div class="card-body pt-0">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class=" heading">
+                                            <h2 class="mb-0">{{card.req_type | titlecase}}</h2>
+                                            <p class="mb-0">{{card.description}}</p>
+                                        </div>
+                                    </div>
+                                    <img src="assets/images/Group 1023.svg" width="25px" height="25px" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" 
+                                    >
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                        <li (click)="edit(card)"><a class="dropdown-item"> 
+                                            <img src="assets/images/edit-2.svg" class="me-3">
+                                            Edit</a></li>
+                                    <li (click)="delete(card.id,4)" ><a class="dropdown-item delete mt-3">
+                                            <img src="assets/images/trash.svg" class="me-3">
+                                            Delete</a></li>
+                                      </ul>                               </div>
+                                <div class="d-flex justify-content-between mt-2 card card-interest p-md-3 p-2">
+                                    <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                        <div class="d-flex align-items-center justify-content-between ">
+                                            <img [src]="icons.capacity">
+                                            <h3 class="mb-0 ms-2 color_grey">Units Required:
+                                                <span>{{card.unit_type}}</span>
+                                            </h3>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between mt-md-0 mt-3">
+                                            <img [src]="icons.price">
+                                            <h3 class="mb-0 ms-2 color_grey">Price:
+                                                <span>{{card.price}}</span>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      
+                    </div>
+                </div>
+                <div class="row mt-0 p-md-4 p-2 m-0" *ngIf="card.req_type == 'finance'">
+                    <div class="col-sm-6">
+                        <img class="rounded" src="assets/images/Finance_List.svg" width="100%" (click)="openDetails(card)">
+                    </div>
+                    <div class="col-sm-6 p-0  mt-md-0 mt-3" >
+                        <div class="card mb-0">
+                            <div class="card-body pt-0">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class=" heading">
+                                            <h2 class="mb-0">{{card.req_type | titlecase}}</h2>
+                                            <p class="mb-0">{{card.description}}</p>
+                                        </div>
+                                    </div>
+                                    <img src="assets/images/Group 1023.svg" width="25px" height="25px" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" 
+                                    >
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                        <li (click)="edit(card)"><a class="dropdown-item"> 
+                                            <img src="assets/images/edit-2.svg" class="me-3">
+                                            Edit</a></li>
+                                    <li (click)="delete(card.id,5)" ><a class="dropdown-item delete mt-3">
+                                            <img src="assets/images/trash.svg" class="me-3">
+                                            Delete</a></li>
+                                      </ul>                               </div>
+                                <div class="d-flex justify-content-between mt-2 card card-interest p-md-3 p-2">
+                                    <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                        <div class="d-flex align-items-center justify-content-between ">
+                                            <img [src]="icons.contact">
+                                            <h3 class="mb-0 ms-2 color_grey">Contact Details:
+                                                <span>{{card.contact}}</span>
+                                            </h3>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between mt-md-0 mt-3">
+                                            <img [src]="icons.gst">
+                                            <h3 class="mb-0 ms-2 color_grey">GST:
+                                                <span>{{card.gst}}</span>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      
+                    </div>
+                </div>
+                <div class="row mt-0 p-md-4 p-2 m-0" *ngIf="card.req_type == 'other'">
+                    <div class="col-sm-6">
+                        <img class="rounded" src="assets/images/Finance_List.svg" width="100%" (click)="openDetails(card)">
+                    </div>
+                    <div class="col-sm-6 p-0  mt-md-0 mt-3" >
+                        <div class="card mb-0">
+                            <div class="card-body pt-0">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class=" heading">
+                                            <h2 class="mb-0">{{card.req_type | titlecase}}</h2>
+                                            <p class="mb-0">{{card.description}}</p>
+                                        </div>
+                                    </div>
+                                    <img src="assets/images/Group 1023.svg" width="25px" height="25px" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" 
+                                    >
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                        <li (click)="edit(card)"><a class="dropdown-item"> 
+                                            <img src="assets/images/edit-2.svg" class="me-3">
+                                            Edit</a></li>
+                                    <li (click)="delete(card.id,6)" ><a class="dropdown-item delete mt-3">
+                                            <img src="assets/images/trash.svg" class="me-3">
+                                            Delete</a></li>
+                                      </ul>                               </div>
+                                <div class="d-flex justify-content-between mt-2 card card-interest p-md-3 p-2">
+                                    <div class="d-flex align-items-center justify-content-between flex-wrap">
+                                        <div class="d-flex align-items-center justify-content-between ">
+                                            <img [src]="icons.units">
+                                            <h3 class="mb-0 ms-2 color_grey">Units Required:
+                                                <span>{{card.no_of_unit}}</span>
+                                            </h3>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between mt-md-0 mt-3">
+                                            <img [src]="icons.lead">
+                                            <h3 class="mb-0 ms-2 color_grey">Lead Time:
+                                                <span>{{card.lead_time}}</span>
+                                            </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      
+                    </div>
+                </div>
+        </div>
+        <!-- <div class="d-flex justify-content-center">
+            <pagination-controls previousLabel="&lsaquo;" nextLabel="&rsaquo;" (pageChange)="onDataChange($event)">
+            </pagination-controls>
+        </div> -->
+    </div>
+
+</section>

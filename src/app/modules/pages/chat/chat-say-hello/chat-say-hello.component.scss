@@ -1,0 +1,114 @@
+@import "../../../../../assets/variable.scss";
+@import "../../../../../assets/common.scss";
+
+.main{
+    background-color: #EAF3FF    ;
+    h3{
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize20,$Color_0A0045);  
+    }
+    .chat{
+        .row{
+            column-gap: 20px;
+        }
+        .col-width{
+            width: 378px;
+        }
+      
+        .chat-start{
+            background-color: white;
+            border-radius: 15px;
+            .conversation{
+                height: 400px;
+ 
+            }
+            h4{
+                @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize20,$Colorwhite);   
+                color: #000000 !important;
+            }
+            .hellobtn{
+                background: linear-gradient(130.88deg, #EE7402 0%, #EDAE1F 107.33%);
+                border-radius: 40px;
+                width: 160px;
+                padding: 12px ;
+                @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Colorwhite);   
+            }
+            
+        }
+    }
+   
+}
+
+@import "../../../../../assets/variable.scss";
+@import "../../../../../assets/common.scss";
+.search{
+    .input{
+        width: 100%;
+        border: 0.5px solid #768DA9 !important;
+        padding: 20px 10px 20px 20px;
+         border-radius: 100px;
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_0A0045);  
+        
+    }
+    [type=search]{
+        outline: 0px;
+        outline-offset: 0px;
+    }
+    .attachfile{
+        top:18px;
+        right: 27px;
+    }
+}
+.sent{
+    background: #EDF5F9;
+    border-radius: 10px 10px 10px 0px;
+    padding: 15px;
+    max-width: 300px;
+    word-wrap: break-word;
+ 
+}
+.sent-msg{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize18,$Color_1B194B);  
+}
+.sent-date{
+    @include fontStyleManager($fontFamilyInterRegular,$fontWeightRegular,$fontSize14,$Colorwhite);  
+    color: #6D658A !important; 
+}
+
+.main-wrap{
+    max-height: 400px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+// .chat-section{
+//     height: 300px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+// }
+.chat-input{
+    right: 20px;
+    top:21px;
+}
+.chat-document{
+    right: 120px;
+    top:24px;
+}
+.chat-document-input{
+    width: 40px;
+    height: 40px;
+    right: 120px;
+    top:21px;
+    opacity: 0;
+    z-index: 2;
+}
+.imoji{
+    right: 73px;
+    top:21px; 
+}
+.emoji-mart{
+    justify-content: end;
+    display: flex;
+    align-content: end;
+    width: 338px;
+    margin: 12px 0px 0px auto;
+}

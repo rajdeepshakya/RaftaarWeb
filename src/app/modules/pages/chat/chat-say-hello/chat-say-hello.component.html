@@ -1,0 +1,78 @@
+<div class="px-md-5 px-3 py-4 main">
+    <div>
+        <h3 class="mb-4">Chat</h3>
+    </div>
+<div class="chat px-2">
+  <div class="row  align-items-start justify-content-between">
+      <div class="col-md-4 p-0 col-width">
+      <app-chat-user-list (sendData)="createRooms($event)"></app-chat-user-list>
+</div>
+<div class="col-md-8 chat-start p-0 pb-3">
+    <div class="">
+        <div class="d-flex border-bottom align-items-center  p-3">
+            <img src="assets/images/userchat.svg">
+            <h4 class="ms-3">Nasa</h4>
+        </div>
+     
+      
+<div class="d-flex justify-content-center align-items-center flex-column conversation" *ngIf="!room">
+    <img src="assets/images/sayhello.svg">
+    <p>Start a conversation with Jenny</p>
+    <button class="btn hellobtn">Say, Hello</button>
+</div>
+
+<div #messagesDiv class="main-wrap" *ngIf="!unmatched">
+    <div class="wraper-chat">
+      <div [class]="authUserId === m.userId ? 'chat-send chatting' : 'chatting chat-recived'"
+        *ngFor="let m of room?.messages">
+        <div [class]="authUserId === m.userId ? 'chat-send chatting' : 'chatting chat-recived'">
+          <span [class]="authUserId === m.userId ? 'chat-send chatting' : 'chatting chat-recived'">
+          <div class="px-5 py-2">
+            <div class="d-flex justify-content-between">
+              <div></div>
+              <div class=" d-flex flex-column align-items-start">
+                <div class="sent ">
+                    <p class="mb-0 sent-msg">{{m.text }}</p>
+                </div>
+                <span class="my-1 sent-date">{{m.messageDate | date: "medium"}}</span>
+            </div>
+            </div>
+          </div>
+           
+           
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div>
+    <div class="search mx-4 position-relative">
+      <!-- <input type="search" placeholder="Type Message here..." [(ngModel)]="text" (blur)="onBlur()" (focus)="onFocus()">
+      <emoji-mart class="emoji-mart" set="twitter" *ngIf="showEmojiPicker" (emojiSelect)="addEmoji($event)"
+      title="Pick your emoji…"></emoji-mart>
+<div class="position-absolute attachfile">
+    <img  src="assets/images/attachement.svg">
+    <button (click) ="toggleEmojiPicker()"> 😀</button><br>
+    <img src="assets/images/msgsent.svg"  (click)="onSendClick()">
+</div> -->
+      <input class="input" placeholder="Type Message here..." type="text" (blur)="onBlur()" (focus)="onFocus()"
+        name="message" [(ngModel)]="message"> <img class="position-absolute imoji" (click)="toggleEmojiPicker()" src="assets/images/happy.svg"><br>
+      <emoji-mart class="emoji-mart" set="twitter"  *ngIf="showEmojiPicker" (emojiSelect)="addEmoji($event)"
+        title="Pick your emoji…"></emoji-mart>
+
+        <div class="">
+          <input  class="position-absolute chat-document-input" type="file" (change)="SendFile($event)" accept="application/pdf">
+          <img class="me-2 position-absolute chat-document" src="assets/images/attachement.svg">
+          </div>
+          <img class="ms-2 position-absolute chat-input" src="assets/images/msgsent.svg"  (click)="onSendClick()">
+        
+    </div>
+    
+  </div>
+    </div>
+    </div>
+</div>
+</div>
+</div>

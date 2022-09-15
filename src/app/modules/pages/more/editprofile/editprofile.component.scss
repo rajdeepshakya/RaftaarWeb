@@ -1,0 +1,338 @@
+@import "../../../../../assets/variable.scss";
+@import "../../../../../assets/common.scss";
+
+button{
+    padding:8px 20px;
+    background-color: $Color_4791FF;
+    border-radius: 100px;
+}
+.logocap{
+    .logocapimage{
+        width:120px;
+        height:120px;
+        border-radius: 100px;
+        ;
+    }
+}
+.userlabel p{
+    @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize18,$Color_5B6D8E);
+    margin:0;
+    @media (max-width:768px) {
+        font-size: 14px  !important;
+    }
+}
+h5{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_0A0045);
+    @media (max-width:768px) {
+        font-size: 14px  !important;
+    }
+}
+.likeshare{
+    margin-left:175px;
+}
+.requirements-wrapper{
+    background-color: #EAF3FF;
+    .requirement-content{
+        background-color: #fff;
+        &:not(:last-child){
+            margin-bottom:20px;
+        }
+    }
+}
+.main_comp{
+    background-color: #EAF3FF;
+    h3{
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize20,$Color_0A0045); 
+        @media (max-width:768px) {
+            font-size: 14px  !important;
+        }
+    }
+}
+.logocapdata{
+   h5{
+    @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize22,$Color_303065);
+    @media (max-width:768px) {
+        font-size: 14px  !important;
+    }
+   } 
+   p{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize20,$Color_5B6D8E);
+    @media (max-width:768px) {
+        font-size: 14px  !important;
+    }
+   }
+}
+h4{
+    @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize24,$Color_EE7402);
+    @media (max-width:768px) {
+        font-size: 14px  !important;
+    }
+
+}
+.locationdata{
+    width:100%;
+    padding:14px 28px;
+    border-radius: 200px;
+    border: 0.5px solid #BFD1E3;
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_0A0045);
+    @media (max-width:768px) {
+        font-size: 14px !important;
+    }
+
+}
+::placeholder{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_768DA9);
+
+}
+.addcontent {
+    min-height: 121px;
+    width: 100%;
+    border: 0.5px solid #BFD1E3;
+    border-radius: 15px;
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_0A0045);
+    @media (max-width:768px) {
+        font-size: 14px !important;
+    }
+}
+.postdata{
+    button{
+        background: #EE7402;
+        padding:18px 10px;
+        border-radius: 40px;
+        color:white !important;
+        width: 155px;
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize18,$Colorwhite);
+
+    }
+    }
+    p {
+        font-family: Lato;
+      }
+      
+      .hoverable{
+        display: block;
+        cursor: pointer;
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+      }
+      .hoverable .hover-text{
+        position: absolute;
+        top: 50%;
+        left:  50%;
+        transform: translate(-50%,-50%);   
+        z-index: 2;
+      }
+      .hoverable .background{
+        position: absolute;
+        display: none;
+        top: 0;
+        left:  0;
+        bottom: 0;
+        right: 0;
+        background-color:rgba(255, 255, 255, 0.5);
+        pointer-events: none;
+        border-radius: 50%;
+        z-index: 1;
+      }
+      .hoverable:hover .hover-text{
+        display: block;
+      }
+      .hoverable:hover .background{
+        display: block;
+      }
+      
+      #fileInput{
+        display: none;
+      }
+
+      .logocapdata{
+        h5{
+         @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize22,$Color_303065);
+         @media (max-width:768px) {
+             font-size: 14px !important;
+         }
+        } 
+     
+     }
+     .dropdown-menu{
+         box-shadow: 0px 18px 107px rgba(13, 8, 73, 0.18);
+         border-radius: 8px;
+         border: 0px !important;
+         right: 0;
+         width: 309px;
+         // transform: none !important;
+     
+         li{
+             cursor: pointer;
+             padding-bottom: 10px;
+         }
+     }
+     
+     [data-popper-placement="bottom-end"]{
+         transform: translate(14px ,46px) !important;
+     }
+     [data-popper-placement="bottom-start"]{
+         transform: translate(-195px ,46px) !important;
+         @media (max-width:768px) {
+             transform: translate(-273px ,46px) !important;
+         }
+     }
+     h4{
+         @include fontStyleManager ($fontFamilyInterMedium,$fontWeightMedium,$fontSize18,$Color_0D0849  );
+         white-space: pre-line;
+         min-width: 215px;
+         word-break: break-word;
+         @media (max-width:768px) {
+             font-size: 14px !important;
+         }
+     }
+     p{
+         white-space: pre-line;
+         min-width: 215px;
+         word-break: break-word;
+         @include fontStyleManager ($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_768DA9
+         );
+         @media (max-width:768px) {
+             font-size: 12px !important;
+         }
+     }
+     .dropdown-item.active, .dropdown-item:active{
+         background-color: transparent !important;
+     }
+     .dropdown-item{
+         border-radius: 10px;
+         padding: 0px 0px 0px 15px;
+         margin: 0px;
+     }
+     .nav-item{
+         padding: 0px 10px;
+     }
+     .dropdown-menu[data-bs-popper]{
+         right: 0 !important;
+         left: auto;
+     }
+     // .navbar-toggler-icon{
+     
+     // }
+     .dropdown-item:focus, .dropdown-item:hover{
+         background-color: transparent;
+     }
+     .logocapimage{
+         position: absolute;
+         bottom: -58px;
+         left: 20px;
+         border: 1px solid #efebeb;
+     }
+     @media (max-width:1024px) {
+         .logocapimage{
+             width: 70px !important;
+             height: 70px !important;
+         }
+         .edit{
+             width: 32px !important;
+             height: 32px !important;
+         }  
+     }
+     .active{
+         color: red !important;
+           path{
+               stroke: #EE7402     !important     ;
+       }
+     }
+     
+     .dashboard-container {
+         .behindimgdata{
+            //  background-image: url('../../../../../assets/images/Rectangle150882.png');
+            //  background-repeat: no-repeat;
+            //  background-size: 100% 334px;
+            //  height: 200px;
+            //  border-radius: 0px 15px 15px 15px;
+            //  @media (max-width:768px) {
+            //      background-size: 100% 200px;
+            //      height: 200px;
+            //  }
+             .rectangleimg{
+                 width:130px;
+                 height:130px;
+                 top: 204px;
+                 transform: translateY(-50%);
+                 left:45px;
+                 @media (max-width:768px) {
+                     width: 120px;
+                     height: 120px;
+                 }
+             }
+         }
+         
+         .details {
+             padding-left: 185px;
+             padding-top: 12px;
+             @media (max-width:1024px) {
+                padding-left: 110px;
+    
+            }
+             h4 {
+                 @include fontStyleManager($fontFamilyInterRegular, $fontWeightBold, $fontSize22, $Color_303065);
+             }
+             p {
+                 padding-left: 2px;
+                 @include fontStyleManager($fontFamilyInterRegular, $fontWeightMedium, $fontSize13, $Color_768DA9);
+             }
+         }
+     }
+     .clickbackphoto{
+         bottom: -50px;
+         left: 120px;
+         width: 28px;
+         height: 28px;
+         z-index: 1;
+         @media (max-width:1024px) {
+            left: 72px;
+
+        }
+     }
+     .clickback{
+         top:20px;
+         width: 28px;
+         height: 28px;
+         z-index: 1;
+         right: 20px;
+     }
+     .backimg{
+        border-radius: 10px;
+        object-fit: cover;
+     }
+     .backimg1{
+        border-radius: 10px;
+        object-fit: cover;
+     }
+     
+     
+     
+     
+       
+       #fileInput{
+         display: none;
+       }
+       #fileInput_1{
+        display: none;
+      }
+      .profilepic{
+          top:59px
+      }
+      .userdiv{
+          height: 208px;
+      }
+
+      .counternumber {
+        background-color:  #23C99A;;
+        width:80px;
+        padding:5px 10px;
+        border-radius: 15px;
+        color:white !important;
+        position: absolute;
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+    }

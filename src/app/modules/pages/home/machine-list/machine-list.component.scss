@@ -1,0 +1,95 @@
+@import '../../../../../assets/variable.scss';
+@import '../../../../../assets/common.scss';
+.main_comp{
+    padding:0px ;
+    background-color: #EAF3FF;
+    height: 100%;
+
+}
+.main{
+h3{
+    @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize20,$Color_0A0045); 
+    @media (max-width:768px) {
+        font-size: 14px !important;
+    }
+}
+}
+.card{
+    border: 0px !important;
+    @media (max-width:768px) {
+        margin: 0px;
+
+    }
+    .min-ago{
+        color: #5B6D8E !important ;
+    }
+    .card-body{
+        margin: auto;
+        max-width: 100%;
+        @media (max-width:768px) {
+            padding: 12px;
+        }
+
+    }
+}
+::placeholder{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize18,$Color_A1B3C9);
+    @media (max-width:768px) {
+        font-size: 14px !important;
+    }
+    
+}
+.requirement-detail{
+    background-color: white;
+    border-radius: 20px;
+
+}
+.heading {
+    h2{
+        @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize22,$Color_303065);
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+    h4{
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize18,$Color_303065);
+    }
+    p{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize15,$Color_768DA9); 
+        line-height: 30px;
+    }
+}
+.color_grey{
+    font-size: 14px !important;
+    @media (max-width:768px) {
+        font-size: 12px !important;
+    }
+}
+.card-interest{
+        background-color: #F3F6FB    ;
+    @media (max-width:768px) {
+        border: 0px !important;
+    }
+    h3{
+        @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize16,$Color_002280); 
+        span{
+            @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_768DA9);
+            @media (max-width:768px) {
+                font-size: 14px !important;
+            } 
+
+        } 
+    }
+
+}
+.view {
+    p{
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Color_768DA9); 
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }  
+    }
+}
+.rounded{
+    border-radius: 10px !important;
+}

@@ -1,0 +1,14 @@
+<div class="modal-header p-0">
+    <button class="button-close mb-2" mat-button [mat-dialog-close]="false">
+       <!-- <img src="assets/images/close 1.svg" width="25px"> -->
+    </button>
+</div>
+<div class="modal-body py-0">
+    <img *ngIf="data.img" [src]="data?.img"  class="pb-2">
+    <h1 class="pt-2">{{data?.heading}}<br/>{{data?.success_text}}</h1>
+    <div class="content-text py-2">{{data?.title}}</div>
+</div>
+<div class="modal-footer d-flex justify-content-between">
+    <button type="button" class="btn report" [mat-dialog-close]="true">
+    <img [src]="data ?.image"> {{data?.btn}} <img [src]="data ?.image_2"></button>
+</div>

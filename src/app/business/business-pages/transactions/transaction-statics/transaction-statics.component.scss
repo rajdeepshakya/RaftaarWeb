@@ -1,0 +1,91 @@
+// @import '../../../../../assets/variable.scss';
+// .main_comp{
+//     @media (max-width:768px) {
+//         padding: 10px 15px;
+//     }
+//     .top-menu {
+//         li {
+//             a {
+//                 @include fontStyleManager($fontFamilyInterMedium, $fontWeightMedium, $fontSize20, $Color_002280);
+//                 text-decoration: none;
+//                 @media (max-width:768px) {
+//                 font-size: 14px !important;       
+//          }
+
+//             }
+//         }
+//     }
+//      .active{
+//     border-bottom: 4px solid #FF642A !important; 
+// }
+   
+// }
+// li:focus{
+//         border-bottom: 2px solid #FF642A !important;
+// }
+// .battery-btn{
+//     background-color: $Colorwhite;
+//     border-radius: 100px;
+//     padding: 15px 19px;
+//     width: 190px;
+//     @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Color_8A94A6)
+// }
+
+// .active-link {
+//     background-color: $Color_0093D6;
+//     border-radius: 100px;
+//     padding: 15px 19px;
+//     width: 190px;
+//     @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Colorwhite)
+
+// }
+
+@import '../../../../../assets/variable.scss';
+.main_comp{
+    @media (max-width:768px) {
+        padding: 10px 15px;
+    }
+
+    .list-container {
+        flex-direction: column;
+        @media (min-width: 992px) {
+            flex-direction: row !important;
+        }
+    }
+
+    .top-menu {
+        li {
+            a {
+                @include fontStyleManager($fontFamilyInterMedium, $fontWeightMedium, $fontSize20, $Color_002280);
+                text-decoration: none;
+                @media (max-width:768px) {
+                font-size: 14px !important;       
+         }
+
+            }
+        }
+    }
+     .active{
+        border-bottom: 4px solid #FF642A !important; 
+    }
+}
+
+li:focus{
+        border-bottom: 2px solid #FF642A !important;
+}
+.battery-btn{
+    background-color: $Colorwhite;
+    border-radius: 100px;
+    padding: 11px 19px;
+    width: 190px;
+    @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize14,$Color_8A94A6)
+}
+
+.active-link {
+    background-color: $Color_0093D6;
+    border-radius: 100px;
+    padding: 11px 19px;
+    width: 190px;
+    @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize14,$Colorwhite)
+
+}

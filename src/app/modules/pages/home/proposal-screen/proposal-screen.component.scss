@@ -1,0 +1,58 @@
+@import "../../../../../assets/variable.scss";
+@import "../../../../../assets/common.scss";
+.main_comp{
+    padding: 24px 45px;
+}
+.main{
+    background-color: #EAF3FF    ;
+    padding: 30px 170px;
+    @media (max-width:768px) {
+        padding: 15px 15px;
+    }
+    h3{
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize20,$Color_0A0045);  
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+}
+.add-new{
+    background-color: white;
+    border-radius: 15px;
+}
+.locateyourdata{
+    position: relative;
+.addcontent{
+    width:100%;
+    border: 0.5px solid #BFD1E3 !important;
+    border-radius: 20px;
+   @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_0A0045)
+}
+h3{
+    @include fontStyleManager($fontFamilyAvenir,$fontWeightBold,$fontSize14,$Color_0A0045);
+    color: #000000 !important    ;
+}
+::placeholder{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_0A0045);
+    color:#768DA9 !important;
+}
+}
+.postdata{
+button{
+    background: #EE7402;
+    padding:20px 10px;
+    width: 272px;
+    border-radius: 40px;
+    @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Colorwhite);
+
+}
+}
+.attachfile{
+    background-color: transparent;
+    border: 0.5px dashed #BFD1E3 !important;
+    padding: 35px 20px;
+    border-radius: 20px;
+    width: 335px;
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_768DA9);
+
+}

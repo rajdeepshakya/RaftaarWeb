@@ -1,0 +1,77 @@
+@import '../../../../assets/variable.scss';
+@import '../../../../assets/common.scss';
+.modal-header{
+    border-bottom: 0px !important;
+    justify-content: end !important;
+    .button-close {
+        justify-self: right;
+        text-align: end ;
+        border: none;
+        background-color: transparent;
+        outline: none;  
+        cursor: pointer;
+        svg{
+            height: 20px;
+            width: 20px;
+            cursor: pointer;
+        }      
+    }
+}
+.modal-body {
+    text-align: center !important;
+    margin-top: -20px;
+    h1{
+        font-family: 'Avenir' !important;
+        font-weight:600!important;
+        font-size: 20px !important;
+        color:#0A0045 !important;
+    }
+    p{
+        font-family: 'Avenir' !important;
+        font-weight:900!important;
+        font-size: 16px !important;
+        color:#768DA9 !important;
+    }
+  
+}
+
+
+.modal-footer{
+    border-top: 0px !important;
+    justify-content: center !important;
+    .cancel{
+        background-color: white !important;
+        color:#0A0045 !important ;
+        border: 1px solid #DBE9F5 !important;
+    
+    }
+    button{
+        padding: 15px;
+        width: 160px;
+        max-width: 100%;
+        border-radius: 40px;
+        background-color: #EE7402  ;
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Colorwhite)
+        
+    }
+  
+}
+textarea{
+    border: 0.5px solid #768DA9;
+    border-radius: 15px;
+    padding: 16px;
+    width: 100%;
+    min-height: 150px;
+
+}
+textarea:focus{
+    border: 0.5px solid #768DA9 !important;
+    outline: none;
+    box-shadow: none;
+}
+::placeholder{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Colorwhite);
+color:#768DA9 !important;
+
+}
+

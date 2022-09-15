@@ -1,0 +1,54 @@
+
+<div class="main ">
+    <div class="d-flex pb-3 my-2">
+        <img [routerLink]="['/main/home']" src="assets/images/arrow-circle-left.svg">
+        <h3 class="ms-2 mb-0">Edit Machine</h3>
+    </div>    <div class="row m-0 ">
+        <div class="col-md-12 add-new py-3 px-md-4 px-2">
+            <form [formGroup]="machineForm">
+                <div class="main_comp pb-0">
+                    <span >Machine/Instrument name</span>
+                    <div class="locateyourdata mt-2">
+                        <input type="text" class="form-control locationdata  mt-1 "
+                        formControlName="name" placeholder="Enter Machine/Instrument name">
+                    </div>
+                </div>
+                <div class="main_comp  pb-0">
+                    <span >Machine/Instrument type</span>
+                    <div class="locateyourdata mt-2">
+                        <input type="text" class="form-control locationdata  mt-1 "
+                        formControlName="type" placeholder="Enter Machine/Instrument type">
+                    </div>
+                </div>
+                <div class="main_comp  pb-0">
+                    <span >Make</span>
+                    <div class="locateyourdata mt-2">
+                        <input type="text" class="form-control locationdata  mt-1 "
+                        formControlName="make" placeholder="Enter Machine/Instrument make">
+                    </div>
+                </div>
+                <div class="main_comp  pb-0">
+                    <span >Capacity</span>
+                    <div class="locateyourdata mt-2">
+                        <input type="text" class="form-control locationdata  mt-1 " 
+                        formControlName="capacity" placeholder="Enter Machine/Instrument capacity">
+                    </div>
+                </div>
+                <div class="main_comp  pb-0">
+                    <span >Quantity</span>
+                    <div class="locateyourdata mt-2">
+                        <input type="text" class="form-control locationdata  mt-1 "
+                        formControlName="quantity"  placeholder="Enter Machine/Instrument quantity">
+                    </div>
+                </div>
+                <div class="postdata main_comp d-flex justify-content-center">
+                    <button (click)="onSubmit(machineForm.value)">Save<img  class="ms-2"></button>
+                </div>
+            </form>
+         
+        </div>
+        
+    </div>
+</div>
+
+

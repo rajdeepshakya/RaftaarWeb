@@ -1,0 +1,174 @@
+// @import "../../../../../assets/variable.scss";
+// .main_comp{
+//     background-color: #EAF3FF;
+//     .details-btn {
+//         @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Colorwhite);
+//         color: #5F5F5F !important;
+//         width: 190px;
+//         background: transparent;
+//         border: 1px solid #BEC9D8 !important;
+//         border-radius: 10px 10px 0px 0px !important;    }
+
+//     .active-link{
+//         background-color: #EE7402 !important;
+//         @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Colorwhite)
+//     }  
+
+//     .margin-right {
+//         margin: 0px 14px 0px 0px;
+//     }
+
+// }
+// .card {
+//     h5 {
+//         @include fontStyleManager($fontFamilyInterMedium, $fontWeightMedium, $fontSize20, $Color_5B6D8E);
+//         @media (max-width:768px) {
+//             font-size: 14px !important;
+//         }
+//     }
+// }
+
+// .card-img {
+//     max-width: 70px;
+//     max-height: 78px;
+
+//     // @media (max-width:768px) {
+//     //     max-width: 90px;
+//     // }
+// }
+
+// .address-row {
+//     h6 {
+//         @include fontStyleManager($fontFamilyInterMedium, $fontWeightMedium, $fontSize12, $Color_5B6D8E);
+//         @media (max-width:768px) {
+//             font-size: 12px !important;
+//         }
+//     }
+
+//     h5 {
+//         @include fontStyleManager($fontFamilyInterMedium, $fontWeightMedium, $fontSize16, $Color_0A0045);
+//         @media (max-width:768px) {
+//             font-size: 14px !important;
+//         }
+//     }
+
+//     button {
+//         @include fontStyleManager($fontFamilyInterSemiBold, $fontWeightSemiBold, $fontSize18, $Color_0A0045);
+//         padding: 16px 10px;
+//     }
+//     .btn-danger {
+//         background: #EE7402;
+//         border: 1px solid #EE7402;
+//         color: #fff !important;
+//         width: 161px !important;
+//         max-width: 100%;
+//     }
+// }
+// span{
+//     @include fontStyleManager($fontFamilyInterMedium, $fontWeightMedium, $fontSize26, $Color_0A0045);
+//     @media (max-width:768px) {
+//         font-size: 14px !important;
+//     }
+
+// }
+
+@import "../../../../../assets/variable.scss";
+
+.border-bottom {
+    border-bottom: 0.5px solid rgba(71, 145, 255, 0.4) !important;
+}
+
+.border-left {
+    border-top: 0.5px solid rgba(71, 145, 255, 0.4) !important;
+    @media (min-width: 576px) {
+        border-top: 0px !important;
+        border-left: 0.5px solid rgba(71, 145, 255, 0.4) !important;
+    }
+}
+
+.border-right {
+    border-top: 0px;
+    border-bottom: 0.5px solid rgba(71, 145, 255, 0.4) !important;
+    border-left: 0px !important;
+    border-right: 0px !important;
+    @media (min-width: 576px) {
+        border-top: 0px !important;
+        border-bottom: 0px !important;
+        // border-left: 0.5px solid rgba(71, 145, 255, 0.4) !important;
+        border-right: 0.5px solid rgba(71, 145, 255, 0.4) !important;
+    }
+}
+
+.main_comp{
+    background-color: #EAF3FF;
+    .details-btn {
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Colorwhite);
+        color: #5F5F5F !important;
+        width: 190px;
+        background: transparent;
+        border: 1px solid #BEC9D8 !important;
+        border-radius: 10px 10px 0px 0px !important;    }
+
+    .active-link{
+        background-color: #EE7402 !important;
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Colorwhite)
+    }  
+
+    .margin-right {
+        margin: 0px 14px 0px 0px;
+    }
+
+}
+.card {
+    h5 {
+        @include fontStyleManager($fontFamilyInterMedium, $fontWeightMedium, $fontSize20, $Color_5B6D8E);
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+}
+
+.card-img {
+    max-width: 70px;
+    max-height: 78px;
+
+    // @media (max-width:768px) {
+    //     max-width: 90px;
+    // }
+}
+
+.address-row {
+    h6 {
+        @include fontStyleManager($fontFamilyInterMedium, $fontWeightMedium, $fontSize12, $Color_5B6D8E);
+        @media (max-width:768px) {
+            font-size: 12px !important;
+        }
+    }
+
+    h5 {
+        @include fontStyleManager($fontFamilyInterMedium, $fontWeightMedium, $fontSize16, $Color_0A0045);
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+
+    button {
+        @include fontStyleManager($fontFamilyInterSemiBold, $fontWeightSemiBold, $fontSize18, $Color_0A0045);
+        padding: 16px 10px;
+    }
+    .btn-danger {
+        background: #EE7402;
+        border: 1px solid #EE7402;
+        color: #fff !important;
+        width: 161px !important;
+        max-width: 100%;
+    }
+}
+span{
+    @include fontStyleManager($fontFamilyInterMedium, $fontWeightMedium, $fontSize26, $Color_0A0045);
+    @media (max-width:768px) {
+        font-size: 14px !important;
+    }
+
+}
+

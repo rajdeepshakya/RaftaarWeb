@@ -1,0 +1,90 @@
+// color
+$Color_002280:#002280;
+$Color_FF4746:#FF4746;
+$Color_F9FBFE: #F9FBFE;
+$Color_4791FF:#4791FF;
+$Colorwhite:white;
+$Color_FF642B:#FF642B;
+$Color_A1B3C9:#A1B3C9;
+$Color_768DA9:#768DA9;
+$Color_1A264E:#1A264E;
+$Color_0A0045:#0A0045;
+$Color_1B194B:#1B194B ;
+$Color_5B6D8E:#5B6D8E;
+$Color_EE7402:#EE7402;
+$Color_gray:#405076;
+$Color_0093D6:#0093D6;
+$Color_405076:#405076;
+$Color_323B4B:#323B4B;
+$Color_303065:#303065;
+$Color_0D0849:#0D0849;
+$Color_939EAA:#939EAA;
+$Color_23C99A:#23C99A;
+$Color_104798: #104798;
+$Color_E5E5E5:#E5E5E5;
+$Color_667280:#667280;
+$Color_8A94A6:#8A94A6;
+$Color_555555:#555555;
+$Color_A9AFB7:#A9AFB7;
+$Color_5F5F5F:#5F5F5F;
+$Color_002280:#002280;
+
+
+$Color_888888:#888888;
+$Color_000000:#000000;
+$Color_00B828: #00B828;
+
+
+
+//fontsize
+$fontSize44:43.52px;
+$fontSize40:40px;
+$fontSize32:32px;
+$fontSize28:28px;
+$fontSize26:26px;
+$fontSize24:24px;
+$fontSize22:22px;
+$fontSize20:20px;
+$fontSize21:21px;
+$fontSize18:18px;
+$fontSize16:16px;
+$fontSize15:15px;
+$fontSize13:13px;
+$fontSize14:14px;
+$fontSize12:12px;
+$fontSize20:20px;
+$fontSize23:23px;
+$fontSize35:35px;
+
+
+
+// fontFamily
+$fontFamilyInterRegular:'Inter-Regular';
+$fontFamilyInterMedium:'Inter-Medium';
+$fontFamilyInterSemiBold:'Inter-SemiBold';
+$fontFamilyInterBold:'Inter-Bold';
+$fontFamilyInterExtraBold:'Inter-ExtraBold';
+$fontFamilyPoppinsBold:'Poppins-Bold';
+$fontFamilyAvenir:'Avenir';
+
+
+// fontWeight
+$fontWeightRegular:400;
+$fontWeightMedium:500;
+$fontWeightSemiBold:600;
+$fontWeightBold:700;
+$fontWeightExtraBold:800;
+$fontWeightExtremeBold: 900;
+
+// background color
+$bgred:#FF4746;
+$bgBlue:#4791FF;
+$bgSkyBlue:#0093D6;
+
+
+@mixin fontStyleManager ($fontFamily, $fontWeight,$fontSize,$Color ) {
+    font-family:$fontFamily !important;
+    font-weight:$fontWeight !important;
+    font-size: $fontSize !important;
+    color:$Color !important;
+};

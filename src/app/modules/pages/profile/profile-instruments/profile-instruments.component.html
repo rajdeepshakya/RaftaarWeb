@@ -1,0 +1,98 @@
+<div class="main">
+    <div *ngIf="!myProfile" class="d-flex ">
+        <img  (click)="goBack()" src="assets/images/arrow-circle-left.svg">
+        <h3 (click)="goBack()" class="ms-2 mb-0">Back</h3>
+      </div>
+    <div Class="row m-0 ">
+        <div class="col-lg-2 p-0 profile mt-0 position-relative">
+            <app-profile-front-page></app-profile-front-page>
+        </div>
+        <div class="col-lg-7 bg-white py-3 banner">
+            <app-menu-card></app-menu-card>
+            <div class=" bg-white">
+                <div>
+                    <div class="card border-0 border-bottom rounded-0 " *ngFor="let list of data">
+                        <div class="card-body row" >
+                            <div *ngIf="myProfile" class="d-flex justify-content-end dropdown">
+                                <img src="assets/images/Group 1023.svg" width="25px" height="25px" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" 
+                                >
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                                    <li (click)="edit(list.id)"><a class="dropdown-item"> 
+                                        <img src="assets/images/edit-2.svg" class="me-3 mb-2">
+                                        Edit</a></li>
+                                <li (click)="machineDelete(list.id)"><a class="dropdown-item delete mt-3">
+                                        <img src="assets/images/trash.svg" class="me-3 mb-2">
+                                        Delete</a></li>
+                                  </ul>
+                            </div>
+                            <div class="col-md-6 mt-1">
+                                <div class="d-flex align-items-start">
+                                    <img src="assets/images/machine.svg" class="mt-2">
+                                    <div class="ms-2">
+                                        <h3 class="min-ago mb-0">Instruments / Machine Name</h3>
+                                        <h2 class="mb-0">{{list?.name}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mt-md-1 mt-3">
+                                <div class="d-flex align-items-start">
+                                    <img src="assets/images/machine-type.svg" class="mt-2">
+                                    <div class="ms-2">
+                                        <h3 class="min-ago mb-0">Instruments / Machine Type</h3>
+                                        <h2 class="mb-0">{{list?.type}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mt-md-5 mt-3">
+                                <div class="d-flex align-items-start">
+                                    <img src="assets/images/viewmake.svg" class="mt-2">
+                                    <div class="ms-2">
+                                        <h3 class="min-ago mb-0">Make</h3>
+                                        <h2 class="mb-0">{{list?.make | date: 'yyyy/mm/dd'}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mt-md-5 mt-3">
+                                <div class="d-flex align-items-start">
+                                    <img src="assets/images/capacity.svg" class="mt-2">
+                                    <div class="ms-2">
+                                        <h3 class="min-ago mb-0">Capacity</h3>
+                                        <h2 class="mb-0">{{list?.capacity}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mt-md-5 mt-3">
+                                <div class="d-flex align-items-start">
+                                    <img src="assets/images/quantity.svg" class="mt-2">
+                                    <div class="ms-2">
+                                        <h3 class="min-ago mb-0">Quantity</h3>
+                                        <h2 class="mb-0">{{list?.quantity}}</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      
+                       
+                    </div>
+                 
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col-lg-3 mt-lg-0 mt-3 px-md-3 p-0">
+            <div class="see-products p-2">
+              <div class="d-flex justify-content-end ads-para">
+                <p class="me-3">Ad..</p>
+              </div>
+              <div class="text-center ads">
+                <img src="assets/images/img4.svg" width="120px" height="120px">
+                <p class="mb-0 my-2">Hey Sequa, explore products
+                  that match your requirements</p>
+                <button class="btn my-3 p-2 px-3 w-auto">See Products</button>
+              </div>
+        
+            </div>
+          </div> -->
+    </div>
+     </div>
+
+

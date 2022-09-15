@@ -1,0 +1,27 @@
+.signupback {
+    height: 100vh;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+  input{
+      height:50px !important;
+  }
+    img {
+      width: 100%;
+      max-width: 74%;
+      margin-top: 50px;
+    }
+  }
+  
+  // .data {
+  //   background-image:url('/assets/images/back.png');
+  //   background-repeat: no-repeat;
+  //   background-size: cover;
+  //   height: 100%;
+    
+  // }
+@media (max-width:767px){
+    .sideimg{
+        display: none;
+    }
+}

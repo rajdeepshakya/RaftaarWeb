@@ -1,0 +1,41 @@
+<app-header>
+    <li class="breadcrumb-item active"></li>
+    <li class="breadcrumb-item active p-0">Request Raftaarr Verification</li>
+</app-header>
+<div>
+    <section class="main_comp ">
+        <div class="d-flex mb-5 flex-md-nowrap flex-wrap ">
+            <div>
+                <img src="assets/images/App Logo.svg">
+            </div>
+            <div class="ms-3">
+                <h2 class="mt-3">Request Raftaarr Verification</h2>
+                <h1>Join membership program to be listed
+                    as verified</h1>
+            </div>
+        </div>
+        <div class="d-flex align-items-start" *ngFor="let item of items">
+            <img [src]="item.img">
+            <div class="ms-3">
+                <h3>{{item.heading}}</h3>
+                 <p> {{item.para}}</p>       
+                 </div>
+        </div>
+    </section>
+    <hr>
+    <section class="main_comp ">
+        <div class="d-flex justify-content-between footer flex-wrap">
+            <div class="d-flex align-items-start">
+                <img src="assets/images/coin.svg" width="44px" height="44px">
+                <div class="ms-3"> 
+                    <h4>₹25,456</h4>
+                    <p>For lifetime verification</p>
+                </div>
+            </div>
+            <div>
+                <button class="btn" (click)="payNow()">Pay now</button>
+            </div>
+        </div>
+      
+    </section>
+</div>

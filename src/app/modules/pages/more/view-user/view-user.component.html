@@ -1,0 +1,56 @@
+
+<section>
+    
+    <div class="mt-3">
+        <div class="d-flex mb-4 w-100 ms-0 px-md-5 px-0 align-items-center justify-content-end">
+            <img (click)="goBack()" class="cursor"  src="assets/images/add-circle.svg">
+            <h3 (click)="goBack()" class="mx-2 mb-0 cursor">Add Users</h3>
+        </div>
+        <div class="row mb-3 w-100 ms-0 px-md-5 px-0">
+            <div class="col-md-12 view-user m-auto px-md-5 px-3  border mb-3" *ngFor="let user of interestName">
+                <div class=" my-4 row ">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                        <img class="me-2 rounded-circle"  [src]="user.profile_pic" height="70px" width="70px">
+                        <h2 class="ms-2">{{user.username}}</h2>
+                    </div>
+                    <div>
+                        <button class="btn" (click)="viewUser(user.id)">View</button>
+
+                    </div>
+                    </div>
+                    <!-- <div class="col-6 d-flex justify-content-start">
+                        <h5 class="">{{user.username}}</h5>
+                    </div> -->
+                </div>
+                <div class=" my-4 row  border-bottom">
+                    <div class="d-flex col-md-5 col-6 justify-content-start align-items-start">
+                        <img class="me-2" src="assets/images/sms.svg">
+                        <p class="ms-2">Email Address</p>
+                    </div>
+                    <div class="col-6 d-flex justify-content-start">
+                        <h5 class="">{{user.Auth.email}}</h5>
+                    </div>
+                </div>
+                <div class=" my-4 row border-bottom">
+                    <div class="d-flex col-md-5 col-6 justify-content-start align-items-start">
+                        <img class="me-2" src="assets/images/call.svg">
+                        <p class="ms-2">Contact Number</p>
+                    </div>
+                    <div class="col-6 d-flex justify-content-start">
+                        <h5 class="">{{user.Auth.phone_no}}</h5>
+                    </div>
+                </div>
+                <div class=" my-4 row mb-2">
+                    <div class="d-flex col-md-5 col-6 justify-content-start align-items-start">
+                        <img class="me-2" src="assets/images/receipt-minus.svg">
+                        <p class="ms-2">Designation</p>
+                    </div>
+                    <div class="col-6 d-flex justify-content-start">
+                        <h5 class="">{{user.designation}}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,28 @@
+@import '../../../../../assets/variable.scss';
+@import '../../../../../assets/common.scss';
+h3{
+    @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize20,$Color_0A0045);  
+}
+.view-user{
+background-color: #dee4ee36;
+border-radius: 20px;
+p{
+    @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize18,$Color_5B6D8E);
+    @media (max-width:768px) {
+        font-size: 14px  !important;
+    }
+
+}
+
+h5{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_0A0045) ;
+    @media (max-width:768px) {
+        font-size: 14px  !important;
+    }
+}
+.btn{
+    width: 80px;
+    border-radius: 20px;
+    background: darkblue;
+}
+}

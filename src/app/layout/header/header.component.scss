@@ -1,0 +1,217 @@
+@import '../../../assets/common.scss';
+@import '../../../assets/variable.scss';
+.navbar {
+    padding: 12px 35px;
+    background-color: #002280    ;
+    @media (max-width:768px) {
+        padding:0px ;
+    }
+    h1{
+        color: #323B4B !important;
+    }
+    input{
+        border-radius: 60px;
+        border: 1px solid #DBE9F5;
+        width: 310px;
+        max-width: 100%;
+        padding-left: 38px !important;
+        padding: 13px;
+        @include fontStyleManager ($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_1B194B);
+        @media (max-width:1246px) {
+            width: 100%;
+        }
+        @media (max-width:1024px) {
+            width: 35px;
+            padding-left: 30px !important;
+            padding: 6px;
+
+        }
+    }
+    .form-control{
+        background-clip: inherit;
+        }
+   .search{
+       position: relative;
+      
+       img{
+           position: absolute;
+           top: 15px;
+           left: 12px;
+           @media (max-width:1024px) {
+            top: 10px;
+            left: 11px;
+            width: 17px;
+                }
+       }
+   }
+}
+
+.dropdown-menu{
+    box-shadow: 0px 18px 107px rgba(13, 8, 73, 0.18);
+    border-radius: 8px;
+    border: 0px !important;
+    right: 0;
+    width: 309px;
+    li{
+        cursor: pointer;
+        margin-bottom: 15px
+        // padding: 0.25rem;
+    }
+}
+h4{
+    @include fontStyleManager ($fontFamilyInterMedium,$fontWeightMedium,$fontSize18,$Color_0D0849  );
+    @media (max-width:768px) {
+        font-size: 14px !important;
+    }
+}
+p{
+    @include fontStyleManager ($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_768DA9
+    );
+    @media (max-width:768px) {
+        font-size: 12px !important;
+    }
+}
+.dropdown-item.active, .dropdown-item:active{
+    background-color: transparent !important;
+}
+.active{
+    // background-color: red;
+     .hightlight{
+        background: #EE7402;
+        border-radius: 100px;
+        padding: 6px 0px 6px 10px;
+        color: white;
+        font-weight: 600 !important;
+     }
+}
+.dropdown-item{
+    border-radius: 10px;
+    padding: 0px 0px 0px 15px;
+    margin: 0px;
+}
+.user{
+    @media (max-width:991px) {
+        display: none !important;
+    }
+}
+.breadcrumb {
+    @media (max-width:991px) {
+        display: none;
+    }
+}
+.form-select{
+    width: auto;
+    border: 0px ;
+    background-color: transparent;
+    background-size: 10px;
+    background-image: none !important;
+    @include fontStyleManager ($fontFamilyInterBold,$fontWeightBold,$fontSize15,$Colorwhite  );
+    @media (max-width:768px) {
+        font-size: 14px !important;
+    }
+
+}
+.form-select:focus{
+    outline: 0px;
+    box-shadow: none;
+}
+
+.nav-link{
+    @include fontStyleManager ($fontFamilyInterMedium,$fontWeightMedium,$fontSize15,$Color_0D0849  );
+    color: #A3A2D0    !important;
+    @media (max-width:1245px) {
+        font-size: 14px !important;
+    }
+
+}
+.nav-link:focus{
+    color: white    !important;
+    font-weight: 700 !important;
+
+}
+
+.active{
+    // background-color: red;
+     .profile{
+        background: #EE7402;
+        border-radius: 100px;
+        padding: 6px 0px 6px 15px;
+        color: white;
+        font-weight: 600 !important;
+     }
+}
+
+.nav-item{
+    padding: 0px 10px;
+}
+.dropdown-menu[data-bs-popper]{
+    right: 0 !important;
+    left:-230px
+}
+// .navbar-toggler-icon{
+
+// }
+.dropdown-item:focus, .dropdown-item:hover{
+    background-color: transparent;
+}
+// .dropdown-item.active, .dropdown-item:active{
+//     color: ;
+// }
+@media (max-width:992px) {
+    .navbar-nav{
+        background-color: white;
+    }
+    .nav-link{
+        color: #002280 !important;
+    }
+    .nav-link:focus{
+        color: #002280 !important;
+    
+    }
+}
+.navbar-toggler-icon{
+    // background-image:url('assets/images/three-bars.svg');
+    background-size: 22px;
+    
+}
+.navbar-toggler{
+    background-color: white;
+    padding: 2px 2px 0px 2px ;
+}
+.search{
+    ::placeholder{
+        color: #ABABC6 !important        ;
+    }
+}
+
+.dropdown-menu li:focus .dropdown-item
+{
+    h4{
+        color: #FF642B    !important;
+} 
+}
+.dropdown-menu li:focus{ 
+svg{
+    path{
+        stroke: #FF642B    !important;
+    }
+}
+}
+
+.dropdown-menu li:hover .dropdown-item
+{
+    h4{
+        color: #FF642B    !important;
+} 
+}
+.dropdown-menu li:hover{ 
+svg{
+    path{
+        stroke: #FF642B    !important;
+    }
+}
+}
+.user-img{
+    border: 1px solid #9BA6C7;
+    filter: drop-shadow(0px 14px 51.3333px rgba(0, 0, 0, 0.12));
+}

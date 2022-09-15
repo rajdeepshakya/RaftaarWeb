@@ -1,0 +1,71 @@
+<!-- <div class="">
+    <div class="container-fluid buyer-container">
+        <ng-container *ngFor='let data of seller'>
+            <div class="row  justify-content-between align-items-center main_comp">
+                <div class="col-lg-12 col-12">
+                    <div  class="row  border d-flex justify-content-start align-items-start card-container">
+                        <div class="col-lg-2 col-3 ps-0">
+                            <img src="assets/images/item.png" alt="" class="card-img img-fluid">
+                        </div>
+                        <div class="col-lg-8 col-9 mt-0 p-4 ">
+                            <span>{{data.customer_category}}</span>
+                            <h5>{{data.company_name}}</h5>
+                            <small>Customer since 02/2022</small>
+                        </div>
+                      
+                    </div>
+                </div>
+                <div class="col-lg-1 col-1 col text-end">
+                  
+                </div>
+            </div>
+        </ng-container>
+    
+    </div>
+</div> -->
+
+<!-- <app-customers></app-customers> -->
+<div class="">
+    <div class="container-fluid buyer-container">
+        <ng-container *ngFor='let data of seller'>
+            <div class="row  justify-content-between align-items-center main_comp">
+                <div class="col-lg-12 col-12">
+                    <div  class="row  border d-flex justify-content-start align-items-start card-container">
+                        <div class="col-lg-2 col-3 ps-0">
+                            <img src="assets/images/item.png" alt="" class="card-img img-fluid">
+                        </div>
+                        <div class="col-lg-8 col-9 mt-0 p-4 ">
+                            <span>{{data.customer_category | titlecase}}</span>
+                            <h5>{{data.company_name | titlecase}}</h5>
+                            <small>Customer since 02/2022</small>
+                        </div>
+                        <!-- <div class="col-md-2 text-end p-4">
+                            <img src="assets/images/Group 1023.svg" width="25px" height="25px" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" 
+                        >
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                            <li (click)="edit(data.id)"><a class="dropdown-item"> 
+                                <img src="assets/images/edit-2.svg" class="me-3">
+                                Edit</a></li>
+                        <li (click)="delete(data.id)"><a class="dropdown-item delete mt-3">
+                                <img src="assets/images/trash.svg" class="me-3">
+                                Delete</a></li>
+                                <li ><a class="dropdown-item"> 
+                                    <img src="assets/images/edit-2.svg" class="me-3">
+                                    Details</a></li>
+
+                          </ul>  
+                        </div> -->
+                    </div>
+                </div>
+                <div class="col-lg-1 col-1 col text-end">
+                    <!-- <img src="assets/images/Vector_5.svg" alt="arrow"> -->
+                </div>
+            </div>
+        </ng-container>
+        <div class="d-flex justify-content-center align-items-center nodata" *ngIf="noDataFound">
+            <p class="mb-0">No data found</p>
+        </div>
+    
+    </div>
+</div>
+

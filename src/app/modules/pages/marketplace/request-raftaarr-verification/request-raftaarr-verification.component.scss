@@ -1,0 +1,45 @@
+@import '../../../../../assets/variable.scss';
+@import '../../../../../assets/common.scss';
+
+.main_comp{
+    padding: 20px 35px;
+    @media (max-width:768px) {
+        padding: 15px;
+
+    }
+    h2{
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize40,$Color_EE7402);
+        @media (max-width:768px) {
+           font-size: 24px !important;
+    
+        }}
+    h1{
+        @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize44,$Color_1B194B);
+        @media (max-width:768px) {
+            font-size: 28px !important;
+     
+         }
+    }
+    h3{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize22,$Color_1B194B)
+    }
+    p{
+        font-size: 22px !important;
+    }
+    h4{
+        @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize28,$Color_0A0045)
+    }
+    .footer{
+        p{
+            @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_5B6D8E)
+        }
+        button{
+            @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize18,$Colorwhite);
+            border-radius: 40px;
+            background-color: #EE7402  ;
+            width: 240px;
+            max-width: 100%;
+            padding: 16px 5px;
+        }
+    }
+}

@@ -1,0 +1,132 @@
+@import '../../../assets/variable.scss';
+
+.sidenavdata{
+    background-color: $Color_F9FBFE;
+    height:100%;
+    @media (max-width:991px) {
+        padding: 0px;
+        background-color: transparent;
+    }
+
+    .raftarlogo{
+        width:184px;
+        @media (max-width:991px) {
+            display: none;
+        }
+       
+    }
+
+    .logocapimage{
+        height:44px;
+        width:44px;
+        @media (max-width:991px) {
+            display: none;
+        }
+       
+    }
+    .logocapdata{
+        @media (max-width:991px) {
+            display: none;
+        }
+    
+        h5{
+            color:$Colorwhite;
+        }
+        
+        p{
+            color:$Color_A1B3C9;
+            font-size: 18px;
+            font-weight: 
+            700, Bold;
+            max-width:155px;
+        }
+    }
+
+    .helpuser{
+        border-radius: 40px;
+        border: 1px solid $Color_002280!important;
+        background-color: $Color_F9FBFE;
+        color: $Color_002280;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 29px;
+
+        @media (max-width:991px) {
+            display: none;
+        }
+    }
+    .lowborder{
+        border-bottom:1px solid #DBE9F5;
+        padding:0;
+    }
+}
+
+.nav-item{
+   
+    border-bottom: 1px solid #E3E5EE;
+
+    cursor: pointer;
+    // opacity: .4;
+}
+
+.nav-link{
+    @include fontStyleManager($fontFamilyInterRegular,$fontWeightSemiBold,$fontSize16,$Color_002280);
+}
+
+.active-item {
+    background-image: url('../../../assets/images/Vectorprofile.svg');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 20px);
+    color: #EE7402 !important;
+}
+
+.nav-item:hover{
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 1;
+}
+    
+    .navbar-toggler{
+        border: 0.5px solid #BFD1E3 ;
+    }
+    .logocap{
+        @media (max-width:991px) {
+            display: none;
+            margin-top: 0px !important;
+        }
+    }
+   .navbar-toggler-icon{
+        background-image: url('/assets/images/menu.svg');
+    }
+.user{
+    display: none;
+    @media (max-width:991px) {
+        display: block;
+    }
+}
+.mob-view{
+    @media (max-width:991px) {
+width: 100%;    }
+}
+.back-btn{
+    border: 0.5px solid #FFFFFF !important;
+    opacity: .4;
+    color: white;
+    border-radius: 9px; 
+    width: 209px;
+    max-width: 100%;
+    padding: 8px;
+    @media (max-width:991px) {
+        display: none;
+    }
+}
+
+hr{
+    color: rgba(219, 233, 245, 1);
+}
+
+
+
+
+
+
+

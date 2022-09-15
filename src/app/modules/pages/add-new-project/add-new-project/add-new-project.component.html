@@ -1,0 +1,278 @@
+<div class="main ">
+    <div class="d-flex pb-3 my-2 cursor-pointer">
+        <img (click)="goBack()" src="assets/images/arrow-circle-left.svg">
+        <h3 (click)="goBack()" class="ms-2 mb-0">{{addPage? 'Add New Project' : 'Edit Project'}}</h3>
+
+    </div>
+    <div class="row m-0">
+        <div class="col-md-12 add-new">
+            <form class="px-md-5 px-2 py-md-4 py-3" [formGroup]="projectForm">
+                <div class=" ">
+                    <span>Product title</span>
+                    <div class="locateyourdata ">
+                        <input type="text" class=" locationdata mt-0  w-100" formControlName="title" maxlength="30"
+                        oninput="this.value = this.value.replace(/[^a-z,^A-Z ]/g, '').replace(/(\..*)\./g, '$1');"  [ngClass]="{ 'is-invalid': submitted && f['title'].errors}" placeholder="Title here">
+                        <div *ngIf=" submitted && f['title'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['title'].errors['required']">Title is required.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-md-4 mt-3 main_comp d-flex justify-content-start">
+
+                    <input type="checkbox" class="me-3 checkdata" (change)="triggerSomeEvent()"
+                        formControlName="is_live">
+                    <p class="live-project"> Live project</p>
+
+                </div>
+                <div class="row">
+                    <div class="locateyourdata main_comp py-0 pb-0 col-lg-6 mt-0 datepicker">
+                        <span >Project start date</span>
+                        <!-- <input type="date" formControlName="project_start_date"> -->
+                        <mat-form-field appearance="fill" style="width:100%" class="mt-2">
+                            <input matInput (click)="startDate.open()" readonly
+                               
+                                [max]="minstartDate" (dateChange)="dateChange($event)" [matDatepicker]="startDate "
+                                placeholder="Select" formControlName="project_start_date">
+                            <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                            <mat-datepicker #startDate></mat-datepicker>
+                           
+                        </mat-form-field>
+                        <small *ngIf="submitted && projectForm.controls['project_start_date'].invalid " class="alert px-0 select-box-alert">
+                            <small *ngIf="submitted && projectForm.controls['project_start_date'].errors.required">
+                                Project start date is required
+                            </small>
+                        </small>
+                    </div>
+                    <div class="locateyourdata main_comp pb-0 col-lg-6 pt-0 mt-md-0 mt-2 datepicker">
+                        <span>Project end date</span>
+                        <img class="calender" src="assets/images/calendar-2.png" alt="">
+                        <mat-form-field appearance="fill" style="width:100%" class="mt-2">
+                            <input matInput [matDatepicker]="endDate " (click)="endDate.open()" readonly
+                              
+                                (focus)="endDateopen()" [disabled]="!isDisabled" (dateChange)="enddateChange($event)"
+                                [min]="minDate" placeholder="Select" formControlName="project_end_date">
+                            <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                            <mat-datepicker #endDate></mat-datepicker>
+                           
+                        </mat-form-field>
+                        <small  *ngIf="submitted && projectForm.controls['project_end_date'].invalid " class="alert px-0 select-box-alert">
+                            <small *ngIf="submitted && projectForm.controls['project_end_date'].errors.required">
+                                Project end date is required
+                            </small>
+                        </small>
+
+                    </div>
+                </div>
+                <div class="addcontentdata mt-2">
+                    <span>Project description</span>
+                    <textarea type="text" class=" addcontent mt-2" formControlName="description"
+                        [ngClass]="{ 'is-invalid': submitted && f['description'].errors}" maxlength="1500"
+                        placeholder="Enter Project description">
+                        </textarea>
+                    <div *ngIf=" submitted && f['description'].errors" class="invalid-feedback mt-0">
+                        <div *ngIf="submitted && f['description'].errors['required']">Description is required.</div>
+                    </div>
+                </div>
+                <div class="row mt-1">
+                    <div class="locateyourdata main_comp py-0 pb-0 col-lg-6 mt-0">
+                        <span>Customer name</span>
+                        <div class="position-relative">
+                            <input type="text" class=" locationdata  w-100" formControlName="customer_name"
+                                maxlength="30"
+                                oninput="this.value = this.value.replace(/[^a-z,^A-Z ]/g, '').replace(/(\..*)\./g, '$1');" 
+                                [ngClass]="{ 'is-invalid': submitted && f['customer_name'].errors}"
+                                placeholder="Enter client name">
+                            <!-- oninput="this.value = this.value.replace(/[^a-z,A-Z]/g, '').replace(/(\..*)\./g, '$1');" pattern="^[1-9][0-9]*$" -->
+                            <!-- <a href="#" class="position-absolute">Ask for Testimonial</a> -->
+                            <div *ngIf=" submitted && f['customer_name'].errors" class="invalid-feedback">
+                                <div *ngIf="submitted && f['customer_name'].errors['required']">Customer name is
+                                    required.
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="locateyourdata main_comp d-flex flex-column pb-0 col-lg-6 pt-0 mt-md-0 mt-2">
+                        <span>Quantity</span>
+                        <!-- <img class="calender" src="assets/images/calendar-2.png" alt=""> -->
+                        <input type="text" class=" locationdata  " formControlName="enter_quantity"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');"
+                            pattern="^[1-9][0-9]*$" maxlength="10"
+                            [ngClass]="{ 'is-invalid': submitted && f['enter_quantity'].errors}"
+                            placeholder="Enter quantity">
+                        <div *ngIf=" submitted && f['enter_quantity'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['enter_quantity'].errors['required']">Quantity is required.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class=" mt-1 locateyourdata main_comp py-0 pb-0 col-lg-6 mt-0">
+                        <span>Highlights</span>
+                        <img src="assets/images/add-circle.svg" (click)="addHighLights()">
+                        <!-- <img class="calender" src="assets/images/calendar-2.png" alt=""> -->
+                        <div formArrayName="highlights">
+                            <div *ngFor="let tags of t.controls ; let i=index" [formGroupName]="i">
+                                <div class="">
+                                    <input type="text" class=" locationdata w-100  "
+                                        formControlName="highlight_desc" maxlength="100"
+                                        [ngClass]="{ 'is-invalid': submitted && t.controls[i].get('highlight_desc')?.errors}"
+                                        placeholder="Enter highlights (Max 5)">
+                                    <img *ngIf="i > 0" src="assets/images/Minus.png" height="35px" width="35px"
+                                        class="mt-4 position-absolute" (click)="removeHighLights(i)">
+                                        <div *ngIf=" submitted && t.controls[i].get('highlight_desc')?.errors"
+                                        class="invalid-feedback">
+                                        <div *ngIf="submitted && t.controls[i].get('highlight_desc')?.errors?.required">
+                                            Highlights is required.</div>
+                                    </div>
+                                </div>
+                                </div>
+                               
+                        </div>
+
+                    </div>
+                    <div class="locateyourdata main_comp pb-0 col-lg-6 pt-0 mt-md-0 mt-2">
+                        <div class="d-flex flex-column locateyourdata phonedetails">
+                            <span>Instruments used</span>
+                            <mat-form-field appearance="fill" class="mt-2">
+                                <mat-select placeholder="Select"
+                                   
+                                    formControlName="instrument_id" (change)="fix($event)">
+                                    <mat-option *ngFor="let items of instrudata" [value]="items.id">{{items.name}}
+                                    </mat-option>
+                                </mat-select>
+                               
+                            </mat-form-field>
+                            <small *ngIf="submitted && projectForm.controls['instrument_id'].invalid " class="alert px-0 select-box-alert">
+                                <small *ngIf="submitted && projectForm.controls['instrument_id'].errors.required">
+                                    Instruments is required
+                                </small>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="locateyourdata main_comp pb-0 mt-md-2 mt-2 pt-0 col-lg-6 pe-2">
+                    <div class="d-flex flex-column locateyourdata phonedetails">
+                        <span>Machine used</span>
+                        <mat-form-field appearance="fill" class="mt-2">
+                            <mat-select placeholder="Select"
+                              
+                                formControlName="machine_id" (change)="fix($event)">
+                                <mat-option *ngFor="let items of data" [value]="items.id">{{items.name}}</mat-option>
+                            </mat-select>
+                          
+                        </mat-form-field>
+                        <small *ngIf="submitted && projectForm.controls['machine_id'].invalid " class="alert px-0 select-box-alert">
+                            <small *ngIf="submitted && projectForm.controls['machine_id'].errors.required">
+                                Machine is required
+                            </small>
+                        </small>
+                    </div>
+                </div>
+                <div class="adddocument main_comp py-0 mt-2">
+                    <span class="mt-3">Upload files</span>
+                    <p class=" mt-3">Maximum 5 allowed</p>
+                </div>
+                <hr class="m-0">
+                <div class="main_comp">
+                    <div class="">
+                        <div class="d-flex justify-content-start files pt-3">
+                            <div (click)="selectFile.click()" style="cursor: pointer"
+                                class="adddocument align-items-center me-4 flex-column d-flex">
+                                <input style="display: none" type="file" (change)="fileupload($event)" #selectFile
+                                    accept="image/*" multiple>
+                                <!-- <img src="assets/images/Group.svg" alt="" width="30px" height="30px"> -->
+                                <img src="assets/images/gallery-1.svg" alt="" width="30px" height="30px">
+
+                                <span class="">
+                                    Add image
+                                </span>
+                            </div>
+                            <div (click)="selectFile1.click()" style="cursor: pointer"
+                                class="adddocument me-4 align-items-center flex-column d-flex">
+                                <input style="display: none" type="file" accept="video/*" (change)="fileupload($event)"
+                                    #selectFile1 multiple>
+                                <!-- <img src="assets/images/Group-1.svg" alt="" width="30px" height="30px"> -->
+                                <img src="assets/images/video-playicon.svg" alt="" width="30px" height="30px">
+                                <span class="ms-2">
+                                    Add Video
+                                </span>
+                            </div>
+                            <div (click)="selectFile2.click()" style="cursor: pointer"
+                                class="adddocument align-items-center flex-column d-flex">
+                                <input style="display: none" type="file" (change)="fileupload($event)"
+                                    accept="application/pdf" #selectFile2 multiple>
+                                <!-- <img src="assets/images/docu.svg" alt="" width="30px" height="30px"> -->
+                                <img src="assets/images/documenticon.svg" alt="" width="30px" height="30px">
+                                <span class="ms-2">
+                                    Add Document
+                                </span>
+                            </div>
+                        </div>
+                        <div class="minimumFile " *ngIf=" submitted_1 && emptyFile">
+                            File is required
+                        </div>
+                    </div>
+                    <div class="adddocumentpage py-3">
+                        <div class="postdata d-flex justify-content-between align-items-center">
+                            <input style="display: none" type="file" (change)="fileupload($event)" #selectFile3
+                                multiple>
+                            <p class="drag" (fileDropped)="onFileDropped($event)" appDragAndDrop>Drag and drop, or <span
+                                    (click)="selectFile3.click()">select a file</span>
+                            </p>
+                        </div>
+                        <div class="d-flex align-items-center flex-wrap">
+                            <div class="upload-img position-relative d-inline-block mx-2 mb-3"
+                                *ngFor="let image of images; let i = index">
+                                <img [src]="image.url" width="90px" height="90px">
+                                <img src="assets/images/close-circle.png" (click)="deleteImg(i,1)"
+                                    class="close position-absolute">
+                            </div>
+                            <div class="upload-img position-relative d-inline-block mx-2 mb-3"
+                                *ngFor="let video of videos; let i = index">
+                                <video width="90px" height="90px" controls>
+                                    <source [src]="video.url" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <img src="assets/images/close-circle.png" (click)="deleteImg(i,2)"
+                                    class="close position-absolute">
+                            </div>
+
+                            <div class="upload-img position-relative d-inline-block mx-2 mb-3"
+                                *ngFor="let document of pdf; let i = index">
+                                <a target="_self" [href]="document.url" download="pdf">
+                                    <img src="assets/images/pdf 3 (1).svg" width="90px" height="90px">
+                                </a>
+                                <img src="assets/images/close-circle.png" (click)="deleteImg(i,3)"
+                                    class="close position-absolute">
+                            </div>
+                        </div>
+                        <!-- <div class="postdata d-flex justify-content-between align-items-center"
+                            *ngFor="let file of files; let i = index">
+                            <p>{{file.Key}}</p>
+                        </div> -->
+                    </div>
+                </div>
+                <hr class="m-0">
+                <div class="mt-md-4 mt-3 main_comp d-flex justify-content-start">
+
+                    <input type="checkbox" class="me-3 checkdata" formControlName="is_starred">
+                    <p class="live-project"> Mark it as Starred</p>
+
+                </div>
+                <!-- <div class="mt-md-4 mt-3 main_comp d-flex justify-content-start">
+                    <input type="checkbox" class="me-3 checkdata" formControlName="is_starred">
+                    <p class="live-project"> live Project</p>
+                </div> -->
+                <div class="postdata d-flex justify-content-center align-items-center">
+                    <!-- <button (click)="onSubmit(projectForm.value)">Post<img ></button>  -->
+                    <button *ngIf="!editFlag" (click)="onSubmit(projectForm.value)">Post<img></button>
+                    <button *ngIf="editFlag" (click)="onSubmit(projectForm.value)">Save<img></button>
+                </div>
+                <!-- <div class="postdata d-flex justify-content-between align-items-center" *ngFor="let file of files; let i = index">
+                    <p>{{file.Key}}</p></div> -->
+            </form>
+
+        </div>
+
+    </div>
+</div>

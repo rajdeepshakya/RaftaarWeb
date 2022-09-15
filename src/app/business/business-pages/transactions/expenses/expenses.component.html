@@ -1,0 +1,73 @@
+<div class="d-flex justify-content-between">
+    <app-transaction-statics></app-transaction-statics>
+    <div>
+        <button  class="btn active-link me-3 position-relative" routerLink="/business/transactions/add-new-expense"><img src="assets/images/Vector.svg" alt="" class="position-absolute add-expense-img"/> Add Expense</button>
+        <img (click)="creditDebit()" src="assets/images/filter (2).svg" >
+    </div>
+</div>
+
+<div class="main_comp ps-3">
+    <div class="card mb-3 border-0" *ngFor="let expense of expenses">
+        <div class="row address-row m-0 p-0 d-flex justify-content-start align-items-center">
+            <div class="text-end position-absolute kebab-menu-container">
+                <img src="assets/images/Group 1023.svg" width="25px" height="25px" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false" 
+                >
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+                    <li (click)="edit(expense.id)"><a class="dropdown-item"> 
+                        <img src="assets/images/edit-2.svg" class="me-3">
+                        Edit</a></li>
+                <li (click)="delete(expense.id)"><a class="dropdown-item delete mt-3">
+                        <img src="assets/images/trash.svg" class="me-3">
+                        Delete</a></li>
+                  </ul> 
+            </div>
+            <div class="col-lg-6 p-lg-4 px-lg-5 p-x-2 p-3">
+                <h6>Name</h6>
+                <h5>{{expense.company_name}}</h5>
+            </div>
+            <div class="col-lg-6 p-lg-4 px-lg-5 p-x-2 p-3sk border-lg-1 border-default border-start"> 
+                <h6>Transaction ID</h6>
+                <h5>{{expense.transaction_id}}</h5>
+            </div>
+        </div>
+        <div class="row address-row m-0 p-0 d-flex justify-content-start align-items-center  border-bottom border-top border-1  border-default  ">
+            <div class="col-lg-6  p-lg-4  px-lg-5 p-x-2 p-3">
+                <h6>Type of expense</h6>
+                <h5>{{expense.expenses_type}}</h5>
+            </div>
+            <div class="col-lg-6 p-lg-4  px-lg-5 p-x-2 p-3 border-lg-1 border-default border-start">
+                <h6>Amount Paid</h6>
+                <h5>{{expense.amount_paid}}</h5>
+            </div>
+        </div>
+        <div class="row address-row d-flex p-0 justify-content-start align-items-center m-0  border-bottom border-1  border-default ">
+            <div class="col-lg-6  p-lg-4  px-lg-5 p-x-2 p-3">
+                <h6>Mode of payment</h6>
+                <h5>{{expense.mode_of_payment}}</h5>
+            </div>
+            <div class="col-lg-6  p-lg-4  px-lg-5 p-x-2 p-3 border-lg-1 border-default border-start">
+                <h6>Date of transaction</h6>
+                <h5>{{expense.date_of_payment}}</h5>
+            </div>
+        </div>
+
+        <div class="row address-row d-flex p-0 justify-content-start align-items-center m-0  border-bottom border-1  border-default ">
+            <div class="col-lg-6  p-lg-4  px-lg-5 p-x-2 p-3">
+                <h6>Payment Status</h6>
+                <h5>{{expense.status}}</h5>
+            </div>
+            <div class="col-lg-6  p-lg-4  px-lg-5 p-x-2 p-3 border-lg-1 border-default border-start">
+                <h6>Receipt number</h6>
+                <h5>{{expense.receipt_no}}</h5>
+            </div>
+        </div>
+
+        <div class="row address-row d-flex p-0 justify-content-start align-items-center m-0 ">
+            <div class="col-lg-12  p-lg-4  px-lg-5 p-x-2 p-3">
+                <h6>Note</h6>
+                <h5>{{expense.note}}</h5>
+            </div>
+        </div>
+    </div>
+</div>
+   

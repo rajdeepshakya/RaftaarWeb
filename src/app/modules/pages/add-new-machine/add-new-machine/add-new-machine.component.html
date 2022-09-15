@@ -1,0 +1,94 @@
+
+<div class="main ">
+    <div class="d-flex pb-3 my-2 cursor-pointer">
+        <img (click)="goBack()" src="assets/images/arrow-circle-left.svg">
+        <h3 (click)="goBack()" class="ms-2 mb-0"> {{addPage? 'Add Machine' : 'Edit Machine' }}</h3>
+       
+    </div>
+        <div class="row m-0 ">
+        <div class="col-md-12 add-new py-3 px-md-4 px-2">
+            <form [formGroup]="machineForm">
+                <div class="main_comp pb-0">
+                    <span >Machine / Instrument name</span>
+                    <div class="locateyourdata ">
+                        <input type="text" class="w-100 locationdata"
+                        oninput="this.value = this.value.replace(/[^a-z,^A-Z ]/g, '').replace(/(\..*)\./g, '$1');"
+                        maxlength="30"  [ngClass]="{ 'is-invalid': submitted && f['name'].errors}" formControlName="name"
+                        placeholder="Enter Machine / Instrument name">
+                        <div *ngIf=" submitted && f['name'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['name'].errors['required']">Name is required.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main_comp  pb-0">
+                    <div class="d-flex flex-column locateyourdata phonedetails mt-0">
+                        <span class="mb-2">Machine / Instrument type</span>
+                        <mat-form-field appearance="fill" class="">
+                        <mat-select placeholder="Select" placeholder="Enter Machine / Instrument type"
+                             formControlName="type">
+                            <mat-option *ngFor="let items of mahines" [value]="items">{{items | titlecase}}
+                           </mat-option>
+                           </mat-select>
+                           </mat-form-field>
+                           <small *ngIf="submitted && machineForm.controls['type'].invalid " class="alert px-0 select-box-alert">
+                            <small *ngIf="submitted && machineForm.controls['type'].errors.required">
+                                Machine/Instrument type is required
+                            </small>
+                        </small>
+                    </div>
+                </div>
+                <div class="locateyourdata main_comp pb-0 pt-3 mt-md-0 datepicker">
+                    <span >Make</span>
+                    <img class="calender" src="assets/images/calendar-2.png" alt="">
+                    <mat-form-field appearance="fill"  class="mt-2 w-100">
+                        <input matInput  [matDatepicker]="endDate " (click)="endDate.open()" readonly
+                         placeholder="Select" formControlName="make">
+                        <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                        <mat-datepicker #endDate ></mat-datepicker>
+                      
+                      </mat-form-field>
+                      <small *ngIf="submitted && machineForm.controls['make'].invalid " class="alert px-0 select-box-alert">
+                        <small *ngIf="submitted && machineForm.controls['make'].errors.required">
+                            Make is required
+                        </small>
+                    </small>
+                </div>
+            
+                <div class="main_comp  pb-0 ">
+                    <span >Capacity</span>
+                    <div class="locateyourdata ">
+                        <input type="text" class="w-100  locationdata "
+                      maxlength="9"  [ngClass]="{ 'is-invalid': submitted && f['capacity'].errors}"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" formControlName="capacity"
+                         placeholder="Enter Machine / Instrument capacity">
+                         <div *ngIf=" submitted && f['capacity'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['capacity'].errors['required']">Capacity is required.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="main_comp  pb-0">
+                    <span >Quantity</span>
+                    <div class="locateyourdata">
+                        <input type="text" class="locationdata w-100 "
+                        maxlength="9"  [ngClass]="{ 'is-invalid': submitted && f['quantity'].errors}"
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');" formControlName="quantity"
+                        placeholder="Enter Machine / Instrument quantity">
+                        <div *ngIf=" submitted && f['quantity'].errors" class="invalid-feedback">
+                            <div *ngIf="submitted && f['quantity'].errors['required']">Quantity is required.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="postdata main_comp d-flex justify-content-center"  >
+                    <!-- <button (click)="onSubmit(machineForm.value)" >Post<img  class="ms-2"></button> -->
+                    <button *ngIf="!editFlag"(click)="onSubmit(machineForm.value)" >Post<img></button>
+                    <button *ngIf="editFlag" (click)="onSubmit(machineForm.value)" >Save<img></button>
+                </div>
+               
+            </form>
+        
+        </div>
+        
+    </div>
+</div>
+
+

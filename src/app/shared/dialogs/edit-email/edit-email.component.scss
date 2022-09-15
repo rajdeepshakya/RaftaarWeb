@@ -1,0 +1,34 @@
+@import '../../../../assets/variable.scss';
+@import '../../../../assets/common.scss';
+
+.modal-body {
+    label {
+        @include fontStyleManager($fontFamilyInterRegular,$fontWeightSemiBold,$fontSize16,$Color_0A0045)
+    }
+    .input-container {
+        height: 90px;
+        input {
+            padding: 14px 50px 14px 25px;
+            border: 0.5px solid #768DA9;
+            border-radius: 40px;
+            width: 100%;
+        }
+    }
+
+    .btn-container {
+        button{
+            padding: 15px;
+            width: 240px;
+            max-width: 100%;
+            border-radius: 40px;
+            background-color: #EE7402  ;
+            @include fontStyleManager($fontFamilyInterRegular,$fontWeightMedium,$fontSize16,$Colorwhite)
+            
+        }
+    }
+}
+
+::placeholder{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Colorwhite);
+    color:#768DA9 !important;
+}

@@ -1,0 +1,428 @@
+<section class="main_comp p-xl-5 p-2 home" >
+    <div>
+        <div class="row  p-0 m-0">
+            <!-- side data -->
+            <div class="col-lg-3 ">
+                <div class="details">
+                    <div class="d-flex user p-3">
+                        <img class="user-img" [src]="profileDetails?.profileurl" onError="this.src='assets/images/Profile_1.svg'" width="58px" height="58px">
+                        <div class="ms-xl-3 ms-2">
+                            <p class="mb-0">{{profileDetails?.company_name}}</p>
+                            <span *ngIf="location"><img src="assets/images/location-minus.svg">
+                                {{profileDetails?.address}}</span>
+                        </div>
+                    </div>
+                    <div class="industry p-3 ">
+                        <div class=" text-left">
+                            <div class="d-flex justify-content-between align-items-center" *ngIf="profileIndustry">
+                                <h5 class="mb-0">Industry</h5>
+                                <p class="mb-0">{{profileDetails?.Industry?.industry_name}}</p>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center py-3" *ngIf="profileCategory">
+                                <h5 class="mb-0">Sub Category</h5>
+                                <p class="mb-0">{{profileDetails?.Category1?.title}}</p>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center" *ngIf="profileCompSize">
+                                <h5 class="mb-0">Company Size</h5>
+                                <p class="mb-0">{{profileDetails?.company_size}}</p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="rating ">
+                        <div class="d-flex align-items-start px-3 pt-3  bg-white" *ngIf="rating">
+                            <img src="assets/images/star.svg" width="24px" height="24px">
+                            <div class="ms-xl-3 ms-2">
+                                <h6 class="mb-0">Rating (125)</h6>
+                                <p>4/5</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start px-3 pt-3 gst  bg-white" *ngIf="gstdata">
+                            <img src="assets/images/bill.svg" width="24px" height="24px">
+                            <div class="ms-xl-3 ms-2">
+                                <h6 class="mb-0">GST No.</h6>
+                                <p>{{profileDetails?.gst_no}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- side data end -->
+            <div class="col-lg-6 mt-lg-0 mt-3">
+                <!-- header add data -->
+                <div class=" create-post mb-3">
+                    <div class="d-flex justify-content-between p-3 align-items-center">
+                        <div class="d-flex align-items-center " >
+                            <img class="rounded-circle" [src]="profileDetails?.profileurl" width="60" height="60" 
+                            onError="this.src='assets/images/Profile_1.svg'">
+                            <h4 class="ms-xl-3 ms-2">Create a Post</h4>
+                        </div>
+                        
+                        <img (click)="addPost()" src="assets/images/add-circle.svg" width="34px" height="34px">
+                    </div>
+                    <div
+                        class="row  p-0 files m-0 d-flex justify-content-start align-items-center   border-top border-1  border-default  ">
+                        <div class="col-xl-4  d-flex align-items-center justify-content-xl-center justify-content-start p-xl-4  px-xl-4 p-x-2 p-3"
+                        [routerLink]="['/main/home/create-new-post']" [queryParams]="{type: 'new'}">
+                            <img src="assets/images/gallery-1.svg" width="32px" height="32px">
+                            <h5 class="mb-0 ms-2 position-relative">
+                                <!-- <input class="position-absolute add-image " type='file' accept="image/png"
+                                    (change)="onSelectFile($event)" /> -->
+                                Add image
+                            </h5>
+                        </div>
+                        <div 
+                            class="col-xl-4 p-xl-4 d-flex align-items-center justify-content-xl-center justify-content-start px-xl-4 p-x-2 p-3 border-xl-1 border-0 border-end border-start"
+                            [routerLink]="['/main/home/create-new-post']" [queryParams]="{type: 'new'}">
+                            <img src="assets/images/video-playicon.svg" width="32px" height="32px">
+                            <h5 class="mb-0 ms-2 position-relative">
+                                <!-- <input class="position-absolute add-image " type='file' accept="video/mp4"
+                                    /> -->
+                                Add Video
+                            </h5>
+                        </div>
+                        <div class="col-xl-4  p-xl-4 d-flex align-items-center justify-content-xl-center justify-content-start px-xl-4 p-x-2 p-3"
+                        [routerLink]="['/main/home/create-new-post']" [queryParams]="{type: 'new'}">
+                            <img src="assets/images/documenticon.svg" width="32px" height="32px">
+                            <h5 class="mb-0 ms-2 position-relative">
+                                <!-- <input class="position-absolute add-image " type='file' accept="application/pdf"
+                                   /> -->
+                                Add Document
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <!-- header add data end -->
+
+                <div class="card card-carousal mb-3 "    *ngFor="let card of data; let i = index">
+                    <div class="card-body pt-3 p-0" *ngIf="card.Ad!=null">
+                        <a [href]="card.Ad.url" target="_blank" style="text-decoration: none">
+                            <img style="width:100%;height:350px;object-fit: cover;" [src]="card.Ad.image" onError="this.src='assets/images/placeholder-img.svg'">
+                        </a>
+                        
+                    </div>
+                    <div class="card-body pt-0 p-0" *ngIf="card.Post!=null && card.Post!=false">
+                        <div *ngIf="card.shared" class="d-flex shared-container">
+                            <img class="profile-pic"
+                                    [src]="card.PostSharedBy.profile_pic==null?'assets/images/Profile_1.svg':card.PostSharedBy.profile_pic"
+                                    onError="this.src='assets/images/Profile_1.svg'"
+                                    width="60px" height="60px">
+                                    <div class="ms-xl-4  ms-2 card-heading">
+                                        <h2 class="mb-0 shared">{{card?.PostSharedBy?.company_name + ' shared this post'}}</h2>
+                                        <h3 class="min-ago mb-0">{{card?.created_at | dateAgo}}</h3>
+                                        <!-- <h3 class="card-text ">{{card?.Requirement?.description}}</h3> -->
+                                    </div>        
+                        </div>
+                        <hr *ngIf="card.shared" class="shared-hr">
+                        <div class="d-flex justify-content-between align-items-start mt-md-3 mt-0 px-xl-4 pe-2 pt-xl-4 pt-0">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <img class="profile-pic" (click)="profileView(card.Post)"
+                                    [src]="card.Post.Auth?.CompanyInfo?.profile_pic==null?'assets/images/Profile_1.svg':card.Post?.Auth?.CompanyInfo?.profile_pic"
+                                    onError="this.src='assets/images/Profile_1.svg'"
+                                    width="60px" height="60px">
+
+                                <div class="fltr-field-wrap">
+                                    <!-- <figure *ngIf="card?.CompanyInfo?.profile_pic;else pic" class="profile-pic">
+                                                      <img [src]="card?.CompanyInfo?.profile_pic">
+                                                    </figure> -->
+                                    <ng-template #pic>
+                                        <figure class="amenity-icon-wrap amenity-img">
+                                            <img src="assets/images/Avatar.png">
+                                        </figure>
+                                    </ng-template>
+                                </div>
+
+                                <div class="ms-xl-4 ms-2 card-heading ">
+                                    <h2 class="mb-0">{{card.Post.Auth?.CompanyInfo?.company_name}}</h2>
+                                    <h3 class="min-ago mb-0">{{card.Post?.created_at | dateAgo}}</h3>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="dropdown ">
+                                    <div class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        <img class="" src="assets/images/Group 1023.svg">
+                                    </div>
+                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2" *ngIf="card.editlist">
+                                        <li (click)="edit(card.Post,1)"><a class="dropdown-item">
+                                                <img src="assets/images/edit-2.svg" class="me-3">
+                                                Edit</a></li>
+                                        <li (click)="delete(card.Post.id)"><a class="dropdown-item delete mt-3">
+                                                <img src="assets/images/trash.svg" class="me-3">
+                                                Delete</a></li>
+                                    </ul>
+                                    <ul class="dropdown-menu  report-drop p-1 border-0" aria-labelledby="dropdownMenuLink" *ngIf="!card.editlist">
+                                        <li (click)="report(card)"><a class="dropdown-item report">
+                                               <img class="me-2" width="24px" height="24px" src="assets/images/info-circle.svg"> Report</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ms-xl-5 ms-0 mb-2 card-heading">
+                            <h3 class="card-text ms-xl-5 ps-2 pe-xl-4 pe-2">{{readMore[i] ? card?.Post?.content : card?.Post?.content | slice:0:200}}
+                                <span *ngIf="!readMore[i]">...</span>
+                                <a href="javascript:;" *ngIf="!readMore[i]" (click)="readMore[i]=true">Read More</a>
+                            </h3>
+                            <!-- <h3 class="card-text ms-xl-5 ps-2 pe-xl-4 pe-2">{{card?.Post?.content}}</h3> -->
+                            <!-- <app-read-more class="card-text ms-xl-5 ps-2 pe-xl-4 pe-2" [text]="card?.Post?.content" [maxLength]="40"></app-read-more> -->
+                            <!-- <h3 class="card-text ms-xl-5 ps-2 pe-xl-4 pe-2">{{card?.Post?.content}}</h3> -->
+                            <!-- <a href="#" *ngIf="!isContentToggled[i]" (click)="toggleContent()" i18n>Read More</a>
+<a href="#" *ngIf="isContentToggled[i]" (click)="toggleContent(i,card?.Post?.content)" i18n>Read Less</a> -->
+                        </div>
+                        <owl-carousel-o [options]="customOptions" style="width: 100%">
+
+                            <ng-container  *ngFor="let slide of card.slides">
+                                <ng-template   *ngIf="slide.type == 'image' || slide.type == 'pdf'" carouselSlide>
+                                    <img (click)="onview(card.Post,1)" style="width:100%;height:350px; object-fit: cover;" [src]="slide.url" >
+
+                                </ng-template>
+                                <ng-template *ngIf="slide.type == 'video'" carouselSlide [id]="slide.id">
+
+                                    <video *ngIf="slide.type == 'video'" controls style="width:100%;height:350px">
+                                        <source [src]="slide.url" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </ng-template>
+                            </ng-container>
+
+                        </owl-carousel-o>
+
+
+                        <div class="d-flex  my-3 like-img justify-content-between px-xl-4 px-2">
+                            <div class="d-flex align-items-center justify-content-between me-2"
+                                (click)="hitLike(card?.Post?.id)">
+                                <img [src]="card.Post.isLiked==true ? 'assets/images/like_2.svg':'assets/images/like_1.svg'" width="28px" height="28px" class="show-interest">
+                                <h3  [ngClass]="card.Post.isLiked==true ? 'color_red' : 'color_grey'" class="mb-0  ms-1">{{card.Post.likes_count > 1? card.Post.likes_count + ' Likes': card.Post.likes_count + ' Like'}} </h3>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between me-2" (click)="onview(card.Post,1)">
+                                <img src="assets/images/Chat.svg" width="28px" height="28px" class="show-interest">
+                                <h3 class=" mb-0  ms-1 color_grey">{{card.Post.comment_count > 1?card.Post.comment_count + ' Comments': card.Post.comment_count + ' Comment' }}</h3>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between"
+                            (click)="shareHome(card?.Post?.id,1)">
+                                <img src="assets/images/Shape.svg" width="28px" height="28px" class="show-interest">
+                                <h3 class=" mb-0 ms-1 color_grey">{{card?.Post?.postShare_count}} Share</h3>
+                            </div>
+                        </div>
+                        <!-- <div class="d-flex mt-3 position-relative px-md-4 px-2 ">
+                                <img class="rounded-circle"
+                                    [src]="profileDetails?.profileurl"
+                                    width="40px" height="40px">
+                                <textarea type="search" class="search ms-3" placeholder="Write your comment…"
+                                    [(ngModel)]="comment"></textarea>
+                                <h3 class="position-absolute post" (click)="sendComment(card?.Post?.id)">
+                                    <img src="assets/images/comment.svg">
+                                </h3>
+                            </div>
+                        <div class="hidecomment">
+                            
+                            <div class="d-flex mt-3 px-md-4 px-2 pb-md-4 pb-2"
+                                *ngFor="let comments of card.Post.latestComment">
+                                <img class="rounded-circle"
+                                    [src]="comments.Auth.CompanyInfo.profile_pic==null? 'assets/images/Profile_1.svg':comments.Auth.CompanyInfo.profile_pic"
+                                    width="40px" height="40px">
+                                <div class="w-100 ">
+                                    <div class=" comment ms-3 w-100">
+                                        <div class=" d-flex justify-content-between">
+                                            <h4 class="color_grey900 mb-0">{{comments?.Auth?.CompanyInfo?.company_name}}
+                                            </h4>
+                                            <h3 class="color_grey600 mb-0">{{comments?.created_at | dateAgo}}</h3>
+                                        </div>
+                                        <div>
+                                            <div>
+                                                <p class="mb-0 color_grey500">{{comments?.comment_text}}</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="d-flex  mt-3 like-img ms-3">
+                                        <div class="d-flex align-items-center justify-content-between me-2">
+                                            <img src="assets/images/Chat.svg" width="28px" height="28px"
+                                                class="show-interest">
+                                            <div (click)="ReplyComment()">
+                                                <h3 class=" mb-0  ms-1 color_grey">Reply</h3>
+                                            </div>
+
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between ms-2">
+                                            <img src="assets/images/like_1.svg" width="28px" height="28px"
+                                                class="show-interest">
+                                            <h3 class="mb-0  ms-1 color_grey" (click)="hitLike(card?.Post?.id)"> Like
+                                            </h3>
+                                        </div>
+                                    </div>
+                                    <div>
+
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div> -->
+
+                    </div>
+                    <div class="card card-carousal" *ngIf="card.Requirement!=null && card.Requirement!=false">
+                        <div *ngIf="card.shared" class="d-flex shared-container" >
+                            <img class="profile-pic"
+                                    [src]="card.RequirementSharedBy.profile_pic==null?'assets/images/Profile_1.svg':card.RequirementSharedBy.profile_pic"
+                                    onError="this.src='assets/images/Profile_1.svg'"
+                                    width="60px" height="60px">
+                                    <div class="ms-xl-4 ms-2 card-heading">
+                                        <h2 class="mb-0 shared">{{card?.RequirementSharedBy?.company_name + ' shared this requirement'}}</h2>
+                                        <h3 class="min-ago mb-0">{{card?.created_at | dateAgo}}</h3>
+                                        <!-- <h3 class="card-text ">{{card?.Requirement?.description}}</h3> -->
+                                    </div>        
+                        </div>
+                        <hr *ngIf="card.shared" class="shared-hr">
+                        <div class="card-body p-0">
+                            <div class="d-flex justify-content-between align-items-start mt-md-3 mt-0 px-xl-4 pe-2 pt-xl-4 pt-0">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <img class="profile-pic" (click)="profileView(card.Requirement)"
+                                        [src]="card.Requirement.Auth?.CompanyInfo?.profile_pic ? card.Requirement.Auth?.CompanyInfo?.profile_pic :'assets/images/Profile_1.svg'"
+                                        onError="this.src='assets/images/Profile_1.svg'"
+                                        width="60px" height="60px">
+                                    <div class="ms-xl-4 ms-2 card-heading">
+                                        <h2 class="mb-0">{{card.Requirement.Auth?.CompanyInfo?.company_name}}</h2>
+                                        <h3 class="min-ago mb-0">{{card.Requirement?.created_at |dateAgo}}</h3>
+                                        <!-- <h3 class="card-text">{{card?.Requirement?.description}}</h3> -->
+                                    </div>
+                                </div>
+                                <div class="card-header d-flex justify-content-center p-0">
+                                    <div class="align-items-center d-flex me-3">
+                                        <img src="assets/images/promote.svg">
+                                        <h4 class="mb-0 ms-1 me-xl-3 me-0">Requirement</h4>
+                                    </div>
+
+                                    <div>
+                                        <div>
+                                            <div class="dropdown ">
+                                                <div class="" href="#" role="button" id="dropdownMenuLink"
+                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <img class="" src="assets/images/Group 1023.svg">
+                                                </div>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2" *ngIf="card.editlist">
+                                                    <li (click)="edit(card.Requirement,2)"><a class="dropdown-item" >
+                                                            <img src="assets/images/edit-2.svg" class="me-3">
+                                                            Edit</a></li>
+                                                    <li (click)="deleteRequirement(card.Requirement,1)"><a class="dropdown-item delete mt-3">
+                                                            <img src="assets/images/trash.svg" class="me-3">
+                                                            Delete</a></li>
+                                                </ul>
+                                                <ul class="dropdown-menu report-drop p-1 border-0" aria-labelledby="dropdownMenuLink" *ngIf="!card.editlist">
+                                                    <li (click)="report(card)"><a class="dropdown-item report">
+                                                        <img class="me-2" width="24px" height="24px" src="assets/images/info-circle.svg"> Report</a></li>
+            
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ms-xl-5 ms-0 mb-2 card-heading">
+                                <h3 class="card-text ms-xl-5 ps-2 pe-xl-4 pe-2">{{readMore[i] ? card?.Requirement?.description : card?.Requirement?.description | slice:0:200}}
+                                    <span *ngIf="!readMore[i]">...</span>
+                                    <a href="javascript:;" *ngIf="!readMore[i]" (click)="readMore[i]=true">Read More</a>
+                                </h3>
+                                <!-- <h3 class="card-text ms-xl-5 ps-2 pe-xl-4 pe-2">{{card?.Requirement?.description}}</h3> -->
+                            </div>
+                            <!-- <img class="mt-3" src="assets/images/Dribbble 2 1 (7).svg" width="100%"> -->
+                            <owl-carousel-o [options]="customOptions" style="width: 100%">
+
+                                <ng-container  *ngFor="let slide of card.slides">
+                                    <ng-template *ngIf="slide.type == 'image' || slide.type == 'pdf'" carouselSlide>
+                                        <img (click)="onview(card.Requirement,2)" style="width:100%;height:350px;object-fit: cover;" [src]="slide.url" >
+
+                                    </ng-template>
+                                    <ng-template *ngIf="slide.type == 'video'" carouselSlide [id]="slide.id">
+
+                                        <video *ngIf="slide.type == 'video'" controls style="width:100%;height:350px">
+                                            <source [src]="slide.url" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </ng-template>
+                                </ng-container>
+
+                            </owl-carousel-o>
+                            <div class="d-flex align-items-center my-3 justify-content-between like-img px-xl-4 px-2">
+                                <div *ngIf="card.editlist" class="d-flex align-items-center justify-content-between "
+                                    (click)="interestedUsers(card.Requirement.id)">
+                                    <img src="assets/images/Shape (1).svg" class="show-interest" width="25px" 
+                                        height="25px">
+                                    <h3 class="mb-0 ms-2 color_grey">{{card?.Requirement?.interest_count}} Interested Users</h3>
+                                </div>
+                                <div *ngIf="!card.editlist" class="d-flex align-items-center justify-content-between "
+                                    (click)="showinterest(card.Requirement.id)">
+                                    <img [src]="card.Requirement.isShownInterest==true ? 'assets/images/heartColored.svg' :'assets/images/Shape (1).svg'" class="show-interest" width="25px" 
+                                        height="25px">
+                                    <h3 [ngClass]="card.Requirement.isShownInterest==true ? 'color_red' : 'color_grey'" class="mb-0 ms-2">{{card?.Requirement?.interest_count}} Show Interests</h3>
+                                </div>
+                                <!-- <div *ngIf="card.editlist" class="d-flex align-items-center justify-content-between">
+                                    <img src="assets/images/mouse.svg" class="show-interest" width="28px"
+                                        height="28px">
+                                    <h3 class="ms-xl-2 mb-0  ms-1 color_grey">Boost Post</h3>
+                                </div> -->
+                                <div *ngIf="!card.editlist && !card.Requirement.savedRequirement" class="d-flex align-items-center justify-content-between"
+                                    (click)="saveRequirement(card.Requirement.id)">
+                                    <img [src]="card.Requirement.savedRequirement == true? 'assets/images/SaveOrange.png': 'assets/images/save-2.svg'" class="show-interest" width="28px"
+                                        height="28px">
+                                    <h3 *ngIf="!card.Requirement.savedRequirement" class="ms-xl-2 mb-0  ms-1 color_grey">Save</h3>    
+                                    <!-- <h3 *ngIf="card.Requirement.savedRequirement" class="ms-md-2 mb-0  ms-1 color_red">Saved</h3> -->
+                                </div>
+                                <div *ngIf="!card.editlist && card.Requirement.savedRequirement" class="d-flex align-items-center justify-content-between"
+                                    (click)="unSaveRequirement(card.Requirement.id)">
+                                    <img [src]="card.Requirement.savedRequirement == true? 'assets/images/SaveOrange.png': 'assets/images/save-2.svg'" class="show-interest" width="28px"
+                                        height="28px">
+                                    <!-- <h3 *ngIf="!card.Requirement.savedRequirement" class="ms-md-2 mb-0  ms-1 color_grey">Save</h3>     -->
+                                    <h3 *ngIf="card.Requirement.savedRequirement" class="ms-xl-2 mb-0  ms-1 color_red">Saved</h3>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between" (click)="shareHome(card?.Requirement?.id,2)">
+                                    <img src="assets/images/Shape.svg" class="show-interest" width="28px" height="28px">
+                                    <h3 class=" mb-0 ms-1 color_grey">{{card?.Requirement?.requirementShare_count}} Share</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="row mt-4 p-0 m-0">
+                    <div class="col-sm-12 p-0" *ngFor="let card of cards">
+                        <app-show-interest></app-show-interest>
+                    </div>
+                </div> -->
+                <!-- <div>
+                    <div class="row mt-4 p-0 m-0 ">
+                        <div class="col-sm-12 p-0 mb-3" *ngFor="let post of data">
+                            
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <div class="d-flex justify-content-center">
+                    <pagination-controls
+                    previousLabel="&lsaquo;"
+                    nextLabel="&rsaquo;"
+                    (pageChange)="onDataChange($event)"
+                  >
+                  </pagination-controls>
+                </div> -->
+                
+            </div>
+
+            <!-- <div class="col-lg-3 mt-lg-0 mt-3">
+                <div class="see-products p-3">
+                    <div class="d-flex justify-content-end ads-para">
+                        <p>Ad...</p>
+                    </div>
+                    <div class="text-center ads">
+                        <img src="assets/images/img4.svg" width="120px" height="120px">
+                        <p class=" my-3">Hey Sequa, explore products
+                            that match your requirements</p>
+                        <button class="btn mt-2">See Products</button>
+                    </div>
+                </div>
+
+            </div> -->
+        </div>
+    </div>

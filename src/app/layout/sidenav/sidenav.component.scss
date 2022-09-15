@@ -1,0 +1,128 @@
+@import '../../../assets/variable.scss';
+.sidenavdata{
+    background-color: $Color_002280;
+    height:100%;
+    padding: 50px 0px;
+    @media (max-width:991px) {
+        padding: 0px;
+        background-color: transparent !important;
+    }
+    .raftarlogo{
+        width:184px;
+        @media (max-width:991px) {
+            display: none;
+        }
+       
+    }
+    .logocapimage{
+        height:44px;
+        width:44px;
+        @media (max-width:991px) {
+            display: none;
+        }
+       
+    }
+    .logocapdata{
+        @media (max-width:991px) {
+            display: none;
+        }
+    
+        h5{
+            color:$Colorwhite;
+        }
+        
+        p{
+            color:$Color_A1B3C9;
+            font-size: 18px;
+            font-weight: 
+            700, Bold;
+            max-width:155px;
+        }
+    }
+    .menudata{
+font-weight: 700;
+font-size: 18px;
+color:$Colorwhite;
+@media (max-width:991px) {
+    display: none;
+}
+    }
+    .helpuser{
+        border-radius: 15px;
+        background-color: #FAFBFC;
+        color:#303065;
+        font-weight: 600;
+font-size: 16px;
+line-height: 29px;
+@media (max-width:991px) {
+    display: none;
+}
+    }
+    .lowborder{
+        border-bottom:1px solid #DBE9F5;
+        padding:0;
+    }
+}
+.nav-item{
+    border-radius: 12px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.nav-link{
+    @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize18,$Colorwhite)
+}
+.nav-item:hover{
+    background: rgba(255, 255, 255, 0.1);}
+    .navbar-toggler{
+        border: 0.5px solid #BFD1E3 ;
+    }
+    .logocap{
+        @media (max-width:991px) {
+            display: none;
+            margin-top: 0px !important;
+        }
+    }
+   .navbar-toggler-icon{
+        background-image: url('/assets/images/menu.svg');
+    }
+.user{
+    display: none;
+    @media (max-width:991px) {
+        display: block;
+    }
+}
+.mob-view{
+    @media (max-width:991px) {
+width: 100%;    }
+}
+.dropdown-menu{
+    right: 0;
+    .dropdown-item{
+        h4{
+            @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize18,$Colorwhite);
+            color: #0D0849 !important        ;
+        }
+        p{
+            @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_768DA9);
+
+        }
+    }
+}
+.navbar{
+@media (max-width:991px) {
+    display: none;
+}
+}
+app-mob-header{
+    display: none;
+    @media (max-width:991px) {
+        display: block;
+    }
+}
+
+
+
+
+
+
+

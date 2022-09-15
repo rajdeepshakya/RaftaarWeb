@@ -1,0 +1,14 @@
+@import '../../../assets/common.scss';
+@import '../../../assets/variable.scss';
+p{
+    @include fontStyleManager ($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_1B194B);
+    color:#9D9FA5 !important; 
+    padding: 0px 10px;
+    cursor: pointer;
+
+}
+.footer{
+    padding: 24px 0px;
+    background-color: white;
+    z-index: 10;
+}

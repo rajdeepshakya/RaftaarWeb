@@ -1,0 +1,21 @@
+<div class="modal-header pt-0 pb-0">
+    <button class="button-close mb-2" mat-button [mat-dialog-close]="false">
+        <img src="assets/images/arrow_close.svg">
+    </button>
+</div>
+<div class="modal-body pt-0 mt-4">
+    <form [formGroup]="addCustomField" (submit)="addfield()">
+        <h1 class=" mb-3">Field Labels</h1>
+
+        <input  type="text"  formControlName="new_field" [ngClass]="{ 'is-invalid': submitted && f['new_field'].errors}"
+            placeholder="New field name here" maxlength="30">
+        <div *ngIf="f.new_field.invalid" class="invalid-feedback">
+            <div *ngIf="f.new_field.errors?.required">Field name is required</div>
+        </div>
+
+
+        <div class="modal-footer d-flex justify-content-between mt-5">
+            <button type="submit" class="btn report">Add this field</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,18 @@
+<div class="modal-body pt-0 px-3">
+    <form [formGroup]="editForm" (submit)="onSubmit()">
+        <div class="d-flex justify-content-between align-items-center py-4">
+            <label class="mb-0">Email</label>
+            <img src="assets/images/close.png" alt=""  mat-button (click)="close()">
+        </div>
+        <div class="input-container">
+            <input type="email" formControlName="email" [ngClass]="{'is-invalid': submitted && f.email.errors}"  placeholder="Enter your email" />
+            <div *ngIf="f.email.invalid" class="invalid-feedback">
+                <div *ngIf="f.email?.errors?.required">Email field is required</div>
+                <div *ngIf="f.email?.errors?.pattern">Please enter valid email address</div>
+            </div>
+        </div>
+        <div class="text-center btn-container">
+            <button type="submit" class="btn report">Confirm and resend</button>
+        </div>
+    </form>
+</div>

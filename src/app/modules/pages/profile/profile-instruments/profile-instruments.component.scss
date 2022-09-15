@@ -1,0 +1,149 @@
+@import '../../../../../assets/common.scss';
+@import '../../../../../assets/variable.scss';
+.main{
+    background-color: #F2F8FF    ;
+    padding: 50px 145px;
+//     .row{
+// // background-color: white;
+//     }
+}
+.profile{
+    background-color: #F9FBFE    ;
+    width: 200px;
+    border-radius: 10px 0px 0px 10px;
+}
+.banner{
+    width: calc(100% - 200px);
+    border-radius: 0px 10px 10px 0px;
+}
+.behindimgdata{
+    background-image: url('/assets/images/Rectangle150882.png');
+    background-repeat: no-repeat;
+    background-size: 100% 334px;
+    height: 200px;
+    border-radius: 0px 15px 15px 15px;
+    @media (max-width:768px) {
+        background-size: 100% 200px;
+height: 200px;
+    }
+    .clickbackphoto{
+right: 50px;
+bottom: 42px;
+width:54px;
+height:54px
+
+    }
+}
+
+.upperimgdata{
+    top: 123px;
+    left: 25px;
+    right: 0px;
+    position: relative;
+    @media (max-width:768px) {
+        top: 155px;
+    }
+    .rectangleimg{
+        width:150px;
+        height:150px;
+        @media (max-width:768px) {
+            width: 120px;
+            height: 120px;
+        }
+    }
+    h4{
+        @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize22,$Color_303065);
+         @media (max-width:768px) {
+          font-size: 14px !important;
+        }
+    }
+    p{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_768DA9);
+        @media (max-width:768px) {
+            font-size: 12px !important;
+          }
+  
+    }
+}
+.imgdata {
+    margin-top: -53px;
+    margin-left: 150px;
+    @media (max-width:768px) {
+        left: 108px;
+    }
+}
+.edit{
+    @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Color_002280);
+    border: 1px solid #002280 !important;
+    border-radius: 40px;
+    padding: 10px 12px;
+    width: 95px;
+    margin-left: 228px;
+    z-index: 9999;
+    @media (max-width:768px) {
+        margin-left: 0px;
+    }
+}
+
+// .profile{
+//     // margin-top: 75px;
+//     // background-color: #EAF3FF    ;
+// }
+.card-body{
+    padding: 18px 35px;
+    @media (max-width:768px) {
+        padding: 18px 0px;
+    }
+    h2{
+        text-transform: capitalize;
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_768DA9);
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+    h3{
+        @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize16,$Color_002280);
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+}
+.see-products{
+    background-color: white;
+    border-radius: 0px 15px;
+}
+.ads{
+    p{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_768DA9);
+    }
+    button{
+        border: 1px solid #002280 !important;
+        border-radius: 40px;
+        width: 161px !important;
+        padding: 11px 10px !important;
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Color_002280); 
+    }
+}
+
+.dropdown-menu{
+    right: 0px;
+    box-shadow: 0px 11px 110px rgba(0, 50, 123, 0.38);
+border-radius: 8px;
+padding: 25px 0px;
+}
+.dropdown-item.active, .dropdown-item:active{
+    background-color: white;
+}
+.dropdown-item.active, .dropdown-item:hover{
+    background-color: white;
+}
+.dropdown-item{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize14,$Color_0A0045);
+    @media (max-width:768px) {
+        font-size: 12px !important;
+    }
+    cursor: pointer;
+}
+.delete{
+    color:#FF5C5C !important;
+}

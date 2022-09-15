@@ -1,0 +1,176 @@
+<!-- <div class="d-flex justify-content-between">
+    <app-transaction-statics></app-transaction-statics>
+    <div>
+        <button class="btn active-link me-3" routerLink="/business/transactions/add-new-transaction">+ Add Transaction</button>
+        <img (click)="creditDebit()" src="assets/images/filter (2).svg" >
+    </div>
+</div>
+
+
+<div class="position-sticky bottom-0 px-3 d-flex">
+    <button type="button" class="details-btn margin-right rounded-0 py-2 d-flex align-items-center justify-content-center" routerLink="/business/transactions/transaction-list/credit" routerLinkActive="active-item">
+        <img src="assets/images/card-receive.svg" class="pe-1"><div>Credit</div>
+    </button>
+    
+    <button type="button" class="details-btn rounded-0 py-2 d-flex align-items-center justify-content-center" routerLink="/business/transactions/transaction-list/debit" routerLinkActive="active-item">
+        <img src="assets/images/card-receive.svg" class="pe-1"><div>Debit</div>
+    </button>
+</div>
+    <div class="main_comp px-3">
+        <div class="card mb-3 border-0" *ngFor="let data of data">
+            <div class="row address-row m-0 p-0 d-flex justify-content-start align-items-center">
+                <div class="text-end position-absolute kebab-menu-container">
+                    <img src="../assets/images/kebab-menu.png" alt="" data-bs-toggle="dropdown" aria-expanded="false">
+                    <ul class="dropdown-menu border-0" [ngClass]="isShow ? 'show':'hide'">
+                        <li (click)="editTransaction(data.id)">
+                            <a class="dropdown-item">
+                                <img src="assets/images/edit-2.svg" class="me-3">Edit
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item mt-3">
+                                <img src="assets/images/box.svg" class="me-3">Mark payment status
+                            </a>
+                        </li>
+                        <li (click)="deleteTransaction(data.id)">
+                            <a class="dropdown-item delete mt-3">
+                                <img src="assets/images/trash.svg" class="me-3">Delete
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-6  col-md-6 col-sm-6 col-12 p-lg-4  px-lg-4 p-x-2 p-3 border-right">
+                    <div class="d-flex">
+                        <img src="assets/images/user-1.svg" alt="" width="66" height="66"/>
+                        <div class="ps-4">
+                            <h6>Name</h6>
+                            <h5>{{data?.name}}</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12 p-lg-4  px-lg-4 p-x-2 p-3">
+                    <h6>Transaction ID</h6>
+                    <h5>{{data?.id}}</h5>
+                </div>
+            </div>
+            <div class="row address-row m-0 p-0 d-flex justify-content-start align-items-center  border-bottom">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12 p-lg-4  px-lg-4 p-x-2 p-3 border-right">
+                    <h6>Transaction amount</h6>
+                    <h5>{{data?.transactionAmount}}</h5>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-12 p-lg-4  px-lg-4 p-x-2 p-3">
+                    <h6>Due amount</h6>
+                    <h5>{{data?.dueAmount}}</h5>
+                </div>
+            </div>
+            <div class="row address-row d-flex p-0 justify-content-start align-items-center m-0  border-bottom">
+                <div class="col-lg-6  col-md-6 col-sm-6 col-12 p-lg-4  px-lg-4 p-x-2 p-3 border-right">
+                    <h6>Type of transaction</h6>
+                    <h5>{{data?.transaction_type | titlecase}}</h5>
+                </div>
+                <div class="col-lg-6  p-lg-4  px-lg-5 p-x-2 p-3">
+                    <h6>Date of transaction</h6>
+                    <h5>{{data?.created_at | date: 'mediumDate'}}</h5>
+                </div>
+            </div>
+            <div class="row address-row d-flex p-0 justify-content-start align-items-center m-0 ">
+                <div class="col-lg-12  p-lg-4  px-lg-4 p-x-2 p-3">
+                    <h6>Note</h6>
+                    <h5>{{data?.Note}}</h5>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+<div class="transaction-stats-wrapper d-flex justify-content-between">
+    <app-transaction-statics></app-transaction-statics>
+    <div class="ps-3 add-transaction-btn-container">
+        <button class="btn active-link position-relative me-3" routerLink="/business/transactions/add-new-transaction">
+            <img src="assets/images/Vector.svg" alt="" class="position-absolute add-transaction-img">
+            <span class="ms-2">Add Transaction</span>
+        </button>
+        <img (click)="creditDebit()" src="assets/images/filter (2).svg" >
+    </div>
+</div>
+
+<div class="position-sticky bottom-0 px-3 pt-4 d-flex">
+    <button type="button" class="details-btn margin-right rounded-0 py-2 d-flex align-items-center justify-content-center" routerLink="/business/transactions/transaction-list/credit" routerLinkActive="active-item">
+        <img src="assets/images/card-receive.svg" class="pe-1"><div>Credit</div>
+    </button>
+    
+    <button type="button" class="details-btn rounded-0 py-2 d-flex align-items-center justify-content-center" routerLink="/business/transactions/transaction-list/debit" routerLinkActive="active-item">
+        <img src="assets/images/card-send.svg" class="pe-1"><div>Debit</div>
+    </button>
+</div>
+
+<div class="main_comp px-3">
+    <div class="card mb-3 border-0" *ngFor="let data of data">
+        <div class="row address-row m-0 p-0 d-flex justify-content-start align-items-center">
+            <div class="text-end position-absolute kebab-menu-container">
+                <img src="../../../../../assets/images/kebab-menu.png" alt="" data-bs-toggle="dropdown" aria-expanded="false">
+                <ul class="dropdown-menu border-0" [ngClass]="isShow ? 'show':'hide'">
+                    <li (click)="editTransaction(data.id)">
+                        <a class="dropdown-item">
+                            <img src="assets/images/edit-2.svg" class="me-3">Edit
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item mt-3">
+                            <img src="assets/images/box.svg" class="me-3">Mark payment status
+                        </a>
+                    </li>
+                    <li (click)="deleteTransaction(data.id)">
+                        <a class="dropdown-item delete mt-3">
+                            <img src="assets/images/trash.svg" class="me-3">Delete
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-lg-6  p-lg-4  px-lg-5 p-x-2 p-3 border-lg-1 border-default border-end">
+                <div class="d-flex">
+                    <img src="assets/images/user-1.svg" alt="" width="66" height="66"/>
+                    <div class="ps-4">
+                        <h6>Name</h6>
+                        <h5>{{data?.name}}</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 p-lg-4  px-lg-5 p-x-2 p-3">
+                <h6>Transaction ID</h6>
+                <h5>{{data?.id}}</h5>
+            </div>
+        </div>
+        <div class="row address-row m-0 p-0 d-flex justify-content-start align-items-center  border-bottom border-top border-1  border-default  ">
+            <div class="col-lg-6  p-lg-4  px-lg-5 p-x-2 p-3 border-lg-1 border-default border-end">
+                <h6>Transaction amount</h6>
+                <h5>{{data?.transactionAmount}}</h5>
+            </div>
+            <div class="col-lg-6 p-lg-4  px-lg-5 p-x-2 p-3">
+                <h6>Due amount</h6>
+                <h5>{{data?.dueAmount}}</h5>
+            </div>
+        </div>
+        <div class="row address-row d-flex p-0 justify-content-start align-items-center m-0  border-bottom border-1  border-default ">
+            <div class="col-lg-6  p-lg-4  px-lg-5 p-x-2 p-3 border-lg-1 border-default border-end">
+                <h6>Type of transaction</h6>
+                <h5>{{data?.transaction_type | titlecase}}</h5>
+            </div>
+            <div class="col-lg-6  p-lg-4  px-lg-5 p-x-2 p-3">
+                <h6>Date of transaction</h6>
+                <h5>{{data?.created_at | date: 'mediumDate'}}</h5>
+            </div>
+        </div>
+        <div class="row address-row d-flex p-0 justify-content-start align-items-center m-0 ">
+            <div class="col-lg-12  p-lg-4  px-lg-5 p-x-2 p-3">
+                <h6>Note</h6>
+                <h5>{{data?.Note}}</h5>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center nodata" *ngIf="noDataFound">
+        <p class="mb-0">No data found</p>
+    </div>
+</div>
+
+
+   

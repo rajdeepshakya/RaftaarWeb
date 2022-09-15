@@ -1,0 +1,858 @@
+
+
+<div class="ps-3">
+    <div class="row add-sales-order m-0 align-items-center pb-4">
+        <div class="result col-md-8 p-0">
+            <div class="sales-order-content-heading">{{IsaddPurchaseOrder? 'Add new purchase order': 'Edit purchase order'}}</div>
+        </div>
+    </div>
+    <section class="sales-container">
+        <mat-stepper linear labelPosition="bottom" #stepper>
+
+            <mat-step [stepControl]="productDeliveryFormGroup" [editable]="isEditable">
+                <form [formGroup]="productDeliveryFormGroup">
+                    <ng-template matStepLabel>Product Delivery<br />Milestones</ng-template>
+                    <div class="row m-0 add-new px-md-5 px-3">
+                        <div class="col-md-6 ">
+                            <div class="adddocumentpage main_comp pb-0">
+                                <div class="d-flex flex-column locateyourdata input-container-height">
+                                    <label class="label py-3">Milestone Name</label>
+                                    <div class="locateyourdata">
+                                        <input type="text" class="form-control locationdata"
+                                            placeholder="Milestone name here" formControlName="milestone_name">
+                                        <div *ngIf="submittedFourthForm && f4.milestone_name.errors">
+                                            <small  *ngIf="f4.milestone_name.errors?.required">Milestone Name is required</small>
+                                            <small  *ngIf="f4.milestone_name.errors?.pattern">Invalid milestone name</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="locateyourdata input-container-height">
+                                    <label class="label py-3">End date</label>
+                                    <mat-form-field appearance="fill" style="width:100%" class="">
+                                        <input matInput [matDatepicker]="picker " placeholder="Select date"
+                                            formControlName="product_delivery_end_date" (click)="picker.open()" readonly>
+                                        <mat-datepicker-toggle matSuffix [for]="picker">
+                                            <mat-icon matDatepickerToggleIcon disabled>
+                                                <img src="../../../../../assets/images/calendar.png" alt=""
+                                                    class="calender">
+                                            </mat-icon>
+                                        </mat-datepicker-toggle>
+                                        <mat-datepicker #picker [startAt]="startDate | date:'medium'"></mat-datepicker>
+                                    </mat-form-field>
+                                    <div *ngIf="submittedFourthForm && f4.product_delivery_end_date.errors">
+                                        <small  *ngIf="f4.product_delivery_end_date.errors?.required">End date is required</small>
+                                    </div>
+
+                                </div>
+                                <div class="d-flex flex-column locateyourdata input-container-height">
+                                    <label class="label py-3">Unit type</label>
+                                    <mat-form-field appearance="fill" class="">
+                                        <mat-select placeholder="Select unit type" formControlName="unit_type">
+                                            <mat-option *ngFor="let unitTypeItem of unitType" [value]="unitTypeItem">
+                                                {{unitTypeItem}}
+                                            </mat-option>
+                                        </mat-select>
+
+                                    </mat-form-field>
+                                    <div *ngIf="submittedFourthForm && f4.unit_type.errors">
+                                        <small  *ngIf="f4.unit_type.errors?.required">Unit type is required</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <div class="adddocumentpage main_comp pb-0">
+                                <div class="locateyourdata input-container-height">
+                                    <label class="label py-3">Start date</label>
+                                    <mat-form-field appearance="fill" style="width:100%" class="">
+                                        <input matInput [matDatepicker]="picker1 " placeholder="Select date"
+                                            formControlName="product_delivery_start_date" (click)="picker1.open()" readonly>
+                                        <mat-datepicker-toggle matSuffix [for]="picker1">
+                                            <mat-icon matDatepickerToggleIcon disabled>
+                                                <img src="../../../../../assets/images/calendar.png" alt=""
+                                                    class="calender">
+                                            </mat-icon>
+                                        </mat-datepicker-toggle>
+                                        <mat-datepicker #picker1 [startAt]="startDate | date:'medium'"></mat-datepicker>
+                                    </mat-form-field>
+                                    <div *ngIf="submittedFourthForm && f4.product_delivery_start_date.errors">
+                                        <small  *ngIf="f4.product_delivery_start_date.errors?.required">Start date is required</small>
+                                    </div>
+
+                                </div>
+                                <div class="d-flex flex-column locateyourdata input-container-height">
+                                    <label class="label py-3">Number of unit</label>
+                                    <div class="locateyourdata">
+                                        <input type="text" class="form-control locationdata"
+                                            placeholder="Enter no. of unit" formControlName="number_of_unit">
+                                        <div *ngIf="submittedFourthForm && f4.number_of_unit.errors">
+                                            <small  *ngIf="f4.number_of_unit.errors?.required">Number of unit is required</small>
+                                            <small  *ngIf="f4.number_of_unit.errors?.pattern">Invalid number of unit</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="locateyourdata input-container-height">
+                                    <label class="label py-3">Payment received date</label>
+                                    <mat-form-field appearance="fill" style="width:100%" class="">
+                                        <input matInput [matDatepicker]="picker2 " placeholder="Choose date here" formControlName="payment_recieved_date" (click)="picker2.open()" readonly>
+                                        <mat-datepicker-toggle matSuffix [for]="picker2">
+                                            <mat-icon matDatepickerToggleIcon disabled>
+                                                <img src="../../../../../assets/images/calendar.png" alt=""
+                                                    class="calender">
+                                            </mat-icon>
+                                        </mat-datepicker-toggle>
+                                        <mat-datepicker #picker2 [startAt]="startDate | date:'medium'"></mat-datepicker>
+                                    </mat-form-field>
+                                    <div *ngIf="submittedFourthForm && f4.payment_recieved_date.errors">
+                                        <small  *ngIf="f4.payment_recieved_date.errors?.required">Payment received date is required</small>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="adddocumentpage mb-3 main_comp">
+                        <div class="postdata d-flex justify-content-center">
+                            <button class="me-2 back" matStepperPrevious>Back</button>
+                            <button class="ms-2 continue-btn" matStepperNext (click)="validateFourthForm()">Continue</button>
+                        </div>
+                    </div>
+                </form>
+            </mat-step>
+
+            <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
+                <form [formGroup]="firstFormGroup">
+                    <ng-template matStepLabel>Client details</ng-template>
+                    <div class="row m-0 add-new px-md-5 px-3">
+                        <div class="col-md-6">  
+                            <div class="d-flex flex-column locateyourdata input-container-height">
+                                <label class="label py-3">Client's/Company Name</label>
+                                <mat-form-field appearance="fill" class="">
+                                    <mat-select placeholder="Select company name" formControlName="company_id"
+                                        (selectionChange)="selectionChange($event)" [disabled]="isReadOnly">
+                                        <mat-option value="Other">
+                                            Other
+                                        </mat-option>
+                                        <mat-option *ngFor="let item of companiesList" [value]="item.id">
+                                            {{item.company_name}}
+                                        </mat-option>
+                                    </mat-select>
+                                    <div *ngIf="submitted && f.company_id.errors">
+                                        <small  *ngIf="f.company_id.errors?.required">Company Name is required</small>
+                                    </div>
+                                </mat-form-field>
+                            </div>
+                            <div class="d-flex flex-column locateyourdata input-container-height" *ngIf="isOtherSelected">
+                                <label class="label py-3">Company Name</label>
+                                <div class="locateyourdata">
+                                    <input type="text" class="form-control locationdata"
+                                        placeholder="Enter company name" formControlName="company_name" [readOnly]="isReadOnly">
+                                    <div *ngIf="submitted && f.company_name.errors">
+                                        <small  *ngIf="f.company_name.errors?.required">Company Name is required</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex flex-column locateyourdata input-container-height">
+                                <label class="label my-3 ">Client contact number</label>
+                                <div class="locateyourdata">
+                                    <input type="text" class="form-control locationdata box-shadow-none"
+                                        placeholder="Enter contact number" formControlName="contact_no" (keypress)="isNumberKey($event)" [readOnly]="isReadOnly" maxlength="10">
+                                    <div *ngIf="submitted && f.contact_no.errors">
+                                        <small  *ngIf="f.contact_no.errors?.required">Client contact number is required</small>
+                                        <small  *ngIf="f.contact_no.errors?.pattern">Invalid contact number</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-0 add-new px-md-5 px-3">
+                        <div class="col-md-6">
+                            <div class="d-flex flex-column locateyourdata input-container-height">
+                                <label class="label py-3">Client email</label>
+                                <div class="locateyourdata">
+                                    <input type="text" class="form-control locationdata box-shadow-none"
+                                        placeholder="Enter email address" formControlName="email" [readOnly]="isReadOnly">
+                                    <div *ngIf="submitted && f.email.errors">
+                                        <small  *ngIf="f.email.errors?.required">Client email is required</small>
+                                        <small  *ngIf="f.email.errors?.pattern">Invalid email</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex flex-column locateyourdata input-container-height">
+                                <span class="label py-3">Client Address</span>
+                                <div class="locateyourdata">
+                                    <input type="text" class="form-control locationdata box-shadow-none" placeholder="Enter address" (keypress)="addressChars($event)" formControlName="address" [readOnly]="isReadOnly">
+                                    <div *ngIf="submitted && f.address.errors">
+                                        <small  *ngIf="f.address.errors?.required">Address is required</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="postdata d-flex justify-content-center align-items-center">
+                        <button matStepperNext class="productsubmit continue-btn" (click)="validateForm()">Continue<img></button>
+                    </div>
+                </form>
+            </mat-step>
+                   
+            <!-- <mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
+
+                <form [formGroup]="firstFormGroup">
+                    <ng-template matStepLabel>Client details</ng-template>
+                    <div class="row m-0 add-new px-md-5 px-3">
+                        <div class="col-md-6">
+                            <div class="adddocumentpage main_comp pb-0">
+                                <div class="d-flex flex-column locateyourdata">
+                                    <span class="label py-3">Client's/Company Name</span>
+                                    <mat-form-field appearance="fill" class="">
+                                        <mat-select placeholder="Select company name" formControlName="company_id"
+                                            (selectionChange)="selectionChange($event)" [disabled]="isReadOnly">
+                                            <mat-option value="Other">
+                                                Other
+                                            </mat-option>
+                                            <mat-option *ngFor="let item of companiesList" [value]="item.id">
+                                                {{item.company_name}}
+                                            </mat-option>
+                                        </mat-select>
+                                        <div *ngIf="submitted && f.company_id.errors">
+                                            <small  *ngIf="f.company_id.errors?.required">Company Name is required</small>
+                                        </div>
+                                    </mat-form-field>
+                                </div>
+                                <div class="d-flex flex-column locateyourdata" *ngIf="isOtherSelected">
+                                    <span class="label">Company Name</span>
+                                    <div class="locateyourdata input-container-height">
+                                        <input type="text" class="form-control locationdata  mt-3 "
+                                            placeholder="Enter company name" formControlName="company_name" [readOnly]="isReadOnly">
+                                        <div *ngIf="submitted && f.company_name.errors">
+                                            <small  *ngIf="f.company_name.errors?.required">Company Name is required</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-column locateyourdata">
+                                    <span class="label py-3">Client email</span>
+                                    <div class="locateyourdata input-container-height">
+                                        <input type="text" class="form-control locationdata"
+                                            placeholder="Enter email address" formControlName="email" [readOnly]="isReadOnly">
+                                        <div *ngIf="submitted && f.email.errors">
+                                            <small  *ngIf="f.email.errors?.required">Client email is required</small>
+                                            <small  *ngIf="f.email.errors?.pattern">Invalid email</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <div class="adddocumentpage main_comp pb-0">
+                                <div class="d-flex flex-column locateyourdata">
+                                    <span class="label my-3 ">Client contact number</span>
+                                    <div class="locateyourdata input-container-height">
+                                        <input type="text" class="form-control locationdata"
+                                            placeholder="Enter contact number" formControlName="contact_no" [readOnly]="isReadOnly" maxlength="10">
+                                        <div *ngIf="submitted && f.contact_no.errors">
+                                            <small  *ngIf="f.contact_no.errors?.required">Client contact number is required</small>
+                                            <small  *ngIf="f.contact_no.errors?.pattern">Invalid contact number</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-column locateyourdata">
+                                    <span class="label py-3">Client Address</span>
+                                    <div class="locateyourdata input-container-height">
+                                        <input type="text" class="form-control locationdata" placeholder="Enter address" formControlName="address" [readOnly]="isReadOnly">
+                                        <div *ngIf="submitted && f.address.errors">
+                                            <small  *ngIf="f.address.errors?.required">Address is required</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="postdata d-flex justify-content-center align-items-center">
+                        <button matStepperNext class="productsubmit continue-btn" (click)="validateForm()">Continue<img></button>
+                    </div>
+                </form>
+            </mat-step> -->    
+            <mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+                <form [formGroup]="secondFormGroup">
+                    <ng-template matStepLabel>Order Details</ng-template>
+                    <div class="row m-0 add-new px-md-5 px-3">
+                        <div class="col-md-6 ">
+                            <div class="adddocumentpage main_comp pb-0">
+                                <div class="d-flex flex-column locateyourdata input-container-height">
+                                    <label class="label py-3">Business Activity</label>
+                                    <mat-form-field appearance="fill" class="">
+                                        <mat-select placeholder="Select business activity" formControlName="industry_id"
+                                            (selectionChange)="selectionChangeBusinessActivity($event)">
+                                            <mat-option *ngFor="let businessItem of businessActivityList"
+                                                [value]="businessItem.id">
+                                                {{businessItem.industry_name}}
+                                            </mat-option>
+                                        </mat-select>
+
+                                    </mat-form-field>
+                                    <div *ngIf="submittedSecondForm && f2.industry_id.errors">
+                                        <small  *ngIf="f2.industry_id.errors?.required">Business activity is required</small>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-column locateyourdata input-container-height">
+                                    <label class="label py-3">Product sub-category</label>
+                                    <mat-form-field appearance="fill" class="">
+                                        <!-- <mat-select placeholder="Select product sub category"  >
+                                <mat-option >
+                                </mat-option>
+                            </mat-select> -->
+                                        <mat-select placeholder="Select product sub csub-typategory"
+                                            formControlName="category2_id"
+                                            (selectionChange)="selectionChangeProductSubcategory($event)">
+                                            <mat-option *ngFor="let productItem of productSubCategoryList"
+                                                [value]="productItem.id">
+                                                {{productItem.title}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <div *ngIf="submittedSecondForm && f2.category2_id.errors">
+                                        <small  *ngIf="f2.category2_id.errors?.required">Product sub-category is required</small>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-column locateyourdata input-container-height">
+                                    <span class="label py-3">Product sub-type</span>
+                                    <mat-form-field appearance="fill" class="">
+                                        <mat-select placeholder="Select product sub type"
+                                            formControlName="category4_id">
+                                            <mat-option *ngFor="let productSubTypeItem of productSubTypeList"
+                                                [value]="productSubTypeItem.id">
+                                                {{productSubTypeItem.title}}
+                                            </mat-option>
+                                        </mat-select>
+
+                                    </mat-form-field>
+                                    <div *ngIf="submittedSecondForm && f2.category4_id.errors">
+                                        <small  *ngIf="f2.category4_id.errors?.required">Product sub-type is required</small>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-column locateyourdata input-container-height">
+                                    <span class="label py-3">Product HSN code</span>
+                                    <div class="locateyourdata">
+                                        <input type="text" class="form-control locationdata"
+                                            placeholder="Enter product HSN code" formControlName="hsn_code" maxlength="8" (keypress)="isNumberKey($event)">
+                                        <div *ngIf="submittedSecondForm && f2.hsn_code.errors">
+                                            <small  *ngIf="f2.hsn_code.errors?.required">Product HSN code is required</small>
+                                            <small  *ngIf="f2.hsn_code.errors?.pattern">Invalid HSN code</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <div class="adddocumentpage main_comp pb-0">
+                                <div class="d-flex flex-column locateyourdata input-container-height">
+                                    <span class="label py-3">Industry</span>
+                                    <mat-form-field appearance="fill" class="">
+                                        <!-- <mat-select placeholder="Select Industry"  >
+                                <mat-option >
+                                </mat-option>
+                            </mat-select> -->
+                                        <mat-select placeholder="Select Industry" formControlName="category1_id"
+                                            (selectionChange)="selectionChangeIndustry($event)">
+                                            <mat-option *ngFor="let industryListItem of industryList"
+                                                [value]="industryListItem.id">
+                                                {{industryListItem.title}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <div *ngIf="submittedSecondForm && f2.category1_id.errors">
+                                        <small  *ngIf="f2.category1_id.errors?.required">Industry is required</small>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-column locateyourdata input-container-height">
+                                    <label class="label py-3">Product type</label>
+                                    <mat-form-field appearance="fill" class="">
+                                        <mat-select placeholder="Select product type" formControlName="category3_id"
+                                            (selectionChange)="selectionChangeProductType($event)">
+                                            <mat-option *ngFor="let productTypeListItem of productTypeList"
+                                                [value]="productTypeListItem.id">
+                                                {{productTypeListItem.title}}
+                                            </mat-option>
+                                        </mat-select>
+
+                                    </mat-form-field>
+                                    <div *ngIf="submittedSecondForm && f2.category3_id.errors">
+                                        <small  *ngIf="f2.category3_id.errors?.required">Product type is required</small>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-column locateyourdata input-container-height">
+                                    <label class="label py-3">Product brand</label>
+                                    <mat-form-field appearance="fill" class="">
+                                        <!-- <mat-select placeholder="Select product brand">
+                                <mat-option >
+                                </mat-option>
+                            </mat-select> -->
+                                        <mat-select placeholder="Select product brand" formControlName="brand_id">
+                                            <mat-option *ngFor="let productBrandItem of productBrandList"
+                                                [value]="productBrandItem.id">
+                                                {{productBrandItem.brand_name}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                    <div *ngIf="submittedSecondForm && f2.brand_id.errors">
+                                        <small  *ngIf="f2.brand_id.errors?.required">Product brand is required</small>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-column locateyourdata input-container-height">
+                                    <label class="label py-3">Product price</label>
+                                    <div class="locateyourdata">
+                                        <input type="text" class="form-control locationdata"
+                                            placeholder="Enter product price" formControlName="price" (keypress)="isNumberKey($event)">
+                                        <div *ngIf="submittedSecondForm && f2.price.errors">
+                                            <small  *ngIf="f2.price.errors?.required">Product price is required</small>
+                                            <small  *ngIf="f2.price.errors?.pattern">Invalid product price</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="adddocumentpage mb-3 main_comp">
+                        <div class="postdata d-flex justify-content-center">
+                            <button class="me-2 back" matStepperPrevious>Back</button>
+                            <button class="ms-2 continue-btn" matStepperNext (click)="validateSecondForm()">Continue</button>
+                        </div>
+                    </div>
+                </form>
+            </mat-step>  
+            
+            <mat-step [stepControl]="taxDetailsFormGroup" [editable]="isEditable">
+
+                <form [formGroup]="taxDetailsFormGroup">
+                    <!-- #docregion step-label -->
+                    <ng-template matStepLabel>Tax Details</ng-template>
+                    <div class="row m-0 add-new px-md-5 px-3">
+                        <div class="col-md-6 ">
+                            <div class="adddocumentpage main_comp pb-0">
+                                <div class="d-flex flex-column locateyourdata input-container-height">
+                                    <label class="label py-3">Tax type</label>
+                                    <mat-form-field appearance="fill" class="">
+                                        <mat-select placeholder="Select tax type" formControlName="tax_type">
+                                            <mat-option *ngFor="let gstType of array_name" [value]="gstType">
+                                                {{gstType}}
+                                            </mat-option>
+                                        </mat-select>
+
+                                    </mat-form-field>
+                                    <div *ngIf="submittedThirdForm && f3.tax_type.errors">
+                                        <small  *ngIf="f3.tax_type.errors?.required">Tax type is required</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <div class="adddocumentpage main_comp pb-0">
+                                <div class="d-flex flex-column locateyourdata input-container-height">
+                                    <span class="label py-3">Percentage</span>
+                                    <div class="locateyourdata">
+                                        <input type="text" class="form-control locationdata"
+                                            placeholder="Enter tax percentage" formControlName="tax_percentage">
+                                        <div *ngIf="submittedThirdForm && f3.tax_percentage.errors">
+                                            <small  *ngIf="f3.tax_percentage.errors?.required">Percentage is required</small>
+                                            <small  *ngIf="f3.tax_percentage.errors?.pattern">Invalid percentage input</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="adddocumentpage mb-3 main_comp">
+                        <div class="postdata d-flex justify-content-center">
+                            <button class="me-2 back" matStepperPrevious>Back</button>
+                            <button class="ms-2 continue-btn" matStepperNext (click)="validateThirdForm()">Continue</button>
+                        </div>
+                    </div>
+                </form>
+
+            </mat-step>
+
+            
+
+            <mat-step [stepControl]="otherDetailFormGroup" [editable]="isEditable">
+                <form [formGroup]="otherDetailFormGroup" (submit)="onSubmit()">
+                    <ng-template matStepLabel>Other Details</ng-template>
+                    <div class="row m-0 add-new px-md-5 px-3">
+                        <div class="col-md-6 ">
+                            <div class="adddocumentpage main_comp pb-0">
+                                <div class="d-flex flex-column locateyourdata input-container-height">
+                                    <label class="label my-3">Order created by</label>
+                                    <div class="locateyourdata">
+                                        <div class="position-relative">
+                                            <input type="text"
+                                                class="form-control locationdata order-created-padding-left"
+                                                placeholder="Wade Warrene" formControlName="order_created_by">
+                                            <img class="inputimg position-absolute"
+                                                src="assets/images/like_3.svg" height="50px"
+                                                width="50px">
+                                        </div>
+                                        <div *ngIf="submittedFifthForm && f5.order_created_by.errors">
+                                            <small  *ngIf="f5.order_created_by.errors?.required">Order created by is required</small>
+                                            <small  *ngIf="f5.order_created_by.errors?.pattern">Invalid input</small>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-column locateyourdata input-container-height">
+                                    <label class="label my-3">Add discount Percentage</label>
+                                    <!-- <mat-form-field appearance="fill" class="py-3">
+                            <mat-select placeholder="Enter %" formControlName="discount_percentage" [value]="10" >
+                                <mat-option >
+                                    10
+                                </mat-option>
+                            </mat-select>
+
+                        </mat-form-field> -->
+                                    <input type="text" class="form-control locationdata"
+                                        placeholder="Enter discount Percentage" formControlName="discount_percentage">
+                                    <div *ngIf="submittedFifthForm && f5.discount_percentage.errors">
+                                        <small  *ngIf="f5.discount_percentage.errors?.required">Add discount percentage is required</small>
+                                        <small  *ngIf="f5.discount_percentage.errors?.pattern">Invalid discount percentage</small>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-column locateyourdata input-container-height">
+                                    <label class="label py-3">Enter total amount receivable</label>
+                                    <div class="locateyourdata">
+                                        <input type="text" class="form-control locationdata"
+                                            placeholder="Enter amount here" formControlName="amount_recieved">
+
+                                        <div *ngIf="submittedFifthForm && f5.amount_recieved.errors">
+                                            <small  *ngIf="f5.amount_recieved.errors?.required">Total amount receivable is required</small>
+                                            <small  *ngIf="f5.amount_recieved.errors?.pattern">Invalid input</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center locateyourdata">
+                                    <img src="../../../../../assets/images/add-square.svg" (click)="addFieldPopup()">
+                                    <span class="mx-2 add-fields-label">Add Fields</span>
+                                </div>
+
+                                <div class="locateyourdata" formArrayName="custom_fields">
+                                    <div [formGroupName]="i" *ngFor="let customfield of customfields; let i=index;">
+                                        <label class="label my-3">{{customfield}}</label>
+                                        <input type="text" class=" locationdata" formControlName="content"
+                                            placeholder="Enter {{customfield}}">
+                                        
+                                        <!-- <div *ngIf=" submitted && t['content'].errors" class="invalid-feedback">
+                                    <div *ngIf="submitted && t['content'].errors['required']">content is required
+                                    </div>
+                                </div> -->
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 ">
+                            <div class="adddocumentpage main_comp pb-0">
+                                <div class="d-flex flex-column locateyourdata input-container-height">
+                                    <label class="label my-3">Total number of unit ordered</label>
+                                    <!-- <mat-form-field appearance="fill" class="py-3">
+                            <mat-select placeholder="Select rate / unit"  formControlName="no_of_unit_ordered" [value]="50">
+                                <mat-option >
+                                    50
+                                </mat-option>
+                            </mat-select>
+
+                        </mat-form-field> -->
+                                    <input type="text" class="form-control locationdata"
+                                        placeholder="Enter total number of unit ordered"
+                                        formControlName="no_of_unit_ordered">
+                                    <div *ngIf="submittedFifthForm && f5.no_of_unit_ordered.errors">
+                                        <small  *ngIf="f5.no_of_unit_ordered.errors?.required">Total number of unit ordered is required</small>
+                                        <small  *ngIf="f5.no_of_unit_ordered.errors?.pattern">Invalid input</small>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-column locateyourdata input-container-height">
+                                    <label class="label my-3">Discount type</label>
+                                    <div class="locateyourdata">
+                                        <input type="text" class="form-control locationdata"
+                                            placeholder="Discount type" formControlName="discount_type">
+                                        <div *ngIf="submittedFifthForm && f5.discount_type.errors">
+                                            <small  *ngIf="f5.discount_type.errors?.required">Discount type is required</small>
+                                            <small  *ngIf="f5.discount_type.errors?.pattern">Invalid input</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-column locateyourdata input-container-height">
+                                    <label class="label my-3">No. of days for final payment after delivery</label>
+                                    <div class="locateyourdata">
+                                        <input type="text" class="form-control locationdata"
+                                            placeholder="Enter days here" formControlName="final_payment_date">
+                                        <div *ngIf="submittedFifthForm && f5.final_payment_date.errors">
+                                            <small  *ngIf="f5.final_payment_date.errors?.required">No. of days for final payment after delivery is required</small>
+                                            <small  *ngIf="f5.final_payment_date.errors?.pattern">Invalid input</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="adddocument main_comp  py-0 mt-3">
+                            <div class="d-flex justify-content-between">
+                                <span class="mt-3 upload-files-label">Upload Files</span>
+                                <p class="mt-3 mb-4">Maximum 5 Allowed</p>
+                            </div>
+
+                            <hr class="m-0">
+                            <div class="d-flex files">
+                                <div class="adddocument align-items-center flex-column d-flex"
+                                    (click)="selectFile.click()">
+                                    <input style="display: none" type="file" #selectFile (change)="fileupload($event)"
+                                        accept="image/*">
+                                    <img src="assets/images/Group.svg" alt="" width="30px" height="30px">
+                                    <span class="add-content-label mt-2">
+                                        Add image
+                                    </span>
+                                </div>
+                                <div class="adddocument align-items-center flex-column d-flex mx-3"
+                                    (click)="selectFile1.click()">
+                                    <input style="display: none" type="file" #selectFile1 accept="video/*"
+                                        (change)="fileupload($event)">
+                                    <img src="assets/images/Group-1.svg" alt="" width="30px" height="30px">
+                                    <span class="add-content-label mt-2">
+                                        Add Video
+                                    </span>
+                                </div>
+                                <div class="adddocument align-items-center flex-column d-flex"
+                                    (click)="selectFile2.click()">
+                                    <input style="display: none" type="file" #selectFile2 accept="application/pdf"
+                                        (change)="fileupload($event)">
+                                    <img src="assets/images/pdf 3 (1).svg" alt="" width="30px" height="30px">
+                                    <span class="add-content-label mt-2">
+                                        Add Document
+                                    </span>
+                                </div>
+                                <div class="d-flex align-items-center flex-wrap mt-3">
+                                    <div class="upload-img position-relative d-inline-block mx-2 mb-3"
+                                        *ngFor="let image of images; let i = index">
+                                        <img [src]="image.url" width="90px" height="90px">
+                                        <img src="assets/images/close-circle.png" 
+                                            class="close position-absolute">
+                                    </div>
+                                    <div class="upload-img position-relative d-inline-block mx-2 mb-3"
+                                        *ngFor="let video of videos; let i = index">
+                                        <video width="90px" height="90px" controls>
+                                            <source [src]="video.url" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                        <img src="assets/images/close-circle.png"
+                                            class="close position-absolute">
+                                    </div>
+                                    
+                                    <div class="upload-img position-relative d-inline-block mx-2 mb-3"
+                                        *ngFor="let document of pdf; let i = index">
+                                        <a target="_self" [href]="document.url" download="pdf">
+                                            <img src="assets/images/pdf 3 (1).svg" width="90px" height="90px">
+                                        </a>
+                                        <img src="assets/images/close-circle.png" 
+                                            class="close position-absolute">
+                                    </div>
+                                </div>
+                            </div>
+                            <small *ngIf="selectFiles">Please select atleast one file</small>
+
+                            <div class="d-flex justify-content-between align-items-center">
+                                <input style="display: none" type="file" #selectFile3 multiple>
+                                <p class="drag" appDragAndDrop>Drag and drop, or <span 
+                                        style="color: #00A3FF" class="cursor">select a file</span></p>
+                            </div>
+                            <div class="mt-2">
+                                <label class="container">Allow Notification
+                                    <input type="checkbox">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div> -->
+                        <div class="locateyourdata col-md-6">
+                            <div class="d-flex justify-content-between">
+                                <label class="py-3 upload-files-text">Upload Files</label>
+                                <p class="mt-3 mb-4" *ngIf="maxFileAllowed">Maximum 5 Allowed</p>
+                            </div>
+                            <hr class="mt-0 mb-3">
+                            <div class="d-flex justify-content-between files p-3">
+                                <div (click)="selectFile.click()" style="cursor: pointer"
+                                    class="adddocument align-items-center flex-column d-flex">
+                                    <input style="display: none" type="file" (change)="fileupload($event)" #selectFile
+                                        accept="image/*" multiple>
+                                       <!-- <img src="assets/images/Group.svg" alt="" width="30px" height="30px"> -->
+                                       <img src="assets/images/gallery-1.svg" alt="" width="30px" height="30px">
+                                        <span class="ms-2">
+                                        Add image
+                                    </span>
+                                </div>
+                                <div (click)="selectFile1.click()" style="cursor: pointer"
+                                    class="adddocument align-items-center flex-column d-flex">
+                                    <input style="display: none" type="file" accept="video/*" (change)="fileupload($event)"
+                                        #selectFile1 multiple>
+                                   <!-- <img src="assets/images/Group-1.svg" alt="" width="30px" height="30px"> -->
+                                   <img src="assets/images/video-playicon.svg" alt="" width="30px" height="30px">
+                                        <span class="ms-2">
+                                        Add video
+                                    </span>
+                                </div>
+                                <div (click)="selectFile2.click()" style="cursor: pointer"
+                                    class="adddocument align-items-center flex-column d-flex">
+                                    <input style="display: none" type="file" (change)="fileupload($event)"
+                                        accept="application/pdf" #selectFile2 multiple>
+                                   <!-- <img src="assets/images/docu.svg" alt="" width="30px" height="30px"> -->
+                                   <img src="assets/images/documenticon.svg" alt="" width="30px" height="30px">
+                                    <span class="ms-2">
+                                        Add document
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="adddocumentpage py-3">
+                            <div class="postdata d-flex justify-content-between align-items-center">
+                                <input style="display: none" type="file" (change)="fileupload($event)" #selectFile3 multiple>
+                                <p class="drag" (fileDropped)="onFileDropped($event)" appDragAndDrop class="drag-drop-text">Drag and drop, or 
+                                    <span class="select-file-text" (click)="selectFile3.click()">select a file</span>
+                                </p>
+                            </div>
+                            <div class="d-flex align-items-center flex-wrap">
+                                <div class="upload-img position-relative d-inline-block mx-2 mb-3"
+                                    *ngFor="let image of images; let i = index">
+                                    <img [src]="image.url" width="90px" height="90px">
+                                    <img src="assets/images/close-circle.png" (click)="deleteImg(i,1)"
+                                        class="close position-absolute">
+                                </div>
+                                <div class="upload-img position-relative d-inline-block mx-2 mb-3"
+                                    *ngFor="let video of videos; let i = index">
+                                    <video width="90px" height="90px" controls>
+                                        <source [src]="video.url" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                    <img src="assets/images/close-circle.png" (click)="deleteImg(i,2)"
+                                        class="close position-absolute">
+                                </div>
+        
+                                <div class="upload-img position-relative d-inline-block mx-2 mb-3"
+                                    *ngFor="let document of pdf; let i = index">
+                                    <a target="_self" [href]="document.url" download="pdf">
+                                        <img src="assets/images/pdf 3 (1).svg" width="90px" height="90px">
+                                    </a>
+                                    <img src="assets/images/close-circle.png" (click)="deleteImg(i,3)"
+                                        class="close position-absolute">
+                                </div>
+                            </div>
+                            <!-- <div class="postdata d-flex justify-content-between align-items-center"
+                                *ngFor="let file of files; let i = index">
+                                <p>{{file.Key}}</p>
+                            </div> -->
+                        </div>
+        
+                    </div>
+                    <div class="adddocumentpage mb-3 main_comp">
+                        <div class="postdata d-flex justify-content-center">
+                            <button class="continue-btn" >Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </mat-step>
+
+           
+
+            
+            <!-- <mat-step [stepControl]="productManufacturingFormGroup" [editable]="isEditable">
+        <form [formGroup]="productManufacturingFormGroup">
+          <ng-template matStepLabel>Product Manufacturing<br/>Milestones</ng-template>
+          <div class="row m-0 add-new px-md-5 px-3">
+            <div class="col-md-6 ">
+                <div class="adddocumentpage main_comp pb-0">
+                    <div class="d-flex flex-column locateyourdata">
+                        <span class="label">Milestone Name</span>
+                        <div class="locateyourdata">
+                            <input type="text" class="form-control locationdata  my-3 "
+                                 placeholder="Milestone name here">
+                        </div>
+                    </div>
+                    <div class="locateyourdata ">
+                        <span class="label">End date</span>
+                        <mat-form-field appearance="fill" style="width:100%" class="py-3">
+                            <input matInput [matDatepicker]="picker3 " placeholder="Select date" >
+                            <mat-datepicker-toggle matSuffix [for]="picker3">
+                                <mat-icon matDatepickerToggleIcon disabled>
+                                    <img src="../../../../../assets/images/calendar.png" alt="" class="calender">
+                                </mat-icon>
+                            </mat-datepicker-toggle>
+                            <mat-datepicker #picker3 [startAt]="startDate | date:'medium'"></mat-datepicker>
+                          </mat-form-field>
+                            
+                    </div>
+                    <div class="d-flex flex-column locateyourdata">
+                        <span class="label">Unit type</span>
+                        <mat-form-field appearance="fill" class="py-3">
+                            <mat-select placeholder="Select unit type"  >
+                                <mat-option >
+                                </mat-option>
+                            </mat-select>
+        
+                        </mat-form-field>
+                    </div>
+        </div>
+        </div>
+            <div class="col-md-6 ">
+                <div class="adddocumentpage main_comp pb-0">
+                    <div class="locateyourdata ">
+                        <span class="label">Start date</span>
+                        <mat-form-field appearance="fill" style="width:100%" class="py-3">
+                            <input matInput [matDatepicker]="picker4 " placeholder="Select date" >
+                            <mat-datepicker-toggle matSuffix [for]="picker4">
+                                <mat-icon matDatepickerToggleIcon disabled>
+                                    <img src="../../../../../assets/images/calendar.png" alt="" class="calender">
+                                </mat-icon>
+                            </mat-datepicker-toggle>
+                            <mat-datepicker #picker4 [startAt]="startDate | date:'medium'"></mat-datepicker>
+                          </mat-form-field>
+                            
+                    </div>
+                    <div class="d-flex flex-column locateyourdata">
+                        <span class="label">Number of unit</span>
+                        <div class="locateyourdata">
+                            <input type="text" class="form-control locationdata  my-3 "
+                                 placeholder="Enter no. of unit">
+                        </div>
+                    </div>
+                    <div class="locateyourdata ">
+                        <span class="label">Payment received date</span>
+                        <mat-form-field appearance="fill" style="width:100%" class="py-3">
+                            <input matInput [matDatepicker]="picker5 " placeholder="Choose date here" >
+                            <mat-datepicker-toggle matSuffix [for]="picker5">
+                                <mat-icon matDatepickerToggleIcon disabled>
+                                    <img src="../../../../../assets/images/calendar.png" alt="" class="calender">
+                                </mat-icon>
+                            </mat-datepicker-toggle>
+                            <mat-datepicker #picker5 [startAt]="startDate | date:'medium'"></mat-datepicker>
+                          </mat-form-field>
+                            
+                    </div>
+        </div>
+        </div>
+        
+    </div>
+    <div class="adddocumentpage mb-3 main_comp">
+        <div class="postdata d-flex justify-content-center">
+            <button class="me-2 back" matStepperPrevious>Back</button>
+            <button class="ms-2 continue-btn">Continue</button>
+        </div>
+    </div>
+        </form>
+      </mat-step> -->
+   
+        </mat-stepper>
+
+    </section>
+    <!-- </form> -->
+</div>

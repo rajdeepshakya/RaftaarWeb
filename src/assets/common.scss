@@ -1,0 +1,57 @@
+@import '../assets/variable.scss';
+h1{
+    @include fontStyleManager ($fontFamilyInterMedium,$fontWeightMedium,$fontSize24,$Color_0A0045)
+}
+h2{
+    @include fontStyleManager ($fontFamilyInterExtraBold,$fontWeightExtraBold,$fontSize21,$Color_0A0045);
+    @media (max-width:768px) {
+        font-size: 14px !important;
+    }
+}
+h3{
+    @include fontStyleManager ($fontFamilyInterMedium,$fontWeightMedium,$fontSize18,$Color_768DA9);
+    line-height: 28px;
+    @media (max-width:768px) {
+        font-size: 12px !important;
+    }
+}
+h4{
+    @include fontStyleManager ($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize18,$Color_768DA9);
+    @media (max-width:768px) {
+        font-size: 14px !important;
+    }
+}
+p{
+    @include fontStyleManager ($fontFamilyInterRegular,$fontWeightRegular,$fontSize18,$Color_5B6D8E);
+    @media (max-width:768px) {
+        font-size: 14px !important;
+    }       
+}
+button{
+    @include fontStyleManager ($fontFamilyInterBold,$fontWeightBold,$fontSize18,$Colorwhite)
+
+}
+.color_grey{
+    color:$Color_A1B3C9 !important;
+}
+.color_orange{
+    color: $Color_FF642B !important;
+}
+.color_grey900{
+    color:  $Color_1A264E !important;
+}
+.color_grey500{
+    color:$Color_768DA9 !important;
+}
+.color_grey600{
+    color: #5B6D8E  !important;
+}
+.black{
+    color: #0A0045 !important;
+}
+.marketplace-Product{
+    @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize20,$Color_0A0045); 
+    @media (max-width:768px) {
+        font-size: 14px !important;
+    }
+}

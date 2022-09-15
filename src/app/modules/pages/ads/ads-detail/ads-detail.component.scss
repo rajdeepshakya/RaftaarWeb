@@ -1,0 +1,109 @@
+@import '../../../../../assets/variable.scss';
+@import '../../../../../assets/common.scss';
+.main_comp{
+    padding:0px ;
+    background-color: #EAF3FF;
+    height: 100%;
+
+}
+.main{
+h3{
+    @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize20,$Color_0A0045); 
+    @media (max-width:768px) {
+        font-size: 14px !important;
+    }
+}
+}
+.add-post{
+    padding:18px 35px ;
+    @media (max-width:768px) {
+        padding:15px ;
+    }
+}
+.card{
+    border: 0px !important;
+    border-radius: 13.6418px;
+    // margin: 25px 35px;
+    @media (max-width:768px) {
+        margin: 0px;
+
+    }
+    .min-ago{
+        color: #5B6D8E !important ;
+    }
+    .card-body{
+        // width: 510px;
+        margin: auto;
+        max-width: 100%;
+        @media (max-width:768px) {
+            padding: 12px;
+        }
+
+    }
+}
+::placeholder{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize18,$Color_A1B3C9);
+    @media (max-width:768px) {
+        font-size: 14px !important;
+    }
+}
+
+.requirement-detail{
+    background-color: white;
+    border-radius: 20px;
+
+}
+.heading {
+    h2{
+        @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize22,$Color_303065);
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+    h4{
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize18,$Color_303065);
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+    }
+    p{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize15,$Color_768DA9); 
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }
+        line-height: 30px;
+    }
+}
+
+.title{
+    @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize24,$Color_EE7402);
+    @media (max-width:768px) {
+        font-size: 14px !important;
+    }
+}
+.catagory{
+    h2{
+        @include fontStyleManager($fontFamilyInterBold,$fontWeightBold,$fontSize16,$Color_002280); 
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        } 
+    }
+    h3{
+        @include fontStyleManager($fontFamilyInterMedium,$fontWeightMedium,$fontSize16,$Color_768DA9); 
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        } 
+    }
+}
+.product-detail{
+    background-color: #F3F6FB    ;
+    border-radius: 0px 0px 20px 20px;
+}
+.view {
+    p{
+        @include fontStyleManager($fontFamilyInterSemiBold,$fontWeightSemiBold,$fontSize16,$Color_768DA9); 
+        @media (max-width:768px) {
+            font-size: 14px !important;
+        }  
+    }
+}
